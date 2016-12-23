@@ -14,6 +14,9 @@ var registration = {
   },
   getRegisteredMembers: function(req, res, next) {
     res.json(result);
+  },
+  getRegisteredMember: function(req, res, next) {
+    res.json(result);
   }
   
 };
