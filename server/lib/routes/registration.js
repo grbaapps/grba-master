@@ -1,9 +1,9 @@
-exports.addRoutes = function(app, registration) {
+var express = require('express');
+var router = express.Router();
+var registration = require('./lib/registration');
+router.post('/', registration.register);
 
-app.post('/api/register', registration.register);
+router.get('/', registration.getRegisteredMembers);
+router.get('/:initial', registration.getRegisteredMember);
 
-app.get('/api/registeredMembers', registration.getRegisteredMembers);
-
-
-
-};
+module.exports = router;
