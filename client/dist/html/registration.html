@@ -1,0 +1,81 @@
+<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" ng-controller="registrationController">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">REGISTER</h4>
+        
+      </div>
+      <div class="modal-body">
+      <div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="contact-text">
+							<h3>MEMBER</h3>
+							<address>
+								FAMILY $00.00<br>
+								SINGLE $00.00<br>
+								STUDENT FAMILY $00.00<br>
+								STUDENT SINGLE $00.00<br>
+							</address>
+						</div>
+						
+					</div>
+					<div class="col-sm-3">
+						<div class="contact-text">
+							<h3>NON-MEMBER</h3>
+							<address>
+								FAMILY $00.00<br>
+								SINGLE $00.00<br>
+								STUDENT FAMILY $00.00<br>
+								STUDENT SINGLE $00.00<br>
+							</address>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+       
+       <div ng-show="showRegForm" class="row">		
+        <form ng-submit="submit()">
+          <div class="form-group form-group-sm">
+              <div class="row">
+              <div class="col-xs-4">
+            <label for="recipient-name" class="control-label">Name:</label>
+            <input type="text"  ng-model="name" class="form-control" id="name">
+              </div>
+              </div>
+                  <div class="row">
+              <div class="col-xs-4">
+            <label for="amount" class="control-label">Amount:</label>
+            <input type="text" ng-model="amount" class="form-control" id="amount">
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-xs-4">
+            <label for="message-text" class="control-label">Note:</label>
+            <textarea ng-model="note" class="form-control" id="note"></textarea>
+              </div>
+              </div>
+          </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+        <button type="submit" class="btn btn-primary">REGISTER</button>
+           </form>
+           </div>
+          <div ng-show="showRegResult" class="row">
+              <div class="contact-text">REGISTRATION STATUS: {{regResult.status}}</div>
+              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
+              </div>
+          </div>
+      </div>
+        
+          </div> <!-- End Container -->
+          </div> <!-- End modal-body -->
+      
+      <div class="modal-footer">
+         
+         
+    </div>
+  </div>
+</div>
