@@ -12,6 +12,8 @@ var pgp = require('pg-promise');
 
 
 var app = express();
+app.set('port', (process.env.PORT || config.server.listenPort));
+
 var server = http.createServer(app);
 
 require('./lib/routes/static').addRoutes(app, config);
@@ -36,9 +38,9 @@ require('./lib/routes/appFile').addRoutes(app, config);
 //app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Start up the server on the port specified in the config
-server.listen(config.server.listenPort, '0.0.0.0', 511, function() {
+server.listen(app.get('port'), '0.0.0.0', 511, function() {
   // // Once the server is listening we automatically open up a browser
   var open = require('open');
-  open('http://localhost:' + config.server.listenPort + '/app/');
+  open('http://localhost:' + app.get('port') + '/app/');
 });
-console.log('Angular App Server - listening on port: ' + config.server.listenPort);
+console.log('Angular App Server - listening on port: ' + app.get('port'));

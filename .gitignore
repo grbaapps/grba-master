@@ -1,4 +1,8 @@
-.DS_STORE
-dist*
+# Node build artifacts
 node_modules
-/server/data
+npm-debug.log
+
+# Local development
+*.env
+*.dev
+.DS_Store

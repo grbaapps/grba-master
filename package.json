@@ -1,11 +1,16 @@
 {
-  "name": "grba-app-server",
+  "name": "grba-app",
   "description": "Back end server to support grba angular app",
   "version": "0.0.1",
   "private": true,
-  "start": "node server",
+  "scripts": {
+    "start": "node server/server.js"
+  },
   "dependencies": {
-    "express": "~3.0",
+    "express": "^4.14.0",
+	"body-parser": "^1.15.2",
+	"compression": "^1.6.2",
+	"cookie-parser": "^1.4.3",
     "passport": "~0.1.12",
     "passport-local": "~0.1.6",
     "express-namespace": "~0.1.1",
