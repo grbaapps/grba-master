@@ -8,7 +8,20 @@
 
 Building GRBA web application as a sungle page Angular (SPA) application with Node.JS backend.
 
-## Stack
+## TODO List
+* Add routes to go to different pages from header - Abhishek
+* Refactor index.html to use views instead of ng-include - Abhishek
+* Review Angularjs code and refactor as needed - Abhishek - reviewed by Surajit
+* Refactor server/registration code - Pritam
+* Add more fields to client/src/html/registration.html to send to backend - Abhishek
+* Setup json data for Saraswati Puja 2017 event
+* Change client/dist/html/event.html to consume json data
+* Update client/src/html/sponsor.html with the correct data
+* Stretch - Add bower to manage client dependencies - Abhishek
+* Stretch - Add gulpfile.js - Abhishek
+
+
+## Stack with the right data - Ashish?
 
 * Persistence store: [PostgreSQL](https://www.postgresql.org/)
 * Backend: [Node.js](http://nodejs.org/)
