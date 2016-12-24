@@ -17,8 +17,9 @@ var registration = {
   getRegisteredMembers: function(req, res, next) {
     res.json(result);
   },
-
-
+  getRegisteredMember: function(req, res, next) {
+    res.json(result);
+  }
 };
 function readRegistrationFile(newData){
   var fileName = '../data/+'newData.year+'_registration.json';

@@ -1,4 +1,7 @@
 var http = require('http');
+var bodyParser = require('body-parser');
+var compression = require('compression');
+var cookieParser = require('cookie-parser')
 
 var express = require('express');
 var config = require('./config.js');
@@ -12,13 +15,14 @@ var app = express();
 var server = http.createServer(app);
 
 require('./lib/routes/static').addRoutes(app, config);
-
+app.use(compression())
 app.use(protectJSON);
 
-app.use(express.logger());                                  // Log requests to the console
-app.use(express.bodyParser());                              // Extract the data from the body of the request - this is needed by the LocalStrategy authenticate method
-app.use(express.cookieParser(config.server.cookieSecret));  // Hash cookies with this secret
-app.use(express.cookieSession());                           // Store the session in the (secret) cookie
+//app.use(express.logger());                                  // Log requests to the console
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded                             // Extract the data from the body of the request - this is needed by the LocalStrategy authenticate method
+app.use(cookieParser(config.server.cookieSecret));  // Hash cookies with this secret
+//app.use(express.cookieSession());                           // Store the session in the (secret) cookie
 
 
 
@@ -29,7 +33,7 @@ require('./lib/routes/event').addRoutes(app, event);
 require('./lib/routes/appFile').addRoutes(app, config);
 
 // A standard error handler - it picks up any left over errors and returns a nicely formatted server 500 error
-app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+//app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Start up the server on the port specified in the config
 server.listen(config.server.listenPort, '0.0.0.0', 511, function() {
