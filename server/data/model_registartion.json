@@ -1,0 +1,42 @@
+{
+   "events":[
+      {
+         "name":"saraswati puja",
+         "registrations":[
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            },
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            }
+         ]
+      },
+      {
+         "name":"Poilabaisakh",
+         "registrations":[
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            },
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            }
+         ]
+      }
+   ]
+}

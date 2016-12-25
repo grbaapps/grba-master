@@ -1,0 +1,28 @@
+{
+  "name": "grba-app",
+  "description": "Back end server to support grba angular app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+	"body-parser": "^1.15.2",
+	"compression": "^1.6.2",
+	"cookie-parser": "^1.4.3",
+    "passport": "~0.1.12",
+    "passport-local": "~0.1.6",
+    "express-namespace": "~0.1.1",
+    "open": "0.0.3",
+    "request": "~2.16.6",
+    "pg-promise": "~5.4.7"
+  },
+  "devDependencies": {
+    "grunt": "~0.4",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "rewire": "^2.0.1",
+    "supervisor": "~0.4.1"
+  }
+}
