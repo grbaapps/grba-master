@@ -19,6 +19,12 @@ Building GRBA web application as a sungle page Angular (SPA) application with No
 * Update client/src/html/sponsor.html with the correct data
 * Stretch - Add bower to manage client dependencies - Abhishek
 * Stretch - Add gulpfile.js - Abhishek
+* New Registration functionality (POST only) - Pritam
+* Define New Registration POST spec in github - Pritam
+* Validation of input data for Registration service POST - Pritam
+* Log framework for service layer - Pritam
+* Exception handling - Pritam
+
 
 
 ## Stack with the right data - Ashish?
@@ -99,14 +105,14 @@ Our client application is a straight HTML/Javascript application but our develop
 
 ### Configure Server
 The server stores its data in a PostgreSQL database.
-* 
+*
 * Edit `server/config.js` to set database connection properties for the database you created.
 
     ```
     postgres: {
         dbUrl: 'postgres://username:password@host:port/database',             
     },
-    
+
     ```
 
 * Run our initialization script to initialize the database with a first admin user.
