@@ -27,7 +27,7 @@ Building GRBA web application as a single page Angular (SPA) application with No
 
 
 
-## Stack with the right data - Ashish?
+## Stack with the right data
 
 * Persistence store: [PostgreSQL](https://www.postgresql.org/)
 * Backend: [Node.js](http://nodejs.org/)
