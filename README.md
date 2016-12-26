@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Building GRBA web application as a sungle page Angular (SPA) application with Node.JS backend.
+Building GRBA web application as a single page Angular (SPA) application with Node.JS backend.
 
 ## TODO List
 * Add routes to go to different pages from header - Abhishek
