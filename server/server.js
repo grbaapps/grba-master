@@ -8,6 +8,10 @@ var config = require('./config.js');
 var event = require('./lib/event');
 var protectJSON = require('./lib/protectJSON');
 var pgp = require('pg-promise');
+
+var cluster = require('cluster');
+
+var workers = config.server.workers || require('os').cpus().length;
 //var db = pgp(config.postgres.dbUrl); // Uncomment this when DB is setup
 
 
@@ -34,13 +38,41 @@ app.use('/api/registration',require('./lib/routes/registration'));
 require('./lib/routes/event').addRoutes(app, event);
 require('./lib/routes/appFile').addRoutes(app, config);
 
+//This should be the last middleware.
+app.use(errorHandler)
+
 // A standard error handler - it picks up any left over errors and returns a nicely formatted server 500 error
 //app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Start up the server on the port specified in the config
-server.listen(app.get('port'), '0.0.0.0', 511, function() {
-  // // Once the server is listening we automatically open up a browser
-  var open = require('open');
-  open('http://localhost:' + app.get('port') + '/app/');
-});
+function errorHandler (err, req, res, next) {
+  if (res.headersSent) {
+    return next(err)
+  }
+  res.status(500)
+  res.render('error', { error: err })
+}
+
+if (cluster.isMaster) {
+
+  console.log('start cluster with %s workers', workers);
+
+  for (var i = 0; i < workers; ++i) {
+    var worker = cluster.fork().process;
+    console.log('worker %s started.', worker.pid);
+  }
+
+  cluster.on('exit', function(worker) {
+    console.log('worker %s died. restart...', worker.process.pid);
+    cluster.fork();
+  });
+
+} else {
+  server.listen(app.get('port'), '0.0.0.0', 511, function() {
+    // // Once the server is listening we automatically open up a browser
+    var open = require('open');
+    open('http://localhost:' + app.get('port') + '/app/');
+  });
+}
+
 console.log('Angular App Server - listening on port: ' + app.get('port'));

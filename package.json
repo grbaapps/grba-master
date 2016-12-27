@@ -7,16 +7,18 @@
     "start": "node server/server.js"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cluster": "^0.7.7",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
-	"body-parser": "^1.15.2",
-	"compression": "^1.6.2",
-	"cookie-parser": "^1.4.3",
-    "passport": "~0.1.12",
-    "passport-local": "~0.1.6",
     "express-namespace": "~0.1.1",
     "open": "0.0.3",
-    "request": "~2.16.6",
-    "pg-promise": "~5.4.7"
+    "os": "^0.1.1",
+    "passport": "~0.1.12",
+    "passport-local": "~0.1.6",
+    "pg-promise": "~5.4.7",
+    "request": "~2.16.6"
   },
   "devDependencies": {
     "grunt": "~0.4",

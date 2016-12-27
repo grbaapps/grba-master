@@ -1,7 +1,8 @@
 {
-   "events":[
-      {
+   "events":{
+      "SP":{
          "name":"saraswati puja",
+         "code":"SP",
          "registrations":[
             {
                "name":"Family Name",
@@ -19,8 +20,49 @@
             }
          ]
       },
-      {
+      "DP":{
+         "name":"Durga puja",
+         "code":"DP",
+         "registrations":[
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            },
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            }
+         ]
+      },
+      "AP":{
+         "name":"Annual picnic",
+         "code":"AP",
+         "registrations":[
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            },
+            {
+               "name":"Family Name",
+               "event-fee-submitted":23,
+               "isMember":true,
+               "Special-Note":"veg non-veg etc",
+               "donations":0
+            }
+         ]
+      },
+      "PB":{
          "name":"Poilabaisakh",
+         "code":"PB",
          "registrations":[
             {
                "name":"Family Name",
@@ -38,5 +80,5 @@
             }
          ]
       }
-   ]
+   }
 }
