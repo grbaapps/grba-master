@@ -192,3 +192,13 @@ You can have grunt (karma) continuously watch for file changes and automatically
 * Run `grunt test-watch`.
 * Open one or more browsers and point them to [http://localhost:8888/__test/].
 * Each time a file changes the tests will be run against each browser.
+
+## Validations
+
+### Client
+* Check whether the name is non-blank
+* Check whether the number of adult attendees is non-blank and is numeric - also check whether the value is greater than 0
+* CHeck whether the event fee is non-blank and is numeric
+
+### Server
+* Check whether the name already is registered for that event
