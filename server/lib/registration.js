@@ -8,6 +8,7 @@ var registration = {
         register: function(req, res, next) {
             try {
                 var newData = req.body;
+                console.log("request body : "+ JSON.stringify(newData))
                 var fileName = path.resolve(__dirname, '../data') + '/' + newData.year + '_registration.json';
                 async.auto({
                     check_file_or_create: function(callback) {
@@ -15,13 +16,13 @@ var registration = {
                         fs.exists(fileName, (exists) => {
                             var fileData = '';
                             if (!exists) {
-                                fileData = createFileData(newData, fileName);
+                                fileData = createFileData(newData);
                             } else {
                                 console.log("File exists. Checking if file is blank")
                                 var fileSize = fs.statSync(fileName)["size"];
                                 console.log("File size is :" + fileSize)
                                 if (fileSize <= 0) {
-                                    fileData = createFileData(newData, fileName);
+                                    fileData = createFileData(newData);
                                 }
 
                             }
@@ -53,9 +54,9 @@ var registration = {
                                   var newEvent = {
                                       "name": newData.eventName,
                                       "code": newData.code,
-                                      "registrations": [newData]
+                                      "registrations": [newData.data]
                                   }
-                                  mainEvent[newData.code] = newEvent;
+                                  data.events[newData.code] = newEvent;
                                 }
                                 callback(null, data);
 
@@ -63,7 +64,7 @@ var registration = {
                         } else {
                             var newFileData = results['check_file_or_create'];
                             console.log("new File data \n" + JSON.stringify(newFileData))
-                            newFileData.events["newData.code"].registrations.push(newData.data);
+                            newFileData.events[newData.code].registrations.push(newData.data);
                             callback(null, newFileData);
                         }
 
@@ -107,21 +108,22 @@ var registration = {
                 return next(e);
 
             }
-        };
+        }
+      }
 
         function createFileData(newData) {
-            var newData = {
-                "events":
-            };
-            var newData = {};
+            var obj = {};
             var events={};
+            var code = newData.code;
+            console.log("data code : "+ JSON.stringify(newData.code))
             events[newData.code] = {
                 "name": newData.eventName,
                 "code": newData.code,
                 "registrations": []
             };
-            newData["events"] = events;
-            return newData;
+            obj["events"] = events;
+            console.log("New data"+ JSON.stringify(newData))
+            return obj;
         }
 
         function writeToRegistrationFile() {

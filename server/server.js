@@ -70,8 +70,8 @@ if (cluster.isMaster) {
 } else {
   server.listen(app.get('port'), '0.0.0.0', 511, function() {
     // // Once the server is listening we automatically open up a browser
-    var open = require('open');
-    open('http://localhost:' + app.get('port') + '/app/');
+    /*var open = require('open');
+    open('http://localhost:' + app.get('port') + '/app/');*/
   });
 }
 
