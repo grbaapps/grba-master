@@ -1,24 +1,122 @@
-var express = require('express');
-//var passport = require('passport');  // We don't use security now
-var app = express();
-var result = {status:"OK"};
+var path = require('path');
+var successStatus = "Success"
 
+var fs = require("fs");
+var async = require("async")
+var logger = require('./logModule');
 var registration = {
-  //initialize: function(url, apiKey, dbName, authCollection) {
-    //passport.use(new MongoStrategy(url, apiKey, dbName, authCollection));
-  //},
-  register: function(req, res, next) {
-      var data = req.body;
-      console.log(data);
-    res.json(result);
-  },
-  getRegisteredMembers: function(req, res, next) {
-    res.json(result);
-  },
-  getRegisteredMember: function(req, res, next) {
-    res.json(result);
-  }
-  
-};
+        register: function(req, res, next) {
+            try {
+                var newData = req.body;
+                logger.debug("request body : "+ JSON.stringify(newData))
+                var fileName = path.resolve(__dirname, '../data') + '/' + newData.year + '_registration.json';
+                async.auto({
+                    check_file_or_create: function(callback) {
 
-module.exports = registration;
+                        fs.exists(fileName, (exists) => {
+                            var fileData = '';
+                            if (!exists) {
+                                fileData = createFileData(newData);
+                            } else {
+                                logger.debug("File exists. Checking if file is blank")
+                                var fileSize = fs.statSync(fileName)["size"];
+                                logger.debug("File size is :" + fileSize)
+                                if (fileSize <= 0) {
+                                    fileData = createFileData(newData);
+                                }
+
+                            }
+                            callback(null, fileData)
+                        });
+                    },
+                    read_data: ["check_file_or_create", function(results, callback) {
+                        // async code to get some data
+                        logger.debug("results from check_file_or_create \n" + JSON.stringify(results))
+                        if (results['check_file_or_create'] == '') {
+                            fs.readFile(fileName, 'utf8', function(err, data) {
+                                if (err) return callback(err, "Error");
+                                data = JSON.parse(data)
+                                mainEvent = data.events[newData.code];
+
+                                if(mainEvent){
+                                  mainEvent.registrations.push(newData.data);
+
+                                }else{
+                                  //event is not created yet (first registration). Hemce, creating the event
+                                  var newEvent = {
+                                      "name": newData.eventName,
+                                      "code": newData.code,
+                                      "registrations": [newData.data]
+                                  }
+                                  data.events[newData.code] = newEvent;
+                                }
+                                callback(null, data);
+
+                            });
+                        } else {
+                            var newFileData = results['check_file_or_create'];
+                            console.log("new File data \n" + JSON.stringify(newFileData))
+                            newFileData.events[newData.code].registrations.push(newData.data);
+                            callback(null, newFileData);
+                        }
+
+                    }],
+                    write_file: ['read_data', function(results, callback) {
+                        logger.debug('in write_file', JSON.stringify(results));
+                        fs.writeFile(fileName, JSON.stringify(results["read_data"]), 'utf-8', (err) => {
+                            if (err) callback(err, "Write Error");
+                        });
+                        callback(null, 'filename');
+                    }]
+                }, function(err, results) {
+                    if (err) {
+                        return next(err)
+                    } else {
+                        res.status(200);
+                        res.send(successStatus)
+                    }
+                });
+            } catch (e) {
+                res.status(500);
+                return next(e);
+            }
+
+        },
+        getRegisteredMembers: function(req, res, next) {
+            try {
+                res.json(result);
+            } catch (e) {
+                res.status(500);
+                return next(e);
+            }
+
+        },
+        getRegisteredMember: function(req, res, next) {
+            try {
+                res.json(result);
+            } catch (e) {
+                res.status(500);
+                return next(e);
+
+            }
+        }
+      }
+
+        function createFileData(newData) {
+            var obj = {};
+            var events={};
+            var code = newData.code;
+            events[newData.code] = {
+                "name": newData.eventName,
+                "code": newData.code,
+                "registrations": []
+            };
+            obj["events"] = events;
+            return obj;
+        }
+
+        function writeToRegistrationFile() {
+
+        }
+
+        module.exports = registration;

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var registration = require('../registration');
-//router.post('/', registration.register);
+router.post('/', registration.register);
 
 router.get('/', registration.getRegisteredMembers);
 router.get('/:initial', registration.getRegisteredMember);
