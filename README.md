@@ -134,6 +134,7 @@ The app made up of a number of javascript, css and html files that need to be me
 
     ```
     cd client
+    bower install (bower update)
     grunt build
     cd ..
     ```

@@ -7,3 +7,4 @@ npm-debug.log
 *.dev
 .DS_Store
 */data/*_registration.json
+client/src/assets/lib*
