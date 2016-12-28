@@ -1,0 +1,4 @@
+# Ignore everything in this directory
+*
+# Except this file. This is done so that logs folder is not ignored by git
+!.gitignore
