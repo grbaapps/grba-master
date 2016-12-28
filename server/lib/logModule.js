@@ -1,6 +1,6 @@
 var winston = require("winston")
 var file_location = __dirname+"/../logs/app.log"
-console.log("log level is : "+ process.env.debugLevel )
+console.log("log level is : "+ (process.env.debugLevel|| 'warn' ))
 var tarnsportConfig = {
           colorize: true,
           timestamp: true,
