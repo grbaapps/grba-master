@@ -8,6 +8,7 @@ var config = require('./config.js');
 var event = require('./lib/event');
 var protectJSON = require('./lib/protectJSON');
 var pgp = require('pg-promise');
+var logger = require('./lib/logModule');
 
 var cluster = require('cluster');
 
@@ -49,8 +50,9 @@ function errorHandler (err, req, res, next) {
   if (res.headersSent) {
     return next(err)
   }
+  logger.error("Internal server error : "+ err);
   res.status(500)
-  res.render('error', { error: err })
+  res.send({ error: 'Internal server error! Please see the application logs' })
 }
 
 if (cluster.isMaster) {
@@ -69,10 +71,6 @@ if (cluster.isMaster) {
 
 } else {
   server.listen(app.get('port'), '0.0.0.0', 511, function() {
-    // // Once the server is listening we automatically open up a browser
-    /*var open = require('open');
-    open('http://localhost:' + app.get('port') + '/app/');*/
+    console.log('Angular App Server - listening on port: ' + app.get('port'));
   });
 }
-
-console.log('Angular App Server - listening on port: ' + app.get('port'));

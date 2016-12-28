@@ -11,11 +11,11 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-namespace": "~0.1.1",
-    "open": "0.0.3",
     "passport": "~0.1.12",
     "passport-local": "~0.1.6",
     "pg-promise": "~5.4.7",
-    "request": "~2.16.6"
+    "request": "~2.16.6",
+    "winston": "^2.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4",

@@ -1,0 +1,12 @@
+{"level":"info","message":"Printing log with info","timestamp":"2016-12-28T03:52:17.492Z"}
+{"level":"debug","message":"Printing log with debug","timestamp":"2016-12-28T03:52:17.492Z"}
+{"level":"error","message":"unexpected error : Error: Test Error","timestamp":"2016-12-28T03:52:17.492Z"}
+{"level":"info","message":"Printing log with info","timestamp":"2016-12-28T03:52:18.029Z"}
+{"level":"debug","message":"Printing log with debug","timestamp":"2016-12-28T03:52:18.029Z"}
+{"level":"error","message":"unexpected error : Error: Test Error","timestamp":"2016-12-28T03:52:18.029Z"}
+{"level":"info","message":"Printing log with info","timestamp":"2016-12-28T03:52:18.509Z"}
+{"level":"debug","message":"Printing log with debug","timestamp":"2016-12-28T03:52:18.509Z"}
+{"level":"error","message":"unexpected error : Error: Test Error","timestamp":"2016-12-28T03:52:18.509Z"}
+{"level":"info","message":"Printing log with info","timestamp":"2016-12-28T03:52:58.817Z"}
+{"level":"debug","message":"Printing log with debug","timestamp":"2016-12-28T03:52:58.819Z"}
+{"level":"error","message":"unexpected error : Error: Test Error","timestamp":"2016-12-28T03:52:58.820Z"}

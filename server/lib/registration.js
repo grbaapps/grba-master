@@ -3,12 +3,12 @@ var successStatus = "Success"
 
 var fs = require("fs");
 var async = require("async")
-
+var logger = require('./logModule');
 var registration = {
         register: function(req, res, next) {
             try {
                 var newData = req.body;
-                console.log("request body : "+ JSON.stringify(newData))
+                logger.debug("request body : "+ JSON.stringify(newData))
                 var fileName = path.resolve(__dirname, '../data') + '/' + newData.year + '_registration.json';
                 async.auto({
                     check_file_or_create: function(callback) {
@@ -18,9 +18,9 @@ var registration = {
                             if (!exists) {
                                 fileData = createFileData(newData);
                             } else {
-                                console.log("File exists. Checking if file is blank")
+                                logger.debug("File exists. Checking if file is blank")
                                 var fileSize = fs.statSync(fileName)["size"];
-                                console.log("File size is :" + fileSize)
+                                logger.debug("File size is :" + fileSize)
                                 if (fileSize <= 0) {
                                     fileData = createFileData(newData);
                                 }
@@ -31,20 +31,12 @@ var registration = {
                     },
                     read_data: ["check_file_or_create", function(results, callback) {
                         // async code to get some data
-                        console.log("results from check_file_or_create \n" + JSON.stringify(results))
+                        logger.debug("results from check_file_or_create \n" + JSON.stringify(results))
                         if (results['check_file_or_create'] == '') {
                             fs.readFile(fileName, 'utf8', function(err, data) {
                                 if (err) return callback(err, "Error");
                                 data = JSON.parse(data)
                                 mainEvent = data.events[newData.code];
-                              /*  for (i = 0; i < eventsArray.length; i++) {
-                                    //add registration to the existing event
-                                    if (eventsArray[i]["code"] == newData.code) {
-                                        console.log("Event code matched :" + newData.code)
-                                        eventsArray[i].registrations.push(newData.data);
-                                        break;
-                                    }
-                                }*/
 
                                 if(mainEvent){
                                   mainEvent.registrations.push(newData.data);
@@ -70,16 +62,15 @@ var registration = {
 
                     }],
                     write_file: ['read_data', function(results, callback) {
-                        console.log('in write_file', JSON.stringify(results));
+                        logger.debug('in write_file', JSON.stringify(results));
                         fs.writeFile(fileName, JSON.stringify(results["read_data"]), 'utf-8', (err) => {
                             if (err) callback(err, "Write Error");
-                            console.log('It\'s saved!');
                         });
                         callback(null, 'filename');
                     }]
                 }, function(err, results) {
                     if (err) {
-                        next(err)
+                        return next(err)
                     } else {
                         res.status(200);
                         res.send(successStatus)
@@ -115,14 +106,12 @@ var registration = {
             var obj = {};
             var events={};
             var code = newData.code;
-            console.log("data code : "+ JSON.stringify(newData.code))
             events[newData.code] = {
                 "name": newData.eventName,
                 "code": newData.code,
                 "registrations": []
             };
             obj["events"] = events;
-            console.log("New data"+ JSON.stringify(newData))
             return obj;
         }
 
