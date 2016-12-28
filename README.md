@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Building GRBA web application as a sungle page Angular (SPA) application with Node.JS backend.
+Building GRBA web application as a single page Angular (SPA) application with Node.JS backend.
 
 ## TODO List
 * Add routes to go to different pages from header - Abhishek
@@ -24,10 +24,16 @@ Building GRBA web application as a sungle page Angular (SPA) application with No
 * Validation of input data for Registration service POST - Pritam
 * Log framework for service layer - Pritam
 * Exception handling - Pritam
+* Capture member information in a separate json file from registration. This file would use email as unique key. During registration, member record would be updated if exists against the email address. Otherwise, a new entry would be added. The attributes for the member object are: email, firstName, lastName, spouceFirstName, spouceLastName, phone, mobile, address (optional). The attributes for registration object would be eventId, email, firstName, lastName, noAdult, noChildren, status: (family | single), eventFee, membershipFee, sponsrshipStatus: (platinum | gold | silver | broze), and note.
+* Survey support. It is going to be a list of questions with yes/no ansers. The object representation could be something like: id, question (text), noCount, yesCount. Survey can be added as a part of registration. This is nice to have for Saraswati Puja launch.
+* Experiemnt color scheme, something representtaive of Bengal like color of 'ranga mati' and white. The current UI trend is white and one color shade. The current background sketches can be replaced with 'alpanas'. 
+* Picture carousel shirinks too much when viewed on iPhone in vertical orientation. Needs to be addressed.
+* The menu list on iPhone stays open after clicking an item. It should close.
+* Integrate Paypal payment with registration process.
 
 
 
-## Stack with the right data - Ashish?
+## Stack with the right data
 
 * Persistence store: [PostgreSQL](https://www.postgresql.org/)
 * Backend: [Node.js](http://nodejs.org/)
@@ -186,3 +192,13 @@ You can have grunt (karma) continuously watch for file changes and automatically
 * Run `grunt test-watch`.
 * Open one or more browsers and point them to [http://localhost:8888/__test/].
 * Each time a file changes the tests will be run against each browser.
+
+## Validations
+
+### Client
+* Check whether the name is non-blank
+* Check whether the number of adult attendees is non-blank and is numeric - also check whether the value is greater than 0
+* CHeck whether the event fee is non-blank and is numeric
+
+### Server
+* Check whether the name already is registered for that event
