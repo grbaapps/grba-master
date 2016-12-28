@@ -7,4 +7,4 @@ npm-debug.log
 *.dev
 .DS_Store
 */data/*_registration.json
-logs/*.log
+*/logs/*.log
