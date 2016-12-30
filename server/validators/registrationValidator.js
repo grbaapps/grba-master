@@ -27,9 +27,11 @@ exports.validatePost = function(req, res, next) {
               "year": mandatoryFieldRule("Registration year"),
               "data.name": mandatoryFieldRule("Name"),
               "data.email": {
-                  presence: true,
+                  presence: {
+                    message: "^Email is amandatory field"
+                  },
                   email: {
-                      message: "^Not a valid email"
+                      message: "^Not a valid email id"
                   }
               },
               "data.phoneNo": {
@@ -54,7 +56,7 @@ exports.validatePost = function(req, res, next) {
                   if (!attributes.data.hasFamily) {
                       return {
                           presence: {
-                              message: "^No of adults field is required"
+                              message: "^No of adults field is mandatory"
                           },
                           numericality: {
                               onlyInteger: true,
@@ -66,7 +68,7 @@ exports.validatePost = function(req, res, next) {
                   } else {
                       return {
                           presence: {
-                              message: "^No of adults field is required"
+                              message: "^No of adults field is mandatory"
                           },
                           numericality: {
                               onlyInteger: true,
@@ -93,7 +95,7 @@ exports.validatePost = function(req, res, next) {
                               onlyInteger: true,
                               strict: true,
                               greaterThanOrEqualTo: 0,
-                              message: "^No of children can't be less than 0 or real numbers"
+                              message: "^Number of children can't be less than 0 or real numbers"
                           }
                       }
                   }
@@ -124,7 +126,7 @@ exports.validatePost = function(req, res, next) {
                       var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]
                       return {
                           presence:{
-                            message: "^Event fee is mandatory and has to match with the corresponding sponsorship option of the event"
+                            message: "^Event fee is mandatory field and has to match with the corresponding sponsorship option of the event"
                           },
                           numericality: {
                               onlyInteger: true,
@@ -151,7 +153,7 @@ exports.validatePost = function(req, res, next) {
                       console.log("eventfee is : " + eventFee);
                       return {
                           presence: {
-                              message: "^Event fee is a mandatory field for non-sponsorer registrant."
+                              message: "^Event fee is a mandatory field."
                           },
                           numericality: {
                               onlyInteger: true,
@@ -165,9 +167,16 @@ exports.validatePost = function(req, res, next) {
               }
           }
           validationResult = validator(inputData, validationRules);
-          console.log("validationResult " + JSON.stringify(validationResult));
+          if(validationResult){
+            //validation error present
+            res.status(400);
+            return res.send(validationResult);
+          }else{
+            //go ahead with the registration
+            next();
+          }
 
-          return res.send(validationResult);
+
         }else{
           logger.info("The online registraion is closed now");
           res.status(403)
