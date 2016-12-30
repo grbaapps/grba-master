@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
   postgres: {
-    dbUrl: 'postgres://username:password@host:port/database',
+    dbUrl: 'postgres://username:password@host:port/database'
   },
   security: {
     dbName: 'cepal_test',                                   // Not used
@@ -14,5 +14,10 @@ module.exports = {
     staticUrl: '/app',                               // The base url from which we serve static files (such as js, css and images)
     cookieSecret: 'angular-app',
     workers: 4                        // The secret for encrypting the cookie
-  }
+  },
+  eventConfiguration:{
+    eventcodes:["AP","SP","DP","PB"],//These are valid event codes. If any other event codes are used, the registration will throw validation error. For new options, add the option here
+    dateTimeFormat: "MM-DD-YYYY hh:mm:ss" //All event time should be in this format
+  },
+  grbaMembershipFee : 25
 };

@@ -25,10 +25,10 @@ require('./lib/routes/static').addRoutes(app, config);
 app.use(compression())
 app.use(protectJSON);
 
-//app.use(express.logger());                                  // Log requests to the console
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded                             // Extract the data from the body of the request - this is needed by the LocalStrategy authenticate method
-app.use(cookieParser(config.server.cookieSecret));  // Hash cookies with this secret
+app.use(cookieParser(config.server.cookieSecret));
+app.use(addConfigurationToRequest)  // Hash cookies with this secret
 //app.use(express.cookieSession());                           // Store the session in the (secret) cookie
 
 
@@ -50,9 +50,14 @@ function errorHandler (err, req, res, next) {
   if (res.headersSent) {
     return next(err)
   }
-  logger.error("Internal server error : "+ err);
+  logger.error("Internal server error : "+ err.stack);
   res.status(500)
   res.send({ error: 'Internal server error! Please see the application logs' })
+}
+function addConfigurationToRequest(req,res,next){
+  //Adding config in global request context, so that other router can avail the configuration
+  req.globalConfig = config;
+  next();
 }
 
 if (cluster.isMaster) {

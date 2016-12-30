@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var registration = require('../registration');
-router.post('/', registration.register);
+var validator = require('../../validators/registrationValidator');
+
+//validator middleware
+router.post('/',validator.validatePost);
+router.post('/',registration.register);
 
 router.get('/', registration.getRegisteredMembers);
 router.get('/:initial', registration.getRegisteredMember);

@@ -11,10 +11,12 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-namespace": "~0.1.1",
+    "moment": "^2.17.1",
     "passport": "~0.1.12",
     "passport-local": "~0.1.6",
     "pg-promise": "~5.4.7",
     "request": "~2.16.6",
+    "validate.js": "^0.11.1",
     "winston": "^2.3.0"
   },
   "devDependencies": {
