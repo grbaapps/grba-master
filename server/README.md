@@ -31,3 +31,12 @@
    }
 }
 ```
+* Parameter description and validation rules:
+
+  * eventCode :
+
+    * Type - String,
+    * Validation Rules:
+      * Rule1 - This is a mandatory field and should always be String.
+      * Rule2 - Should always match the values defined in config.js file.
+    * Validation Error Message - [^Event code is a mandatory field,Not a valid event code %{value}]
