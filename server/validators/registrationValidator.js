@@ -1,195 +1,256 @@
 var validator = require('validate.js')
 var logger = require('../lib/logModule');
-var eventObj = require("../data/currentEvent.json");
-exports.validatePost = function(req,res,next){
-  var inputData = req.body;
-  var config = req.globalConfig;
-  logger.debug("Inside validator : \n"+JSON.stringify(config))
-  var phoneNoPattern = /\(\d{3}\)-\d{3}-\d{4}/;
-  var validationRules = {
-    "code":{
-      presence: {
-        message: "^Event code is a mandatory field"
-      },
-      inclusion: {
-        within: config.eventConfiguration.eventcodes,
-        message: "^Not a valid event code %{value}"
-      }
-    },
-    "eventName":{
-      presence: {
-        message: "^Event name is a mandatory field"
-      }
-    },
-    "year":{
-      presence: {
-        message: "^Registration year is a mandatory field"
-      }
-    },
-    "data.name":{
-      presence: {
-        message: "^Name is a mandatory field"
-      }
+var eventObj = require("../data/proposedEvent.json");
+var moment = require('moment');
+exports.validatePost = function(req, res, next) {
+    var inputData = req.body;
+    var config = req.globalConfig;
+    //checking if event details have been updated or not based on non early bird event fee definition
+    if (eventObj[inputData.year] && eventObj[inputData.year][inputData.eventCode] && eventObj[inputData.year][inputData.eventCode].afterEarlyBird) {
+        var dateTimeFormat = config.eventConfiguration.dateTimeFormat;
+        var now = moment();
+        //checking if online registration is still available
+        if(now.isBefore(moment(eventObj[inputData.year][inputData.eventCode].lastOnlineDateRegistration,dateTimeFormat))){
+          logger.debug("Inside validator : \n" + JSON.stringify(config))
+          var phoneNoPattern = /\(\d{3}\)-\d{3}-\d{4}/;
+          var validationRules = {
+              "eventCode": {
+                  presence: {
+                      message: "^Event code is a mandatory field"
+                  },
+                  inclusion: {
+                      within: config.eventConfiguration.eventcodes,
+                      message: "^Not a valid event code %{value}"
+                  }
+              },
+              "eventName": mandatoryFieldRule("Event Name"),
+              "year": mandatoryFieldRule("Registration year"),
+              "data.name": mandatoryFieldRule("Name"),
+              "data.email": {
+                  presence: true,
+                  email: {
+                      message: "^Not a valid email"
+                  }
+              },
+              "data.phoneNo": {
+                  format: {
+                      pattern: phoneNoPattern,
+                      message: "^Not a valid phone number. Valid eg: (111)-111-1111"
+                  }
+              },
+              "data.isMember": function(value, attributes, attributeName, options, constraints) {
+                  return simpleBooleanRule(value,"isMember")
+              },
+              "data.isVegiterian": function(value, attributes, attributeName, options, constraints) {
+                  return simpleBooleanRule(value,"isVegiterian")
+              },
+              "data.isStudent": function(value, attributes, attributeName, options, constraints) {
+                  return simpleBooleanRule(value,"isStudent")
+              },
+              "data.hasFamily": function(value, attributes, attributeName, options, constraints) {
+                  return simpleBooleanRule(value,"hasFamily")
+              },
+              "data.noOfAdults": function(value, attributes, attributeName, options, constraints) {
+                  if (!attributes.data.hasFamily) {
+                      return {
+                          presence: {
+                              message: "^No of adults field is required"
+                          },
+                          numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              equalTo: 1,
+                              message: "^Non family participants can't have more than one head count"
+                          }
+                      }
+                  } else {
+                      return {
+                          presence: {
+                              message: "^No of adults field is required"
+                          },
+                          numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              greaterThan: 0,
+                              message: "^No of adults can't be less than 1 or real numbers"
+                          }
+                      }
+                  }
+              },
+              "data.noOfChildren": function(value, attributes, attributeName, options, constraints) {
+                  if (!attributes.data.hasFamily) {
+                      return {
+                          numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              equalTo: 0,
+                              message: "^hasFamily has to be true for someone to bring children"
+                          }
+                      }
+                  } else {
+                      return {
+                          numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              greaterThanOrEqualTo: 0,
+                              message: "^No of children can't be less than 0 or real numbers"
+                          }
+                      }
+                  }
 
-    },
-    "data.email":{
-      presence: true,
-      email: {
-        message: "^Not a valid email"
-      }
-    },
-    "data.phoneNo":{
-      format: {
-        pattern: phoneNoPattern,
-        message: "^Not a valid phone number. Valid eg: (111)-111-1111"
-      }
-    },
-    "data.isMember": function(value, attributes, attributeName, options, constraints){
+              },
+              "data.membershipFee": {
+                  numericality: {
+                      onlyInteger: true,
+                      strict: true,
+                      equalTo: config.grbaMembershipFee,
+                      message: "^Membership fee is $"+config.grbaMembershipFee+" dollars. Please put the exact figure without dollar sign"
+                  }
+              },
+              "data.sponsorshipCategory": {
+                  inclusion: {
+                      within: eventObj[inputData.year][inputData.eventCode].sponsorship,
+                      message: "^Not a valid Sponsorship option %{value}. Please contact admin team"
+                  }
+              },
+              "data.eventFee": function(value, attributes, attributeName, options, constraints) {
+                  console.log("attributes : \n" + JSON.stringify(attributes))
+                  console.log("attribute Name : \n" + JSON.stringify(attributeName))
+                  var sponsorshipCategory = attributes.data.sponsorshipCategory;
+                  //Checking if user wants to sponsor
+                  if(sponsorshipCategory){
+                    //Checking if the specific sponsorship option available for this event
+                    if(eventObj[inputData.year][inputData.eventCode]["sponsorship"] && eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]){
+                      var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]
+                      return {
+                          presence:{
+                            message: "^Event fee is mandatory and has to match with the corresponding sponsorship option of the event"
+                          },
+                          numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              equalTo: eventSponsorshipValue,
+                              message: "^Event fee has to match with the corresponding sponsorship option of the event"
+                          }
+                      }
+                    }else{
+                      //already has issue with sponsorship issue hence nothing to validate with event fee field
+                      return null;
+                    }
+                  } else {
+                      var infoObj = {
+                          "dateTimeFormat": dateTimeFormat,
+                          "isMember": attributes.data.isMember,
+                          "hasFamily": attributes.data.hasFamily,
+                          "year": inputData.year,
+                          "eventCode": inputData.eventCode,
+                          "date": now,
+                          "isStudent":inputData.data.isStudent
+                      };
+                      var eventFee = determineEventFee(infoObj);
+                      console.log("eventfee is : " + eventFee);
+                      return {
+                          presence: {
+                              message: "^Event fee is a mandatory field for non-sponsorer registrant."
+                          },
+                          numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              equalTo: eventFee,
+                              message: "^Event fee is not correct. your event fee is $" + eventFee
+                          }
+                      }
+                  }
 
-      if(validator.isEmpty(value)){
-        return {
-          presence: {
-            message: "^isMember flag can't be empty and should always be boolean type (true or false)"
+              }
           }
-        }
-      }else if(!validator.isBoolean(value)){
-        return {
-          inclusion:{
-            within: [true,false],
-            message: "^isMember should always be boolean (true or false)"
-          }
-        }
-      }
-    },
-    "data.isVegiterian": function(value, attributes, attributeName, options, constraints){
+          validationResult = validator(inputData, validationRules);
+          console.log("validationResult " + JSON.stringify(validationResult));
 
-      if(validator.isEmpty(value)){
-        return {
-          presence: {
-            message: "^isVegiterian flag can't be empty and should always be boolean type (true or false)"
-          }
+          return res.send(validationResult);
+        }else{
+          logger.info("The online registraion is closed now");
+          res.status(403)
+          return res.send({
+              "message": "The online registraion is closed now"
+          });
         }
-      }else if(!validator.isBoolean(value)){
-        return {
-          inclusion:{
-            within: [true,false],
-            message: "^isVegiterian should always be boolean (true or false)"
-          }
-        }
-      }
-    },
-    "data.isStudent": function(value, attributes, attributeName, options, constraints){
 
-      if(validator.isEmpty(value)){
-        return {
-          presence: {
-            message: "^isStudent flag can't be empty and should always be boolean type (true or false)"
-          }
-        }
-      }else if(!validator.isBoolean(value)){
-        return {
-          inclusion:{
-            within: [true,false],
-            message: "^isStudent should always be boolean (true or false)"
-          }
-        }
-      }
-    },
-    "data.hasFamily": function(value, attributes, attributeName, options, constraints){
+    } else {
+        res.status(400)
+        return res.send({
+            "message": "The event has not been created by admin team"
+        });
+    }
 
-      if(validator.isEmpty(value)){
-        return {
-          presence: {
-            message: "^hasFamily flag can't be empty and should always be boolean type (true or false)"
-          }
-        }
-      }else if(!validator.isBoolean(value)){
-        return {
-          inclusion:{
-            within: [true,false],
-            message: "^hasFamily should always be boolean (true or false)"
-          }
-        }
-      }
-    },
-    "data.noOfAdults":function(value, attributes, attributeName, options, constraints){
-      if(!attributes.data.hasFamily){
-        return{
-          presence:{
-            message:"^No of adults field is required"
-          },
-          numericality:
-          {
-            onlyInteger: true,
-            strict:true,
-            equalTo: 1,
-            message: "^Non family participants can't have more than one head count"
-          }
-        }
-      }else{
-        return{
-          presence:{
-            message:"^No of adults field is required"
-          },
-          numericality:
-          {
-            onlyInteger: true,
-            strict:true,
-            greaterThan: 0,
-            message: "^No of adults can't be less than 1 or real numbers"
-          }
-        }
-      }
-    },
-    "data.noOfChildren":function(value, attributes, attributeName, options, constraints){
-      if(!attributes.data.hasFamily){
-        return{
-          numericality:
-          {
-            onlyInteger: true,
-            strict:true,
-            equalTo: 0,
-            message: "^hasFamily has to be true for someone to bring children"
-          }
-        }
-      }else{
-        return{
-          numericality:
-          {
-            onlyInteger: true,
-            strict:true,
-            greaterThanOrEqualTo:0,
-            message: "^No of children can't be less than 0 or real numbers"
-          }
-        }
-      }
+}
 
-    },
-    "data.membershipFee":{
-      numericality:
-      {
-        onlyInteger: true,
-        strict:true,
-        equalTo: 25,
-        message: "^Membership fee is $25 dollars. Please put the exact figure without dollar sign"
-      }
-    },
-    "data.sponsorshipCategory":{
-      inclusion: {
-        within: config.eventConfiguration.sponsorshipOptions,
-        message: "^Not a valid Sponsorship option %{value}. Valid values ['Platinum','Gold','Silver','Bronze'] and these are case sensitive"
-      }
-    },
-    "data.eventFee":function(value, attributes, attributeName, options, constraints){
-      console.log("attributes : \n"+ JSON.stringify(attributes))
-      console.log("attribute Name : \n"+ JSON.stringify(attributeName))
-      if(attributes.data.sponsorshipCategory in [])
-      return{
-        present:true
-      }
+function determineEventFee(infoObj) {
+    //determine if early bird and fetch fee data accordingly
+    var fee = "";
+    var earlyBirdDate = "";
+    var totalFee = 0;
+    var now = infoObj.date;
+    var isMember = infoObj.isMember;
+    var hasFamily = infoObj.hasFamily;
+    var year = infoObj.year;
+    var eventCode = infoObj.eventCode;
+    var dateTimeFormat = infoObj.dateTimeFormat;
+    var isStudent=infoObj.isStudent;
+    if (eventObj[year][eventCode].earlyBird) {
+        earlyBirdDate = moment(eventObj[year][eventCode].earlyBird.date, dateTimeFormat);
+        console.log("now : "+ now.format(dateTimeFormat))
+        console.log("earlyBird : "+ earlyBirdDate.format(dateTimeFormat))
+        if (now.isSameOrBefore(earlyBirdDate)) {
+            fee = eventObj[year][eventCode].earlyBird.fee;
+        } else {
+            fee = eventObj[year][eventCode].afterEarlyBird.fee;
+        }
+    } else {
+        fee = eventObj[year][eventCode].afterEarlyBird.fee;
+        //derive non early-bird fee
+    }
+    if(isStudent){
+      fee = fee.student;
+    }else{
+      fee = fee.nonStudent;
+    }
+    if (isMember) {
+        if (hasFamily) {
+            totalFee = fee.member.family;
+        } else {
+            totalFee = fee.member.single;
+        }
+    } else {
+        if (hasFamily) {
+            totalFee = fee.nonmember.family;
+        } else {
+            totalFee = fee.nonmember.single;
+        }
+    }
+    return totalFee;
+
+}
+function mandatoryFieldRule(fieldName){
+  return {
+    presence : {
+      message : "^"+fieldName+" is a mandatory field"
     }
   }
-  validationResult = validator(inputData,validationRules);
-  console.log("validationResult "+ JSON.stringify(validationResult));
-  next("error")
+}
+function simpleBooleanRule(value, fieldName){
+  if (validator.isEmpty(value)) {
+      return {
+          presence: {
+              message: "^"+fieldName+" flag can't be empty and should always be boolean type (true or false)"
+          }
+      }
+  } else if (!validator.isBoolean(value)) {
+      return {
+          inclusion: {
+              within: [true, false],
+              message: "^"+fieldName+" should always be boolean (true or false)"
+          }
+      }
+  }
 }

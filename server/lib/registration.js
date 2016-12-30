@@ -36,7 +36,7 @@ var registration = {
                             fs.readFile(fileName, 'utf8', function(err, data) {
                                 if (err) return callback(err, "Error");
                                 data = JSON.parse(data)
-                                mainEvent = data.events[newData.code];
+                                mainEvent = data.events[newData.eventCode];
 
                                 if(mainEvent){
                                   mainEvent.registrations.push(newData.data);
@@ -45,10 +45,10 @@ var registration = {
                                   //event is not created yet (first registration). Hemce, creating the event
                                   var newEvent = {
                                       "name": newData.eventName,
-                                      "code": newData.code,
+                                      "eventCode": newData.eventCode,
                                       "registrations": [newData.data]
                                   }
-                                  data.events[newData.code] = newEvent;
+                                  data.events[newData.eventCode] = newEvent;
                                 }
                                 callback(null, data);
 
@@ -56,7 +56,7 @@ var registration = {
                         } else {
                             var newFileData = results['check_file_or_create'];
                             console.log("new File data \n" + JSON.stringify(newFileData))
-                            newFileData.events[newData.code].registrations.push(newData.data);
+                            newFileData.events[newData.eventCode].registrations.push(newData.data);
                             callback(null, newFileData);
                         }
 
@@ -105,10 +105,10 @@ var registration = {
         function createFileData(newData) {
             var obj = {};
             var events={};
-            var code = newData.code;
-            events[newData.code] = {
+            var eventCode = newData.eventCode;
+            events[eventCode] = {
                 "name": newData.eventName,
-                "code": newData.code,
+                "eventCode": eventCode,
                 "registrations": []
             };
             obj["events"] = events;

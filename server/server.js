@@ -50,7 +50,7 @@ function errorHandler (err, req, res, next) {
   if (res.headersSent) {
     return next(err)
   }
-  logger.error("Internal server error : "+ err);
+  logger.error("Internal server error : "+ err.stack);
   res.status(500)
   res.send({ error: 'Internal server error! Please see the application logs' })
 }
