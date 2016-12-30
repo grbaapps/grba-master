@@ -36,6 +36,13 @@
                   }
                }
             }
+         },
+         "sponsorship":{
+            "Platinum":1200,
+            "Gold":1000,
+            "Silver":800,
+            "Bronze":600,
+            "Aluminium":500
          }
       },
       "DP":{
@@ -56,22 +63,22 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":40,
-                     "family":80
+                     "single":50,
+                     "family":60
                   },
                   "nonmember":{
-                     "single":50,
-                     "family":90
+                     "single":70,
+                     "family":80
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":40,
-                     "family":80
+                     "single":90,
+                     "family":100
                   },
                   "nonmember":{
-                     "single":50,
-                     "family":90
+                     "single":110,
+                     "family":120
                   }
                }
             }
@@ -80,22 +87,22 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":40,
-                     "family":80
+                     "single":130,
+                     "family":140
                   },
                   "nonmember":{
-                     "single":50,
-                     "family":90
+                     "single":150,
+                     "family":160
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":40,
-                     "family":80
+                     "single":170,
+                     "family":180
                   },
                   "nonmember":{
-                     "single":50,
-                     "family":90
+                     "single":190,
+                     "family":200
                   }
                }
             }

@@ -17,7 +17,6 @@ module.exports = {
   },
   eventConfiguration:{
     eventcodes:["AP","SP","DP","PB"],//These are valid event codes. If any other event codes are used, the registration will throw validation error. For new options, add the option here
-    sponsorshipOptions:["Platinum","Gold","Silver","Bronze"], //These are valid sponsorship options. If any other option are used, the registration will throw validation error. For new options, add the option here
     dateTimeFormat: "MM-DD-YYYY hh:mm:ss" //All event time should be in this format
   },
   grbaMembershipFee : 25
