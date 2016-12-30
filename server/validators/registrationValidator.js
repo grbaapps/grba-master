@@ -116,8 +116,8 @@ exports.validatePost = function(req, res, next) {
                   }
               },
               "data.eventFee": function(value, attributes, attributeName, options, constraints) {
-                  console.log("attributes : \n" + JSON.stringify(attributes))
-                  console.log("attribute Name : \n" + JSON.stringify(attributeName))
+                  logger.debug("attributes : \n" + JSON.stringify(attributes))
+                  logger.debug("attribute Name : \n" + JSON.stringify(attributeName))
                   var sponsorshipCategory = attributes.data.sponsorshipCategory;
                   //Checking if user wants to sponsor
                   if(sponsorshipCategory){
@@ -150,7 +150,7 @@ exports.validatePost = function(req, res, next) {
                           "isStudent":inputData.data.isStudent
                       };
                       var eventFee = determineEventFee(infoObj,next);
-                      console.log("eventfee is : " + eventFee);
+                      logger.debug("eventfee is : " + eventFee);
                       return {
                           presence: {
                               message: "^Event fee is a mandatory field."
@@ -173,6 +173,7 @@ exports.validatePost = function(req, res, next) {
             return res.send(validationResult);
           }else{
             //go ahead with the registration
+            req.body.data.registrationDate=now.format(dateTimeFormat);
             next();
           }
 
@@ -209,8 +210,8 @@ function determineEventFee(infoObj,next) {
     try{
       if (eventObj[year][eventCode].earlyBird) {
           earlyBirdDate = moment(eventObj[year][eventCode].earlyBird.date, dateTimeFormat);
-          console.log("now : "+ now.format(dateTimeFormat))
-          console.log("earlyBird : "+ earlyBirdDate.format(dateTimeFormat))
+          logger.debug("now : "+ now.format(dateTimeFormat))
+          logger.debug("earlyBird : "+ earlyBirdDate.format(dateTimeFormat))
           if (now.isSameOrBefore(earlyBirdDate)) {
               fee = eventObj[year][eventCode].earlyBird.fee;
           } else {

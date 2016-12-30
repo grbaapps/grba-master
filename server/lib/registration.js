@@ -6,8 +6,10 @@ var async = require("async")
 var logger = require('./logModule');
 var registration = {
         register: function(req, res, next) {
+
             try {
                 var newData = req.body;
+
                 logger.debug("request body : "+ JSON.stringify(newData))
                 var fileName = path.resolve(__dirname, '../data') + '/' + newData.year + '_registration.json';
                 async.auto({
@@ -55,7 +57,7 @@ var registration = {
                             });
                         } else {
                             var newFileData = results['check_file_or_create'];
-                            console.log("new File data \n" + JSON.stringify(newFileData))
+                            logger.debug("new File data \n" + JSON.stringify(newFileData))
                             newFileData.events[newData.eventCode].registrations.push(newData.data);
                             callback(null, newFileData);
                         }
