@@ -149,7 +149,7 @@ exports.validatePost = function(req, res, next) {
                           "date": now,
                           "isStudent":inputData.data.isStudent
                       };
-                      var eventFee = determineEventFee(infoObj);
+                      var eventFee = determineEventFee(infoObj,next);
                       console.log("eventfee is : " + eventFee);
                       return {
                           presence: {
@@ -194,7 +194,7 @@ exports.validatePost = function(req, res, next) {
 
 }
 
-function determineEventFee(infoObj) {
+function determineEventFee(infoObj,next) {
     //determine if early bird and fetch fee data accordingly
     var fee = "";
     var earlyBirdDate = "";
@@ -206,37 +206,43 @@ function determineEventFee(infoObj) {
     var eventCode = infoObj.eventCode;
     var dateTimeFormat = infoObj.dateTimeFormat;
     var isStudent=infoObj.isStudent;
-    if (eventObj[year][eventCode].earlyBird) {
-        earlyBirdDate = moment(eventObj[year][eventCode].earlyBird.date, dateTimeFormat);
-        console.log("now : "+ now.format(dateTimeFormat))
-        console.log("earlyBird : "+ earlyBirdDate.format(dateTimeFormat))
-        if (now.isSameOrBefore(earlyBirdDate)) {
-            fee = eventObj[year][eventCode].earlyBird.fee;
-        } else {
-            fee = eventObj[year][eventCode].afterEarlyBird.fee;
-        }
-    } else {
-        fee = eventObj[year][eventCode].afterEarlyBird.fee;
-        //derive non early-bird fee
+    try{
+      if (eventObj[year][eventCode].earlyBird) {
+          earlyBirdDate = moment(eventObj[year][eventCode].earlyBird.date, dateTimeFormat);
+          console.log("now : "+ now.format(dateTimeFormat))
+          console.log("earlyBird : "+ earlyBirdDate.format(dateTimeFormat))
+          if (now.isSameOrBefore(earlyBirdDate)) {
+              fee = eventObj[year][eventCode].earlyBird.fee;
+          } else {
+              fee = eventObj[year][eventCode].afterEarlyBird.fee;
+          }
+      } else {
+          fee = eventObj[year][eventCode].afterEarlyBird.fee;
+          //derive non early-bird fee
+      }
+      if(isStudent){
+        fee = fee.student;
+      }else{
+        fee = fee.nonStudent;
+      }
+      if (isMember) {
+          if (hasFamily) {
+              totalFee = fee.member.family;
+          } else {
+              totalFee = fee.member.single;
+          }
+      } else {
+          if (hasFamily) {
+              totalFee = fee.nonmember.family;
+          } else {
+              totalFee = fee.nonmember.single;
+          }
+      }
+    }catch(e){
+      logger.error("Error in fee calculation : " +e.stack);
+      return next(e);
     }
-    if(isStudent){
-      fee = fee.student;
-    }else{
-      fee = fee.nonStudent;
-    }
-    if (isMember) {
-        if (hasFamily) {
-            totalFee = fee.member.family;
-        } else {
-            totalFee = fee.member.single;
-        }
-    } else {
-        if (hasFamily) {
-            totalFee = fee.nonmember.family;
-        } else {
-            totalFee = fee.nonmember.single;
-        }
-    }
+
     return totalFee;
 
 }
