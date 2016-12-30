@@ -1,0 +1,26 @@
+{
+  "name": "grbaApp",
+  "description": "Client component of GRBA Web",
+  "main": "src/index.html",
+  "authors": [
+    "Abhishek Ghosh"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/grbaapps/grba-master",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.1",
+    "angular": "~1.2.0",
+    "angular-route": "~1.2.0",
+    "angular-resource": "~1.5.10",
+    "gmaps": "~0.4.9",
+    "jquery-parallax": "~1.1.3",
+    "jQuery-One-Page-Nav" : "~2.2.0"  
+  }
+}

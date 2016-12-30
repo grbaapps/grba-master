@@ -65,6 +65,7 @@ You need to install Node.js and then the development tools. Node.js comes with a
 
     ```
     npm install -g grunt-cli karma
+    npm install bower -g
     ```
 
 (Note that you may need to uninstall grunt 0.3 globally before installing grunt-cli)
@@ -133,6 +134,7 @@ The app made up of a number of javascript, css and html files that need to be me
 
     ```
     cd client
+    bower install (bower update)
     grunt build
     cd ..
     ```
