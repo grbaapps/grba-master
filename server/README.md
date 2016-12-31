@@ -62,13 +62,14 @@
       * Rule1 - This is a mandatory field.
     * Validation Error Message - [Name is a mandatory field]
 
-  * **email** :
+  * **email** : This is considered unique amonng all registration entries of a prticular event.
 
     * Type - String,
     * Validation Rules:
       * Rule1 - This is a mandatory field.
       * Rule2 - Should always be a valid email id.
-    * Validation Error Message - [Email is a mandatory field,Not a valid email id]
+	  * Rule3 - There should not be another registration entry with the same email id for the same event
+    * Validation Error Message - [Email is a mandatory field,Not a valid email id,Duplicate registration. Another registration record exist with same email id.]
 
   * **phoneNo** :
 
