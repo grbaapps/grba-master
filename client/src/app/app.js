@@ -48,6 +48,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
+        
+    var eventDetails = eventService.getEventDetails();
+    eventDetails.then(function(value) {
+        $scope.eventDetails = value;
+    }, function(reason) {
+        $scope.error = reason;
+    });    
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);

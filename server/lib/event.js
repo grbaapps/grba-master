@@ -9,7 +9,12 @@ var event = {
       var obj = require("../data/currentEvent.json");
       //res.json(result);
       res.json(obj);
-  }
+  },
+  getEventDetails: function(req, res, next) {
+      var obj = require("../data/proposedEvent.json");
+      //res.json(result);
+      res.json(obj);
+  }    
   
 };
 
