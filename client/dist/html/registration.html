@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">REGISTER</h4>
+                <h4 class="modal-title" id="exampleModalLabel">REGISTER - {{eventDetails.2017.CurrentEvent.name}}</h4>
 
             </div>
             <div class="modal-body">
@@ -13,10 +13,10 @@
                             <div class="contact-text">
                                 <h3>MEMBER</h3>
                                 <address>
-								FAMILY $00.00<br>
-								SINGLE $00.00<br>
-								STUDENT FAMILY $00.00<br>
-								STUDENT SINGLE $00.00<br>
+								FAMILY ${{eventDetails.2017.CurrentEvent.earlyBird.fee.nonStudent.member.family}}<br>
+								SINGLE ${{eventDetails.2017.CurrentEvent.earlyBird.fee.nonStudent.member.single}}<br>
+								STUDENT FAMILY ${{eventDetails.2017.CurrentEvent.earlyBird.fee.student.member.family}}<br>
+								STUDENT SINGLE ${{eventDetails.2017.CurrentEvent.earlyBird.fee.student.member.single}}<br>
 							</address>
                             </div>
 
@@ -25,10 +25,10 @@
                             <div class="contact-text">
                                 <h3>NON-MEMBER</h3>
                                 <address>
-								FAMILY $00.00<br>
-								SINGLE $00.00<br>
-								STUDENT FAMILY $00.00<br>
-								STUDENT SINGLE $00.00<br>
+								FAMILY ${{eventDetails.2017.CurrentEvent.earlyBird.fee.nonStudent.nonmember.family}}<br>
+								SINGLE ${{eventDetails.2017.CurrentEvent.earlyBird.fee.nonStudent.nonmember.single}}<br>
+								STUDENT FAMILY ${{eventDetails.2017.CurrentEvent.earlyBird.fee.student.nonmember.family}}<br>
+								STUDENT SINGLE ${{eventDetails.2017.CurrentEvent.earlyBird.fee.student.nonmember.single}}<br>
 							</address>
                             </div>
 
@@ -62,7 +62,7 @@
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-3">
                                         <label for="isMember" class="control-label">GRBA Member:</label>&nbsp;&nbsp;
                                         <label>
                                             <input type="radio" ng-model="isMember" ng-value=true> Yes
@@ -73,7 +73,7 @@
                                         </label>
                                     </div>
 
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-3">
                                         <label for="hasFamily" class="control-label">Has Family?&nbsp;:</label>&nbsp;&nbsp;
                                         <label>
                                             <input type="radio" ng-model="hasFamily" ng-value=true> Yes
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-3">
                                         <label for="isStudent" class="control-label">Student?&nbsp;:</label>&nbsp;&nbsp;
                                         <label>
                                             <input type="radio" ng-model="isStudent" ng-value=true> Yes
@@ -96,7 +96,7 @@
                                         </label>
                                     </div>
 
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-3">
                                         <label for="isVegiterian" class="control-label">Vegeterian?&nbsp;:</label>&nbsp;&nbsp;
                                         <label>
                                             <input type="radio" ng-model="isVegiterian" ng-value=true> Yes
