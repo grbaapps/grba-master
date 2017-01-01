@@ -6,8 +6,10 @@ var async = require("async")
 var logger = require('./logModule');
 var registration = {
         register: function(req, res, next) {
+
             try {
                 var newData = req.body;
+
                 logger.debug("request body : "+ JSON.stringify(newData))
                 var fileName = path.resolve(__dirname, '../data') + '/' + newData.year + '_registration.json';
                 async.auto({
