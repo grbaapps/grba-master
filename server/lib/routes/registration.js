@@ -7,7 +7,7 @@ var validator = require('../../validators/registrationValidator');
 router.post('/',validator.validatePost);
 router.post('/',registration.register);
 
-router.get('/', registration.getRegisteredMembers);
-router.get('/:initial', registration.getRegisteredMember);
+router.get('/specificevent/:year/:eventcode', registration.getRegisteredMembers);
+
 
 module.exports = router;

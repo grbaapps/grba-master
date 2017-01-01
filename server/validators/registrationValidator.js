@@ -197,7 +197,47 @@ exports.validatePost = function(req, res, next) {
     }
 
 }
-
+exports.validateGetForSpecificEvent = function(req, res, next){
+	var searchObj = req.body;
+	var searchCriteria = {"year":req.params.year,"evenCode":req.params.evenCode,"criteria":req.body};
+	var now = moment();
+	var currentYear = now.getYear();
+	var validationCriteria = {
+		"year": {
+                  presence: {
+                      message: "^Must provide to search for registration"
+                  },
+                  numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              message: "^Please provide a valid year"
+                  }
+              },
+		"eventCode": {
+                  presence: {
+                      message: "^Event code is a mandatory field"
+                  },
+                  inclusion: {
+                      within: config.eventConfiguration.eventcodes,
+                      message: "^Not a valid event code %{value}"
+                  }
+              },
+		"criteria.searchBy":{
+				inclusion: {
+                      within: config.searchByOptions,
+                      message: "^not a valid search by options. Valid options are "+JSON.stringify(config.searchByOptions)
+                }	
+			
+		},
+		"criteria.sort":{
+				inclusion: {
+                      within: ["asc","desc"],
+                      message: "^not a valid sort options. Valid options are [ase,desc]"
+                }	
+			
+		}
+	}
+}
 function determineEventFee(infoObj,next) {
     //determine if early bird and fetch fee data accordingly
     var fee = "";

@@ -115,15 +115,6 @@ var registration = {
                 return next(e);
             }
 
-        },
-        getRegisteredMember: function(req, res, next) {
-            try {
-                res.json(result);
-            } catch (e) {
-                res.status(500);
-                return next(e);
-
-            }
         }
       }
 
