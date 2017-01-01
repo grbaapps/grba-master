@@ -1,5 +1,5 @@
 var path = require('path');
-var successStatus = "Success"
+var successObj = {"email":"","totalPaymentAmount":0}
 
 var fs = require("fs");
 var async = require("async")
@@ -87,8 +87,16 @@ var registration = {
 						}
                         
                     } else {
+						successObj.email = newData.data.email;
+						var totalFee = 0; 
+						if(newData.data.membershipFee){
+							totalFee = parseInt(newData.data.eventFee)+parseInt(newData.data.membershipFee);
+						}else{
+							totalFee = parseInt(newData.data.eventFee);
+						}
+						successObj.totalPaymentAmount = totalFee;
                         res.status(200);
-                        res.send(successStatus)
+                        res.send(successObj)
                     }
                 });
             } catch (e) {

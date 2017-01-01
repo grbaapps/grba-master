@@ -7,6 +7,14 @@
 * HTTP Method : POST
 * URL Path : /api/registration
 * Description : Create a new registration if the the i/p are valid. I/P is expected in the request body.
+* Success HTTP status code : 200
+* Success HTTP response
+```
+{
+  "email": "duplicat4e@gmail.com", //This field can be used for future updates along with year and eventcode
+  "totalPaymentAmount": 80 //This field can be useful to authenticate paypal integration.
+}
+```
 * Input fields short with Description
 ```
 {  
