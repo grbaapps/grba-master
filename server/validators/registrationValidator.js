@@ -101,13 +101,16 @@ exports.validatePost = function(req, res, next) {
                   }
 
               },
-              "data.membershipFee": {
-                  numericality: {
+              "data.membershipFee": function(value, attributes, attributeName, options, constraints){
+				  var membershipFee = (attributes.data.hasFamily?config.grbaMembershipFee.family:config.grbaMembershipFee.single)
+				 return {
+					  numericality: {
                       onlyInteger: true,
                       strict: true,
-                      equalTo: config.grbaMembershipFee,
-                      message: "^Membership fee is $"+config.grbaMembershipFee+" dollars. Please put the exact figure without dollar sign"
-                  }
+                      equalTo: membershipFee,
+                      message: "^Membership fee is $"+membershipFee+" dollars. Please put the exact figure without dollar sign"
+						}
+					}
               },
               "data.sponsorshipCategory": {
                   inclusion: {

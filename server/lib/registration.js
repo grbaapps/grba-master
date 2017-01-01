@@ -1,5 +1,5 @@
 var path = require('path');
-var successStatus = "Success"
+var successObj = {"email":"","totalPaymentAmount":0}
 
 var fs = require("fs");
 var async = require("async")
@@ -28,7 +28,7 @@ var registration = {
                                 }
 
                             }
-                            callback(null, fileData)
+                            return callback(null, fileData)
                         });
                     },
                     read_data: ["check_file_or_create", function(results, callback) {
@@ -39,9 +39,15 @@ var registration = {
                                 if (err) return callback(err, "Error");
                                 data = JSON.parse(data)
                                 mainEvent = data.events[newData.eventCode];
-
                                 if(mainEvent){
-                                  mainEvent.registrations.push(newData.data);
+								  if(!checkIfDuplicateByEmail(mainEvent.registrations,newData.data.email)){
+									  mainEvent.registrations.push(newData.data);
+								  }else{
+									  //Duplicate email id. Can't register
+									  var errorObj = {"key":"data.email","errorCode":"duplicate_email","errorMessage" : "Duplicate registration. Another registration record exist with same email id."}
+									  return callback(errorObj);
+								  }
+                                  
 
                                 }else{
                                   //event is not created yet (first registration). Hemce, creating the event
@@ -52,14 +58,14 @@ var registration = {
                                   }
                                   data.events[newData.eventCode] = newEvent;
                                 }
-                                callback(null, data);
+                                return callback(null, data);
 
                             });
                         } else {
                             var newFileData = results['check_file_or_create'];
                             logger.debug("new File data \n" + JSON.stringify(newFileData))
                             newFileData.events[newData.eventCode].registrations.push(newData.data);
-                            callback(null, newFileData);
+                            return callback(null, newFileData);
                         }
 
                     }],
@@ -68,14 +74,31 @@ var registration = {
                         fs.writeFile(fileName, JSON.stringify(results["read_data"]), 'utf-8', (err) => {
                             if (err) callback(err, "Write Error");
                         });
-                        callback(null, 'filename');
+                        return callback(null, 'filename');
                     }]
                 }, function(err, results) {
                     if (err) {
-                        return next(err)
+						if(err.errorCode && err.errorCode == "duplicate_email"){
+							var errorObject = {}
+							errorObject[err.key]=[err.errorMessage];
+							
+							res.status(400);
+							return res.send(errorObject)
+						}else{
+							return next(err)
+						}
+                        
                     } else {
+						successObj.email = newData.data.email;
+						var totalFee = 0; 
+						if(newData.data.membershipFee){
+							totalFee = parseInt(newData.data.eventFee)+parseInt(newData.data.membershipFee);
+						}else{
+							totalFee = parseInt(newData.data.eventFee);
+						}
+						successObj.totalPaymentAmount = totalFee;
                         res.status(200);
-                        res.send(successStatus)
+                        res.send(successObj)
                     }
                 });
             } catch (e) {
@@ -120,5 +143,13 @@ var registration = {
         function writeToRegistrationFile() {
 
         }
+		function checkIfDuplicateByEmail(registrationArr,email){
+			for(var i=0;i<registrationArr.length;i++){
+				if(registrationArr[i].email === email){
+					return true;
+				}
+			}
+			return false;
+		}
 
         module.exports = registration;

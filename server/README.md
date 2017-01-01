@@ -7,6 +7,14 @@
 * HTTP Method : POST
 * URL Path : /api/registration
 * Description : Create a new registration if the the i/p are valid. I/P is expected in the request body.
+* Success HTTP status code : 200
+* Success HTTP response
+```
+{
+  "email": "duplicat4e@gmail.com", //This field can be used for future updates along with year and eventcode
+  "totalPaymentAmount": 80 //This field can be useful to authenticate paypal integration.
+}
+```
 * Input fields short with Description
 ```
 {  
@@ -62,13 +70,14 @@
       * Rule1 - This is a mandatory field.
     * Validation Error Message - [Name is a mandatory field]
 
-  * **email** :
+  * **email** : This is considered unique amonng all registration entries of a prticular event.
 
     * Type - String,
     * Validation Rules:
       * Rule1 - This is a mandatory field.
       * Rule2 - Should always be a valid email id.
-    * Validation Error Message - [Email is a mandatory field,Not a valid email id]
+	  * Rule3 - There should not be another registration entry with the same email id for the same event
+    * Validation Error Message - [Email is a mandatory field,Not a valid email id,Duplicate registration. Another registration record exist with same email id.]
 
   * **phoneNo** :
 
