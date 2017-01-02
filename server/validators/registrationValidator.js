@@ -62,7 +62,7 @@ exports.validatePost = function(req, res, next) {
                               onlyInteger: true,
                               strict: true,
                               equalTo: 1,
-                              message: "^Non family participants can't have more than one head count"
+                              message: "^Non family participants can't have more than one adult"
                           }
                       }
                   } else {
@@ -108,14 +108,14 @@ exports.validatePost = function(req, res, next) {
                       onlyInteger: true,
                       strict: true,
                       equalTo: membershipFee,
-                      message: "^Membership fee is $"+membershipFee+" dollars. Please put the exact figure without dollar sign"
+                      message: "^Membership fee is $"+membershipFee+". Don't put $ sign."
 						}
 					}
               },
               "data.sponsorshipCategory": {
                   inclusion: {
                       within: eventObj[inputData.year][inputData.eventCode].sponsorship,
-                      message: "^Not a valid Sponsorship option %{value}. Please contact admin team"
+                      message: "^Not a valid Sponsorship option %{value}"
                   }
               },
               "data.eventFee": function(value, attributes, attributeName, options, constraints) {
@@ -129,13 +129,13 @@ exports.validatePost = function(req, res, next) {
                       var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]
                       return {
                           presence:{
-                            message: "^Event fee is mandatory field and has to match with the corresponding sponsorship option of the event"
+                            message: "^Event fee is mandatory field and equal to sponsorship"
                           },
                           numericality: {
                               onlyInteger: true,
                               strict: true,
                               equalTo: eventSponsorshipValue,
-                              message: "^Event fee has to match with the corresponding sponsorship option of the event"
+                              message: "^Event fee has to match with the sponsorship."
                           }
                       }
                     }else{
@@ -261,14 +261,14 @@ function simpleBooleanRule(value, fieldName){
   if (validator.isEmpty(value)) {
       return {
           presence: {
-              message: "^"+fieldName+" flag can't be empty and should always be boolean type (true or false)"
+              message: "^"+fieldName+" is a mandatory field"
           }
       }
   } else if (!validator.isBoolean(value)) {
       return {
           inclusion: {
               within: [true, false],
-              message: "^"+fieldName+" should always be boolean (true or false)"
+              message: "^"+fieldName+" should always be boolean"
           }
       }
   }
