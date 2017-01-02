@@ -199,9 +199,9 @@ exports.validatePost = function(req, res, next) {
 }
 exports.validateGetForSpecificEvent = function(req, res, next){
 	var searchObj = req.body;
-	var searchCriteria = {"year":req.params.year,"evenCode":req.params.evenCode,"criteria":req.body};
-	var now = moment();
-	var currentYear = now.getYear();
+	var config = req.globalConfig;
+	var searchCriteria = {"year":req.params.year,"eventCode":req.params.evenCode,"value":req.query.value,"searchBy":req.query.searchBy,"sort":req.query.sort};
+	console.log("search Object : "+ JSON.stringify(searchCriteria))
 	var validationCriteria = {
 		"year": {
                   presence: {
@@ -222,14 +222,25 @@ exports.validateGetForSpecificEvent = function(req, res, next){
                       message: "^Not a valid event code %{value}"
                   }
               },
-		"criteria.searchBy":{
+		"searchBy":{
 				inclusion: {
                       within: config.searchByOptions,
-                      message: "^not a valid search by options. Valid options are "+JSON.stringify(config.searchByOptions)
+                      message: "^not a valid search by options. Valid options are "
                 }	
 			
 		},
-		"criteria.sort":{
+		"value" :function(value, attributes, attributeName, options, constraints){
+					if(attributes.searchBy){
+						return {
+							presence : {
+								message: "^Please provide a value to search for"
+							}
+						}
+					}else{
+						return null
+					}
+		},
+		"sort":{
 				inclusion: {
                       within: ["asc","desc"],
                       message: "^not a valid sort options. Valid options are [ase,desc]"
@@ -237,6 +248,17 @@ exports.validateGetForSpecificEvent = function(req, res, next){
 			
 		}
 	}
+	
+	validationResult = validator(searchCriteria, validationCriteria);
+          if(validationResult){
+            //validation error present
+            res.status(400);
+            return res.send(validationResult);
+          }else{
+            //go ahead with the registration
+            
+            next();
+          }
 }
 function determineEventFee(infoObj,next) {
     //determine if early bird and fetch fee data accordingly

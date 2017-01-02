@@ -109,7 +109,7 @@ var registration = {
         },
         getRegisteredMembers: function(req, res, next) {
             try {
-                res.json(result);
+                res.send(req.body);
             } catch (e) {
                 res.status(500);
                 return next(e);
