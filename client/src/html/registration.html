@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">REGISTER - {{eventDetails.2017.CurrentEvent.name}}</h4>
+                <h4 class="modal-title" id="exampleModalLabel">REGISTER - {{eventDetails.2017.SP.name}}</h4>
 
             </div>
             <div class="modal-body">
@@ -29,8 +29,6 @@
 								SINGLE ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.nonmember.single}}<br>
 								STUDENT FAMILY ${{eventDetails.2017.SP.earlyBird.fee.student.nonmember.family}}<br>
 								STUDENT SINGLE ${{eventDetails.2017.SP.earlyBird.fee.student.nonmember.single}}<br>
-                                    {{regResult}}
-                                    
 							</address>
                             </div>
 
@@ -46,6 +44,13 @@
                             <input type="hidden" ng-model="eventName" class="form-control" id="eventName" ng-init="eventName='Saraswati Puja'">
 
                             <div class="form-group form-group-sm">
+                                <div class="row" ng-if="regResult.status == 'ERROR'">
+                                    <label for="recipient-name" style="color: red;">Errors:</label>
+                                    <div class="col -xs-12" ng-repeat="(key, value) in errors">
+                                        <label for="recipient-name" style="color: red;">&nbsp;&nbsp;{{ value[0] }}</label>
+                                    </div>
+                                    <br>
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <label for="recipient-name" class="control-label">Name:</label>&nbsp;&nbsp;
