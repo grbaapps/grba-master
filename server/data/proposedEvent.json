@@ -13,6 +13,30 @@
             "zip":"23236"
          },
          "lastOnlineDateRegistration":"01-12-2017 11:59:59",
+         "earlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":30,
+                     "family":60
+                  },
+                  "nonmember":{
+                     "single":40,
+                     "family":80
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":30,
+                     "family":70
+                  },
+                  "nonmember":{
+                     "single":40,
+                     "family":80
+                  }
+               }
+            }
+         },  
          "afterEarlyBird":{
             "fee":{
                "student":{

@@ -23,7 +23,19 @@ angular.module('grbaApp').constant('I18N.MESSAGES', {
 
 angular.module('grbaApp').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
-  $routeProvider.otherwise({redirectTo:'/'});
+    
+    $routeProvider
+    .when("/", {
+        templateUrl : "html/home.html"
+    })
+    .when("/event", {
+        templateUrl : "html/event.html"
+    })
+    .when("/about", {
+        templateUrl : "html/about.html"
+    })
+    .otherwise({redirectTo:'/'});
+    
 }]);
 
 
@@ -36,6 +48,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
+        
+    var eventDetails = eventService.getEventDetails();
+    eventDetails.then(function(value) {
+        $scope.eventDetails = value;
+    }, function(reason) {
+        $scope.error = reason;
+    });    
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);

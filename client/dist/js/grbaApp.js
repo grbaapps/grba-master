@@ -1,6 +1,6 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2016-12-28
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-01-01
  * https://github.com/angular-app/angular-app
- * Copyright (c) 2016 Surajit Pal;
+ * Copyright (c) 2017 Surajit Pal;
  * Licensed MIT
  */
 angular.module('grbaApp', [
@@ -28,7 +28,19 @@ angular.module('grbaApp').constant('I18N.MESSAGES', {
 
 angular.module('grbaApp').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
-  $routeProvider.otherwise({redirectTo:'/'});
+    
+    $routeProvider
+    .when("/", {
+        templateUrl : "html/home.html"
+    })
+    .when("/event", {
+        templateUrl : "html/event.html"
+    })
+    .when("/about", {
+        templateUrl : "html/about.html"
+    })
+    .otherwise({redirectTo:'/'});
+    
 }]);
 
 
@@ -41,6 +53,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
+        
+    var eventDetails = eventService.getEventDetails();
+    eventDetails.then(function(value) {
+        $scope.eventDetails = value;
+    }, function(reason) {
+        $scope.error = reason;
+    });    
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);
@@ -72,31 +91,72 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
         return deferred.promise;
     };
     
-});
-angular.module('registration',['event']).controller('registrationController', ['$scope', '$resource', '$log', 'eventService', function($scope, $resource,  $log, eventService) {
-    $scope.showRegForm = true;
-    $scope.showRegResult = false;
-    
-    $scope.submit = function() {
-        var regAPI = $resource("/api/register");
-        $scope.regResult = {status: "PENDING"};
-    
-       regAPI.save({ name: $scope.name, amount: $scope.amount }, function(data) {
-             $scope.regResult = data;
-             $log.info(data);
-        });
-        $scope.showRegForm = false;
-        $scope.showRegResult = true;
-        $log.info($scope);
+    this.getEventDetails =  function() {
+         var deferred = $q.defer();
+        $http.get('/api/eventDetails')
+            .success(function(data) {
+                
+                //this.currentEvent = data;
+                deferred.resolve(data);
+                //$log.info(data);
+                
+            });
+
+        return deferred.promise;
     };
     
-    $scope.reset = function() {
+});
+angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
+    $scope.showRegForm = true;
+    $scope.showRegResult = false;
+
+    $scope.submit = function () {
+        $http({
+            method: 'POST',
+            url: '/api/registration',
+            data: {
+                year: $scope.year,
+                eventCode: $scope.eventCode,
+                eventName: $scope.eventName,
+                data: {
+                    name: $scope.name,
+                    email: $scope.email,
+                    isMember: $scope.isMember,
+                    hasFamily: $scope.hasFamily,
+                    isStudent: $scope.isStudent,
+                    isVegiterian: $scope.isVegiterian,
+                    noOfAdults: $scope.noOfAdults,
+                    noOfChildren: $scope.noOfChildren,
+                    eventFee: $scope.eventFee,
+                    specialNote: $scope.specialNote
+                }
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.regResult = {
+                status: "SUCCESS"
+            };
+            $scope.showRegForm = false;
+            $scope.showRegResult = true;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.$scope.regResult = {
+            $scope.errors = response.data;
+            $scope.regResult = {
+                status: "ERROR"
+            };
+            //scope.showRegForm = false;
+            //$scope.showRegResult = true;
+        });
+    };
+
+    $scope.reset = function () {
         $scope.showRegForm = true;
         $scope.showRegResult = false;
     };
-    
-}]);
 
+}]);
 angular.module('services.exceptionHandler', ['services.i18nNotifications']);
 
 angular.module('services.exceptionHandler').factory('exceptionHandlerFactory', ['$injector', function($injector) {
