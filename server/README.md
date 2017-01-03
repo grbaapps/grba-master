@@ -163,7 +163,7 @@
     * Type - String,
     * Validation Rules: No validation rule.
 
-### Create new Registration
+### Get Registration details
 
 * HTTP Method : GET
 * URL Path : /api/registration/year/{numeric_year}/event/{event_code}
