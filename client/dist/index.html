@@ -42,23 +42,13 @@
 <!--/head-->
 
 <body ng-controller="AppCtrl">
-
-
-
-
     <div ng-include="'html/header.html'"></div>
-    <!--/#header
-
-    <section id="home">
-        <div ng-include="'html/home.html'"></div>
-    </section>
-    -->
-    
     <div ng-view></div>
-
     <!--  Registration Popup -->
     <div ng-include="'html/registration.html'"></div>
-
+    <section id="explore">
+        <div ng-include="'html/nextevent.html'"></div>
+    </section>
     <footer id="footer">
         <div ng-include="'html/footer.html'"></div>
     </footer>
