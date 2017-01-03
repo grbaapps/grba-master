@@ -12,8 +12,7 @@ Building GRBA web application as a single page Angular (SPA) application with No
 * Add routes to go to different pages from header - Abhishek
 * Refactor index.html to use views instead of ng-include - Abhishek
 * Review Angularjs code and refactor as needed - Abhishek - reviewed by Surajit
-* Refactor server/registration code - Pritam
-* Add more fields to client/src/html/registration.html to send to backend - Abhishek
+* Refactor server/registration code to add more validations- Pritam
 * Setup json data for Saraswati Puja 2017 event
 * Change client/dist/html/event.html to consume json data
 * Update client/src/html/sponsor.html with the correct data

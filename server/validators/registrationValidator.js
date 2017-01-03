@@ -197,7 +197,83 @@ exports.validatePost = function(req, res, next) {
     }
 
 }
+exports.validateGetForSpecificEvent = function(req, res, next){
+	var searchObj = req.body;
+	var config = req.globalConfig;
+	var searchCriteria = {"year":req.params.year,"eventCode":req.params.eventCode,"value":req.query.value,"searchBy":req.query.searchBy,"sort":req.query.sort};
+	logger.debug("search Object : "+ JSON.stringify(searchCriteria))
+	var validationCriteria = {
+		"year": {
+                  presence: {
+                      message: "^Must provide to search for registration."
+                  },
+                  numericality: {
+                              onlyInteger: true,
+                              strict: true,
+                              message: "^Please provide a valid year."
+                  }
+              },
+		"eventCode": {
+                  presence: {
+                      message: "^Event code is a mandatory field."
+                  },
+                  inclusion: {
+                      within: config.eventConfiguration.eventcodes,
+                      message: "^Not a valid event code %{value}. Valid values "+config.eventConfiguration.eventcodes+"."
+                  }
+              },
+    "searchBy":function(value, attributes, attributeName, options, constraints){
+      if(attributes.value){
+        return {
+          presence:{
+            message: "^Please provide valid search by options "+ config.searchByOptions+"."
+          },
+          inclusion: {
+                        within: config.searchByOptions,
+                        message: "^not a valid search by options. Valid options are "+config.searchByOptions+"."
+                  }
+        }
+      }else{
+        return null;
+      }
 
+
+		},
+		"value" :function(value, attributes, attributeName, options, constraints){
+          if(attributes.searchBy){
+            if(attributes.searchBy === "email"){
+              return {
+  							presence : {
+  								message: "^Please provide a value to search for."
+  							},
+                email: {
+                    message: "^Not a valid email id"
+                }
+  						}
+            }else{
+              return {
+  							presence : {
+  								message: "^Please provide a value to search for."
+  							}
+  						}
+            }  
+          }else{
+						return null
+					}
+		}
+	}
+
+	validationResult = validator(searchCriteria, validationCriteria);
+          if(validationResult){
+            //validation error present
+            res.status(400);
+            return res.send(validationResult);
+          }else{
+            //go ahead with the registration
+
+            next();
+          }
+}
 function determineEventFee(infoObj,next) {
     //determine if early bird and fetch fee data accordingly
     var fee = "";
