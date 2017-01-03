@@ -23,5 +23,5 @@ module.exports = {
 	  "single":15,
 	  "family":25
   },
-  "searchByOptions" : ["email","name","dateOfRegistration"]
+  "searchByOptions" : ["email","name","sponsorshipCategory"]
 };

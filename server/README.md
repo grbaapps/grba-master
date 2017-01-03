@@ -162,3 +162,50 @@
 
     * Type - String,
     * Validation Rules: No validation rule.
+
+### Create new Registration
+
+* HTTP Method : GET
+* URL Path : /api/registration/year/{numeric_year}/event/{event_code}
+* Description : Retrieves the registration details. Can be filtered using query parameters.
+* Query Parameters: Optional but can be used to filter.
+  * __searchBy__ : Has to be one of the value configured in **searchByOptions** of config js file. Throws validation error if **value** parameter is present and **searchBy** is not. Currently supported values are name, email and sponsorshipCategory. If email is used then the value has to be a valid email otherwise a validation error is thrown. The search for sponsorshipCategory and email is exact search (=) but the search with name is "contains" search.
+  * __value__ : Corresponding value to search for.
+* Success HTTP status code : 200
+* Success HTTP response
+```
+{
+  "totalNoOfRegistrations": 6,
+  "lengthOfSearchResult": 2,
+  "registrations": [
+    {
+      "name": "SmmeName",
+      "email": "name@gmail.com",
+      "phoneNo": "(222)-998-1232",
+      "isMember": false,
+      "isVegiterian": true,
+      "isStudent": true,
+      "hasFamily": true,
+      "noOfAdults": 2,
+      "noOfChildren": 1,
+      "eventFee": 1200,
+      "specialNote": "Some notes",
+      "sponsorshipCategory": "Platinum",
+      "registrationDate": "01-02-2017 06:39:02"
+    },
+    {
+      "name": "feku",
+      "email": "feku@gmail.com",
+      "phoneNo": "(222)-998-1232",
+      "isMember": false,
+      "isVegiterian": true,
+      "isStudent": false,
+      "hasFamily": false,
+      "noOfAdults": 1,
+      "noOfChildren": 0,
+      "eventFee": 50,
+      "specialNote": "Some notes",
+      "registrationDate": "01-02-2017 06:39:33"
+    }
+  ]
+```
