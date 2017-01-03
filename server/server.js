@@ -37,7 +37,7 @@ app.use(addConfigurationToRequest)  // Hash cookies with this secret
 
 app.use('/api/registration',require('./lib/routes/registration'));
 require('./lib/routes/event').addRoutes(app, event);
-require('./lib/routes/appFile').addRoutes(app, config);
+
 
 //This should be the last middleware.
 app.use(errorHandler)

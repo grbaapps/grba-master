@@ -22,5 +22,6 @@ module.exports = {
   grbaMembershipFee : {
 	  "single":15,
 	  "family":25
-  }
+  },
+  "searchByOptions" : ["email","name","sponsorshipCategory"]
 };
