@@ -109,8 +109,8 @@ module.exports = function (grunt) {
         }
       },
       explore: {
-        src: ['src/html/explore.html'],
-        dest: '<%= distdir %>/html/explore.html',
+        src: ['src/html/nextevent.html'],
+        dest: '<%= distdir %>/html/nextevent.html',
         options: {
           process: true
         }
