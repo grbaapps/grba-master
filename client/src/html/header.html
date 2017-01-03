@@ -1,3 +1,10 @@
+<script>
+$(".nav a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+</script>    
+
 <header id="header" role="banner">		
 		<div class="main-nav">
 			<div class="">
