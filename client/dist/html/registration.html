@@ -1,174 +1,80 @@
 <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" ng-controller="registrationController">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">REGISTER - {{eventDetails.2017.SP.name}}</h4>
-
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="contact-text">
-                                <h3>MEMBER</h3>
-                                <address>
-								FAMILY ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.member.family}}<br>
-								SINGLE ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.member.single}}<br>
-								STUDENT FAMILY ${{eventDetails.2017.SP.earlyBird.fee.student.member.family}}<br>
-								STUDENT SINGLE ${{eventDetails.2017.SP.earlyBird.fee.student.member.single}}<br>
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">REGISTER</h4>
+        
+      </div>
+      <div class="modal-body">
+      <div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="contact-text">
+							<h3>MEMBER</h3>
+							<address>
+								FAMILY $00.00<br>
+								SINGLE $00.00<br>
+								STUDENT FAMILY $00.00<br>
+								STUDENT SINGLE $00.00<br>
 							</address>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="contact-text">
-                                <h3>NON-MEMBER</h3>
-                                <address>
-								FAMILY ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.nonmember.family}}<br>
-								SINGLE ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.nonmember.single}}<br>
-								STUDENT FAMILY ${{eventDetails.2017.SP.earlyBird.fee.student.nonmember.family}}<br>
-								STUDENT SINGLE ${{eventDetails.2017.SP.earlyBird.fee.student.nonmember.single}}<br>
+						</div>
+						
+					</div>
+					<div class="col-sm-3">
+						<div class="contact-text">
+							<h3>NON-MEMBER</h3>
+							<address>
+								FAMILY $00.00<br>
+								SINGLE $00.00<br>
+								STUDENT FAMILY $00.00<br>
+								STUDENT SINGLE $00.00<br>
 							</address>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div ng-show="showRegForm" class="row">
-                        <form ng-submit="submit()">
-                            <input type="hidden" ng-model="year" class="form-control" id="year" ng-init="year=2017">
-                            <input type="hidden" ng-model="eventCode" class="form-control" id="eventCode" ng-init="eventCode='SP'">
-                            <input type="hidden" ng-model="eventName" class="form-control" id="eventName" ng-init="eventName='Saraswati Puja'">
-
-                            <div class="form-group form-group-sm">
-                                <div class="row" ng-if="regResult.status == 'ERROR'">
-                                    <label for="recipient-name" style="color: red;">Errors:</label>
-                                    <div class="col -xs-12" ng-repeat="(key, value) in errors">
-                                        <label for="recipient-name" style="color: red;">&nbsp;&nbsp;{{ value[0] }}</label>
-                                    </div>
-                                    <br>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="recipient-name" class="control-label">Name:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="email" class="control-label">Email:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="text" ng-model="email" class="form-control" id="email" style="width: 300px;">
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <label for="isMember" class="control-label">GRBA Member:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isMember" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isMember" ng-value=false> No
-                                        </label>
-                                    </div>
-
-                                    <div class="col-xs-3">
-                                        <label for="hasFamily" class="control-label">Has Family?&nbsp;:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="hasFamily" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="hasFamily" ng-value=false> No
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <label for="isStudent" class="control-label">Student?&nbsp;:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isStudent" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isStudent" ng-value=false> No
-                                        </label>
-                                    </div>
-
-                                    <div class="col-xs-3">
-                                        <label for="isVegiterian" class="control-label">Vegeterian?&nbsp;:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isVegiterian" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isVegiterian" ng-value=false> No
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="noOfAttendees" class="control-label">No of Family Members Attending:</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <label for="noOfAdults" class="control-label">Adults:</label>
-                                        <label>
-                                            <input type="text" ng-model="noOfAdults" class="form-control" id="noOfAdults" size="2" style="width: 40px;">
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <label for="noOfChildren" class="control-label">Children:</label>
-                                        <label>
-                                            <input type="text" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" style="width: 40px;">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="eventFee" class="control-label">Event Fee:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="text" ng-model="eventFee" class="form-control" id="eventFee">
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <label for="specialNote" class="control-label">Note:</label>&nbsp;&nbsp;
-                                        <textarea ng-model="specialNote" class="form-control" id="specialNote" cols="30" rows="5"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-                            <button type="submit" class="btn btn-primary">REGISTER</button>
-                        </form>
-                    </div>
-                    <div ng-show="showRegResult" class="row">
-                        <div class="contact-text">REGISTRATION STATUS: {{regResult.status}}</div>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- End Container -->
+						</div>
+						
+					</div>
+					
+				</div>
+				
+       
+       <div ng-show="showRegForm" class="row">		
+        <form ng-submit="submit()">
+          <div class="form-group form-group-sm">
+              <div class="row">
+              <div class="col-xs-4">
+            <label for="recipient-name" class="control-label">Name:</label>
+            <input type="text"  ng-model="name" class="form-control" id="name">
+              </div>
+              </div>
+                  <div class="row">
+              <div class="col-xs-4">
+            <label for="amount" class="control-label">Amount:</label>
+            <input type="text" ng-model="amount" class="form-control" id="amount">
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-xs-4">
+            <label for="message-text" class="control-label">Note:</label>
+            <textarea ng-model="note" class="form-control" id="note"></textarea>
+              </div>
+              </div>
+          </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+        <button type="submit" class="btn btn-primary">REGISTER</button>
+           </form>
+           </div>
+          <div ng-show="showRegResult" class="row">
+              <div class="contact-text">REGISTRATION STATUS: {{regResult.status}}</div>
+              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
+              </div>
+          </div>
+      </div>
+        
+          </div> <!-- End Container -->
+          </div> <!-- End modal-body -->
+      
+      <div class="modal-footer">
+         
+         
     </div>
-    <!-- End modal-body -->
-
-    <div class="modal-footer">
-
-
-    </div>
-</div>
-</div>
+  </div>
