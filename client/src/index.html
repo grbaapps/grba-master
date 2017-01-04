@@ -30,9 +30,10 @@
     <script type="text/javascript" src="js/smoothscroll.js"></script>
     <script type="text/javascript" src="lib/bower_components/jquery-parallax/scripts/jquery.parallax-1.1.3.js"></script>
     <script type="text/javascript" src="js/coundown-timer.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.min.js"></script>
     <script type="text/javascript" src="lib/bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
     <script type="text/javascript" src="lib/bower_components/jQuery-One-Page-Nav/jquery.nav.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>  
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular-resource/angular-resource.js"></script>
@@ -41,47 +42,13 @@
 <!--/head-->
 
 <body ng-controller="AppCtrl">
-
-    
-    <!--<div ng-view></div>-->
-    
     <div ng-include="'html/header.html'"></div>
-    <!--/#header-->
-
-    <section id="home">
-        <div ng-include="'html/home.html'"></div>
-    </section>
-    <!--/#home-->
-
-    <section id="explore">
-        <div ng-include="'html/explore.html'"></div>
-    </section>
-    <!--/#explore-->
-
-    <section id="event">
-        <div ng-include="'html/event.html'"></div>
-    </section>
-    <!--/#event-->
-
-    <section id="about">
-        <div ng-include="'html/about.html'"></div>
-    </section>
-    <!--/#about-->
-
-
-    <section id="sponsor">
-        <div ng-include="'html/sponsor.html'"></div>
-    </section>
-    <!--/#sponsor-->
-
-    <section id="contact">
-        <div ng-include="'html/contact.html'"></div>
-    </section>
-    <!--/#contact-->
-
+    <div ng-view></div>
     <!--  Registration Popup -->
     <div ng-include="'html/registration.html'"></div>
-
+    <section id="explore">
+        <div ng-include="'html/nextevent.html'"></div>
+    </section>
     <footer id="footer">
         <div ng-include="'html/footer.html'"></div>
     </footer>
