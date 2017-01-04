@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">REGISTER - {{eventDetails.2017.SP.name}}</h4>
+                <h4 class="modal-title" id="exampleModalLabel">REGISTER - {{eventDetails.name}}</h4>
 
             </div>
             <div class="modal-body">
@@ -13,10 +13,10 @@
                             <div class="contact-text">
                                 <h3>MEMBER</h3>
                                 <address>
-								FAMILY ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.member.family}}<br>
-								SINGLE ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.member.single}}<br>
-								STUDENT FAMILY ${{eventDetails.2017.SP.earlyBird.fee.student.member.family}}<br>
-								STUDENT SINGLE ${{eventDetails.2017.SP.earlyBird.fee.student.member.single}}<br>
+								FAMILY ${{eventDetails.earlyBird.fee.nonStudent.member.family}}<br>
+								SINGLE ${{eventDetails.earlyBird.fee.nonStudent.member.single}}<br>
+								STUDENT FAMILY ${{eventDetails.earlyBird.fee.student.member.family}}<br>
+								STUDENT SINGLE ${{eventDetails.earlyBird.fee.student.member.single}}<br>
 							</address>
                             </div>
 
@@ -25,10 +25,10 @@
                             <div class="contact-text">
                                 <h3>NON-MEMBER</h3>
                                 <address>
-								FAMILY ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.nonmember.family}}<br>
-								SINGLE ${{eventDetails.2017.SP.earlyBird.fee.nonStudent.nonmember.single}}<br>
-								STUDENT FAMILY ${{eventDetails.2017.SP.earlyBird.fee.student.nonmember.family}}<br>
-								STUDENT SINGLE ${{eventDetails.2017.SP.earlyBird.fee.student.nonmember.single}}<br>
+								FAMILY ${{eventDetails.earlyBird.fee.nonStudent.nonmember.family}}<br>
+								SINGLE ${{eventDetails.earlyBird.fee.nonStudent.nonmember.single}}<br>
+								STUDENT FAMILY ${{eventDetails.earlyBird.fee.student.nonmember.family}}<br>
+								STUDENT SINGLE ${{eventDetails.earlyBird.fee.student.nonmember.single}}<br>
 							</address>
                             </div>
 

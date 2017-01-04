@@ -146,7 +146,7 @@
 
     * Type - String,
     * Validation Rules:
-      * Rule1 - This is an optional field but if present then it has to exactly match the value configured in proposedEvent.json
+      * Rule1 - This is an optional field but if present then it has to exactly match the value configured in event.json
     * Validation Error Message - [Not a valid Sponsorship option %{value}. Please contact admin team]
 
   * **eventFee** :
@@ -154,8 +154,8 @@
     * Type - Integer,
     * Validation Rules:
       * Rule1 - This is a mandatory field.
-      * Rule2 - If a valid _sponsorshipCategory_ is given the eventFee should be = corresponding Sponsorship option in proposedEvent.json
-      * Rule3 - If _sponsorshipCategory_ is not available then _eventFee_ has to match the specific category defined in proposedEvent json file. This rule considers all parameters like earlybird, hasFamily, isStudent, isMember.
+      * Rule2 - If a valid _sponsorshipCategory_ is given the eventFee should be = corresponding Sponsorship option in event.json
+      * Rule3 - If _sponsorshipCategory_ is not available then _eventFee_ has to match the specific category defined in event json file. This rule considers all parameters like earlybird, hasFamily, isStudent, isMember.
     * Validation Error Message - [Event fee is a mandatory field.,Event fee has to match with the corresponding sponsorship option of the event,Event fee is not correct. your event fee is $correct_amount]
 
   * **specialNote** :
