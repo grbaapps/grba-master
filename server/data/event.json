@@ -49,6 +49,7 @@
                 }
             },
             "earlyBird": {
+                "date": "01-28-2017 11:59:59",
                 "fee": {
                     "student": {
                         "member": {
