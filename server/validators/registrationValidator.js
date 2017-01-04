@@ -1,6 +1,6 @@
 var validator = require('validate.js')
 var logger = require('../lib/logModule');
-var eventObj = require("../data/proposedEvent.json");
+var eventObj = require("../data/event.json");
 var moment = require('moment');
 exports.validatePost = function(req, res, next) {
     var inputData = req.body;
@@ -256,7 +256,7 @@ exports.validateGetForSpecificEvent = function(req, res, next){
   								message: "^Please provide a value to search for."
   							}
   						}
-            }  
+            }
           }else{
 						return null
 					}

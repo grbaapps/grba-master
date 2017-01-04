@@ -3,7 +3,7 @@
       "SP":{
          "name":"Saraswati Puja 2017",
          "venue":"Bishop Ireton Center",
-         "date":"February 4, 2017",
+         "date":"02-04-2017 08:00:00",
          "time":"8AM to 10PM",
          "code":"SP",
          "address":{
@@ -12,31 +12,41 @@
             "state":"VA",
             "zip":"23236"
          },
-         "lastOnlineDateRegistration":"01-12-2017 11:59:59",
-         "earlyBird":{
-            "fee":{
-               "student":{
-                  "member":{
-                     "single":30,
-                     "family":60
-                  },
-                  "nonmember":{
-                     "single":40,
-                     "family":80
-                  }
-               },
-               "nonStudent":{
-                  "member":{
-                     "single":30,
-                     "family":70
-                  },
-                  "nonmember":{
-                     "single":40,
-                     "family":80
-                  }
-               }
+         "lastOnlineDateRegistration":"02-03-2017 11:59:59",
+         "committeeMembers":{
+            "pujaCommittee":{
+               "htmlLabel":"Puja Committee",
+               "members":"Baishakhy Chakraborty,Chaitali Roy,Karabi Saha"
+            },
+            "foodCommittee":{
+               "htmlLabel":"Food Committee",
+               "members":"Suronita Das,Soma Pradhan,Sucheta Mukherjee,Sayani"
+            },
+            "culturalCommittee":{
+               "htmlLabel":"Cultural Committee",
+               "members":"Bhaswati Datta,Sataroopa Banerjee,Ballari Kanjilal"
+            },
+            "pujaDecorations":{
+               "htmlLabel":"Puja Decoration",
+               "members":"Sanghamitra Gayali,Dilip Chakravarty,Swati Neogi,Debarati Pradhan,Ridhi Biswas Mukherjee"
+            },
+            "logisticsTeam":{
+               "htmlLabel":"Logistics",
+               "members":"Rahul Moray,Samrat Ghosh"
+            },
+            "facilitiesCoordinator":{
+               "htmlLabel":"Facilities Coordinator (Sound)",
+               "members":"Tapabrata Pal,Ashish Roy,Arjoo Bandopadhyay"
+            },
+            "registrationAndFrontDesk":{
+               "htmlLabel":"Registration/Front Desk",
+               "members":"Soumen Pradhan,Arko Chakraborty"
+            },
+            "webTeam":{
+               "htmlLabel":"Web Team",
+               "members":"Avishek Ghosh,Sandipan Biswas,Pritam Sarkar"
             }
-         },  
+         },
          "afterEarlyBird":{
             "fee":{
                "student":{
@@ -61,12 +71,67 @@
                }
             }
          },
-         "sponsorship":{
-            "Platinum":1200,
-            "Gold":1000,
-            "Silver":800,
-            "Bronze":600,
-            "Aluminium":500
+         "food":{
+            "day-1":{
+               "lunch":{
+                  "veg":"Rice, Daal",
+                  "nonVeg":"Chicken",
+                  "kid":"Luchi"
+               },
+               "dinner":{
+                  "veg":"Paneer",
+                  "nonVeg":"Biriyani, Mutton",
+                  "kid":"Kachuri,pizza"
+               }
+            }
+         },
+         "eventsOfTheday":{
+            "day-1":[
+               {
+                  "label":"Puja Starts & Dagger",
+                  "time":"10:00 am"
+               },
+               {
+                  "label":"Prasad Distribution",
+                  "time":"12:00 pm"
+               },
+               {
+                  "label":"Lunch",
+                  "time":"1:00 pm"
+               },
+               {
+                  "label":"Evening Snacks",
+                  "time":"5:00 pm"
+               },
+               {
+                  "label":"Dinner",
+                  "time":"8:00 pm"
+               }
+            ]
+         },
+         "culturalPrograms":{
+            "day-1":[
+               {
+                  "order":1,
+                  "time":"06:00 pm",
+                  "duration":"1hr",
+                  "Participants":[
+                     "names"
+                  ],
+                  "programName":"",
+                  "programDescription":""
+               },
+               {
+                  "order":2,
+                  "time":"07:00 pm",
+                  "duration":"30m",
+                  "Participants":[
+                     "names"
+                  ],
+                  "programName":"",
+                  "programDescription":""
+               }
+            ]
          }
       },
       "DP":{
