@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <div id="event-carousel" class="carousel slide" data-interval="false">
-                    <h2 class="heading">SARASWATI PUJA 2017</h2>
+                    <h2 class="heading">{{eventDetails.name}}</h2>
                     <a class="even-control-left" href="#event-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                     <a class="even-control-right" href="#event-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     <div class="carousel-inner">
@@ -75,18 +75,19 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="contact-text">
-                            <h3>Puja Committee</h3>
+                            <h3>{{eventDetails.committeeMembers.pujaCommittee.htmlLabel}}</h3>
                             <address>
-								Baishakhi Chakraborty<br>
+								{{eventDetails.committeeMembers.pujaCommittee.members}}<br>
 								
 							</address>
                         </div>
                         <div class="contact-address">
-                            <h3>Food Committee</h3>
+                            <h3>{{eventDetails.committeeMembers.foodCommittee.htmlLabel}}</h3>
                             <address>
-								Suronita Das Biswas<br>
+								{{eventDetails.committeeMembers.foodCommittee.members}}<br>
 								
 							</address>
+
                         </div>
                     </div>
                     <div class="col-sm-2">
