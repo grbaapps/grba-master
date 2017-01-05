@@ -3,9 +3,6 @@
   "name": "grbaApp",
   "homepage": "https://github.com/angular-app/angular-app",
   "version": "0.0.1-SNAPSHOT",
-  "engines": {
-    "node": "5.10.1"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:angular-app/angular-app.git"
