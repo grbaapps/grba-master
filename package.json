@@ -3,6 +3,9 @@
   "description": "Back end server to support grba angular app",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "5.10.1"
+  },
   "scripts": {
     "postinstall": "grunt build",
     "start": "node server/server.js"
