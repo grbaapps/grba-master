@@ -7,7 +7,7 @@
     "node": "5.10.1"
   },
   "scripts": {
-    "postinstall": "grunt build",
+    "postinstall": "cd client; grunt build",
     "start": "node server/server.js"
   },
   "dependencies": {
