@@ -19,7 +19,6 @@
     "express-namespace": "~0.1.1",
     "grunt": "0.4.5",
     "grunt-cli": "1.2.0",
-    "grunt-contrib-uglify": "2.0.0",
     "moment": "^2.17.1",
     "passport": "~0.1.12",
     "passport-local": "~0.1.6",
