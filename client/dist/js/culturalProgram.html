@@ -7,21 +7,16 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <div class="row" ng-repeat="day in eventDetails.culturalPrograms | toArray | orderBy: '$key'">
-                        <div class="col-sm-3" ng-repeat="eachEvent in eventDetails.culturalPrograms[day]">
-                            <!--<div class="contact-text">
+                    <div class="row">
+                        <div class="col-sm-3" ng-repeat="key in Object.keys(eventDetails.culturalPrograms)">
+                            <div class="contact-text">
                                 <h3>MEMBER</h3>
                                         <address>
 
 							                         </address>
-                            </div>-->
-                            <ul>Day{{day}}:
-                              <li>Name : {{eachEvent.programName}}</li>
-                              <li>Description : {{eachEvent.programDescription}}</li>
-                            </ul>
+                            </div>
 
                         </div>
-                        <!--<ul>{{day}}</ul>-->
 
                     </div>
                 </div>
