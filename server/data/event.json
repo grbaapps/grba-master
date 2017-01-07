@@ -1,336 +1,358 @@
 {
-    "2017": {
-        "SP": {
-            "name": "Saraswati Puja 2017",
-            "isCurrentEvent": "Y",
-            "venue": "Bishop Ireton Center",
-            "date": "02-04-2017 08:00:00",
-            "time": "8AM to 10PM",
-            "code": "SP",
-            "address": {
-                "street": "3300 Old Courthouse Rd",
-                "city": "North Chesterfield",
-                "state": "VA",
-                "zip": "23236"
+   "2017":{
+      "SP":{
+         "name":"Saraswati Puja 2017",
+         "isCurrentEvent":"Y",
+         "venue":"Bishop Ireton Center",
+         "date":"02-04-2017 08:00:00",
+         "time":"8AM to 10PM",
+         "code":"SP",
+         "address":{
+            "street":"3300 Old Courthouse Rd",
+            "city":"North Chesterfield",
+            "state":"VA",
+            "zip":"23236"
+         },
+         "lastOnlineDateRegistration":"02-03-2017 11:59:59",
+         "committeeMembers":{
+            "pujaCommittee":{
+               "htmlLabel":"Puja Committee",
+               "members":"Baishakhy Chakraborty,Chaitali Roy,Karabi Saha"
             },
-            "lastOnlineDateRegistration": "02-03-2017 11:59:59",
-            "committeeMembers": {
-                "pujaCommittee": {
-                    "htmlLabel": "Puja Committee",
-                    "members": "Baishakhy Chakraborty,Chaitali Roy,Karabi Saha"
-                },
-                "foodCommittee": {
-                    "htmlLabel": "Food Committee",
-                    "members": "Suronita Das,Soma Pradhan,Sucheta Mukherjee,Sayani"
-                },
-                "culturalCommittee": {
-                    "htmlLabel": "Cultural Committee",
-                    "members": "Bhaswati Datta"
-                },
-                "pujaDecorations": {
-                    "htmlLabel": "Puja Decoration",
-                    "members": "Sanghamitra Gayali,Dilip Chakravarty,Swati Neogi,Debarati Pradhan,Ridhi Biswas Mukherjee"
-                },
-                "logisticsTeam": {
-                    "htmlLabel": "Logistics",
-                    "members": "Rahul Moray,Samrat Ghosh"
-                },
-                "facilitiesCoordinator": {
-                    "htmlLabel": "Sound Coordinator",
-                    "members": "Tapabrata Pal,Ashish Roy,Arjoo Bandopadhyay"
-                },
-                "registrationAndFrontDesk": {
-                    "htmlLabel": "Front Desk",
-                    "members": "Soumen Pradhan,Arko Chakraborty"
-                },
-                "webTeam": {
-                    "htmlLabel": "Web Team",
-                    "members": "Abhishek Ghosh,Sandipan Biswas,Pritam Sarkar"
-                }
+            "foodCommittee":{
+               "htmlLabel":"Food Committee",
+               "members":"Suronita Das,Soma Pradhan,Sucheta Mukherjee,Sayani"
             },
-            "earlyBird": {
-                "date": "01-28-2017 11:59:59",
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 15,
-                            "family": 30
-                        },
-                        "nonmember": {
-                            "single": 20,
-                            "family": 40
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 30,
-                            "family": 55
-                        },
-                        "nonmember": {
-                            "single": 40,
-                            "family": 65
-                        }
-                    }
-                }
+            "culturalCommittee":{
+               "htmlLabel":"Cultural Committee",
+               "members":"Bhaswati Datta"
             },
-            "afterEarlyBird": {
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 20,
-                            "family": 40
-                        },
-                        "nonmember": {
-                            "single": 25,
-                            "family": 50
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 40,
-                            "family": 65
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 75
-                        }
-                    }
-                }
+            "pujaDecorations":{
+               "htmlLabel":"Puja Decoration",
+               "members":"Sanghamitra Gayali,Dilip Chakravarty,Swati Neogi,Debarati Pradhan,Ridhi Biswas Mukherjee"
             },
-            "food": {
-                "day-1": {
-                    "lunch": {
-                        "veg": "Rice, Daal",
-                        "nonVeg": "Chicken",
-                        "kid": "Luchi"
-                    },
-                    "dinner": {
-                        "veg": "Paneer",
-                        "nonVeg": "Biriyani, Mutton",
-                        "kid": "Kachuri,pizza"
-                    }
-                }
+            "logisticsTeam":{
+               "htmlLabel":"Logistics",
+               "members":"Rahul Moray,Samrat Ghosh"
             },
-            "eventsOfTheday": {
-                "day-1": [
-                    {
-                        "label": "Puja Starts & Dagger",
-                        "time": "10:00 am"
+            "facilitiesCoordinator":{
+               "htmlLabel":"Sound Coordinator",
+               "members":"Tapabrata Pal,Ashish Roy,Arjoo Bandopadhyay"
+            },
+            "registrationAndFrontDesk":{
+               "htmlLabel":"Front Desk",
+               "members":"Soumen Pradhan,Arko Chakraborty"
+            },
+            "webTeam":{
+               "htmlLabel":"Web Team",
+               "members":"Abhishek Ghosh,Sandipan Biswas,Pritam Sarkar"
+            }
+         },
+         "earlyBird":{
+            "date":"01-28-2017 11:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":15,
+                     "family":30
+                  },
+                  "nonmember":{
+                     "single":20,
+                     "family":40
+                  }
                },
-                    {
-                        "label": "Prasad Distribution",
-                        "time": "12:00 pm"
+               "nonStudent":{
+                  "member":{
+                     "single":30,
+                     "family":55
+                  },
+                  "nonmember":{
+                     "single":40,
+                     "family":65
+                  }
+               }
+            }
+         },
+         "afterEarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":20,
+                     "family":40
+                  },
+                  "nonmember":{
+                     "single":25,
+                     "family":50
+                  }
                },
-                    {
-                        "label": "Lunch",
-                        "time": "1:00 pm"
+               "nonStudent":{
+                  "member":{
+                     "single":40,
+                     "family":65
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":75
+                  }
+               }
+            }
+         },
+         "food":{
+            "1":{
+               "lunch":{
+                  "veg":"Rice, Daal",
+                  "nonVeg":"Chicken",
+                  "kid":"Luchi"
                },
-                    {
-                        "label": "Evening Snacks",
-                        "time": "5:00 pm"
+               "dinner":{
+                  "veg":"Paneer",
+                  "nonVeg":"Biriyani, Mutton",
+                  "kid":"Kachuri,pizza"
+               }
+            }
+         },
+         "eventsOfTheday":{
+            "1":[
+               {
+                  "label":"Puja Starts & Dagger",
+                  "time":"10:00 am"
                },
-                    {
-                        "label": "Dinner",
-                        "time": "8:00 pm"
+               {
+                  "label":"Prasad Distribution",
+                  "time":"12:00 pm"
+               },
+               {
+                  "label":"Lunch",
+                  "time":"1:00 pm"
+               },
+               {
+                  "label":"Evening Snacks",
+                  "time":"5:00 pm"
+               },
+               {
+                  "label":"Dinner",
+                  "time":"8:00 pm"
                }
             ]
-            },
-            "culturalPrograms": {
-                "day-1": [
-                    {
-                        "order": 1,
-                        "time": "06:00 pm",
-                        "duration": "1hr",
-                        "Participants": [
+         },
+         "culturalPrograms":{
+            "2":[
+               {
+                  "order":2,
+                  "time":"06:00 pm",
+                  "duration":"1hr",
+                  "participants":[
                      "names"
                   ],
-                        "programName": "",
-                        "programDescription": ""
+                  "programName":"Some Program2",
+                  "programDescription":"Some Program description2"
                },
-                    {
-                        "order": 2,
-                        "time": "07:00 pm",
-                        "duration": "30m",
-                        "Participants": [
+               {
+                  "order":1,
+                  "time":"07:00 pm",
+                  "duration":"30m",
+                  "participants":[
                      "names"
                   ],
-                        "programName": "",
-                        "programDescription": ""
+                  "programName":"Some Program1",
+                  "programDescription":"Some Program description1"
+               }
+            ],
+            "1":[
+               {
+                  "order":2,
+                  "time":"07:00 pm",
+                  "duration":"30m",
+                  "participants":[
+                     "names"
+                  ],
+                  "programName":"Some Program2",
+                  "programDescription":"Some Program description2"
+               },
+               {
+                  "order":1,
+                  "time":"08:00 pm",
+                  "duration":"1hr",
+                  "participants":[
+                     "names"
+                  ],
+                  "programName":"Some Program1",
+                  "programDescription":"Some Program description1"
                }
             ]
+         }
+      },
+      "DP":{
+         "name":"Durga Puja 2017",
+         "venue":"Bishop Ireton Center",
+         "date":"February 4, 2017",
+         "time":"8AM to 10PM",
+         "code":"DP",
+         "address":{
+            "street":"3300 Old Courthouse Rd",
+            "city":"North Chesterfield",
+            "state":"VA",
+            "zip":"23236"
+         },
+         "lastOnlineDateRegistration":"01-12-2017 11:59:59",
+         "earlyBird":{
+            "date":"12-30-2017 11:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":50,
+                     "family":60
+                  },
+                  "nonmember":{
+                     "single":70,
+                     "family":80
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":90,
+                     "family":100
+                  },
+                  "nonmember":{
+                     "single":110,
+                     "family":120
+                  }
+               }
             }
-        },
-        "DP": {
-            "name": "Durga Puja 2017",
-            "venue": "Bishop Ireton Center",
-            "date": "February 4, 2017",
-            "time": "8AM to 10PM",
-            "code": "DP",
-            "address": {
-                "street": "3300 Old Courthouse Rd",
-                "city": "North Chesterfield",
-                "state": "VA",
-                "zip": "23236"
-            },
-            "lastOnlineDateRegistration": "01-12-2017 11:59:59",
-            "earlyBird": {
-                "date": "12-30-2017 11:59:59",
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 50,
-                            "family": 60
-                        },
-                        "nonmember": {
-                            "single": 70,
-                            "family": 80
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 90,
-                            "family": 100
-                        },
-                        "nonmember": {
-                            "single": 110,
-                            "family": 120
-                        }
-                    }
-                }
-            },
-            "afterEarlyBird": {
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 130,
-                            "family": 140
-                        },
-                        "nonmember": {
-                            "single": 150,
-                            "family": 160
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 170,
-                            "family": 180
-                        },
-                        "nonmember": {
-                            "single": 190,
-                            "family": 200
-                        }
-                    }
-                }
+         },
+         "afterEarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":130,
+                     "family":140
+                  },
+                  "nonmember":{
+                     "single":150,
+                     "family":160
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":170,
+                     "family":180
+                  },
+                  "nonmember":{
+                     "single":190,
+                     "family":200
+                  }
+               }
             }
-        }
-    },
-    "2018": {
-        "SP": {
-            "name": "Saraswati Puja 2018",
-            "venue": "Bishop Ireton Center",
-            "date": "February 4, 2018",
-            "time": "8AM to 10PM",
-            "code": "SP",
-            "address": {
-                "street": "3300 Old Courthouse Rd",
-                "city": "North Chesterfield",
-                "state": "VA",
-                "zip": "23236"
-            },
-            "lastOnlineDateRegistration": "01-12-2018 11:59:59",
-            "afterEarlyBird": {
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 40,
-                            "family": 80
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 90
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 40,
-                            "family": 80
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 90
-                        }
-                    }
-                }
+         }
+      }
+   },
+   "2018":{
+      "SP":{
+         "name":"Saraswati Puja 2018",
+         "venue":"Bishop Ireton Center",
+         "date":"February 4, 2018",
+         "time":"8AM to 10PM",
+         "code":"SP",
+         "address":{
+            "street":"3300 Old Courthouse Rd",
+            "city":"North Chesterfield",
+            "state":"VA",
+            "zip":"23236"
+         },
+         "lastOnlineDateRegistration":"01-12-2018 11:59:59",
+         "afterEarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":40,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":90
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":40,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":90
+                  }
+               }
             }
-        },
-        "DP": {
-            "name": "Durga Puja 2018",
-            "venue": "Bishop Ireton Center",
-            "date": "February 4, 2018",
-            "time": "8AM to 10PM",
-            "code": "DP",
-            "address": {
-                "street": "3300 Old Courthouse Rd",
-                "city": "North Chesterfield",
-                "state": "VA",
-                "zip": "23236"
-            },
-            "lastOnlineDateRegistration": "01-12-2018 11:59:59",
-            "earlyBird": {
-                "date": "12-30-2018 11:59:59",
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 40,
-                            "family": 80
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 90
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 40,
-                            "family": 80
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 90
-                        }
-                    }
-                }
-            },
-            "afterEarlyBird": {
-                "fee": {
-                    "student": {
-                        "member": {
-                            "single": 40,
-                            "family": 80
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 90
-                        }
-                    },
-                    "nonStudent": {
-                        "member": {
-                            "single": 40,
-                            "family": 80
-                        },
-                        "nonmember": {
-                            "single": 50,
-                            "family": 90
-                        }
-                    }
-                }
-            },
-            "sponsorship": {
-                "Platinum": 200,
-                "Gold": 100,
-                "Silver": 80,
-                "Bronze": 60
+         }
+      },
+      "DP":{
+         "name":"Durga Puja 2018",
+         "venue":"Bishop Ireton Center",
+         "date":"February 4, 2018",
+         "time":"8AM to 10PM",
+         "code":"DP",
+         "address":{
+            "street":"3300 Old Courthouse Rd",
+            "city":"North Chesterfield",
+            "state":"VA",
+            "zip":"23236"
+         },
+         "lastOnlineDateRegistration":"01-12-2018 11:59:59",
+         "earlyBird":{
+            "date":"12-30-2018 11:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":40,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":90
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":40,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":90
+                  }
+               }
             }
-        }
-    }
+         },
+         "afterEarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":40,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":90
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":40,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":90
+                  }
+               }
+            }
+         },
+         "sponsorship":{
+            "Platinum":200,
+            "Gold":100,
+            "Silver":80,
+            "Bronze":60
+         }
+      }
+   }
 }

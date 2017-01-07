@@ -5,8 +5,9 @@ angular.module('grbaApp', [
   'event',
   'services.i18nNotifications',
   'templates.app',
-  'templates.common']);
-
+  'templates.common',
+  'angular-toArrayFilter']);
+angular.module('myApp', ['']);
 angular.module('grbaApp').constant('GRBA_APP_CONFIG', {
   // Any application constants go here
   "dateTimeFormat": "MM-DD-YYYY hh:mm:ss" //need to write service to load app config from server. This is temporary.

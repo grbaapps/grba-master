@@ -10,7 +10,8 @@ angular.module('grbaApp', [
   'event',
   'services.i18nNotifications',
   'templates.app',
-  'templates.common']);
+  'templates.common',
+  'angular-toArrayFilter']);
 
 angular.module('grbaApp').constant('GRBA_APP_CONFIG', {
   // Any application constants go here
