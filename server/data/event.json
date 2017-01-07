@@ -112,34 +112,6 @@
             }
          },
          "eventsOfTheday":{
-			"2":[
-               {
-                  "label":"Puja Starts & Dagger",
-                  "time":"11:00 am",
-				  "order" : 1
-               },
-               {
-                  "label":"Prasad Distribution",
-                  "time":"12:00 pm",
-				  "order" : 2
-               },
-			   {
-                  "label":"Dinner",
-                  "time":"9:00 pm",
-				  "order" : 5
-               },
-               {
-                  "label":"Evening Snacks",
-                  "time":"6:00 pm",
-				  "order" : 4
-               },
-			   {
-                  "label":"Lunch",
-                  "time":"2:00 pm",
-				  "order" : 3
-               }
-               
-            ],
             "1":[
                {
                   "label":"Puja Starts & Dagger",
@@ -170,28 +142,6 @@
             ]
          },
          "culturalPrograms":{
-            "2":[
-               {
-                  "order":2,
-                  "time":"06:00 pm",
-                  "duration":"1hr",
-                  "participants":[
-                     "names"
-                  ],
-                  "programName":"Some Program2",
-                  "programDescription":"Some Program description2"
-               },
-               {
-                  "order":1,
-                  "time":"07:00 pm",
-                  "duration":"30m",
-                  "participants":[
-                     "names"
-                  ],
-                  "programName":"Some Program1",
-                  "programDescription":"Some Program description1"
-               }
-            ],
             "1":[
                {
                   "order":2,
