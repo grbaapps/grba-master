@@ -36,11 +36,11 @@
                     "members": "Rahul Moray,Samrat Ghosh"
                 },
                 "facilitiesCoordinator": {
-                    "htmlLabel": "Facilities Coordinator (Sound)",
+                    "htmlLabel": "Sound Coordinator",
                     "members": "Tapabrata Pal,Ashish Roy,Arjoo Bandopadhyay"
                 },
                 "registrationAndFrontDesk": {
-                    "htmlLabel": "Registration/Front Desk",
+                    "htmlLabel": "Front Desk",
                     "members": "Soumen Pradhan,Arko Chakraborty"
                 },
                 "webTeam": {
@@ -72,7 +72,7 @@
                         }
                     }
                 }
-            },            
+            },
             "afterEarlyBird": {
                 "fee": {
                     "student": {
