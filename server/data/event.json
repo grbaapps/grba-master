@@ -112,27 +112,61 @@
             }
          },
          "eventsOfTheday":{
-            "1":[
+			"2":[
                {
                   "label":"Puja Starts & Dagger",
-                  "time":"10:00 am"
+                  "time":"11:00 am",
+				  "order" : 1
                },
                {
                   "label":"Prasad Distribution",
-                  "time":"12:00 pm"
+                  "time":"12:00 pm",
+				  "order" : 2
                },
-               {
-                  "label":"Lunch",
-                  "time":"1:00 pm"
+			   {
+                  "label":"Dinner",
+                  "time":"9:00 pm",
+				  "order" : 5
                },
                {
                   "label":"Evening Snacks",
-                  "time":"5:00 pm"
+                  "time":"6:00 pm",
+				  "order" : 4
+               },
+			   {
+                  "label":"Lunch",
+                  "time":"2:00 pm",
+				  "order" : 3
+               }
+               
+            ],
+            "1":[
+               {
+                  "label":"Puja Starts & Dagger",
+                  "time":"10:00 am",
+				  "order" : 1
                },
                {
+                  "label":"Prasad Distribution",
+                  "time":"12:00 pm",
+				  "order" : 2
+               },
+               {
+                  "label":"Lunch",
+                  "time":"1:00 pm",
+				  "order" : 3
+               },
+			   {
                   "label":"Dinner",
-                  "time":"8:00 pm"
+                  "time":"8:00 pm",
+				  "order" : 5
+               },
+               {
+                  "label":"Evening Snacks",
+                  "time":"5:00 pm",
+				  "order" : 4
                }
+               
             ]
          },
          "culturalPrograms":{
