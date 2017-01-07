@@ -2,6 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="false">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel">Cultural Programs - {{eventDetails.name}}</h4>
 
             </div>
@@ -15,7 +16,7 @@
                               <li>Description : {{eachEvent.programDescription}}</li>
 							  <li>Participants : {{eachEvent.participants.join(',')}}</li>
 							  <li>Time : {{eachEvent.time}}</li>
-							  <li>Duration : {{eachEvent.duration}}
+							  <li>Duration : {{eachEvent.duration}}</li>
                             </ul>
 
                         </div>
