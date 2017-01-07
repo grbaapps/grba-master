@@ -98,7 +98,7 @@
             }
          },
          "food":{
-            "day-1":{
+            "1":{
                "lunch":{
                   "veg":"Rice, Daal",
                   "nonVeg":"Chicken",
@@ -112,7 +112,7 @@
             }
          },
          "eventsOfTheday":{
-            "day-1":[
+            "1":[
                {
                   "label":"Puja Starts & Dagger",
                   "time":"10:00 am"
@@ -141,7 +141,7 @@
                   "order":2,
                   "time":"06:00 pm",
                   "duration":"1hr",
-                  "Participants":[
+                  "participants":[
                      "names"
                   ],
                   "programName":"Some Program2",
@@ -151,7 +151,7 @@
                   "order":1,
                   "time":"07:00 pm",
                   "duration":"30m",
-                  "Participants":[
+                  "participants":[
                      "names"
                   ],
                   "programName":"Some Program1",
@@ -163,7 +163,7 @@
                   "order":2,
                   "time":"07:00 pm",
                   "duration":"30m",
-                  "Participants":[
+                  "participants":[
                      "names"
                   ],
                   "programName":"Some Program2",
@@ -173,7 +173,7 @@
                   "order":1,
                   "time":"08:00 pm",
                   "duration":"1hr",
-                  "Participants":[
+                  "participants":[
                      "names"
                   ],
                   "programName":"Some Program1",
