@@ -14,7 +14,7 @@ angular.module('grbaApp', [
 
 angular.module('grbaApp').constant('GRBA_APP_CONFIG', {
   // Any application constants go here
-    
+  "dateTimeFormat": "MM-DD-YYYY hh:mm:ss" //need to write service to load app config from server. This is temporary.
 });
 
 //TODO: move those messages to a separate module
@@ -28,7 +28,7 @@ angular.module('grbaApp').constant('I18N.MESSAGES', {
 
 angular.module('grbaApp').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
-    
+
     $routeProvider
     .when("/", {
         templateUrl : "html/home.html"
@@ -43,12 +43,12 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
         templateUrl : "html/contact.html"
     })
     .otherwise({redirectTo:'/'});
-    
+
 }]);
 
 
-angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifications', 'localizedMessages', 'eventService', function($scope, $log, i18nNotifications, localizedMessages, eventService) {
-    
+angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifications', 'localizedMessages', 'eventService', 'GRBA_APP_CONFIG',function($scope, $log, i18nNotifications, localizedMessages, eventService,GRBA_APP_CONFIG) {
+
     $scope.$watch('event', function(newValue, oldValue) {
     var promesa = eventService.getCurrentEvent();
     promesa.then(function(value) {
@@ -56,13 +56,22 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-        
+
     var eventDetails = eventService.getEventDetails();
     eventDetails.then(function(value) {
+      //my changes --Pritam
+      var now = moment();
+      var earlyBirdDate = moment(value.earlyBird.date,GRBA_APP_CONFIG.dateTimeFormat);
+      if(now.isSameOrBefore(earlyBirdDate)){
+        value.applicableFee=value.earlyBird.fee;
+      }else{
+        value.applicableFee=value.afterEarlyBird.fee;
+      }
+      //End of my changes Pritam
         $scope.eventDetails = value;
     }, function(reason) {
         $scope.error = reason;
-    });    
+    });
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);
@@ -79,35 +88,35 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 
 
 angular.module('event',[]).service('eventService', function($http, $log, $q) {
-   
+
     this.getCurrentEvent =  function() {
          var deferred = $q.defer();
         $http.get('/api/currentEvent')
             .success(function(data) {
-                
+
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-                
+
             });
 
         return deferred.promise;
     };
-    
+
     this.getEventDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/eventDetails')
             .success(function(data) {
-                
+
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-                
+
             });
 
         return deferred.promise;
     };
-    
+
 });
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
@@ -296,4 +305,3 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
-
