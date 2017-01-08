@@ -13,6 +13,8 @@
 {
   "email": "duplicat4e@gmail.com", //This field can be used for future updates along with year and eventcode
   "totalPaymentAmount": 80 //This field can be useful to authenticate paypal integration.
+  "noOfAdults": 12, //Total no of registered adults.
+  "noOfChildren": 9 //Total no of registered children.
 }
 ```
 * Input fields short with Description
@@ -177,6 +179,8 @@
 {
   "totalNoOfRegistrations": 6,
   "lengthOfSearchResult": 2,
+  "noOfAdults": 12,
+  "noOfChildren": 6,
   "registrations": [
     {
       "name": "SmmeName",
