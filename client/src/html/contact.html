@@ -1,19 +1,29 @@
-<div class="contact-section">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-4">
-                <div class="contact-text">
-                    <h3>Contact</h3>
-                    <address>
-								E-mail: board@grbaonline.org<br>
+
+<!--<div id="map">
+			<div id="gmap-wrap">
+	 			<div id="gmap"> 				
+	 			</div>	 			
+	    	</div>
+		</div>--><!--/#map-->
+		<div class="contact-section" id="contact" ng-controller="contactController">
+    <!--<div class="ear-piece">
+				<img class="img-responsive" src="images/ear-piece.png" alt="">
+			</div>-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-sm-offset-4">
+						<div class="contact-text">
+							<h3>Contact</h3>
+							<address>
+                                Email: <a href="mailto:info@grbaonline.org" target="_top">info@grbaonline.org </a><br
 								
 							</address>
                 </div>
@@ -25,9 +35,31 @@
 								Glen Allen, VA 23058<br>
 								USA
 							</address>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div id="contact-section">
+							<h3>Send a message</h3>
+					    	<div class="status alert alert-success" style="display: none"></div>
+					    	<form ng-submit="submit()">
+					            <div class="form-group">
+                                    
+					                <input type="text" ng-model="emailName" class="form-control" placeholder="Name">
+					            </div>
+					            <div class="form-group">
+                                    
+					                <input type="email" ng-mode="emailAddress" class="form-control" placeholder="Email">
+					            </div>
+					            <div class="form-group">
+                                   
+					                <textarea ng-model="emailMessage" id="message" class="form-control" rows="4" placeholder="Message"></textarea>
+					            </div>                        
+					            <div class="form-group">
+					                <button type="submit" class="btn btn-primary pull-right">Send</button>
+					            </div>
+					        </form>	       
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>	

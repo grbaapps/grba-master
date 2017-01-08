@@ -8,3 +8,4 @@ npm-debug.log
 .DS_Store
 */data/*_registration.json
 client/src/assets/lib*
+client/dist*
