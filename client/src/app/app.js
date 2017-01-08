@@ -3,6 +3,7 @@ angular.module('grbaApp', [
   'ngResource',
   'registration',
   'event',
+  'contact',
   'services.i18nNotifications',
   'templates.app',
   'templates.common',
