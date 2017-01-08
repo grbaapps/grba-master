@@ -122,6 +122,20 @@ module.exports = function (grunt) {
           process: true
         }
       },
+     culturalProgram: {
+        src: ['src/html/culturalProgram.html'],
+        dest: '<%= distdir %>/html/culturalProgram.html',
+        options: {
+          process: true
+        }
+      },
+     eventsOfTheDay: {
+        src: ['src/html/eventsOfTheDay.html'],
+        dest: '<%= distdir %>/html/eventsOfTheDay.html',
+        options: {
+          process: true
+        }
+      },        
      about: {
         src: ['src/html/about.html'],
         dest: '<%= distdir %>/html/about.html',
