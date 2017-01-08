@@ -124,13 +124,13 @@
                                     <div class="col-xs-3">
                                         <label for="noOfAdults" class="control-label">Adults:</label>
                                         <label>
-                                            <input type="text" ng-model="noOfAdults" class="form-control" id="noOfAdults" size="2" style="width: 40px;">
+                                            <input type="number" ng-model="noOfAdults" class="form-control" id="noOfAdults" min="1" max="8" style="width: 50px;">
                                         </label>
                                     </div>
                                     <div class="col-xs-3">
                                         <label for="noOfChildren" class="control-label">Children:</label>
                                         <label>
-                                            <input type="text" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" style="width: 40px;">
+                                            <input type="number" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" min="0" max="8" style="width: 50px;">
                                         </label>
                                     </div>
                                 </div>
