@@ -26,6 +26,7 @@ angular.module('registration', ['event']).controller('registrationController', [
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
+            $scope.successResponse = response.data;
             $scope.regResult = {
                 status: "SUCCESS"
             };

@@ -12,7 +12,7 @@ angular.module('grbaApp', [
   'templates.app',
   'templates.common',
   'angular-toArrayFilter']);
-
+angular.module('myApp', ['']);
 angular.module('grbaApp').constant('GRBA_APP_CONFIG', {
   // Any application constants go here
   "dateTimeFormat": "MM-DD-YYYY hh:mm:ss" //need to write service to load app config from server. This is temporary.
@@ -48,7 +48,7 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
 }]);
 
 
-angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifications', 'localizedMessages', 'eventService', 'GRBA_APP_CONFIG',function($scope, $log, i18nNotifications, localizedMessages, eventService,GRBA_APP_CONFIG) {
+angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifications', 'localizedMessages', 'eventService','GRBA_APP_CONFIG', function($scope, $log, i18nNotifications, localizedMessages, eventService,GRBA_APP_CONFIG) {
 
     $scope.$watch('event', function(newValue, oldValue) {
     var promesa = eventService.getCurrentEvent();
@@ -60,7 +60,6 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 
     var eventDetails = eventService.getEventDetails();
     eventDetails.then(function(value) {
-      //my changes --Pritam
       var now = moment();
       var earlyBirdDate = moment(value.earlyBird.date,GRBA_APP_CONFIG.dateTimeFormat);
       if(now.isSameOrBefore(earlyBirdDate)){
@@ -68,7 +67,6 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
       }else{
         value.applicableFee=value.afterEarlyBird.fee;
       }
-      //End of my changes Pritam
         $scope.eventDetails = value;
     }, function(reason) {
         $scope.error = reason;
@@ -87,37 +85,36 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
   });
 }]);
 
-
 angular.module('event',[]).service('eventService', function($http, $log, $q) {
-
+   
     this.getCurrentEvent =  function() {
          var deferred = $q.defer();
         $http.get('/api/currentEvent')
             .success(function(data) {
-
+                
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-
+                
             });
 
         return deferred.promise;
     };
-
+    
     this.getEventDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/eventDetails')
             .success(function(data) {
-
+                
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-
+                
             });
 
         return deferred.promise;
     };
-
+    
 });
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
@@ -147,6 +144,7 @@ angular.module('registration', ['event']).controller('registrationController', [
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
+            $scope.successResponse = response.data;
             $scope.regResult = {
                 status: "SUCCESS"
             };
@@ -306,3 +304,4 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
+
