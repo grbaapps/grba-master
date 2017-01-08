@@ -761,3 +761,7 @@ h2 {
 	background-color: #33888F;
   background-image: url("../images/performar-bg.jpg");
  }
+
+label {
+    font-weight: normal !important;
+}
