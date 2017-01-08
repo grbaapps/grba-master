@@ -17,8 +17,8 @@ angular.module('registration', ['event']).controller('registrationController', [
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
                     isVegiterian: $scope.isVegiterian,
-                    noOfAdults: $scope.noOfAdults,
-                    noOfChildren: $scope.noOfChildren,
+                    noOfAdults: Number($scope.noOfAdults),
+                    noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
                     specialNote: $scope.specialNote
                 }
@@ -26,6 +26,7 @@ angular.module('registration', ['event']).controller('registrationController', [
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
+            $scope.successResponse = response.data;
             $scope.regResult = {
                 status: "SUCCESS"
             };

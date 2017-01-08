@@ -124,13 +124,13 @@
                                     <div class="col-xs-3">
                                         <label for="noOfAdults" class="control-label">Adults:</label>
                                         <label>
-                                            <input type="text" ng-model="noOfAdults" class="form-control" id="noOfAdults" size="2" style="width: 40px;">
+                                            <input type="number" ng-model="noOfAdults" class="form-control" id="noOfAdults" min="1" max="8" style="width: 50px;">
                                         </label>
                                     </div>
                                     <div class="col-xs-3">
                                         <label for="noOfChildren" class="control-label">Children:</label>
                                         <label>
-                                            <input type="text" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" style="width: 40px;">
+                                            <input type="number" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" min="0" max="8" style="width: 50px;">
                                         </label>
                                     </div>
                                 </div>
@@ -155,8 +155,48 @@
                         </form>
                     </div>
                     <div ng-show="showRegResult" class="row">
-                        <div class="contact-text">REGISTRATION STATUS: {{regResult.status}}</div>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
+                        <div class="contact-text">REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="business" value="sbanerjee@grbaonline.org">
+                            <input type="hidden" name="item_name" value="GRBA">
+                            <input type="hidden" name="shipping" value="0.00">
+                            <input type="hidden" name="no_shipping" value="0">
+                            <input type="hidden" name="no_note" value="1">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="amount" value="{{successResponse.totalPaymentAmount}}">
+                            <input type="hidden" name="tax" value="0.00">
+                            <input type="hidden" name="lc" value="US">
+                            <input type="hidden" name="bn" value="PP-BuyNowBF">
+                            <div class="row">
+                                <div class="col-xs-6">
+
+                                    The event fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.totalPaymentAmount}}</span> could either be send via cheque or be paid through paypal. Please note paypal will charge a nominal fee for this transaction. The total you will pay is <span style="color:#d81a3c;font-weight: bold;">${{successResponse.paypalPaymentAmount}}</span> if you pay via paypal. No paypal account is required.
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    Pay by Paypal &nbsp;-
+                                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" target="_blank">
+                                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    Pay by cheque - please make cheque Payable to <span style="color:yellow;font-weight: bold;">GRBA</span> and mail to <span style="color:yellow;font-weight: bold;">P.O.Box 4622, Glen Allen, VA-23058</span>. Check must be postmarked by <span style="color:yellow;font-weight: bold;">January 28th, 2017</span> to receive discount.
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -167,8 +207,5 @@
     <!-- End modal-body -->
 
     <div class="modal-footer">
-
-
     </div>
-</div>
 </div>
