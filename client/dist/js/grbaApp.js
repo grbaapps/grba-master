@@ -71,6 +71,14 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
+    
+    var registrationDetails = eventService.getRegistrationDetails();
+    registrationDetails.then(function(value) {
+        $scope.registrationDetails = value;
+    }, function(reason) {
+        $scope.error = reason;
+    });        
+        
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);
@@ -104,6 +112,20 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
     this.getEventDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/eventDetails')
+            .success(function(data) {
+                
+                //this.currentEvent = data;
+                deferred.resolve(data);
+                //$log.info(data);
+                
+            });
+
+        return deferred.promise;
+    };
+    
+     this.getRegistrationDetails =  function() {
+         var deferred = $q.defer();
+        $http.get('/api/registration/year/2017/event/SP')
             .success(function(data) {
                 
                 //this.currentEvent = data;

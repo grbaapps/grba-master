@@ -9,22 +9,35 @@
         <div class="row">
             <div class="col-sm-8">
                 <div id="event-carousel" class="carousel slide" data-interval="false">
-                  <div class="col-sm-3">
-                    <div class="contact-text">
-                      <h3>Venue: </h3><span>{{eventDetails.venue}}</span>
+                    <div class="col-sm-4">
+                        <div class="contact-text">
+                            <h3>Venue: </h3><span>{{eventDetails.venue}}</span>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Address: </h3><span>{{eventDetails.address.street}}</span>
+                            <br \><span>{{eventDetails.address.city}}</span>
+                            <br \><span>{{eventDetails.address.state}}</span><span>,{{eventDetails.address.zip}}</span>
+                        </div>
                     </div>
-                    <div class="contact-text">
-                      <h3>Address: </h3><span>{{eventDetails.address.street}}</span><br \><span>{{eventDetails.address.city}}</span><br \><span>{{eventDetails.address.state}}</span><span>,{{eventDetails.address.zip}}</span>
+                    <div class="col-sm-2">
+                        <div class="contact-text">
+                            <h3>Date: </h3><span>{{eventDetails.date.split(' ')[0]}}</span>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Time: </h3><span>{{eventDetails.time}}</span>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="contact-text">
-                      <h3>Date: </h3><span>{{eventDetails.date.split(' ')[0]}}</span>
+                    <div class="col-sm-4">
+                        <div class="contact-text">
+                            <h3>Registration Summary: </h3>
+                            <span>Total - {{registrationDetails.totalNoOfRegistrations}}, &nbsp;Adults - {{registrationDetails.noOfAdults}} , &nbsp; Children - {{registrationDetails.noOfChildren}}</span>
+                        </div>
+                        <div class="contact-text">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrationModal">
+                                <i class="fa fa-shopping-cart"></i> <span>REGISTER</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="contact-text">
-                      <h3>Time: </h3><span>{{eventDetails.time}}</span>
-                    </div>
-                  </div>
                     <!--<a class="even-control-left" href="#event-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                     <a class="even-control-right" href="#event-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>-->
                     <div class="carousel-inner">
@@ -81,11 +94,7 @@
                     </div>
                 </div>
             </div>
-            <!--
-				<div class="guitar">
-					<img class="img-responsive" src="images/guitar.png" alt="guitar">
-				</div>
-				-->
+
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
@@ -119,35 +128,31 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="contact-text">
-                          <h3>{{eventDetails.committeeMembers.pujaDecorations.htmlLabel}}</h3>
-                          <ul>
-                              <li ng-repeat="member in eventDetails.committeeMembers.pujaDecorations.members.split(',')">{{member}}</li>
-                          </ul>
+                            <h3>{{eventDetails.committeeMembers.pujaDecorations.htmlLabel}}</h3>
+                            <ul>
+                                <li ng-repeat="member in eventDetails.committeeMembers.pujaDecorations.members.split(',')">{{member}}</li>
+                            </ul>
                         </div>
                         <div class="contact-text">
-                          <h3>{{eventDetails.committeeMembers.logisticsTeam.htmlLabel}}</h3>
-                          <ul>
-                              <li ng-repeat="member in eventDetails.committeeMembers.logisticsTeam.members.split(',')">{{member}}</li>
-                          </ul>
+                            <h3>{{eventDetails.committeeMembers.logisticsTeam.htmlLabel}}</h3>
+                            <ul>
+                                <li ng-repeat="member in eventDetails.committeeMembers.logisticsTeam.members.split(',')">{{member}}</li>
+                            </ul>
                         </div>
                         <div class="contact-text">
-                          <h3>{{eventDetails.committeeMembers.webTeam.htmlLabel}}</h3>
-                          <ul>
-                              <li ng-repeat="member in eventDetails.committeeMembers.webTeam.members.split(',')">{{member}}</li>
-                          </ul>
+                            <h3>{{eventDetails.committeeMembers.webTeam.htmlLabel}}</h3>
+                            <ul>
+                                <li ng-repeat="member in eventDetails.committeeMembers.webTeam.members.split(',')">{{member}}</li>
+                            </ul>
                         </div>
                         <div class="contact-text">
-                          <h3>{{eventDetails.committeeMembers.registrationAndFrontDesk.htmlLabel}}</h3>
-                          <ul>
-                              <li ng-repeat="member in eventDetails.committeeMembers.registrationAndFrontDesk.members.split(',')">{{member}}</li>
-                          </ul>
+                            <h3>{{eventDetails.committeeMembers.registrationAndFrontDesk.htmlLabel}}</h3>
+                            <ul>
+                                <li ng-repeat="member in eventDetails.committeeMembers.registrationAndFrontDesk.members.split(',')">{{member}}</li>
+                            </ul>
                         </div>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrationModal">
-                            <i class="fa fa-shopping-cart"></i> <span>REGISTER</span>
-                        </button>
-                    </div>
+
                 </div>
 
 
@@ -155,11 +160,6 @@
             <!-- End Container -->
         </div>
 
-        <!--<div class="cart">
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrationModal">
-  					<i class="fa fa-shopping-cart"></i> <span>REGISTER</span>
-  					</button>
-				<a href="#registrationModal"><i class="fa fa-shopping-cart"></i> <span>REGISTER</span></a>
-			</div>		-->
+
     </div>
 </div>
