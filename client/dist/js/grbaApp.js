@@ -8,6 +8,7 @@ angular.module('grbaApp', [
   'ngResource',
   'registration',
   'event',
+  'contact',
   'services.i18nNotifications',
   'templates.app',
   'templates.common',
@@ -93,6 +94,17 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
   });
 }]);
 
+angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
+    
+    $scope.submit = function () {
+        alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
+    };
+
+    $scope.reset = function () {
+        
+    };
+
+}]);
 angular.module('event',[]).service('eventService', function($http, $log, $q) {
    
     this.getCurrentEvent =  function() {
