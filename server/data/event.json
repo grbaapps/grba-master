@@ -25,7 +25,7 @@
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural Committee",
-               "members":"Bhaswati Datta"
+               "members":"Bhaswati Datta,Reshmi Ghosh,Trina Dutta"
             },
             "pujaDecorations":{
                "htmlLabel":"Puja Decoration",
@@ -53,22 +53,22 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":15,
-                     "family":30
+                     "single":20,
+                     "family":35
                   },
                   "nonmember":{
-                     "single":20,
-                     "family":40
+                     "single":25,
+                     "family":45
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":30,
-                     "family":55
+                     "single":35,
+                     "family":65
                   },
                   "nonmember":{
-                     "single":40,
-                     "family":65
+                     "single":45,
+                     "family":75
                   }
                }
             }
@@ -77,22 +77,22 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":20,
-                     "family":40
+                     "single":25,
+                     "family":45
                   },
                   "nonmember":{
-                     "single":25,
-                     "family":50
+                     "single":30,
+                     "family":55
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":40,
-                     "family":65
+                     "single":45,
+                     "family":75
                   },
                   "nonmember":{
-                     "single":50,
-                     "family":75
+                     "single":55,
+                     "family":85
                   }
                }
             }

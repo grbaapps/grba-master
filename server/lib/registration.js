@@ -1,7 +1,8 @@
 var path = require('path');
 var successObj = {
     "email": "",
-    "totalPaymentAmount": 0
+    "totalPaymentAmount": 0,
+    "paypalPaymentAmount": 0
 }
 
 var fs = require("fs");
@@ -108,6 +109,7 @@ var registration = {
                         totalFee = parseInt(newData.data.eventFee);
                     }
                     successObj.totalPaymentAmount = totalFee;
+                    successObj.paypalPaymentAmount = (totalFee * 1.029 + 0.3).toFixed(2);
 					console.log(JSON.stringify(successObj));
                     res.status(200);
                     res.send(successObj)
