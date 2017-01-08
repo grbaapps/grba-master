@@ -78,10 +78,12 @@ var registration = {
                 }],
                 write_file: ['read_data', function(results, callback) {
                     logger.debug('in write_file', JSON.stringify(results));
+					var newResults = calculateTotalAdultsAndChildren(results["read_data"]["events"][newData.eventCode].registrations);
                     fs.writeFile(fileName, JSON.stringify(results["read_data"]), 'utf-8', (err) => {
                         if (err) callback(err, "Write Error");
+						 return callback(null, newResults);
                     });
-                    return callback(null, 'filename');
+                   
                 }]
             }, function(err, results) {
                 if (err) {
@@ -97,6 +99,8 @@ var registration = {
 
                 } else {
                     successObj.email = newData.data.email;
+					successObj.noOfAdults = results['write_file'].noOfAdults?results['write_file'].noOfAdults:"NA";
+					successObj.noOfChildren = results['write_file'].noOfChildren?results['write_file'].noOfChildren:"NA";
                     var totalFee = 0;
                     if (newData.data.membershipFee) {
                         totalFee = parseInt(newData.data.eventFee) + parseInt(newData.data.membershipFee);
@@ -104,6 +108,7 @@ var registration = {
                         totalFee = parseInt(newData.data.eventFee);
                     }
                     successObj.totalPaymentAmount = totalFee;
+					console.log(JSON.stringify(successObj));
                     res.status(200);
                     res.send(successObj)
                 }
@@ -152,6 +157,9 @@ var registration = {
                                   returnObj["registrations"]=mainEvent.registrations;
 
                                 }
+								var adultChildrenCount = calculateTotalAdultsAndChildren(mainEvent.registrations);
+								returnObj.noOfChildren= adultChildrenCount.noOfChildren
+								returnObj.noOfAdults= adultChildrenCount.noOfAdults
                                 return callback(null, returnObj);
 
                             } else {
@@ -230,6 +238,18 @@ function filterSearchResultsByName(allRegistartions,value){
     }
   }
   return returnObj;
+}
+function calculateTotalAdultsAndChildren(registrations){
+	
+	var totalChildrenCount = 0;
+	var totalAdultCount = 0;
+	registrations.forEach(function(object,index,arr){
+		if(object.noOfChildren){
+			totalChildrenCount += object.noOfChildren;
+		}
+		totalAdultCount+= object.noOfAdults;
+	});
+	return {"noOfChildren": totalChildrenCount,"noOfAdults" : totalAdultCount}
 }
 
 module.exports = registration;
