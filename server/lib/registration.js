@@ -8,83 +8,94 @@ var successObj = {
 var fs = require("fs");
 var async = require("async")
 var logger = require('./logModule');
+var aws = require('aws-sdk');
 var registration = {
     register: function(req, res, next) {
-
+        var config = req.globalConfig;
+        var s3 = new aws.S3({
+            "accessKeyId": config.aws.accessKey,
+            "secretAccessKey": config.aws.secretAccessKey
+        });
         try {
             var newData = req.body;
 
             logger.debug("request body : " + JSON.stringify(newData))
-            var fileName = path.resolve(__dirname, '../data') + '/' + newData.year + '_registration.json';
+            var fileName = newData.year + '_registration.json';
             async.auto({
                 check_file_or_create: function(callback) {
-
-                    fs.exists(fileName, (exists) => {
-                        var fileData = '';
-                        if (!exists) {
+                    //S3 operations
+                    var params = {
+                        Bucket: config.aws.s3Bucket,
+                        Key: fileName
+                    }
+                    var fileData = "";
+                    s3.getObject(params, function(err, data) {
+                        if (err) {
+                            if (err.statusCode && err.statusCode == 404) {
+                                fileData = createFileData(newData);
+                                return callback(null, fileData);
+                            } else {
+                                return callback(err);
+                            }
+                        } else if (data.Body.length == 0) {
+                            console.log('inside blank file section : ');
                             fileData = createFileData(newData);
                         } else {
-                            logger.debug("File exists. Checking if file is blank")
-                            var fileSize = fs.statSync(fileName)["size"];
-                            logger.debug("File size is :" + fileSize)
-                            if (fileSize <= 0) {
-                                fileData = createFileData(newData);
-                            }
-
+                            fileData = JSON.parse(data.Body.toString('utf-8'));
                         }
-                        return callback(null, fileData)
+                        return callback(null, fileData);
                     });
+
                 },
                 read_data: ["check_file_or_create", function(results, callback) {
                     // async code to get some data
                     logger.debug("results from check_file_or_create \n" + JSON.stringify(results))
-                    if (results['check_file_or_create'] == '') {
-                        fs.readFile(fileName, 'utf8', function(err, data) {
-                            if (err) return callback(err, "Error");
-                            data = JSON.parse(data)
-                            mainEvent = data.events[newData.eventCode];
-                            if (mainEvent) {
-                                if (!checkIfDuplicateByEmail(mainEvent.registrations, newData.data.email)) {
-                                    mainEvent.registrations.push(newData.data);
-                                } else {
-                                    //Duplicate email id. Can't register
-                                    var errorObj = {
-                                        "key": "data.email",
-                                        "errorCode": "duplicate_email",
-                                        "errorMessage": "Duplicate registration. Another registration record exist with same email id."
-                                    }
-                                    return callback(errorObj);
-                                }
-
-
-                            } else {
-                                //event is not created yet (first registration). Hemce, creating the event
-                                var newEvent = {
-                                    "name": newData.eventName,
-                                    "eventCode": newData.eventCode,
-                                    "registrations": [newData.data]
-                                }
-                                data.events[newData.eventCode] = newEvent;
+                    data = results['check_file_or_create'];
+                    mainEvent = data.events[newData.eventCode];
+                    if (mainEvent) {
+                        if (!checkIfDuplicateByEmail(mainEvent.registrations, newData.data.email)) {
+                            mainEvent.registrations.push(newData.data);
+                        } else {
+                            //Duplicate email id. Can't register
+                            var errorObj = {
+                                "key": "data.email",
+                                "errorCode": "duplicate_email",
+                                "errorMessage": "Duplicate registration. Another registration record exist with same email id."
                             }
-                            return callback(null, data);
+                            return callback(errorObj);
+                        }
 
-                        });
+
                     } else {
-                        var newFileData = results['check_file_or_create'];
-                        logger.debug("new File data \n" + JSON.stringify(newFileData))
-                        newFileData.events[newData.eventCode].registrations.push(newData.data);
-                        return callback(null, newFileData);
+                        //event is not created yet (first registration). Hemce, creating the event
+                        var newEvent = {
+                            "name": newData.eventName,
+                            "eventCode": newData.eventCode,
+                            "registrations": [newData.data]
+                        }
+                        data.events[newData.eventCode] = newEvent;
                     }
+                    return callback(null, data);
 
                 }],
                 write_file: ['read_data', function(results, callback) {
                     logger.debug('in write_file', JSON.stringify(results));
-					var newResults = calculateTotalAdultsAndChildren(results["read_data"]["events"][newData.eventCode].registrations);
-                    fs.writeFile(fileName, JSON.stringify(results["read_data"]), 'utf-8', (err) => {
-                        if (err) callback(err, "Write Error");
-						 return callback(null, newResults);
+                    var newResults = calculateTotalAdultsAndChildren(results["read_data"]["events"][newData.eventCode].registrations);
+                    var params = {
+                        Bucket: config.aws.s3Bucket,
+                        Key: fileName,
+                        ContentEncoding: 'utf-8',
+                        Body: JSON.stringify(results["read_data"]),
+                        "ServerSideEncryption": "AES256"
+                    }
+                    s3.putObject(params, function(err, data) {
+                        if (err) {
+                            callback(err);
+                        } else {
+                            return callback(null, newResults);
+                        }
                     });
-                   
+
                 }]
             }, function(err, results) {
                 if (err) {
@@ -100,8 +111,8 @@ var registration = {
 
                 } else {
                     successObj.email = newData.data.email;
-					successObj.noOfAdults = results['write_file'].noOfAdults?results['write_file'].noOfAdults:"NA";
-					successObj.noOfChildren = results['write_file'].noOfChildren?results['write_file'].noOfChildren:"NA";
+                    successObj.noOfAdults = results['write_file'].noOfAdults ? results['write_file'].noOfAdults : "NA";
+                    successObj.noOfChildren = results['write_file'].noOfChildren ? results['write_file'].noOfChildren : "NA";
                     var totalFee = 0;
                     if (newData.data.membershipFee) {
                         totalFee = parseInt(newData.data.eventFee) + parseInt(newData.data.membershipFee);
@@ -110,7 +121,6 @@ var registration = {
                     }
                     successObj.totalPaymentAmount = totalFee;
                     successObj.paypalPaymentAmount = (totalFee * 1.029 + 0.3).toFixed(2);
-					console.log(JSON.stringify(successObj));
                     res.status(200);
                     res.send(successObj)
                 }
@@ -123,74 +133,80 @@ var registration = {
     },
     getRegisteredMembers: function(req, res, next) {
         try {
-            var fileName = path.resolve(__dirname, '../data') + '/' + req.params.year + '_registration.json';
-            async.auto({
-                check_file_exist: function(callback) {
+            var fileName = req.params.year + '_registration.json';
+            var config = req.globalConfig;
+            var s3 = new aws.S3({
+                "accessKeyId": config.aws.accessKey,
+                "secretAccessKey": config.aws.secretAccessKey
+            });
 
-                    fs.exists(fileName, (exists) => {
-                        var fileData = '';
-                        return callback(null, exists)
+            var params = {
+                "Bucket": config.aws.s3Bucket,
+                "Key": fileName,
 
-                    });
-                },
-                read_data: ["check_file_exist", function(results, callback) {
-                    if (results['check_file_exist']) {
-                        fs.readFile(fileName, 'utf8', function(err, data) {
-                            if (err) return callback(err, "Error");
-                            data = JSON.parse(data)
-                            mainEvent = data.events[req.params.eventCode];
-                            if (mainEvent) {
-                                //prepare return data
-                                var returnObj = {"totalNoOfRegistrations":mainEvent.registrations.length}
-                                var searchByOption = req.query.searchBy;
-                                if(searchByOption){
-                                  var registrations = "";
-                                  if(searchByOption ==="name"){
-                                    registrations = filterSearchResultsByName(mainEvent.registrations,req.query.value);
-                                  }else{
-                                    registrations = filterSearchResultsByExactFieldValue(mainEvent.registrations,req.query.value,searchByOption);
-                                  }
-                                  returnObj["lengthOfSearchResult" ]= registrations.length;
-                                  returnObj["registrations"]=registrations;
-
-                                }else{
-                                  //no search option provided. Hence return full set of data
-                                  returnObj["lengthOfSearchResult" ]= mainEvent.registrations.length;
-                                  returnObj["registrations"]=mainEvent.registrations;
-
-                                }
-								var adultChildrenCount = calculateTotalAdultsAndChildren(mainEvent.registrations);
-								returnObj.noOfChildren= adultChildrenCount.noOfChildren
-								returnObj.noOfAdults= adultChildrenCount.noOfAdults
-                                return callback(null, returnObj);
-
-                            } else {
-                                //event does not exist. throw 404
-                                var returnObj = {"status":404,"message":"There are no registrations available."}
-                                return callback(null, returnObj);
-                            }
-
-
-                        });
-                    } else {
-                        //Registration file does not exist. Throw 404
-                        var returnObj = {"status":404,"message":"There are no registrations available."}
-                        return callback(null, returnObj);
-                    }
-
-                }]
-            }, function(err, results) {
-               var finalResult = results["read_data"];
+            }
+            console.log("params : " + JSON.stringify(params))
+            var fileData = "";
+            s3.getObject(params, function(err, data) {
                 if (err) {
-                    return next(err)
+                    if (err.statusCode && err.statusCode == 404) {
+                        //Registration file does not exist. Throw 404
+                        var returnObj = {
+                            "status": 404,
+                            "message": "There are no registrations available."
+                        }
+                        res.status(404);
+                        return res.send(returnObj);
+                    } else {
+                        return next(err);
+                    }
+                } else if (data.Body.length == 0) {
+                    var returnObj = {
+                        "status": 404,
+                        "message": "There are no registrations available."
+                    }
+                    res.status(404);
+                    return res.send(returnObj);
+                } else {
+                    data = JSON.parse(data.Body.toString('utf-8'));
+                    mainEvent = data.events[req.params.eventCode];
+                    if (mainEvent) {
+                        //prepare return data
+                        var returnObj = {
+                            "totalNoOfRegistrations": mainEvent.registrations.length
+                        }
+                        var searchByOption = req.query.searchBy;
+                        if (searchByOption) {
+                            var registrations = "";
+                            if (searchByOption === "name") {
+                                registrations = filterSearchResultsByName(mainEvent.registrations, req.query.value);
+                            } else {
+                                registrations = filterSearchResultsByExactFieldValue(mainEvent.registrations, req.query.value, searchByOption);
+                            }
+                            returnObj["lengthOfSearchResult"] = registrations.length;
+                            returnObj["registrations"] = registrations;
 
-                } else if(finalResult.status >= 400 && finalResult.status <= 499){
-                  res.status(finalResult.status);
-                  return res.send(finalResult)
+                        } else {
+                            //no search option provided. Hence return full set of data
+                            returnObj["lengthOfSearchResult"] = mainEvent.registrations.length;
+                            returnObj["registrations"] = mainEvent.registrations;
 
-                }else{
-                  res.status(200);
-                  return res.send(finalResult)
+                        }
+                        var adultChildrenCount = calculateTotalAdultsAndChildren(mainEvent.registrations);
+                        returnObj.noOfChildren = adultChildrenCount.noOfChildren
+                        returnObj.noOfAdults = adultChildrenCount.noOfAdults;
+                        res.status(200);
+                        return res.send(returnObj);
+
+                    } else {
+                        //event does not exist. throw 404
+                        var returnObj = {
+                            "status": 404,
+                            "message": "There are no registrations available."
+                        }
+                        res.status(404);
+                        return res.send(returnObj);
+                    }
                 }
             });
         } catch (e) {
@@ -222,36 +238,42 @@ function checkIfDuplicateByEmail(registrationArr, email) {
     }
     return false;
 }
-function filterSearchResultsByExactFieldValue(allRegistartions, value, fieldName){
-  var returnObj = [];
-  for(var i=0; i < allRegistartions.length; i++){
-    if(allRegistartions[i][fieldName] && allRegistartions[i][fieldName] == value){
-      returnObj.push(allRegistartions[i]);
+
+function filterSearchResultsByExactFieldValue(allRegistartions, value, fieldName) {
+    var returnObj = [];
+    for (var i = 0; i < allRegistartions.length; i++) {
+        if (allRegistartions[i][fieldName] && allRegistartions[i][fieldName] == value) {
+            returnObj.push(allRegistartions[i]);
+        }
     }
-  }
-  return returnObj;
+    return returnObj;
 }
-function filterSearchResultsByName(allRegistartions,value){
-  var regExp = new RegExp(".*"+value+".*","i");
-  var returnObj = [];
-  for(var i=0; i < allRegistartions.length; i++){
-    if(regExp.test(allRegistartions[i]["name"])){
-      returnObj.push(allRegistartions[i]);
+
+function filterSearchResultsByName(allRegistartions, value) {
+    var regExp = new RegExp(".*" + value + ".*", "i");
+    var returnObj = [];
+    for (var i = 0; i < allRegistartions.length; i++) {
+        if (regExp.test(allRegistartions[i]["name"])) {
+            returnObj.push(allRegistartions[i]);
+        }
     }
-  }
-  return returnObj;
+    return returnObj;
 }
-function calculateTotalAdultsAndChildren(registrations){
-	
-	var totalChildrenCount = 0;
-	var totalAdultCount = 0;
-	registrations.forEach(function(object,index,arr){
-		if(object.noOfChildren){
-			totalChildrenCount += object.noOfChildren;
-		}
-		totalAdultCount+= object.noOfAdults;
-	});
-	return {"noOfChildren": totalChildrenCount,"noOfAdults" : totalAdultCount}
+
+function calculateTotalAdultsAndChildren(registrations) {
+
+    var totalChildrenCount = 0;
+    var totalAdultCount = 0;
+    registrations.forEach(function(object, index, arr) {
+        if (object.noOfChildren) {
+            totalChildrenCount += object.noOfChildren;
+        }
+        totalAdultCount += object.noOfAdults;
+    });
+    return {
+        "noOfChildren": totalChildrenCount,
+        "noOfAdults": totalAdultCount
+    }
 }
 
 module.exports = registration;
