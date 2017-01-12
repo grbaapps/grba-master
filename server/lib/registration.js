@@ -38,7 +38,7 @@ var registration = {
                                 return callback(err);
                             }
                         } else if (data.Body.length == 0) {
-                            console.log('inside blank file section : ');
+                            logger.debug('inside blank file section : ');
                             fileData = createFileData(newData);
                         } else {
                             fileData = JSON.parse(data.Body.toString('utf-8'));
@@ -145,7 +145,7 @@ var registration = {
                 "Key": fileName,
 
             }
-            console.log("params : " + JSON.stringify(params))
+            logger.debug("params : " + JSON.stringify(params))
             var fileData = "";
             s3.getObject(params, function(err, data) {
                 if (err) {

@@ -9,6 +9,6 @@ var tarnsportConfig = {
           maxfiles:3
       }
 var logger = new (winston.Logger)({
-  transports: [new (winston.transports.File)(tarnsportConfig)],
+  transports: [new (winston.transports.File)(tarnsportConfig),new (winston.transports.Console)()],
   level: process.env.debugLevel || 'warn' });
 module.exports = logger;
