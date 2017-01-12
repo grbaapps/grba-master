@@ -38,7 +38,7 @@ var registration = {
                                 return callback(err);
                             }
                         } else if (data.Body.length == 0) {
-                            ogger.debug('inside blank file section : ');
+                            logger.debug('inside blank file section : ');
                             fileData = createFileData(newData);
                         } else {
                             fileData = JSON.parse(data.Body.toString('utf-8'));
