@@ -3,7 +3,9 @@
   "description": "GRBA Angular App",
   "version": "0.0.1",
   "private": true,
-  "start": "node server",
+  "scripts": {
+    "start": "node server/server.js"
+  },
   "dependencies": {
     "async": "^2.1.4",
     "aws-sdk": "^2.7.21",
