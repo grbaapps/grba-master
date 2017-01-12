@@ -1,23 +1,17 @@
 {
-  "name": "grba-app-server",
-  "description": "Back end server to support grba angular app",
+  "name": "grba-app",
+  "description": "GRBA Angular App",
   "version": "0.0.1",
   "private": true,
-  "engines": {
-    "node": "5.10.1"
-  },
-  "scripts": {
-    "start": "node server/server.js"
-  },
+  "start": "node server",
   "dependencies": {
     "async": "^2.1.4",
+    "aws-sdk": "^2.7.21",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-namespace": "~0.1.1",
-    "grunt": "0.4.5",
-    "grunt-cli": "1.2.0",
     "moment": "^2.17.1",
     "passport": "~0.1.12",
     "passport-local": "~0.1.6",
