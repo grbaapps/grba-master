@@ -23,5 +23,10 @@ module.exports = {
 	  "single":15,
 	  "family":25
   },
-  "searchByOptions" : ["email","name","sponsorshipCategory"]
+  "searchByOptions" : ["email","name","sponsorshipCategory"],
+  aws:{
+	  accessKey:"",
+	  secretAccessKey:"",
+	  s3Bucket:"grba-bucket"
+  }
 };
