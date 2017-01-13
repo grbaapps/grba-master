@@ -13,10 +13,12 @@ var registration = {
     register: function(req, res, next) {
         var config = req.globalConfig;
         var s3 = new aws.S3({
-            "accessKeyId": config.aws.accessKey,
-            "secretAccessKey": config.aws.secretAccessKey
+            "accessKeyId": process.env.accessKey,
+            "secretAccessKey": process.env.secretAccessKey
         });
         try {
+            logger.info("*****The accessKeyId is : "+process.env.accessKey);
+            logger.info("*****The secretAccessKey is : "+process.env.accessKey);
             var newData = req.body;
 
             logger.debug("request body : " + JSON.stringify(newData))
@@ -136,8 +138,8 @@ var registration = {
             var fileName = req.params.year + '_registration.json';
             var config = req.globalConfig;
             var s3 = new aws.S3({
-                "accessKeyId": config.aws.accessKey,
-                "secretAccessKey": config.aws.secretAccessKey
+                "accessKeyId": process.env.accessKey,
+                "secretAccessKey": process.env.secretAccessKey
             });
 
             var params = {
@@ -145,6 +147,8 @@ var registration = {
                 "Key": fileName,
 
             }
+            logger.info("*****The accessKeyId is : "+process.env.accessKey);
+            logger.info("*****The secretAccessKey is : "+process.env.accessKey);
             logger.debug("params : " + JSON.stringify(params))
             var fileData = "";
             s3.getObject(params, function(err, data) {
