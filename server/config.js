@@ -25,8 +25,6 @@ module.exports = {
   },
   "searchByOptions" : ["email","name","sponsorshipCategory"],
   aws:{
-	  accessKey:"AKIAILF62BIU6CU7ZJSA",
-	  secretAccessKey:"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",
 	  s3Bucket:"grba-event-registrations"
   }
 };
