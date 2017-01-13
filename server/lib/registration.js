@@ -18,7 +18,7 @@ var registration = {
         });
         try {
             logger.info("*****The accessKeyId is : "+process.env.accessKey);
-            logger.info("*****The secretAccessKey is : "+process.env.accessKey);
+            logger.info("*****The secretAccessKey is : "+process.env.secretAccessKey);
             var newData = req.body;
 
             logger.debug("request body : " + JSON.stringify(newData))
@@ -148,7 +148,7 @@ var registration = {
 
             }
             logger.info("*****The accessKeyId is : "+process.env.accessKey);
-            logger.info("*****The secretAccessKey is : "+process.env.accessKey);
+            logger.info("*****The secretAccessKey is : "+process.env.secretAccessKey);
             logger.debug("params : " + JSON.stringify(params))
             var fileData = "";
             s3.getObject(params, function(err, data) {
