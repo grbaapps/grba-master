@@ -100,14 +100,46 @@
          "food":{
             "1":{
                "lunch":{
-                  "veg":"Rice, Daal",
-                  "nonVeg":"Chicken",
-                  "kid":"Luchi"
+                  "itemsForAdults":[
+                     "Misti Polao",
+                     "Dhokar Dalna",
+                     "Aloor Dum",
+                     "Tomato Chutney",
+                     "Misti Doi"
+                  ],
+                  "itemsForKids":[
+                     "Misti Polao",
+                     "Aloor Dum",
+                     "Brownie",
+                     "Juice"
+                  ]
+               },
+               "eveningSnacks":{
+                  "itemsForAdults":[
+                     "Singara",
+                     "Tea/Coffee",
+                     "Biscuit"
+                  ],
+                  "itemsForKids":[
+                     "Chips",
+                     "Gold Fish"
+                  ]
                },
                "dinner":{
-                  "veg":"Paneer",
-                  "nonVeg":"Biriyani, Mutton",
-                  "kid":"Kachuri,pizza"
+                  "itemsForAdults":[
+                     "Jira Rice",
+                     "Moong Daal",
+                     "Beguni",
+                     "Butter Paneer",
+                     "Chicken Kosa",
+                     "Goat Korma",
+                     "Sweet Bondia"
+                  ],
+                  "itemsForKids":[
+                     "Chicken Pasta",
+                     "Brownie",
+                     "Juice"
+                  ]
                }
             }
          },
@@ -116,29 +148,28 @@
                {
                   "label":"Puja Starts & Dagger",
                   "time":"10:00 am",
-				  "order" : 1
+                  "order":1
                },
                {
                   "label":"Prasad Distribution",
                   "time":"12:00 pm",
-				  "order" : 2
+                  "order":2
                },
                {
                   "label":"Lunch",
                   "time":"1:00 pm",
-				  "order" : 3
+                  "order":3
                },
-			   {
+               {
                   "label":"Dinner",
                   "time":"8:00 pm",
-				  "order" : 5
+                  "order":5
                },
                {
                   "label":"Evening Snacks",
                   "time":"5:00 pm",
-				  "order" : 4
+                  "order":4
                }
-
             ]
          },
          "culturalPrograms":{
