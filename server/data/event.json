@@ -28,8 +28,8 @@
                "members":"Bhaswati Datta,Reshmi Ghosh,Trina Dutta"
             },
             "pujaDecorations":{
-               "htmlLabel":"Puja Decoration",
-               "members":"Sanghamitra Gayali,Dilip Chakravarty,Swati Neogi,Debarati Pradhan,Ridhi Biswas Mukherjee"
+               "htmlLabel":"Decoration",
+               "members":"Dilip Chakravarty,Swati Neogi,Debarati Pradhan"
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
@@ -37,7 +37,7 @@
             },
             "facilitiesCoordinator":{
                "htmlLabel":"Sound Coordinator",
-               "members":"Tapabrata Pal,Ashish Roy,Arjoo Bandopadhyay"
+               "members":"Tapabrata Pal,Ashish Roy"
             },
             "registrationAndFrontDesk":{
                "htmlLabel":"Front Desk",
@@ -138,7 +138,7 @@
                   "time":"5:00 pm",
 				  "order" : 4
                }
-               
+
             ]
          },
          "culturalPrograms":{
