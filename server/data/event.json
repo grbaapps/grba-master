@@ -98,18 +98,20 @@
             }
          },
          "food":{
-            "1":{
-               "lunch":{
+            "1":[
+              {
+                  "foodtype":"lunch",
                   "veg":"Rice, Daal",
                   "nonVeg":"Chicken",
                   "kid":"Luchi"
                },
-               "dinner":{
+               {
+                  "foodtype":"dinner",
                   "veg":"Paneer",
                   "nonVeg":"Biriyani, Mutton",
                   "kid":"Kachuri,pizza"
                }
-            }
+            ]
          },
          "eventsOfTheday":{
             "1":[
@@ -138,7 +140,7 @@
                   "time":"5:00 pm",
 				  "order" : 4
                }
-               
+
             ]
          },
          "culturalPrograms":{

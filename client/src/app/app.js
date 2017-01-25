@@ -67,14 +67,22 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-    
+
+    var foodItems = eventService.getEventDetails();
+    foodItems.then(function(value) {
+      var now = moment();
+        $scope.foodItems = value;
+    }, function(reason) {
+        $scope.error = reason;
+    });
+
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
     }, function(reason) {
         $scope.error = reason;
-    });        
-        
+    });
+
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);
