@@ -97,52 +97,52 @@
                }
             }
          },
-         "food":{
-            "1":{
-               "lunch":{
-                  "itemsForAdults":[
-                     "Misti Polao",
-                     "Dhokar Dalna",
-                     "Aloor Dum",
-                     "Tomato Chutney",
-                     "Misti Doi"
-                  ],
-                  "itemsForKids":[
-                     "Misti Polao",
-                     "Aloor Dum",
-                     "Brownie",
-                     "Juice"
-                  ]
-               },
-               "eveningSnacks":{
-                  "itemsForAdults":[
-                     "Singara",
-                     "Tea/Coffee",
-                     "Biscuit"
-                  ],
-                  "itemsForKids":[
-                     "Chips",
-                     "Gold Fish"
-                  ]
-               },
-               "dinner":{
-                  "itemsForAdults":[
-                     "Jira Rice",
-                     "Moong Daal",
-                     "Beguni",
-                     "Butter Paneer",
-                     "Chicken Kosa",
-                     "Goat Korma",
-                     "Sweet Bondia"
-                  ],
-                  "itemsForKids":[
-                     "Chicken Pasta",
-                     "Brownie",
-                     "Juice"
-                  ]
-               }
-            }
-         },
+         "food": {
+   				"1": [{
+   					"itemtype": "lunch",
+   					"itemsForAdults": [
+   						"Misti Polao",
+   						"Dhokar Dalna",
+   						"Aloor Dum",
+   						"Tomato Chutney",
+   						"Misti Doi"
+   					],
+   					"itemsForKids": [
+   						"Misti Polao",
+   						"Aloor Dum",
+   						"Brownie",
+   						"Juice"
+   					]
+   				}, {
+   					"itemtype": "evening Snacks",
+   					"itemsForAdults": [
+   						"Singara",
+   						"Tea/Coffee",
+   						"Biscuit"
+   					],
+   					"itemsForKids": [
+   						"Chips",
+   						"Gold Fish"
+   					]
+   				}, {
+   					"itemtype": "dinner",
+   					"itemsForAdults": [
+   						"Jira Rice",
+   						"Moong Daal",
+   						"Beguni",
+   						"Butter Paneer",
+   						"Chicken Kosa",
+   						"Goat Korma",
+   						"Sweet Bondia"
+   					],
+   					"itemsForKids": [
+   						"Chicken Pasta",
+   						"Brownie",
+   						"Juice"
+   					]
+   				}
+          ]
+   			},
          "eventsOfTheday":{
             "1":[
                {
