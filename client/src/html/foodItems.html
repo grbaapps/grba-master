@@ -11,7 +11,7 @@
                     <div class="row" >
                         <div class="col-sm-3" ng-repeat="items in foodItems.food | toArray | orderBy: '$key'">
 							<ul ng-repeat="eachEvent in items | orderBy: 'order'">
-                            <h4>{{eachEvent.foodtype}}</h4>
+                            <h3>{{eachEvent.itemtype}}</h3>
 							                <li>For Adults : {{eachEvent.itemsForAdults.join(',')}}</li>
 							  <li>For Kids : {{eachEvent.itemsForKids.join(',')}}</li>
                             </ul>
