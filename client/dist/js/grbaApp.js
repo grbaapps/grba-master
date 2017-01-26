@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-01-16
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-01-25
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -72,14 +72,22 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
+
+    var foodItems = eventService.getFoodItems();
+    foodItems.then(function(value) {
+      var now = moment();
+        $scope.foodItems = value;
+    }, function(reason) {
+        $scope.error = reason;
+    });
     
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
     }, function(reason) {
         $scope.error = reason;
-    });        
-        
+    });
+
  });
   //$scope.currentEvent = eventService.getCurrentEvent();
   $log.info($scope);
@@ -106,30 +114,44 @@ angular.module('contact', []).controller('contactController', ['$scope', '$http'
 
 }]);
 angular.module('event',[]).service('eventService', function($http, $log, $q) {
-   
+
     this.getCurrentEvent =  function() {
          var deferred = $q.defer();
         $http.get('/api/currentEvent')
             .success(function(data) {
-                
+
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-                
+
             });
 
         return deferred.promise;
     };
-    
+
     this.getEventDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/eventDetails')
             .success(function(data) {
-                
+
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-                
+
+            });
+
+        return deferred.promise;
+    };
+
+    this.getFoodItems =  function() {
+         var deferred = $q.defer();
+        $http.get('/api/eventDetails')
+            .success(function(data) {
+
+                //this.currentEvent = data;
+                deferred.resolve(data);
+                //$log.info(data);
+
             });
 
         return deferred.promise;
@@ -139,17 +161,18 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
          var deferred = $q.defer();
         $http.get('/api/registration/year/2017/event/SP')
             .success(function(data) {
-                
+
                 //this.currentEvent = data;
                 deferred.resolve(data);
                 //$log.info(data);
-                
+
             });
 
         return deferred.promise;
     };
-    
+
 });
+
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
