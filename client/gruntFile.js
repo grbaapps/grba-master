@@ -135,7 +135,21 @@ module.exports = function (grunt) {
         options: {
           process: true
         }
-      },        
+      },  
+     foodItems: {
+        src: ['src/html/foodItems.html'],
+        dest: '<%= distdir %>/html/foodItems.html',
+        options: {
+          process: true
+        }
+      },  
+     registeredMembers: {
+        src: ['src/html/registeredMembers.html'],
+        dest: '<%= distdir %>/html/registeredMembers.html',
+        options: {
+          process: true
+        }
+      },          
      about: {
         src: ['src/html/about.html'],
         dest: '<%= distdir %>/html/about.html',
