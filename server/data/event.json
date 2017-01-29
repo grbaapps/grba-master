@@ -13,7 +13,7 @@
             "state":"VA",
             "zip":"23236"
          },
-         "lastOnlineDateRegistration":"02-03-2017 11:59:59",
+         "lastOnlineDateRegistration":"02-04-2017 11:59:59",
          "committeeMembers":{
             "pujaCommittee":{
                "htmlLabel":"Puja Committee",
@@ -49,7 +49,7 @@
             }
          },
          "earlyBird":{
-            "date":"01-29-2017 11:59:59",
+            "date":"01-29-2017 23:59:59",
             "fee":{
                "student":{
                   "member":{
