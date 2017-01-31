@@ -13,7 +13,7 @@
             "state":"VA",
             "zip":"23236"
          },
-         "lastOnlineDateRegistration":"02-03-2017 23:59:59",
+         "lastOnlineDateRegistration":"02-04-2017 11:59:59",
          "committeeMembers":{
             "pujaCommittee":{
                "htmlLabel":"Puja Committee",
@@ -146,29 +146,44 @@
          "eventsOfTheday":{
             "1":[
                {
-                  "label":"Puja Starts & Dagger",
-                  "time":"10:00 am",
+                  "label":"Puja",
+                  "time":"10:00 am to 12:00 pm",
                   "order":1
                },
-               {
-                  "label":"Prasad Distribution",
-                  "time":"12:00 pm",
+			   {
+                  "label":"Kids corner",
+                  "time":"11:00 am to 12:00 pm",
                   "order":2
                },
-               {
-                  "label":"Lunch",
-                  "time":"1:00 pm",
+			   {
+                  "label":"Hatekhori & Puspanjali",
+                  "time":"12:00 pm to 12:30 pm",
                   "order":3
                },
                {
-                  "label":"Dinner",
-                  "time":"8:00 pm",
+                  "label":"Prasad Distribution",
+                  "time":"12:00 pm to 1:00 pm",
+                  "order":4
+               },
+               {
+                  "label":"Bhog (lunch)",
+                  "time":"1:00 pm to 2.30 pm",
                   "order":5
                },
                {
+                  "label":"Dinner for all",
+                  "time":"8:30 pm to 10:00 pm",
+                  "order":8
+               },
+               {
                   "label":"Evening Snacks",
-                  "time":"5:00 pm",
-                  "order":4
+                  "time":"5:00 pm  to 6:00 pm",
+                  "order":6
+               },
+			   {
+                  "label":"Cultural Program",
+                  "time":"6:00 pm to 8:00 pm",
+                  "order":7
                }
             ]
          },
@@ -176,7 +191,7 @@
             "1":[
                {
                   "order":2,
-                  "time":"07:00 pm",
+                  "time":"06:00 pm",
                   "duration":"30m",
                   "participants":[
                      "names"
