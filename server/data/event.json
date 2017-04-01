@@ -230,17 +230,17 @@
          },
          "lastOnlineDateRegistration":"04-22-2017 16:00:00",
          "earlyBird":{
-            "date":"04-15-2017 23:59:59",
+            "date":"04-19-2017 23:59:59",
             "fee":{
                "student":{
                   "member":{
-                     "single":50,
-                     "family":60
-                  },
+                    "single":25,
+                    "family":45
+                 },
                   "nonmember":{
-                     "single":70,
-                     "family":80
-                  }
+                    "single":30,
+                    "family":50
+                 }
                },
                "nonStudent":{
                   "member":{
@@ -258,13 +258,13 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":130,
-                     "family":140
-                  },
+                      "single":30,
+                      "family":50
+                   },
                   "nonmember":{
-                     "single":150,
-                     "family":160
-                  }
+                      "single":35,
+                      "family":55
+                   }
                },
                "nonStudent":{
                   "member":{
