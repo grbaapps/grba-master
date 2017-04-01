@@ -17,15 +17,15 @@ var event = {
         var currentYear =  new Date().getFullYear();
         var response = "{}";
         //This needs to be modified to get the current year and then filter on that
-        if (obj[currentYear]["SP"]["isCurrentEvent"]) {
+        if (obj[currentYear]["SP"]["isCurrentEvent"] == "Y") {
             response = obj[currentYear]["SP"];
-        } else if (obj[currentYear]["DP"]["isCurrentEvent"]) {
-            response = obj[currentYear]["DP"];
-        } else if (obj[currentYear]["AP"]["isCurrentEvent"]) {
-            response = obj[currentYear]["AP"];
-        } else if (obj[currentYear]["PB"]["isCurrentEvent"]) {
+        } else if (obj[currentYear]["PB"]["isCurrentEvent"] == "Y") {
             response = obj[currentYear]["PB"];
-        }
+        } else if (obj[currentYear]["DP"]["isCurrentEvent"] == "Y") {
+            response = obj[currentYear]["DP"];
+        } else if (obj[currentYear]["AP"]["isCurrentEvent"] == "Y") {
+            response = obj[currentYear]["AP"];
+        } 
         //res.json(result);
         res.json(response);
     }
