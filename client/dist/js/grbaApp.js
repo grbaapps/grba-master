@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-01-29
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-04-01
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -159,7 +159,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
     
      this.getRegistrationDetails =  function() {
          var deferred = $q.defer();
-        $http.get('/api/registration/year/2017/event/SP')
+        $http.get('/api/registration/year/2017/event/PB')
             .success(function(data) {
 
                 //this.currentEvent = data;
