@@ -260,12 +260,12 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":25,
-                     "family":45
+                     "single":15,
+                     "family":30
                   },
                   "nonmember":{
-                     "single":30,
-                     "family":50
+                     "single":20,
+                     "family":35
                   }
                },
                "nonStudent":{
@@ -282,16 +282,16 @@
          },
          "afterEarlyBird":{
             "fee":{
-               "student":{
-                  "member":{
-                     "single":30,
-                     "family":50
-                  },
-                  "nonmember":{
-                     "single":35,
-                     "family":55
-                  }
-               },
+                "student":{
+                   "member":{
+                      "single":20,
+                      "family":35
+                   },
+                   "nonmember":{
+                      "single":25,
+                      "family":40
+                   }
+                },
                "nonStudent":{
                   "member":{
                      "single":30,
