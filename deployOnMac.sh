@@ -57,8 +57,9 @@ rm -rf ./grba-master
 # clone and build app
 git clone https://github.com/abhiunc/grba-master
 
-npm config set https-proxy http://kav887:Rishi2016@proxy.kdc.capitalone.com:8099
-npm config set proxy http://kav887:Rishi2016@proxy.kdc.capitalone.com:8099
+# enable proxy if needed
+# npm config set https-proxy http://{username}:{password}@{proxy_host}:{proxy_port}
+# npm config set proxy http://{username}:{password}@{proxy_host}:{proxy_port}
 
 # install packages for server
 cd grba-master/server
