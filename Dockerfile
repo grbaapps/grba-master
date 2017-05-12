@@ -1,5 +1,6 @@
 # This is derived from Base Image  node:boron
 FROM  node:boron
+# FROM dockerfile/nodejs-bower-grunt
 LABEL maintainer Abhishek Ghosh
 
 RUN mkdir -p /usr/src/app
