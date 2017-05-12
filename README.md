@@ -9,21 +9,11 @@
 Building GRBA web application as a single page Angular (SPA) application with Node.JS backend.
 
 ## TODO List
-* Add routes to go to different pages from header - Abhishek
 * Refactor index.html to use views instead of ng-include - Abhishek
-* Review Angularjs code and refactor as needed - Abhishek - reviewed by Surajit
-* Refactor server/registration code to add more validations- Pritam
-* Setup json data for Saraswati Puja 2017 event
-* Change client/dist/html/event.html to consume json data
 * Update client/src/html/sponsor.html with the correct data
 * Stretch - Add bower to manage client dependencies - Abhishek
 * Stretch - Add gulpfile.js - Abhishek
-* New Registration functionality (POST only) - Pritam
-* Define New Registration POST spec in github - Pritam
-* Validation of input data for Registration service POST - Pritam
-* Log framework for service layer - Pritam
-* Exception handling - Pritam
-* Capture member information in a separate json file from registration. This file would use email as unique key. During registration, member record would be updated if exists against the email address. Otherwise, a new entry would be added. The attributes for the member object are: email, firstName, lastName, spouceFirstName, spouceLastName, phone, mobile, address (optional). The attributes for registration object would be eventId, email, firstName, lastName, noAdult, noChildren, status: (family | single), eventFee, membershipFee, sponsrshipStatus: (platinum | gold | silver | broze), and note.
+\* Capture member information in a separate json file from registration. This file would use email as unique key. During registration, member record would be updated if exists against the email address. Otherwise, a new entry would be added. The attributes for the member object are: email, firstName, lastName, spouceFirstName, spouceLastName, phone, mobile, address (optional). The attributes for registration object would be eventId, email, firstName, lastName, noAdult, noChildren, status: (family | single), eventFee, membershipFee, sponsrshipStatus: (platinum | gold | silver | broze), and note.
 * Survey support. It is going to be a list of questions with yes/no ansers. The object representation could be something like: id, question (text), noCount, yesCount. Survey can be added as a part of registration. This is nice to have for Saraswati Puja launch.
 * Experiemnt color scheme, something representtaive of Bengal like color of 'ranga mati' and white. The current UI trend is white and one color shade. The current background sketches can be replaced with 'alpanas'. 
 * Picture carousel shirinks too much when viewed on iPhone in vertical orientation. Needs to be addressed.
