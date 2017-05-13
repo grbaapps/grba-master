@@ -75,7 +75,7 @@ echo "app built"
 
 # move out of devexchange directory
 pwd
-cd ../..
+cd ..
 
 if [[ $(docker ps --filter=name="grbaweb") == *"grbaweb"* ]]; then
 echo "stop grbaweb"
@@ -88,7 +88,7 @@ echo "clean stopped containers"
 fi
 
 echo "build"
-docker build --no-cache=true -t grbaweb:latest grbaweb
+docker build --no-cache=true -t grbaweb:latest .
 
 if [[ $(docker ps --filter=name="grbaweb") == *"grbaweb"* ]]; then
 echo "stop grbaweb"
