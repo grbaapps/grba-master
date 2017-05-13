@@ -21,7 +21,7 @@
                         <div class="contact-text">
                             <h3>Address: </h3><span>{{eventDetails.address.street}}</span>
                             <br \><span>{{eventDetails.address.city}}</span>
-                            <br \><span>{{eventDetails.address.state}}</span><span>,{{eventDetails.address.zip}}</span>
+                            <br \><span>{{eventDetails.address.state}}</span><span>,&nbsp;{{eventDetails.address.zip}}</span>
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -35,12 +35,14 @@
                     <div class="col-sm-4">
                         <div class="contact-text">
                             <h3>Registration Summary: </h3>
-                            <span>Total - {{registrationDetails.totalNoOfRegistrations}}, &nbsp;
+
+                            <span>Total Registration - {{registrationDetails.totalNoOfRegistrations}}, <br>
                                 Adults - {{registrationDetails.noOfAdults}} , &nbsp; Children - {{registrationDetails.noOfChildren}}</span>
-                            
-                            <button type="button" class="btn-primary btn-md" data-toggle="modal" data-target="#registeredMembers">
+                            <br>
+                                <button type="button" class="btn-primary btn-md" data-toggle="modal" data-target="#registeredMembers">
                                             <i class="fa"></i> <span>DETAILS</span>
-                                        </button>
+                                </button>
+                            
                         </div>
                         <div class="contact-text">
                             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrationModal">
@@ -53,24 +55,27 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="row">
+                                
                                 <div class="col-sm-6">
                                     <div class="single-event">
-                                        <!-- <img class="img-responsive" src="images/event/grba-event2.jpg" data-toggle="modal" data-target="#culturalModal" alt="event-image">
-                                        <h4 data-toggle="modal" data-target="#culturalModal">Cultural Program</h4>
-                                        <h5></h5>-->
-                                        <img class="img-responsive" src="images/event/grba-event2.jpg" alt="event-image">
-                                        <h4>Cultural</h4>
+                                        <!--<img data-toggle="modal" data-target="#foodItems" class="img-responsive" src="images/event/grba-event3.jpg" alt="event-image">
+                                        
+                                        <br>-->
+                                        <img class="img-responsive" src="images/event/grba-barbeque.jpg" alt="event-image">
+                                        <h4 style="display:inline;">Food</h4> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <!--<button type="button" class="btn-primary btn-md" data-toggle="modal" data-target="#foodItems">
+                                            <i class="fa"></i> <span>DETAILS</span>
+                                        </button>-->
                                         <h5></h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="single-event">
-                                        <img data-toggle="modal" data-target="#foodItems" class="img-responsive" src="images/event/grba-event3.jpg" alt="event-image">
-                                        <br>
-                                        <h4 style="display:inline;">Food</h4> &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <!--<button type="button" class="btn-primary btn-md" data-toggle="modal" data-target="#foodItems">
-                                            <i class="fa"></i> <span>DETAILS</span>
-                                        </button>-->
+                                        <!-- <img class="img-responsive" src="images/event/grba-event2.jpg" data-toggle="modal" data-target="#culturalModal" alt="event-image">
+                                        <h4 data-toggle="modal" data-target="#culturalModal">Cultural Program</h4>
+                                        <h5></h5>-->
+                                        <img class="img-responsive" src="images/event/grba-event6.jpg" alt="event-image">
+                                        <h4>Sports</h4>
                                         <h5></h5>
                                     </div>
                                 </div>
@@ -135,6 +140,13 @@
                             </ul>
 
                         </div>
+                        <div class="contact-text">
+                            <h3>{{eventDetails.committeeMembers.sportsCommittee.htmlLabel}}</h3>
+                            <ul>
+                                <li ng-repeat="member in eventDetails.committeeMembers.sportsCommittee.members.split(',')">{{member}}</li>
+                            </ul>
+
+                        </div>                        
                     </div>
                     <div class="col-sm-2">
                         <div class="contact-text">
