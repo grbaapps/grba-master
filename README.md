@@ -77,8 +77,6 @@ Configure the docker proxy settings (if needed):
 
 Open a browser and type [http://localhost:8888](http://localhost:8888) to view the website running on a docker container
 
-### Select the right bower dependencies
-
 
 ## Local Development - Manual
 
