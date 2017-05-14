@@ -85,7 +85,10 @@ echo "clean stopped containers"
  docker rm $(docker ps --filter=status=exited --filter=status=created -q)
 fi
 
-echo "build"
+echo "docker build"
+# Set proxy if needed
+# docker build --no-cache=true --build-arg HTTPS_PROXY=http://{username}:{password}@{proxy_host}:{proxy_port} --build-arg HTTP_PROXY=http://{username}:{password}@{proxy_host}:{proxy_port} -t grbaweb:latest .
+# Use this is there is no proxy
 docker build --no-cache=true -t grbaweb:latest .
 
 if [[ $(docker ps --filter=name="grbaweb") == *"grbaweb"* ]]; then
