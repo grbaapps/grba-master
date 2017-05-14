@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Building GRBA web application as a single page Angular (SPA) application with Node.JS backend.
+Building GRBA web application as a Single Page Angular (SPA) application with Node.JS backend.
 
 ## TODO List
 * Refactor index.html to use views instead of ng-include - Abhishek
@@ -18,7 +18,7 @@ Building GRBA web application as a single page Angular (SPA) application with No
 * Experiemnt color scheme, something representtaive of Bengal like color of 'ranga mati' and white. The current UI trend is white and one color shade. The current background sketches can be replaced with 'alpanas'. 
 * Picture carousel shirinks too much when viewed on iPhone in vertical orientation. Needs to be addressed.
 * The menu list on iPhone stays open after clicking an item. It should close.
-* Integrate Paypal payment with registration process.
+
 
 
 
@@ -41,10 +41,41 @@ It is a complete project with a build system focused on AngularJS apps and tight
 * test are executed by [Karma Test Runner](http://karma-runner.github.io/0.8/index.html) (integrated with the Grunt.js build)
 * build supporting JS, CSS and AngularJS templates minification
 * [Twitter's bootstrap](http://getbootstrap.com/) with LESS templates processing integrated into the build
-* [Travis-CI](https://travis-ci.org/) integration
+* [Circle-CI](https://circleci.com/) integration
 * PostgreSQL access is configured to use pg-promise package [pg-promise](https://www.npmjs.com/package/pg-promise)
 
-## Installation
+## Local Development - Docker
+
+### Indtallation
+
+Install [docker for Mac](https://docs.docker.com/docker-for-mac/).
+
+> __NOTE:__ at this time there are two docker installation options
+for Mac: "Docker for Mac" and "Docker Toolbox for Mac". Make sure
+you install "Docker for Mac" and that you don't have "Docker Toolbox for Mac" already installed.
+
+Configure the docker proxy settings (if needed):
+
+- Click on the docker toolbar icon and select `Preferences`
+- Click the `Advanced` tab
+- Enter the proxy settings.
+
+### Get the code and execute
+```
+curl -LJO https://raw.githubusercontent.com/grbaapps/grba-master/master/deployOnMac.sh
+chmod 777 deployOnMac.sh
+# set proxy information if needed
+./deployOnMac.sh
+# check if the docker image is running
+docker container ps
+```
+
+Open a browser and type [http://localhost:8888](http://localhost:8888) to view the website running on a docker container
+
+### Select the right bower dependencies
+
+
+## Local Development - Manual
 
 ### Platform & tools
 

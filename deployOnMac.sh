@@ -67,8 +67,6 @@ npm install
 
 # install packages for client
 cd ../client
-echo "bower install"
-bower install
 grunt build
 
 echo "app built"
