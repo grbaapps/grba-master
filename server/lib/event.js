@@ -21,10 +21,10 @@ var event = {
             response = obj[currentYear]["SP"];
         } else if (obj[currentYear]["PB"]["isCurrentEvent"] == "Y") {
             response = obj[currentYear]["PB"];
-        } else if (obj[currentYear]["DP"]["isCurrentEvent"] == "Y") {
-            response = obj[currentYear]["DP"];
         } else if (obj[currentYear]["AP"]["isCurrentEvent"] == "Y") {
             response = obj[currentYear]["AP"];
+        } else if (obj[currentYear]["DP"]["isCurrentEvent"] == "Y") {
+            response = obj[currentYear]["DP"];
         } 
         //res.json(result);
         res.json(response);

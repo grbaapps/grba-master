@@ -6,29 +6,19 @@
 
 ## Purpose
 
-Building GRBA web application as a single page Angular (SPA) application with Node.JS backend.
+Building GRBA web application as a Single Page Angular (SPA) application with Node.JS backend.
 
 ## TODO List
-* Add routes to go to different pages from header - Abhishek
-* Refactor index.html to use views instead of ng-include - Abhishek
-* Review Angularjs code and refactor as needed - Abhishek - reviewed by Surajit
-* Refactor server/registration code to add more validations- Pritam
-* Setup json data for Saraswati Puja 2017 event
-* Change client/dist/html/event.html to consume json data
 * Update client/src/html/sponsor.html with the correct data
-* Stretch - Add bower to manage client dependencies - Abhishek
-* Stretch - Add gulpfile.js - Abhishek
-* New Registration functionality (POST only) - Pritam
-* Define New Registration POST spec in github - Pritam
-* Validation of input data for Registration service POST - Pritam
-* Log framework for service layer - Pritam
-* Exception handling - Pritam
+* Add PayPal payment in contact page - Abhishek
 * Capture member information in a separate json file from registration. This file would use email as unique key. During registration, member record would be updated if exists against the email address. Otherwise, a new entry would be added. The attributes for the member object are: email, firstName, lastName, spouceFirstName, spouceLastName, phone, mobile, address (optional). The attributes for registration object would be eventId, email, firstName, lastName, noAdult, noChildren, status: (family | single), eventFee, membershipFee, sponsrshipStatus: (platinum | gold | silver | broze), and note.
 * Survey support. It is going to be a list of questions with yes/no ansers. The object representation could be something like: id, question (text), noCount, yesCount. Survey can be added as a part of registration. This is nice to have for Saraswati Puja launch.
 * Experiemnt color scheme, something representtaive of Bengal like color of 'ranga mati' and white. The current UI trend is white and one color shade. The current background sketches can be replaced with 'alpanas'. 
 * Picture carousel shirinks too much when viewed on iPhone in vertical orientation. Needs to be addressed.
 * The menu list on iPhone stays open after clicking an item. It should close.
-* Integrate Paypal payment with registration process.
+* Stretch - Refactor index.html to use views instead of ng-include - Abhishek
+* Stretch - Add bower to manage client dependencies - Abhishek
+* Stretch - Add gulpfile.js - Abhishek
 
 
 
@@ -51,10 +41,44 @@ It is a complete project with a build system focused on AngularJS apps and tight
 * test are executed by [Karma Test Runner](http://karma-runner.github.io/0.8/index.html) (integrated with the Grunt.js build)
 * build supporting JS, CSS and AngularJS templates minification
 * [Twitter's bootstrap](http://getbootstrap.com/) with LESS templates processing integrated into the build
-* [Travis-CI](https://travis-ci.org/) integration
+* [Circle-CI](https://circleci.com/) integration
 * PostgreSQL access is configured to use pg-promise package [pg-promise](https://www.npmjs.com/package/pg-promise)
 
-## Installation
+## Local Development - Docker
+
+### Indtallation
+
+Install [docker for Mac](https://docs.docker.com/docker-for-mac/).
+
+> __NOTE:__ at this time there are two docker installation options
+for Mac: "Docker for Mac" and "Docker Toolbox for Mac". Make sure
+you install "Docker for Mac" and that you don't have "Docker Toolbox for Mac" already installed.
+
+Configure the docker proxy settings (if needed):
+
+- Click on the docker toolbar icon and select `Preferences`
+- Click the `Advanced` tab
+- Enter the proxy settings.
+
+### Get the code and execute
+```
+curl -LJO https://raw.githubusercontent.com/grbaapps/grba-master/master/deployOnMac.sh
+chmod 777 deployOnMac.sh
+# set proxy information if needed
+./deployOnMac.sh
+# check if the docker image is running
+docker container ps
+```
+
+Configure the docker proxy settings (if needed):
+
+- Uncomment lines 61 and 62 to enable proxy settings to get local npm dependencies if you are running behind the proxy
+- Uncomment line 90 and comment line 92 to enable proxy settings to to build the doker image if you are running behind the proxy
+
+Open a browser and type [http://localhost:8888](http://localhost:8888) to view the website running on a docker container
+
+
+## Local Development - Manual
 
 ### Platform & tools
 
