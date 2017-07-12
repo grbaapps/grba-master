@@ -142,7 +142,10 @@ exports.validatePost = function(req, res, next) {
                       //already has issue with sponsorship issue hence nothing to validate with event fee field
                       return null;
                     }
-                  } else {
+                  } else if(inputData.eventCode == "AP"){
+                     // No validation needed on event fee as it's a free event.
+                      return null;
+                  }else {
                       var infoObj = {
                           "dateTimeFormat": dateTimeFormat,
                           "isMember": attributes.data.isMember,

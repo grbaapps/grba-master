@@ -318,7 +318,7 @@
             "state":"VA",
             "zip":"23836"
          },
-         "lastOnlineDateRegistration":"07-08-2017 23:59:00",
+         "lastOnlineDateRegistration":"07-15-2017 07:00:00",
          "committeeMembers":{
             "foodCommittee":{
                "htmlLabel":"Food Committee",
@@ -334,7 +334,7 @@
             }
          },
          "earlyBird":{
-            "date":"07-08-2017 23:59:59",
+            "date":"07-15-2017 23:59:59",
             "fee":{
                "student":{
                   "member":{
@@ -366,6 +366,6 @@
                }
             }
          }
-      }       
+      }
    }
 }
