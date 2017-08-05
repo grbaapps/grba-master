@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-05-12
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-05
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -33,16 +33,19 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
 
     $routeProvider
     .when("/", {
-        templateUrl : "html/home.html"
+        templateUrl : "html2/home.html"
     })
     .when("/event", {
-        templateUrl : "html/event.html"
+        templateUrl : "html2/event.html"
     })
     .when("/about", {
-        templateUrl : "html/about.html"
+        templateUrl : "html2/about.html"
     })
     .when("/contact", {
-        templateUrl : "html/contact.html"
+        templateUrl : "html2/contact.html"
+    })
+    .when("/board", {
+        templateUrl : "html2/board.html"
     })
     .otherwise({redirectTo:'/'});
 

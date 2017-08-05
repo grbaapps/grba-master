@@ -1,0 +1,253 @@
+#page-body {
+  max-width:1024px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#logo {
+  margin-top:-12px;
+  max-height:45px;
+  margin-right:10px;
+  margin-left:-5px;
+  float:left;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  max-height:50px;
+  margin-left:auto;
+  color:#f2ecec;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+  color:#da5f3a;
+  background-color:#f2ecec;
+  background-image:none;
+  font-weight:bold;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+  font-weight:bold;
+  color:#e3e1e1;
+}
+
+.side-ad {
+  /*max-height:240px;*/
+  /*max-width:290px;*/
+  /*object-fit:none;*/
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  margin:0px;
+}
+
+@media (min-width:992px) {
+  .row.ad-row {
+    height:240px;
+    width:300px;
+    margin:5px auto;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12 {
+    width:100%;
+    padding:0;
+  }
+}
+
+.side-img {
+  max-height:240px;
+  /*max-width:1024px;*/
+}
+
+@media (min-width:992px) {
+  #top-banner {
+    height:80px;
+    /*width:1024px;*/
+    overflow:hidden;
+    justify-content:center;
+    display:flex;
+    /*margin:51px;*/
+    padding:0px;
+    margin-top:51px;
+    margin-bottom:0px;
+  }
+}
+
+.banner-img {
+  /*max-height:80px;*/
+  max-width:1024px;
+}
+
+#about-panel-body {
+  /*background-image:url('../../assets/img/grba-bg3.jpg');*/
+  /*opacity:.8;*/
+  background-color:#e4dede;
+  /*font-size:x-large;*/
+  max-height:440px;
+  overflow-y:scroll;
+}
+
+#about-text {
+  /*opacity:.;*/
+  font-size:18px;
+  font-family:'Dosis', sans-serif;
+  line-height:1.42857143;
+  max-height:inherit;
+}
+
+.panel-title {
+  margin-top:5;
+  margin-bottom:0;
+  font-size:24px;
+  color:inherit;
+  font-family:'Dosis', sans-serif;
+  font-weight:600;
+}
+
+#committee-tab {
+  background-color:#da5f3a;
+  color:#fff;
+  font-weight:bold;
+}
+
+.nav-tabs > li > a {
+  color:#fff;
+}
+
+@media (min-width:992px) {
+  #left-col {
+    width:70%;
+    height:740px;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.new-at-grba {
+    width:50%;
+    height:250px;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.new-at-grba {
+    /*width:100%;*/
+    height:250px;
+  }
+}
+
+.panel-default > .grba-panel-heading {
+  background-color:#da5f3a;
+  background-image:none;
+  color:#fff;
+}
+
+@media (min-width:992px) {
+  .col-md-12.right-ad-col {
+    width:300px;
+    height:500px;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.right-ad-col2 {
+    width:300px;
+    height:250px;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.right-ad-col3 {
+    width:300px;
+    height:750px;
+  }
+}
+
+@media (min-width:992px) {
+  .panel-body.event-panel-body {
+    height:150px;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.event-panel-col {
+    width:33%;
+    height:130px;
+  }
+}
+
+@media (min-width:991px) {
+  .panel.panel-default.event-panel {
+    height:200px;
+  }
+}
+
+@media (min-width:992px) {
+  #event-panel {
+    height:750px;
+  }
+}
+
+@media (min-width:992px) {
+  #event-panel-body {
+    height:700px;
+  }
+}
+
+@media (min-width:992px) {
+  #contact-panel-body {
+    height:740px;
+    max-height:690px;
+  }
+}
+
+@media (min-width:992px) {
+  #about-panel-body {
+    height:740px;
+    max-height:690px;
+  }
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+  margin-top:0px;
+  margin-bottom:10px;
+}
+
+@media (min-width:992px) {
+  .col-md-12.thumbnail-col {
+    width:33%;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.left-col {
+    width:724px;
+    height:740px;
+  }
+}
+
+@media (min-width:992px) {
+  .list-group.grba-list-group {
+    font-size:20px;
+    /*padding:20px;*/
+    padding-left:20px;
+    padding-right:20px;
+  }
+}
+
+#contact-us {
+  /*width:80%;*/
+  /*align-self:center;*/
+  padding:20px;
+  /*height:80%;*/
+}
+
+.btn.btn-primary.grba-btn, {
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary. {
+  color:#ffffff;
+  background-color:#da5f3a;
+  border-color:#da5f3a;
+}
+
