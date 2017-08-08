@@ -307,7 +307,7 @@
       },
       "AP":{
          "name":"Annual Picnic 2017",
-         "isCurrentEvent":"Y",
+         "isCurrentEvent":"N",
          "venue":"R. Garland Dodd Park",
          "date":"07-15-2017 10:00:00",
          "time":"10AM to 6PM",
@@ -362,6 +362,72 @@
                   "member":{
                      "single":10,
                      "family":20
+                  }
+               }
+            }
+         }
+      },
+      "DP":{
+         "name":"Durga Puja 2017",
+         "isCurrentEvent":"Y",
+         "venue":"Cultural Arts Center at Glen Allen",
+         "date":"September 23rd and 24th, 2017",
+         "time":"",
+         "code":"DP",
+         "address":{
+            "street":"2880 Mountain Rd",
+            "city":"Glen Allen",
+            "state":"VA",
+            "zip":"23060"
+         },
+         "lastOnlineDateRegistration":"09-23-2017 07:00:00",
+         "committeeMembers":{
+         },
+         "earlyBird":{
+            "date":"09-16-2017 23:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":0,
+                     "family":0
+                  },
+                  "nonmember":{
+                     "single":0,
+                     "family":0
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":0,
+                     "family":0
+                  },
+                  "nonmember":{
+                     "single":0,
+                     "family":0
+                  }
+               }
+            }
+         },
+         "afterEarlyBird":{
+            "fee":{
+                "student":{
+                   "member":{
+                      "single":0,
+                      "family":0
+                   },
+                   "nonmember":{
+                      "single":0,
+                      "family":0
+                   }
+                },
+               "nonStudent":{
+                  "member":{
+                     "single":0,
+                     "family":0
+                  },
+                  "nonmember":{
+                     "single":0,
+                     "family":0
                   }
                }
             }
