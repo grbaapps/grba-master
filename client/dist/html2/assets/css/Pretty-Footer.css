@@ -33,7 +33,7 @@ footer {
 }
 
 .footer-navigation p.company-name {
-  color:#8f9296;
+  color:#f2f5f8;
   font-size:14px;
   font-weight:normal;
   margin-top:20px;
@@ -52,7 +52,7 @@ footer {
 }
 
 .footer-contacts p a {
-  color:#5383d3;
+  color:#f2f5f8;
   text-decoration:none;
 }
 
@@ -87,7 +87,7 @@ span.new-line-span {
 
 .footer-about p {
   line-height:20px;
-  color:#92999f;
+  color:#f2f5f8;
   font-size:13px;
   font-weight:normal;
   margin:0;
