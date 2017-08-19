@@ -420,22 +420,22 @@
             "fee":{
                "student":{
                   "member":{
-                     "single":0,
-                     "family":0
+                     "single":40,
+                     "family":55
                   },
                   "nonmember":{
-                     "single":0,
-                     "family":0
+                     "single":45,
+                     "family":60
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":0,
-                     "family":0
+                     "single":75,
+                     "family":140
                   },
                   "nonmember":{
-                     "single":0,
-                     "family":0
+                     "single":80,
+                     "family":150
                   }
                }
             }
@@ -444,22 +444,22 @@
             "fee":{
                 "student":{
                    "member":{
-                      "single":0,
-                      "family":0
-                   },
-                   "nonmember":{
-                      "single":0,
-                      "family":0
-                   }
+                     "single":45,
+                     "family":60
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":65
+                  }
                 },
                "nonStudent":{
                   "member":{
-                     "single":0,
-                     "family":0
+                     "single":85,
+                     "family":150
                   },
                   "nonmember":{
-                     "single":0,
-                     "family":0
+                     "single":90,
+                     "family":160
                   }
                }
             }
