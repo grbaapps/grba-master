@@ -33,6 +33,9 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
     .when("/event", {
         templateUrl : "html2/event.html"
     })
+    .when("/nextevent", {
+        templateUrl : "html2/event.html"
+    })
     .when("/about", {
         templateUrl : "html2/about.html"
     })

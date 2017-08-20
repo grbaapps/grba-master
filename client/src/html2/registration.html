@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
                 <div class="panel-heading grba-panel-heading">
-                    <h3 class="panel-title" id="exampleModalLabel">REGISTER - {{eventDetails.name}}</h3>
+                    <h3 class="panel-title" id="exampleModalLabel">REGISTER - {{eventDetails.name}}{{showRegResult}}</h3>
                 </div>    
 
             </div>
@@ -189,7 +189,7 @@
                             <button type="submit" class="btn btn-primary">REGISTER</button>
                         </form>
                     </div>
-                    <div ng-show="showRegResult" class="row">
+                    <div class="row">
                         <div class="contact-text">REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                             <input type="hidden" name="cmd" value="_xclick">
