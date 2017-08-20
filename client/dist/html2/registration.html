@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
                 <div class="panel-heading grba-panel-heading">
-                    <h3 class="panel-title" id="exampleModalLabel">REGISTER - {{eventDetails.name}}{{showRegResult}}</h3>
+                    <h3 class="panel-title" id="exampleModalLabel">REGISTER - {{eventDetails.name}}</h3>
                 </div>    
 
             </div>
@@ -34,6 +34,10 @@
                                         &nbsp; &nbsp; &nbsp;
                                          <label>
                                             <input type="radio" ng-model="sponsorshipCategory" value="Silver" ng-click="eventFee='250'"> SILVER $250
+                                        </label>
+                                         &nbsp; &nbsp; &nbsp;
+                                         <label>
+                                            <input type="radio" ng-click="eventFee='0'"> None
                                         </label>
                                         
                                     </div>
@@ -189,6 +193,11 @@
                             <button type="submit" class="btn btn-primary">REGISTER</button>
                         </form>
                     </div>
+                </div>
+                    
+            </div>
+            <div class="modal-body">
+                <div class="container">
                     <div class="row">
                         <div class="contact-text">REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -233,8 +242,9 @@
                             </div>
                         </form>
                     </div>
+
                 </div>
-            </div>
+            </div>    
 
         </div>
         <!-- End Container -->
