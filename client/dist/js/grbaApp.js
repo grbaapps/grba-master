@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-12
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-19
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -194,10 +194,11 @@ angular.module('registration', ['event']).controller('registrationController', [
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
-                    isVegiterian: $scope.isVegiterian,
+                    isVegetarian: $scope.isVegetarian,
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
+                    isIndividualSponsor: $scope.isIndividualSponsor,
                     specialNote: $scope.specialNote
                 }
             }
