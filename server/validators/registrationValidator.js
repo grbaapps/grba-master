@@ -121,12 +121,12 @@ exports.validatePost = function(req, res, next) {
               "data.eventFee": function(value, attributes, attributeName, options, constraints) {
                   logger.debug("attributes : \n" + JSON.stringify(attributes))
                   logger.debug("attribute Name : \n" + JSON.stringify(attributeName))
-                  var isIndividualSponsor = attributes.data.isIndividualSponsor;
+                  var sponsorshipCategory = attributes.data.sponsorshipCategory;
                   //Checking if user wants to sponsor
-                  if(isIndividualSponsor){
+                  if(sponsorshipCategory){
                     //Checking if the specific sponsorship option available for this event
-                    if(eventObj[inputData.year][inputData.eventCode]["sponsorship"] && eventObj[inputData.year][inputData.eventCode]["sponsorship"][eventFee]){
-                      var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][eventFee]
+                    if(eventObj[inputData.year][inputData.eventCode]["sponsorship"] && eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]){
+                      var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]
                       return {
                           presence:{
                             message: "^Event fee is mandatory field and equal to sponsorship"
