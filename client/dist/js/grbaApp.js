@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-19
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-20
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -179,7 +179,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
-
+    
     $scope.submit = function () {
         $http({
             method: 'POST',
@@ -198,7 +198,7 @@ angular.module('registration', ['event']).controller('registrationController', [
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
-                    isIndividualSponsor: $scope.isIndividualSponsor,
+                    sponsorshipCategory: $scope.sponsorshipCategory,
                     specialNote: $scope.specialNote
                 }
             }

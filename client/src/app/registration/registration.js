@@ -1,7 +1,7 @@
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
-
+    
     $scope.submit = function () {
         $http({
             method: 'POST',
@@ -20,7 +20,7 @@ angular.module('registration', ['event']).controller('registrationController', [
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
-                    isIndividualSponsor: $scope.isIndividualSponsor,
+                    sponsorshipCategory: $scope.sponsorshipCategory,
                     specialNote: $scope.specialNote
                 }
             }
