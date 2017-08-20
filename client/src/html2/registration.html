@@ -37,7 +37,7 @@
                                         </label>
                                          &nbsp; &nbsp; &nbsp;
                                          <label>
-                                            <input type="radio" ng-click="eventFee='0'"> None
+                                            <input type="radio" ng-click="eventFee='0'; radioCheckUncheck($event)"> None
                                         </label>
                                         
                                     </div>
@@ -198,7 +198,7 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" ng-show="showRegResult">
                         <div class="contact-text">REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                             <input type="hidden" name="cmd" value="_xclick">
