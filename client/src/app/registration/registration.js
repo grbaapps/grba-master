@@ -2,6 +2,15 @@ angular.module('registration', ['event']).controller('registrationController', [
     $scope.showRegForm = true;
     $scope.showRegResult = false;
     
+    let lastChecked = null
+    $scope.radioCheckUncheck = function (event) {
+        if (event.target.value === lastChecked) {
+          delete $scope.sponsorshipCategory
+          lastChecked = null
+        } else {
+          lastChecked = event.target.value
+        }
+    }
     $scope.submit = function () {
         $http({
             method: 'POST',
