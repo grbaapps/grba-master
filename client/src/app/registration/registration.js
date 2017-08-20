@@ -16,10 +16,11 @@ angular.module('registration', ['event']).controller('registrationController', [
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
-                    isVegiterian: $scope.isVegiterian,
+                    isVegetarian: $scope.isVegetarian,
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
+                    isIndividualSponsor: $scope.isIndividualSponsor,
                     specialNote: $scope.specialNote
                 }
             }

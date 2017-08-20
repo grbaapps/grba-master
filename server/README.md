@@ -28,7 +28,7 @@
       "email":"String", //Mandatory field and should be a valid email id.
       "phoneNo":"String", //optional but if present, it has to be in (111)-111-1111 format only
       "isMember":Boolean,  //Mandatory field.
-      "isVegiterian":Boolean, //Mandatory field
+      "isVegetarian":Boolean, //Mandatory field
       "isStudent":Boolean,  //Mandatory field
       "hasFamily":Boolean,  //Mandatory field
       "noOfAdults":Integer,  //Mandatory field. Should always be Integer, no float/decimal
@@ -96,13 +96,13 @@
       * Rule2 - Should always be of type boolean. Eg "true" is invalid but true is valid.
     * Validation Error Message - [isMember flag can't be empty and should always be boolean type (true or false), isMember should always be boolean (true or false)]  
 
-  * **isVegiterian** :
+  * **isVegetarian** :
 
     * Type - Boolean,
     * Validation Rules:
       * Rule1 - This is a mandatory field.
       * Rule2 - Should always be of type boolean. Eg "true" is invalid but true is valid.
-    * Validation Error Message - [isVegiterian flag can't be empty and should always be boolean type (true or false), isVegiterian should always be boolean (true or false)]
+    * Validation Error Message - [isVegetarian flag can't be empty and should always be boolean type (true or false), isVegetarian should always be boolean (true or false)]
 
   * **isStudent** :
 
@@ -187,7 +187,7 @@
       "email": "name@gmail.com",
       "phoneNo": "(222)-998-1232",
       "isMember": false,
-      "isVegiterian": true,
+      "isVegetarian": true,
       "isStudent": true,
       "hasFamily": true,
       "noOfAdults": 2,
@@ -202,7 +202,7 @@
       "email": "feku@gmail.com",
       "phoneNo": "(222)-998-1232",
       "isMember": false,
-      "isVegiterian": true,
+      "isVegetarian": true,
       "isStudent": false,
       "hasFamily": false,
       "noOfAdults": 1,

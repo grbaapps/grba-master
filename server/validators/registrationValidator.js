@@ -43,8 +43,8 @@ exports.validatePost = function(req, res, next) {
               "data.isMember": function(value, attributes, attributeName, options, constraints) {
                   return simpleBooleanRule(value,"isMember")
               },
-              "data.isVegiterian": function(value, attributes, attributeName, options, constraints) {
-                  return simpleBooleanRule(value,"isVegiterian")
+              "data.isVegetarian": function(value, attributes, attributeName, options, constraints) {
+                  return simpleBooleanRule(value,"isVegetarian")
               },
               "data.isStudent": function(value, attributes, attributeName, options, constraints) {
                   return simpleBooleanRule(value,"isStudent")
@@ -121,12 +121,12 @@ exports.validatePost = function(req, res, next) {
               "data.eventFee": function(value, attributes, attributeName, options, constraints) {
                   logger.debug("attributes : \n" + JSON.stringify(attributes))
                   logger.debug("attribute Name : \n" + JSON.stringify(attributeName))
-                  var sponsorshipCategory = attributes.data.sponsorshipCategory;
+                  var isIndividualSponsor = attributes.data.isIndividualSponsor;
                   //Checking if user wants to sponsor
-                  if(sponsorshipCategory){
+                  if(isIndividualSponsor){
                     //Checking if the specific sponsorship option available for this event
-                    if(eventObj[inputData.year][inputData.eventCode]["sponsorship"] && eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]){
-                      var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][sponsorshipCategory]
+                    if(eventObj[inputData.year][inputData.eventCode]["sponsorship"] && eventObj[inputData.year][inputData.eventCode]["sponsorship"][eventFee]){
+                      var eventSponsorshipValue = eventObj[inputData.year][inputData.eventCode]["sponsorship"][eventFee]
                       return {
                           presence:{
                             message: "^Event fee is mandatory field and equal to sponsorship"
