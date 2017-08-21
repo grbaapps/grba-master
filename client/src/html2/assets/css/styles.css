@@ -111,6 +111,12 @@
   font-weight:bold;
 }
 
+#committee-member {
+  background-color:#fff;
+  color:#da5f3a;
+  font-weight:bold;
+}
+
 .nav-tabs > li > a {
   color:#fff;
 }
