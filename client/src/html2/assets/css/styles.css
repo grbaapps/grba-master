@@ -252,3 +252,7 @@
 }
 
 .thumbnail img { height:200px; }
+
+.modal-content {
+	background-color: #da5f3a;
+ }
