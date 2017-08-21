@@ -184,13 +184,8 @@ angular.module('registration', ['event']).controller('registrationController', [
     $scope.showRegResult = false;
     
     let lastChecked = null
-    $scope.radioCheckUncheck = function (event) {
-        if (event.target.value === lastChecked) {
-          delete $scope.sponsorshipCategory
-          lastChecked = null
-        } else {
-          lastChecked = event.target.value
-        }
+    $scope.radioUncheck = function (event) {
+        $scope.sponsorshipCategory = false
     }
     $scope.submit = function () {
         $http({
