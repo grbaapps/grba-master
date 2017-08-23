@@ -381,9 +381,10 @@
             "zip":"23060"
          },
          "sponsorship":{
+            "Bronze":200,
             "Silver":250,
-            "Gold":500,
-            "Platinum":750,
+            "Gold":300,
+            "Platinum":500,
             "Grand":1000
          },
          "lastOnlineDateRegistration":"09-23-2017 07:00:00",
