@@ -60,7 +60,7 @@
   /*max-width:1024px;*/
 }
 
-@media (min-width:992px) {
+@media (min-width:501px) {
   #top-banner {
     height:80px;
     /*width:1024px;*/
@@ -74,6 +74,20 @@
   }
 }
 
+@media (max-width:500px) {
+  #top-banner {
+    height:80px;
+    /*width:1024px;*/
+    overflow:hidden;
+    justify-content:center;
+    display:flex;
+    /*margin:51px;*/
+    padding:0px;
+    margin-top:102px;
+    margin-bottom:0px;
+  }
+}
+
 .banner-img {
   /*max-height:80px;*/
   max-width:1024px;
@@ -82,7 +96,8 @@
 #about-panel-body {
   /*background-image:url('../../assets/img/grba-bg3.jpg');*/
   /*opacity:.8;*/
-  background-color:#e4dede;
+  /*background-color:#e4dede;*/
+    background-color: #f2f5f8;
   /*font-size:x-large;*/
   max-height:440px;
   overflow-y:scroll;

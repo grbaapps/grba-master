@@ -4,21 +4,21 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 left-col">
-                    <div id="about">
+                    <!--<div id="about">-->
                         <div class="panel panel-default" id="event-panel" style="/*height:750px;*/">
                             <div class="panel-heading grba-panel-heading">
                                 <h3 class="panel-title">OUR NEXT EVENT</h3></div>
                             <div class="panel-body" id="event-panel-body" style="/*height:740px;*//*max-height:680px;*/">
-                                <div class="row" style="height:410px;">
-                                    <div class="col-md-12">
-                                        <div class="carousel slide" data-ride="carousel" id="carousel-1">
+                                <div class="row" style="/*height:410px;*/">
+                                    <!--<div class="col-md-12">-->
+                                        <div class="carousel slide" data-ride="carousel" id="carousel-1" style="margin:10px;margin-top: 0px;">
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="item active">
-                                                    <div class="jumbotron hero-nature carousel-hero" style="height:430px;">
+                                                    <div class="jumbotron hero-nature carousel-hero" style="/*height:430px;*/">
                                                         <h1 class="hero-title">{{eventDetails.name}}</h1>
-                                                        <p class="hero-subtitle">Date: {{eventDetails.date}}</p>
-                                                        <p class="hero-subtitle">Venue: {{eventDetails.venue}}, {{eventDetails.address.street}}, {{eventDetails.address.city}}, {{eventDetails.address.state}} &nbsp; {{eventDetails.address.zip}}</p>
-                                                        <p class="hero-subtitle">Early Bird Registration: September 10th</p>
+                                                        <p class="hero-subtitle">Date: {{eventDetails.date}}<br/>
+                                                        Venue: {{eventDetails.venue}}, {{eventDetails.address.street}}, {{eventDetails.address.city}}, {{eventDetails.address.state}} &nbsp; {{eventDetails.address.zip}}<br/>
+                                                        Early Bird Registration: September 10th</p>
                                                         
                                                         <p><a class="btn btn-primary btn-lg" type="button" role="button" data-toggle="modal" data-target="#registrationModal" style="background-color:#da5f3a;background-image:url(&quot;none&quot;);">REGISTER </a>&nbsp;&nbsp;<a class="btn btn-primary btn-lg" type="button" role="button" data-toggle="modal" data-target="#registeredMembers" style="background-color:#da5f3a;background-image:url(&quot;none&quot;);">EVENT ATTENDEES </a></p>
                                                     </div>
@@ -27,8 +27,9 @@
                                             </div>
                                            
                                         </div>
-                                    </div>
+                                    <!--</div>-->
                                 </div>
+                            
                                 <div class="row" style="/*height:240px;*/">
                                     <div class="col-md-12">
                                         <div>
@@ -135,7 +136,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <!--</div>-->
                 </div>
                 <div class="col-md-12 right-ad-col" style="/*width:300px;*//*height:740px;*/">
                     <div class="row ad-row">
