@@ -56,17 +56,25 @@
 }
 
 .side-img {
-  max-height:240px;
+    padding: 2px;
+    width:100%;
+    max-height: 400px;
   /*max-width:1024px;*/
+}
+
+@media (min-width:992px) {
+    .side-img {
+        max-height:240px;
+    }
 }
 
 @media (min-width:501px) {
   #top-banner {
     height:80px;
     /*width:1024px;*/
-    overflow:hidden;
+    /*overflow:hidden;*/
     justify-content:center;
-    display:flex;
+    /*display:flex;*/
     /*margin:51px;*/
     padding:0px;
     margin-top:51px;
@@ -76,11 +84,11 @@
 
 @media (max-width:500px) {
   #top-banner {
-    height:80px;
+    /*height:80px;*/
     /*width:1024px;*/
-    overflow:hidden;
+    /*overflow:hidden;*/
     justify-content:center;
-    display:flex;
+    /*display:flex;*/
     /*margin:51px;*/
     padding:0px;
     margin-top:102px;
@@ -94,6 +102,7 @@
 }
 
 #about-panel-body {
+   
   /*background-image:url('../../assets/img/grba-bg3.jpg');*/
   /*opacity:.8;*/
   /*background-color:#e4dede;*/
@@ -105,8 +114,8 @@
 
 #about-text {
   /*opacity:.;*/
-  font-size:18px;
-  font-family:'Dosis', sans-serif;
+  font-size: 17px;
+  font-family: 'Dosis',sans-serif;
   line-height:1.42857143;
   max-height:inherit;
 }
