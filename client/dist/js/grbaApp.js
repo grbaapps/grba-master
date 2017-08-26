@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-25
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-26
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
