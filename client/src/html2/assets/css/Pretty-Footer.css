@@ -4,23 +4,25 @@ footer {
   box-sizing:border-box;
   width:100%;
   text-align:left;
-  font:bold 16px sans-serif;
+  font-family: 'Yanone Kaffeesatz','sans-serif';
+    font-size: 18px;
+    font-weight: 500;
   padding:55px 50px;
   margin-top:0px;
   bottom:0;
-  color:#fff;
+  color:#ffffff;
 }
 
 .footer-navigation h3 {
   margin:0;
   font:normal 36px Cookie, cursive;
   margin-bottom:20px;
-  color:#fff;
+  color:#ffffff;
 }
 
 .footer-navigation h3 a {
   text-decoration:none;
-  color:#fff;
+  color:#ffffff;
 }
 
 .footer-navigation h3 span {
@@ -28,7 +30,7 @@ footer {
 }
 
 .footer-navigation p.links a {
-  color:#fff;
+  color:#ffffff;
   text-decoration:none;
 }
 
@@ -58,7 +60,7 @@ footer {
 
 .fa.footer-contacts-icon {
   background-color:#33383b;
-  color:#fff;
+  color:#ffffff;
   font-size:18px;
   width:38px;
   height:38px;
@@ -73,15 +75,15 @@ span.new-line-span {
   font-weight:normal;
   display:block;
   font-weight:normal;
-  font-size:14px;
+  font-size:16px;
   line-height:2;
 }
 
 .footer-about h4 {
-  display:block;
-  color:#fff;
+  /*display:block;*/
+  color:#ffffff;
   font-size:14px;
-  font-weight:bold;
+  font-weight:500;
   margin-bottom:20px;
 }
 
@@ -95,7 +97,7 @@ span.new-line-span {
 
 div.social-links {
   margin-top:20px;
-  color:#fff;
+  color:#ffffff;
 }
 
 .social-links a {
@@ -106,7 +108,7 @@ div.social-links {
   background-color:#33383b;
   border-radius:2px;
   font-size:20px;
-  color:#fff;
+  color:#ffffff;
   text-align:center;
   line-height:35px;
   margin-right:5px;
