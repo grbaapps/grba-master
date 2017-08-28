@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="html2/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
-    <link href="html2/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="html2/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="html2/assets/css/Carousel-Hero-1.css">
     <link rel="stylesheet" href="html2/assets/css/Carousel-Hero.css">
     <link rel="stylesheet" href="html2/assets/css/Contact-Form-Clean.css">
@@ -46,6 +46,16 @@
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/grbaApp.js"></script>
     <script type="text/javascript" src="js/angular-toArrayFilter.js"></script>
+    <script>
+    $(document).click(function (event) {
+    var clickover = $(event.target);
+    var $navbar = $(".navbar-collapse");               
+    var _opened = $navbar.hasClass("in");
+    if (_opened === true && !clickover.hasClass("navbar-toggle")) {      
+        $navbar.collapse('hide');
+    }
+});
+    </script>
 </head>
 <!--/head-->
 

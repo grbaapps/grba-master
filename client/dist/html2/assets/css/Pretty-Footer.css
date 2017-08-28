@@ -70,6 +70,7 @@ footer {
   margin:10px 15px 10px 0;
 }
 
+
 span.new-line-span {
   display:block;
   font-weight:normal;
@@ -82,7 +83,7 @@ span.new-line-span {
 .footer-about h4 {
   /*display:block;*/
   color:#ffffff;
-  font-size:14px;
+  font-size:16px;
   font-weight:500;
   margin-bottom:20px;
 }
@@ -90,7 +91,7 @@ span.new-line-span {
 .footer-about p {
   line-height:20px;
   color:#f2f5f8;
-  font-size:13px;
+  font-size:14px;
   font-weight:normal;
   margin:0;
 }
@@ -99,6 +100,7 @@ div.social-links {
   margin-top:20px;
   color:#ffffff;
 }
+
 
 .social-links a {
   display:inline-block;
