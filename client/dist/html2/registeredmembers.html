@@ -22,25 +22,26 @@
                             <label class="control-label">Children</label>
 
                         </div>
+                        <div class="col-xs-2">
+                            <label class="control-label">Sponsorship</label>
+
+                        </div>
                         <!--<span>{{day}}</span>-->
                     </div>
                     <div class="row" ng-repeat="regMembers in registrationDetails.registrations | orderBy: 'name'">
                         <div class="col-xs-7 col-sm-6">
-                            <label class="control-label">
-                            <div ng-if="regMembers.sponsorshipCategory">
-                                {{regMembers.name}} - <span style="color:color"> {{regMembers.sponsorshipCategory}} </span>
-                            </div>
-                            <div ng-else>
-                                {{regMembers.name}}
-                            </div>    
-                            
-                         </div>
+                            <label class="control-label">{{regMembers.name}}</label>
+                        </div>
                         <div class="col-xs-2">
                             <label class="control-label">{{regMembers.noOfAdults}}</label>
 
                         </div>
                         <div class="col-xs-2">
                            <label class="control-label" >{{regMembers.noOfChildren}}</label>
+
+                        </div>
+                         <div class="col-xs-2">
+                           <label class="control-label" >{{regMembers.sponsorshipCategory}}</label>
 
                         </div>
                         <!--<span>{{day}}</span>-->
