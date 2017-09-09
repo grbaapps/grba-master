@@ -39,7 +39,9 @@
                                                 <li><a href="#tab-3" role="tab" data-toggle="tab">Food </a></li>
                                                 <li><a href="#tab-4" role="tab" data-toggle="tab">Logistics </a></li>
                                                 <li><a href="#tab-5" role="tab" data-toggle="tab">Decoration </a></li>
-                                                <li><a href="#tab-6" role="tab" data-toggle="tab">Light &amp; Sound</a></li>
+                                                <li><a href="#tab-6" role="tab" data-toggle="tab">Fund Development</a></li>
+                                                <li><a href="#tab-7" role="tab" data-toggle="tab">Finance &amp; Budget</a></li>
+                                                <li><a href="#tab-8" role="tab" data-toggle="tab">Light &amp; Sound</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" role="tabpanel" id="tab-1" style="/*height:200px;*/">
@@ -115,7 +117,38 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="tab-pane" role="tabpanel" id="tab-6">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading">
+                                                            <h3 class="panel-title">{{eventDetails.committeeMembers.fundDevelopmentTeam.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                            <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.fundDevelopmentTeam.members.split(',')">{{member}}</li>
+                                                            </ul>
+                                                           </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="tab-7">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading">
+                                                            <h3 class="panel-title">{{eventDetails.committeeMembers.registrationAndFrontDesk.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                            <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.registrationAndFrontDesk.members.split(',')">{{member}}</li>
+                                                            </ul>
+                                                           </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div class="tab-pane" role="tabpanel" id="tab-8">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading">
                                                             <h3 class="panel-title">{{eventDetails.committeeMembers.facilitiesCoordinator.htmlLabel}}</h3></div>
