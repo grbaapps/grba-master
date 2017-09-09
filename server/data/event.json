@@ -395,31 +395,35 @@
             },
             "foodCommittee":{
                "htmlLabel":"Food Committee",
-               "members":"Suronita Dasbiswas,Sucheta Mukherjee,Sayani Nandi,Manisha Prasad,Poulami Saha"
+               "members":"Suronita Dasbiswas,Sayani Nandi,Manisha Prasad,Poulami Saha"
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural Committee",
-               "members":"Bhaswati Datta,Reshmi Ghosh,Trina Dutta"
+               "members":"Nabanita Majumdar,Bhaswati Ghosh,Sataroopa Banerjee,Trina Dutta"
             },
             "pujaDecorations":{
                "htmlLabel":"Decoration",
-               "members":"Dilip Chakravarty,Swati Neogi,Debarati Pradhan"
+               "members":"Dilip Chakraborty,Ashish Roy,Anindita Das,Sanghamitra Pal,Swati Neogi,Debarati Pradhan"
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
-               "members":"Rahul Moray,Samrat Ghosh"
+               "members":"Rahul Moray,Samrat Ghosh,Arko Chakraborty"
+            },
+            "fundDevelopmentTeam":{
+               "htmlLabel":"Fund Development",
+               "members":"Avik Roy,Arko Chakraborty,Surajit Pal,Abhishek Ghosh"
             },
             "facilitiesCoordinator":{
                "htmlLabel":"Light and Sound Coordinator",
                "members":"Tapabrata Pal,Ashish Roy"
             },
             "registrationAndFrontDesk":{
-               "htmlLabel":"Front Desk",
-               "members":"Soumen Pradhan,Arko Chakraborty"
+               "htmlLabel":"Finance and Budget",
+               "members":"Arko Chakraborty,Bipad Saha"
             },
             "webTeam":{
                "htmlLabel":"Web Team",
-               "members":"Abhishek Ghosh,Sandipan Biswas,Pritam Sarkar"
+               "members":"Surajit Pal,Abhishek Ghosh,Pritam Sarkar"
             }
          },
          "earlyBird":{
