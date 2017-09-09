@@ -26,9 +26,10 @@
                     </div>
                     <div class="row" ng-repeat="regMembers in registrationDetails.registrations | orderBy: 'name'">
                         <div class="col-xs-7 col-sm-6">
-                            <label class="control-label">{{regMembers.name}}</label>
+                            <label class="control-label">{{regMembers.name}}
+                            {{regMembers.sponsorshipCategory ? (regMembers.sponsorshipCategory) : ''}}</label>
 
-                        </div>
+                         </div>
                         <div class="col-xs-2">
                             <label class="control-label">{{regMembers.noOfAdults}}</label>
 
