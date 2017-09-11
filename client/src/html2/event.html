@@ -1,5 +1,4 @@
-
-        <div id="top-banner"><img class="img-responsive center-block" src="html2/assets/img/banner.png"></div>
+ <div id="top-banner"><img class="img-responsive center-block" src="html2/assets/img/banner.png"></div>
 
         <div class="container-fluid">
             <div class="row">
@@ -42,7 +41,8 @@
                                                 <li><a href="#tab-6" role="tab" data-toggle="tab">Fund Development</a></li>
                                                 <li><a href="#tab-7" role="tab" data-toggle="tab">Finance &amp; Budget</a></li>
                                                 <li><a href="#tab-8" role="tab" data-toggle="tab">Light &amp; Sound</a></li>
-                                                <li><a href="#tab-9" role="tab" data-toggle="tab">Web</a></li>
+                                                <li><a href="#tab-9" role="tab" data-toggle="tab">Brochure</a></li>    
+                                                <li><a href="#tab-10" role="tab" data-toggle="tab">Web</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" role="tabpanel" id="tab-1" style="/*height:200px;*/">
@@ -163,8 +163,23 @@
                                                             <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
                                                         </div>
                                                     </div>   
-                                                </div>        
+                                                </div>       
                                                 <div class="tab-pane" role="tabpanel" id="tab-9">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading">
+                                                            <h3 class="panel-title">{{eventDetails.committeeMembers.brochureTeam.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                            <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.brochureTeam.members.split(',')">{{member}}</li>
+                                                            </ul>
+                                                           </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="tab-10">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading">
                                                             <h3 class="panel-title">{{eventDetails.committeeMembers.webTeam.htmlLabel}}</h3></div>
@@ -206,4 +221,3 @@
                 </div>
             </div>
         </div>
-        
