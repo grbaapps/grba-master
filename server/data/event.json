@@ -424,6 +424,10 @@
             "webTeam":{
                "htmlLabel":"Web Team",
                "members":"Surajit Pal,Abhishek Ghosh,Pritam Sarkar"
+            },
+            "Team":{
+               "hbrochuretmlLabel":"Brochure Team",
+               "members":",Bhaswati Ghosh,Surajit Pal,Abhishek Ghosh"
             }
          },
          "earlyBird":{
