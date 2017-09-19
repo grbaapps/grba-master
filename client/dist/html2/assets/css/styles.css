@@ -48,12 +48,17 @@
   }
 }
 
-@media (min-width:992px) {
+/*@media (min-width:992px) {
   .col-md-12 {
     width:100%;
     padding:0;
   }
-}
+}*/
+
+.col-md-12 {
+    width:100%;
+    padding:0;
+  }
 
 .side-img {
     padding: 2px;
@@ -152,6 +157,13 @@
   background-color:#fff;
   color:#da5f3a;
   font-weight:bold;
+}
+
+#event-schedule {
+  background-color:#fff;
+  color:#da5f3a;
+    font-size: 12px;
+  font-weight:400;
 }
 
 .nav-tabs > li > a {

@@ -33,19 +33,59 @@
                                     <div class="col-md-12">
                                         <div>
                                             <ul class="nav nav-tabs" id="committee-tab">
-                                                <li><a href="#tab-1" role="tab" data-toggle="tab">Puja</a></li>
-                                                <li><a href="#tab-2" role="tab" data-toggle="tab">Cultural </a></li>
-                                                <li><a href="#tab-3" role="tab" data-toggle="tab">Food </a></li>
-                                                <li><a href="#tab-4" role="tab" data-toggle="tab">Logistics </a></li>
-                                                <li><a href="#tab-5" role="tab" data-toggle="tab">Decoration </a></li>
-                                                <li><a href="#tab-6" role="tab" data-toggle="tab">Fund Development</a></li>
-                                                <li><a href="#tab-7" role="tab" data-toggle="tab">Finance &amp; Budget</a></li>
-                                                <li><a href="#tab-8" role="tab" data-toggle="tab">Light &amp; Sound</a></li>
-                                                <li><a href="#tab-9" role="tab" data-toggle="tab">Brochure</a></li>    
-                                                <li><a href="#tab-10" role="tab" data-toggle="tab">Web</a></li>
+                                                <li><a href="#tab-1" role="tab" data-toggle="tab">Schedule</a></li>
+                                                <li><a href="#tab-2" role="tab" data-toggle="tab">Puja</a></li>
+                                                <li><a href="#tab-3" role="tab" data-toggle="tab">Cultural </a></li>
+                                                <li><a href="#tab-4" role="tab" data-toggle="tab">Food </a></li>
+                                                <li><a href="#tab-5" role="tab" data-toggle="tab">Logistics </a></li>
+                                                <li><a href="#tab-6" role="tab" data-toggle="tab">Decoration </a></li>
+                                                <li><a href="#tab-7" role="tab" data-toggle="tab">Fund Development</a></li>
+                                                <li><a href="#tab-8" role="tab" data-toggle="tab">Finance &amp; Budget</a></li>
+                                                <li><a href="#tab-9" role="tab" data-toggle="tab">Light &amp; Sound</a></li>
+                                                <li><a href="#tab-10" role="tab" data-toggle="tab">Brochure</a></li>    
+                                                <li><a href="#tab-11" role="tab" data-toggle="tab">Web</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" role="tabpanel" id="tab-1" style="/*height:200px;*/">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">EVENT SCHEDULE</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-4 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                                <h5>Saturday, September 23, 2017</h5>
+                                                                <ul id="event-schedule">
+                                                                    <li>10:00 AM - Puja Begins </li>
+                                                                    <li>12:00 PM - Anjali </li>
+                                                                    <li>12:30 PM - Prosad Distribution </li>
+                                                                    <li>1:00 PM - Kid's Lunch </li>
+                                                                    <li>1:15 PM - Adult Lunch </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-md-4 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                            <ul id="event-schedule">
+                                                                    <li>5:00 PM - Snacks </li>
+                                                                    <li>5:30 PM - Dhunuchi Dance </li>
+                                                                    <li>6:00 PM - Durnibar Saha Performance </li>
+                                                                    <li>8:00 PM - GRBA President's Vote of Thanks </li>
+                                                                    <li>9:00 PM - Kid's Dinner </li>
+                                                                    <li>9:30 PM - Adult Dinner </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-md-4 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <h5>Sunday, September 24, 2017</h5>
+                                                                <ul id="event-schedule">
+                                                                    <li>10:30 AM - Puja Begins </li>
+                                                                    <li>11:30 AM - Prosad Distribution </li>
+                                                                    <li>12:00 PM - Cultural Program </li>
+                                                                    <li>1:15 PM - Kid's Lunch </li>
+                                                                    <li>1:30 PM - Adult Lunch </li>
+                                                                    <li>3:00 PM - Wrap Up </li>
+                                                                </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="tab-pane" role="tabpanel" id="tab-2" style="/*height:200px;*/">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.pujaCommittee.htmlLabel}}</h3></div>
@@ -60,7 +100,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                                <div class="tab-pane" role="tabpanel" id="tab-3">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.culturalCommittee.htmlLabel}}</h3></div>
@@ -75,7 +115,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="tab-pane" role="tabpanel" id="tab-3">
+                                                <div class="tab-pane" role="tabpanel" id="tab-4">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.foodCommittee.htmlLabel}}</h3></div>
@@ -89,7 +129,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" role="tabpanel" id="tab-4">
+                                                <div class="tab-pane" role="tabpanel" id="tab-5">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.logisticsTeam.htmlLabel}}</h3></div>
@@ -104,7 +144,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" role="tabpanel" id="tab-5">
+                                                <div class="tab-pane" role="tabpanel" id="tab-6">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.pujaDecorations.htmlLabel}}</h3></div>
@@ -119,7 +159,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="tab-pane" role="tabpanel" id="tab-6">
+                                                <div class="tab-pane" role="tabpanel" id="tab-7">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.fundDevelopmentTeam.htmlLabel}}</h3></div>
@@ -134,7 +174,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" role="tabpanel" id="tab-7">
+                                                <div class="tab-pane" role="tabpanel" id="tab-8">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.registrationAndFrontDesk.htmlLabel}}</h3></div>
@@ -149,7 +189,7 @@
                                                         </div>
                                                     </div>
                                                 </div>    
-                                                <div class="tab-pane" role="tabpanel" id="tab-8">
+                                                <div class="tab-pane" role="tabpanel" id="tab-9">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.facilitiesCoordinator.htmlLabel}}</h3></div>
@@ -164,7 +204,7 @@
                                                         </div>
                                                     </div>   
                                                 </div>       
-                                                <div class="tab-pane" role="tabpanel" id="tab-9">
+                                                <div class="tab-pane" role="tabpanel" id="tab-10">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.brochureTeam.htmlLabel}}</h3></div>
@@ -179,7 +219,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" role="tabpanel" id="tab-10">
+                                                <div class="tab-pane" role="tabpanel" id="tab-11">
                                                     <div class="panel panel-default event-panel" style="/*height:200px;*/">
                                                         <div class="panel-heading grba-panel-heading-sm">
                                                             <h3 class="panel-title-committee">{{eventDetails.committeeMembers.webTeam.htmlLabel}}</h3></div>

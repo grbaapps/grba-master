@@ -22,12 +22,16 @@
                             <label class="control-label">Children</label>
 
                         </div>
+                        <div class="col-xs-2">
+                            <label class="control-label">Sponsorship</label>
+
+                        </div>
                         <!--<span>{{day}}</span>-->
                     </div>
                     <div class="row" ng-repeat="regMembers in registrationDetails.registrations | orderBy: 'name'">
                         <div class="col-xs-7 col-sm-6">
                             <label class="control-label">{{regMembers.name}}
-                            {{regMembers.sponsorshipCategory ? (regMembers.sponsorshipCategory) : ''}}</label>
+                            </label>
 
                          </div>
                         <div class="col-xs-2">
@@ -36,6 +40,10 @@
                         </div>
                         <div class="col-xs-2">
                            <label class="control-label" >{{regMembers.noOfChildren}}</label>
+
+                        </div>
+                        <div class="col-xs-2">
+                           <label class="control-label" >{{regMembers.sponsorshipCategory ? (regMembers.sponsorshipCategory) : ''}}</label>
 
                         </div>
                         <!--<span>{{day}}</span>-->
