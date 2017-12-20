@@ -1,10 +1,10 @@
 {
-   "2017":{
+   "2018":{
       "SP":{
-         "name":"Saraswati Puja 2017",
+         "name":"Saraswati Puja 2018",
          "isCurrentEvent":"N",
          "venue":"Bishop Ireton Center",
-         "date":"02-04-2017 08:00:00",
+         "date":"01-20-2018 08:00:00",
          "time":"8AM to 10PM",
          "code":"SP",
          "address":{
@@ -13,7 +13,7 @@
             "state":"VA",
             "zip":"23236"
          },
-         "lastOnlineDateRegistration":"02-04-2017 11:59:59",
+         "lastOnlineDateRegistration":"01-20-2018 11:59:59",
          "committeeMembers":{
             "pujaCommittee":{
                "htmlLabel":"Puja Committee",
@@ -49,7 +49,7 @@
             }
          },
          "earlyBird":{
-            "date":"01-29-2017 23:59:59",
+            "date":"01-14-2017 23:59:59",
             "fee":{
                "student":{
                   "member":{
@@ -98,53 +98,6 @@
             }
          },
          "food":{
-            "1":[
-               {
-                  "itemtype":"lunch",
-                  "itemsForAdults":[
-                     "Misti Polao",
-                     "Dhokar Dalna",
-                     "Aloor Dum",
-                     "Tomato Chutney",
-                     "Misti Doi"
-                  ],
-                  "itemsForKids":[
-                     "Misti Polao",
-                     "Aloor Dum",
-                     "Brownie",
-                     "Juice"
-                  ]
-               },
-               {
-                  "itemtype":"evening Snacks",
-                  "itemsForAdults":[
-                     "Singara",
-                     "Tea/Coffee",
-                     "Biscuit"
-                  ],
-                  "itemsForKids":[
-                     "Chips",
-                     "Gold Fish"
-                  ]
-               },
-               {
-                  "itemtype":"dinner",
-                  "itemsForAdults":[
-                     "Jira Rice",
-                     "Moong Daal",
-                     "Beguni",
-                     "Butter Paneer",
-                     "Chicken Kosa",
-                     "Goat Korma",
-                     "Sweet Bondia"
-                  ],
-                  "itemsForKids":[
-                     "Chicken Pasta",
-                     "Brownie",
-                     "Juice"
-                  ]
-               }
-            ]
          },
          "eventsOfTheday":{
             "1":[
