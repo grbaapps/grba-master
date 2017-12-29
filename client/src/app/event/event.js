@@ -41,7 +41,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
         return deferred.promise;
     };
-    
+
      this.getRegistrationDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/registration/year/2017/event/DP')
