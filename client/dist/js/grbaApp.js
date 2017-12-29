@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-08
+/*! grbaApp - v0.0.1-SNAPSHOT - 2017-12-29
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -33,16 +33,22 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
 
     $routeProvider
     .when("/", {
-        templateUrl : "html/home.html"
+        templateUrl : "html2/home.html"
     })
     .when("/event", {
-        templateUrl : "html/event.html"
+        templateUrl : "html2/event.html"
+    })
+    .when("/nextevent", {
+        templateUrl : "html2/event.html"
     })
     .when("/about", {
-        templateUrl : "html/about.html"
+        templateUrl : "html2/about.html"
     })
     .when("/contact", {
-        templateUrl : "html/contact.html"
+        templateUrl : "html2/contact.html"
+    })
+    .when("/board", {
+        templateUrl : "html2/board.html"
     })
     .otherwise({redirectTo:'/'});
 
@@ -176,6 +182,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
+    
 
     $scope.submit = function () {
         $http({
@@ -191,10 +198,11 @@ angular.module('registration', ['event']).controller('registrationController', [
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
-                    isVegiterian: $scope.isVegiterian,
+                    isVegetarian: $scope.isVegetarian,
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
+                    sponsorshipCategory: $scope.sponsorshipCategory,
                     specialNote: $scope.specialNote
                 }
             }

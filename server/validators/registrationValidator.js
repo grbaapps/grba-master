@@ -43,8 +43,8 @@ exports.validatePost = function(req, res, next) {
               "data.isMember": function(value, attributes, attributeName, options, constraints) {
                   return simpleBooleanRule(value,"isMember")
               },
-              "data.isVegiterian": function(value, attributes, attributeName, options, constraints) {
-                  return simpleBooleanRule(value,"isVegiterian")
+              "data.isVegetarian": function(value, attributes, attributeName, options, constraints) {
+                  return simpleBooleanRule(value,"isVegetarian")
               },
               "data.isStudent": function(value, attributes, attributeName, options, constraints) {
                   return simpleBooleanRule(value,"isStudent")

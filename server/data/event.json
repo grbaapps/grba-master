@@ -4,7 +4,7 @@
          "name":"Saraswati Puja 2018",
          "isCurrentEvent":"Y",
          "venue":"Bishop Ireton Center",
-         "date":"01-20-2018 08:00:00",
+         "date":"01-20-2018 10am",
          "time":"8AM to 10PM",
          "code":"SP",
          "address":{
@@ -25,7 +25,7 @@
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural Committee",
-               "members":"Trina Dutta, "
+               "members":"Trina Dutta"
             },
             "pujaDecorations":{
                "htmlLabel":"Decoration",

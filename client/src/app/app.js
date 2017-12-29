@@ -28,16 +28,22 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
 
     $routeProvider
     .when("/", {
-        templateUrl : "html/home.html"
+        templateUrl : "html2/home.html"
     })
     .when("/event", {
-        templateUrl : "html/event.html"
+        templateUrl : "html2/event.html"
+    })
+    .when("/nextevent", {
+        templateUrl : "html2/event.html"
     })
     .when("/about", {
-        templateUrl : "html/about.html"
+        templateUrl : "html2/about.html"
     })
     .when("/contact", {
-        templateUrl : "html/contact.html"
+        templateUrl : "html2/contact.html"
+    })
+    .when("/board", {
+        templateUrl : "html2/board.html"
     })
     .otherwise({redirectTo:'/'});
 

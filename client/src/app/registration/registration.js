@@ -1,6 +1,7 @@
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
+    
 
     $scope.submit = function () {
         $http({
@@ -16,10 +17,11 @@ angular.module('registration', ['event']).controller('registrationController', [
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
-                    isVegiterian: $scope.isVegiterian,
+                    isVegetarian: $scope.isVegetarian,
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
+                    sponsorshipCategory: $scope.sponsorshipCategory,
                     specialNote: $scope.specialNote
                 }
             }
