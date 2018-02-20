@@ -36,6 +36,7 @@ app.use(addConfigurationToRequest)  // Hash cookies with this secret
 
 
 app.use('/api/registration',require('./lib/routes/registration'));
+app.use('/api/volunteer-events',require('./lib/routes/volunteer-events'));
 require('./lib/routes/event').addRoutes(app, event);
 
 
