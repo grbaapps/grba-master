@@ -269,6 +269,68 @@
             }
          }
       },
+      "RNS":{
+         "name":"Rabindra Nazrul Sandhya",
+         "venue":"Gayton Baptist Church",
+         "date":"May 5, 2018",
+         "time":"3PM to 10PM",
+         "code":"RNS",
+         "address":{
+            "street":"13501 North Gayton Road",
+            "city":"Henrico",
+            "state":"VA",
+            "zip":"23233"
+         },
+         "lastOnlineDateRegistration":"04-29-2018 11:59:59",
+	 "EarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":20,
+                     "family":30
+                  },
+                  "nonmember":{
+                     "single":20,
+                     "family":30
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":30,
+                     "family":55
+                  },
+                  "nonmember":{
+                     "single":35,
+                     "family":60
+                  }
+               }
+            }
+         }	
+	      "afterEarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":25,
+                     "family":35
+                  },
+                  "nonmember":{
+                     "single":25,
+                     "family":35
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":35,
+                     "family":60
+                  },
+                  "nonmember":{
+                     "single":40,
+                     "family":65
+                  }
+               }
+            }
+         }
+      },
       "DP":{
          "name":"Durga Puja 2018",
          "venue":"Bishop Ireton Center",
