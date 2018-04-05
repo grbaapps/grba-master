@@ -4,7 +4,7 @@
          "name":"Saraswati Puja 2018",
          "isCurrentEvent":"Y",
          "venue":"Bishop Ireton Center",
-         "date":"01-20-2018 08:00:00",
+         "date":"01-20-2018 10am",
          "time":"8AM to 10PM",
          "code":"SP",
          "address":{
@@ -17,15 +17,15 @@
          "committeeMembers":{
             "pujaCommittee":{
                "htmlLabel":"Puja Committee",
-               "members":"Baishakhy Chakraborty,Chaitali Roy"
+               "members":"Baishakhy Chakraborty,Chaitali Roy,Paromita Ganguly"
             },
             "foodCommittee":{
                "htmlLabel":"Food Committee",
-               "members":"Reshmi Ghosh"
+               "members":"Reshmi Ghosh,Soma Pradhan,Sanjukta Basu,Ballari Chakraborty"
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural Committee",
-               "members":"Trina Dutta, "
+               "members":"Trina Dutta,Sayani Sarkar,Subhadip Das"
             },
             "pujaDecorations":{
                "htmlLabel":"Decoration",
@@ -33,11 +33,11 @@
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
-               "members":"Rahul Moray,Samrat Ghosh"
+               "members":"Rahul Moray,Abhishek Ghosh,Avik Roy"
             },
             "facilitiesCoordinator":{
-               "htmlLabel":"Sound Coordinator",
-               "members":"Coming Soon"
+               "htmlLabel":"Light and Sound",
+               "members":"Tapabrata Pal,Arjoo Bandopadhyay"
             },
             "registrationAndFrontDesk":{
                "htmlLabel":"Front Desk",
@@ -45,7 +45,7 @@
             }
          },
          "earlyBird":{
-            "date":"01-14-2017 23:59:59",
+            "date":"01-14-2018 23:59:59",
             "fee":{
                "student":{
                   "member":{

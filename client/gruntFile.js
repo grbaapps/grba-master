@@ -54,7 +54,8 @@ module.exports = function (grunt) {
     copy: {
       assets: {
         files: [{ dest: '<%= distdir %>', src : '**', expand: true, cwd: 'src/assets/' },
-               { dest: '<%= distdir %>/js', src : '**', expand: true, cwd: 'vendor/' }]
+               { dest: '<%= distdir %>/js', src : '**', expand: true, cwd: 'vendor/' },
+               { dest: '<%= distdir %>/html2', src : '**', expand: true, cwd: 'src/html2/' }]
       }
     },
     karma: {
