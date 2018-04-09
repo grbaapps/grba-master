@@ -86,7 +86,7 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-    
+
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
@@ -109,13 +109,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 }]);
 
 angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
-    
+
     $scope.submit = function () {
         alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
     };
 
     $scope.reset = function () {
-        
+
     };
 
 }]);
@@ -165,7 +165,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
      this.getRegistrationDetails =  function() {
          var deferred = $q.defer();
-        $http.get('/api/registration/year/2018/event/SP')
+        $http.get('/api/registration/year/2018/event/PB')
             .success(function(data) {
 
                 //this.currentEvent = data;
@@ -182,7 +182,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
-    
+
 
     $scope.submit = function () {
         $http({
@@ -369,4 +369,3 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
-
