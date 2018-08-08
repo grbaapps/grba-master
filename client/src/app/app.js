@@ -45,6 +45,9 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
     .when("/board", {
         templateUrl : "html2/board.html"
     })
+    .when("/membership", {
+        templateUrl : "html2/membership.html"
+    })
     .otherwise({redirectTo:'/'});
 
 }]);
