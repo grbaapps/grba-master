@@ -173,6 +173,12 @@ var membership = {
 
 function createMemberObject(newData) {
     const emailID = newData.member.emailID
+    let spouseName, spouseEmailID, spouseContactNo;
+    if (newData.spouse) {
+        spouseName = newData.spouse.name || '';
+        spouseEmailID = newData.spouse.emailID || '';
+        spouseContactNo = newData.spouse.contactNo || ''
+    }
     const membership = {
         type: newData.type,
         member: {
@@ -181,11 +187,11 @@ function createMemberObject(newData) {
             'contactNo': newData.member.contactNo
         },
         spouse: {
-            'name': newData.spouse.name,
-            'emailID': newData.spouse.emailID,
-            'contactNo': newData.spouse.contactNo
+            'name': spouseName,
+            'emailID': spouseEmailID,
+            'contactNo': spouseContactNo
         },
-        noOfChildren: newData.noOfChildren
+        noOfChildren: newData.noOfChildren || 0
     };
     return membership;
 }
