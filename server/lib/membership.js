@@ -41,7 +41,7 @@ var membership = {
                             members[emailID] = member;
                         } else {
                             members = JSON.parse(data.Body.toString('utf-8'));
-			    if (members[emailID)) {
+			    if (members[emailID]) {
 				//Duplicate email id. Can't do
                             	var errorObj = {
                                   "key": "data.email",
@@ -98,7 +98,7 @@ var membership = {
         }
 
     },
-    read: function(req, res, next) {
+    read: function (req, res, next) {
         try {
             var config = req.globalConfig;
             var s3 = new aws.S3({
@@ -137,25 +137,29 @@ var membership = {
                     return res.send(returnObj);
                 } else {
                     data = JSON.parse(data.Body.toString('utf-8'));
-		    const emailID = req.params.emailID;
-                    member = data.[req.params.emailID];
+		            const emailID = req.params.emailID;
+                    member = data[emailID];
                     if (emailID) {
-			if (data[emailID]) {
-			  res.status(200);
-                          return res.send(data[emailID]);
-			} else {
-			  //event does not exist. throw 404
-                          var returnObj = {
+			            if (data[emailID]) {
+			                res.status(200);
+                            return res.send(data[emailID]);
+			            } else {
+			                //event does not exist. throw 404
+                            var returnObj = {
                             "status": 404,
                             "message": "Member does not exist"
-                          };
-			  res.status(404);
-			  return res.send(returnObj);
-			}
+                            };
+			                res.status(404);
+                            return res.send(returnObj);
+                        }
                         
                     } else {
+                        const retVal = [];
+                        Object.keys.array.forEach(element => {
+                            retVal.push(data[element]);
+                        });
                         res.status(200);
-                        return res.send(data);
+                        return res.send(retVal);
                     }
                 }
             });
@@ -168,15 +172,22 @@ var membership = {
 }
 
 function createMemberObject(newData) {
-    const emailID = newData.emailID
-    const member = {
-	'mamberName': newData.memberName,
-	'emailID': emailID,
-	'isStudent': newData.isStudent || false,
-	'isMarried': newData.isMarried || true,
-	'noOfKids': newData.noOfKids || 0
+    const emailID = newData.member.emailID
+    const membership = {
+        type: newData.type,
+        member: {
+            'name': newData.member.name,
+            'emailID': newData.member.emailID,
+            'contactNo': newData.member.contactNo
+        },
+        spouse: {
+            'name': newData.spouse.name,
+            'emailID': newData.spouse.emailID,
+            'contactNo': newData.spouse.contactNo
+        },
+        noOfChildren: newData.noOfChildren
     };
-    return member;
+    return membership;
 }
 
 module.exports = membership;
