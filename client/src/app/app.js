@@ -2,6 +2,7 @@ angular.module('grbaApp', [
   'ngRoute',
   'ngResource',
   'registration',
+  'membership',
   'event',
   'contact',
   'services.i18nNotifications',

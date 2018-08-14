@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-08
+/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-14
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2018 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -183,35 +183,25 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
 });
 
-// angular.module('membership', []).controller('membershipController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
-     
-//   // $scope.showRegForm = true;
-//     // $scope.showRegResult = false;
-
-//   $scope.submit = function () {
-//     alert(123);
-//   }
-// }]);
-
 angular.module('membership', [])
 .controller('membershipController', ['$scope', '$http', '$resource', '$log',  function ($scope, $http, $resource, $log) {
   $scope.submit = function() {
 
-// var ss = {
-//   membershipType:$scope.membershipType,
-//   member: {
-//     name: $scope.name,
-//     emailID:  $scope.email,
-//     contactNo: $scope.contactNo
-// },
-// spouse: {
-//   name:  $scope.spouseName,
-//   emailID: $scope.spouseEmail,
-//   contactNo: $scope.spouseContactNo
-// },
-// noOfChildren: $scope.childrenCount
-// }
-// alert(JSON.stringify(ss));
+var test = {
+  membershipType:$scope.membershipType,
+  member: {
+    name: $scope.name,
+    emailID:  $scope.email,
+    contactNo: $scope.contactNo
+},
+spouse: {
+  name:  $scope.spouseName,
+  emailID: $scope.spouseEmail,
+  contactNo: $scope.spouseContactNo
+},
+noOfChildren: $scope.childrenCount
+}
+alert(JSON.stringify(test));
     $http({
       method: 'POST',
       url: '/api/membership',
@@ -237,16 +227,12 @@ angular.module('membership', [])
     });
   };
 }]);
-
-
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
-    
-  $scope.showRegForm = true;
+    $scope.showRegForm = true;
     $scope.showRegResult = false;
     
 
     $scope.submit = function () {
-     
         $http({
             method: 'POST',
             url: '/api/registration',

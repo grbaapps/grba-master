@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <div ng-click="showRegForm" class="row">
+                    <div ng-show="showRegForm" class="row">
                         <form ng-submit="submit()">
                             <input type="hidden" ng-model="year" class="form-control" id="year" ng-init="year=2018">
                             <input type="hidden" ng-model="eventCode" class="form-control" id="eventCode" ng-init="eventCode='PB'">
@@ -39,8 +39,12 @@
                                         STUDENT SINGLE ${{eventDetails.applicableFee.student.nonmember.single}}<br>
                                     </address>
                                     </div>
+
                                 </div>
+
                             </div>
+
+
 
                             <div class="form-group form-group-sm">
                                 <div class="row" ng-if="regResult.status == 'ERROR'">
