@@ -28,7 +28,7 @@ var registration = {
                     //S3 operations
                     var params = {
                         Bucket: config.aws.s3Bucket,
-                        Key: fileName
+                        Key: `registration/${fileName}`
                     }
                     var fileData = "";
                     s3.getObject(params, function(err, data) {
@@ -85,7 +85,7 @@ var registration = {
                     var newResults = calculateTotalAdultsAndChildren(results["read_data"]["events"][newData.eventCode].registrations);
                     var params = {
                         Bucket: config.aws.s3Bucket,
-                        Key: fileName,
+                        Key: `registration/${fileName}`,
                         ContentEncoding: 'utf-8',
                         Body: JSON.stringify(results["read_data"]),
                         "ServerSideEncryption": "AES256"
