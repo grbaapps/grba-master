@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2018-04-08
+/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-14
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2018 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -7,6 +7,7 @@ angular.module('grbaApp', [
   'ngRoute',
   'ngResource',
   'registration',
+  'membership',
   'event',
   'contact',
   'services.i18nNotifications',
@@ -50,6 +51,9 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
     .when("/board", {
         templateUrl : "html2/board.html"
     })
+    .when("/membership", {
+        templateUrl : "html2/membership.html"
+    })
     .otherwise({redirectTo:'/'});
 
 }]);
@@ -86,7 +90,7 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-
+    
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
@@ -109,13 +113,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 }]);
 
 angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
-
+    
     $scope.submit = function () {
         alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
     };
 
     $scope.reset = function () {
-
+        
     };
 
 }]);
@@ -179,10 +183,54 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
 });
 
+angular.module('membership', [])
+.controller('membershipController', ['$scope', '$http', '$resource', '$log',  function ($scope, $http, $resource, $log) {
+  $scope.submit = function() {
+
+var test = {
+  membershipType:$scope.membershipType,
+  member: {
+    name: $scope.name,
+    emailID:  $scope.email,
+    contactNo: $scope.contactNo
+},
+spouse: {
+  name:  $scope.spouseName,
+  emailID: $scope.spouseEmail,
+  contactNo: $scope.spouseContactNo
+},
+noOfChildren: $scope.childrenCount
+}
+alert(JSON.stringify(test));
+    $http({
+      method: 'POST',
+      url: '/api/membership',
+      data: {
+        membershipType:$scope.membershipType,
+        member: {
+          name: $scope.name,
+          emailID:  $scope.email,
+          contactNo: $scope.contactNo
+      },
+      spouse: {
+        name:  $scope.spouseName,
+        emailID: $scope.spouseEmail,
+        contactNo: $scope.spouseContactNo
+    },
+    noOfChildren: $scope.childrenCount
+      }
+    }).then(function successCallback(response) {
+
+      //todo - handle success response
+    }, function errorCallback(response) {
+      //todo - handle error
+    });
+  };
+}]);
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
-
+    
 
     $scope.submit = function () {
         $http({
@@ -369,3 +417,4 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
+
