@@ -7,6 +7,7 @@ angular.module('grbaApp', [
   'ngRoute',
   'ngResource',
   'registration',
+  'membership',
   'event',
   'contact',
   'services.i18nNotifications',
@@ -182,12 +183,70 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
 });
 
+// angular.module('membership', []).controller('membershipController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
+     
+//   // $scope.showRegForm = true;
+//     // $scope.showRegResult = false;
+
+//   $scope.submit = function () {
+//     alert(123);
+//   }
+// }]);
+
+angular.module('membership', [])
+.controller('membershipController', ['$scope', '$http', '$resource', '$log',  function ($scope, $http, $resource, $log) {
+  $scope.submit = function() {
+
+// var ss = {
+//   membershipType:$scope.membershipType,
+//   member: {
+//     name: $scope.name,
+//     emailID:  $scope.email,
+//     contactNo: $scope.contactNo
+// },
+// spouse: {
+//   name:  $scope.spouseName,
+//   emailID: $scope.spouseEmail,
+//   contactNo: $scope.spouseContactNo
+// },
+// noOfChildren: $scope.childrenCount
+// }
+// alert(JSON.stringify(ss));
+    $http({
+      method: 'POST',
+      url: '/api/membership',
+      data: {
+        membershipType:$scope.membershipType,
+        member: {
+          name: $scope.name,
+          emailID:  $scope.email,
+          contactNo: $scope.contactNo
+      },
+      spouse: {
+        name:  $scope.spouseName,
+        emailID: $scope.spouseEmail,
+        contactNo: $scope.spouseContactNo
+    },
+    noOfChildren: $scope.childrenCount
+      }
+    }).then(function successCallback(response) {
+
+      //todo - handle success response
+    }, function errorCallback(response) {
+      //todo - handle error
+    });
+  };
+}]);
+
+
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
-    $scope.showRegForm = true;
+    
+  $scope.showRegForm = true;
     $scope.showRegResult = false;
     
 
     $scope.submit = function () {
+     
         $http({
             method: 'POST',
             url: '/api/registration',

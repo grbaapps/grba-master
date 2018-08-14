@@ -1,105 +1,119 @@
 
-        <div class="row">
-            <div id="top-banner"><img class="img-responsive center-block " src="html2/assets/img/banner.png"></div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 left-col" style="/*width:724px;*//*height:740px;*/">
-                        <div class="carousel slide" data-ride="carousel" id="carousel-1" style="margin:10px;">
-                            <div class="panel-heading grba-panel-heading">
-                                <h3 class="panel-title" id="exampleModalLabel">New Member Registration</h3>
-                                <div class="form-group form-group-sm">
-                                   
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <label for="membership-type" class="control-label">Membership-Type:</label>&nbsp;&nbsp;
-                                            <select>
-                                                <option value="Family">Family</option>
-                                                <option value="Single">Single</option>
-                                              </select>
-                                        </div>
+        <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" ng-controller="membershipController">
+                <div id="top-banner"><img class="img-responsive center-block " src="html2/assets/img/banner.png"></div>
+                </div>
+                <div class="container-fluid">
+                  <form ng-submit="submit()">
+                    <div class="row">
+                        <div class="col-md-12 left-col" style="/*width:724px;*//*height:740px;*/">
+                            <div class="carousel slide" data-ride="carousel" id="carousel-1" style="margin:10px;">
+                                <div class="panel-heading grba-panel-heading">
+                                    <h3 class="panel-title" id="exampleModalLabel">New Member Registration</h3>
+                                    <div class="form-group form-group-sm">
+                                       
                                         <div class="row">
-                                            <div class="col-xs-3">
-                                                <label for="full-name" class="control-label">Full Name:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
+                                            <div class="col-xs-12">
+                                                <label for="membership-type" class="control-label">Membership-Type:</label>&nbsp;&nbsp;
+                                                <select>
+                                                    <option value="Family">Family</option>
+                                                    <option value="Single">Single</option>
+                                                </select>
                                             </div>
-                                            <div class="col-xs-3">
-                                                <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="full-name" class="control-label">Full Name:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="spouse-name" class="control-label">spouse Name:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!-- <div class="col-xs-3">
+                                                    <label for="child1-name" class="control-label">Child1 Name11:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <label for="child1-name" class="control-label">Child2 Name:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div> -->
+                                                <div class="col-xs-12">
+                                                    <label for="membership-type" class="control-label">No. of Children:</label>&nbsp;&nbsp;
+                                                    <select>
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <label for="my-email" class="control-label">Email::</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <label for="spouse-email" class="control-label">Spouse Email:</label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <label for="spouse-name" class="control-label">spouse Name:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <label for="child1-name" class="control-label">Child1 Name:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <label for="child1-name" class="control-label">Child2 Name:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <label for="my-email" class="control-label">Email::</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <label for="spouse-email" class="control-label">Spouse Email:</label>&nbsp;&nbsp;
-                                                <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                </label>
-                                            </div>
-                                        </div>
+                                        <button type="submit" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to payment</button>
+                                
                                     </div>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to payment</button>
-                            
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12 right-ad-col" style="/*width:300px;*//*height:500px;*/">
+                            <div class="row ad-row">
+                                <div class="col-md-12 right-ad-col2" style="/*width:300px;*//*height:250px;*/">
+                                    <div class="side-ad"><img  src="html2/assets/img/ad8.png" class="img-responsive center-block side-img"></div>
+                                </div>
+                            </div>
+                            <div class="row ad-row">
+                                <div class="col-md-12">
+                                    <div class="side-ad"><img src="html2/assets/img/ad4.png" class="img-responsive center-block side-img"></div>
+                                </div>
+                            </div>
+                            <div class="row ad-row">
+                                <div class="col-md-12">
+                                    <div class="side-ad"><img  src="html2/assets/img/ad7.png" class=" img-responsive center-block side-img"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
-                    <div class="col-md-12 right-ad-col" style="/*width:300px;*//*height:500px;*/">
-                        <div class="row ad-row">
-                            <div class="col-md-12 right-ad-col2" style="/*width:300px;*//*height:250px;*/">
-                                <div class="side-ad"><img  src="html2/assets/img/ad8.png" class="img-responsive center-block side-img"></div>
-                            </div>
-                        </div>
-                        <div class="row ad-row">
-                            <div class="col-md-12">
-                                <div class="side-ad"><img src="html2/assets/img/ad4.png" class="img-responsive center-block side-img"></div>
-                            </div>
-                        </div>
-                        <div class="row ad-row">
-                            <div class="col-md-12">
-                                <div class="side-ad"><img  src="html2/assets/img/ad7.png" class=" img-responsive center-block side-img"></div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                </form>
                 </div>
-            </div>
-            
-    
+                
+        

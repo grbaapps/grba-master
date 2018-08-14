@@ -1,8 +1,9 @@
 
-        <div class="row">
+        <div class="modal fade" id="membershipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
             <div id="top-banner"><img class="img-responsive center-block " src="html2/assets/img/banner.png"></div>
             </div>
-            <div class="container-fluid">
+            <div >
+                    <form ng-submit="submit()" ng-controller="membershipController" >
                 <div class="row">
                     <div class="col-md-12 left-col" style="/*width:724px;*//*height:740px;*/">
                         <div class="carousel slide" data-ride="carousel" id="carousel-1" style="margin:10px;">
@@ -14,13 +15,13 @@
                                         <div class="col-xs-12">
                                             <label for="membership-type" class="control-label">Membership-Type:</label>&nbsp;&nbsp;
                                             <select>
-                                                <option value="Family">Family</option>
-                                                <option value="Single">Single</option>
-                                              </select>
+                                                <option value="Family" ng-model="membershipType" >Family</option>
+                                                <option value="Single" ng-model="membershipType" >Single</option>
+                                            </select>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <label for="full-name" class="control-label">Full Name:</label>&nbsp;&nbsp;
+                                                <label for="full-name"  class="control-label">Full Name:</label>&nbsp;&nbsp;
                                                 <label>
                                                     <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
                                                 </label>
@@ -28,7 +29,7 @@
                                             <div class="col-xs-3">
                                                 <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
                                                 <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    <input type="text" ng-model="contactNo" class="form-control" id="name" style="width: 250px;">
                                                 </label>
                                             </div>
                                         </div>
@@ -36,19 +37,19 @@
                                             <div class="col-xs-3">
                                                 <label for="spouse-name" class="control-label">spouse Name:</label>&nbsp;&nbsp;
                                                 <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    <input type="text" ng-model="spouseName" class="form-control" id="name" style="width: 250px;">
                                                 </label>
                                             </div>
                                             <div class="col-xs-3">
                                                 <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
                                                 <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    <input type="text" ng-model="spouseContactNo" class="form-control" id="name" style="width: 250px;">
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-3">
-                                                <label for="child1-name" class="control-label">Child1 Name:</label>&nbsp;&nbsp;
+                                            <!-- <div class="col-xs-3">
+                                                <label for="child1-name" class="control-label">Child1 Name11:</label>&nbsp;&nbsp;
                                                 <label>
                                                     <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
                                                 </label>
@@ -58,25 +59,37 @@
                                                 <label>
                                                     <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
                                                 </label>
+                                            </div> -->
+                                            <div class="col-xs-12">
+                                                <label for="children-count" class="control-label">No. of Children:</label>&nbsp;&nbsp;
+                                                <select>
+                                                    <option value="0" ng-model="childrenCount">0</option>
+                                                    <option value="1" ng-model="childrenCount">1</option>
+                                                    <option value="2" ng-model="childrenCount">2</option>
+                                                    <option value="3" ng-model="childrenCount">3</option>
+                                                    <option value="4" ng-model="childrenCount">4</option>
+                                                    <option value="5" ng-model="childrenCount">5</option>
+                                                    <option value="6" ng-model="childrenCount">6</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-3">
-                                                <label for="my-email" class="control-label">Email::</label>&nbsp;&nbsp;
+                                                <label for="my-email" class="control-label">Email:</label>&nbsp;&nbsp;
                                                 <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    <input type="text" ng-model="email" class="form-control" id="name" style="width: 250px;">
                                                 </label>
                                             </div>
                                             <div class="col-xs-3">
                                                 <label for="spouse-email" class="control-label">Spouse Email:</label>&nbsp;&nbsp;
                                                 <label>
-                                                    <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                                    <input type="text" ng-model="spouseEmail" class="form-control" id="name" style="width: 250px;">
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to payment</button>
-                            
+                                    <button type="submit" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to payment</button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -100,6 +113,8 @@
                         
                     </div>
                 </div>
+            </form>
+            <!-- </div> -->
             </div>
             
     
