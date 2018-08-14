@@ -7,11 +7,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>GRBA | Greater Richmond Bengali Association</title>
-    <link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="html2/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="html2/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="html2/assets/css/Carousel-Hero-1.css">
+    <link rel="stylesheet" href="html2/assets/css/Carousel-Hero.css">
+    <link rel="stylesheet" href="html2/assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="html2/assets/css/nav.css">
+    <link rel="stylesheet" href="html2/assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="html2/assets/css/styles.css">
+    <link rel="stylesheet" href="html2/assets/css/main.css">
+    <!--<link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">->
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -23,46 +34,51 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <!-- include javascript files -->
-    <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="html2/assets/js/jquery.min.js"></script>
+    <script src="html2/assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="lib/bower_components/gmaps/gmaps.js"></script>
-    <script type="text/javascript" src="js/smoothscroll.js"></script>
-    <script type="text/javascript" src="lib/bower_components/jquery-parallax/scripts/jquery.parallax-1.1.3.js"></script>
-    <script type="text/javascript" src="js/coundown-timer.js"></script>
+     <script type="text/javascript" src="js/coundown-timer.js"></script>
     <script type="text/javascript" src="js/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
-    <script type="text/javascript" src="lib/bower_components/jQuery-One-Page-Nav/jquery.nav.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <!--<script type="text/javascript" src="js/main.js"></script>-->
     <script type="text/javascript" src="lib/bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/grbaApp.js"></script>
     <script type="text/javascript" src="js/angular-toArrayFilter.js"></script>
+    <script>
+    $(document).click(function (event) {
+    var clickover = $(event.target);
+    var $navbar = $(".navbar-collapse");               
+    var _opened = $navbar.hasClass("in");
+    if (_opened === true && !clickover.hasClass("navbar-toggle")) {      
+        $navbar.collapse('hide');
+    }
+});
+    </script>
 </head>
 <!--/head-->
 
 <body ng-controller="AppCtrl">
-    <div ng-include="'html/header.html'"></div>
+    <div id="page-body" style="background-color:#f2f5f8;">
+    <div ng-include="'html2/header.html'"></div>
     <div ng-view></div>
     <!--  Registration Popup -->
-    <div ng-include="'html/registration.html'"></div>
+    <div ng-include="'html2/registration.html'"></div>
+    <div ng-include="'html2/registeredmembers.html'"></div>
     <!--Cultural program popup-->
-    <div ng-include="'html/culturalProgram.html'"></div>
+    <!--<div ng-include="'html/culturalProgram.html'"></div>-->
 	<!--Cultural program popup-->
-    <div ng-include="'html/eventsOfTheDay.html'"></div>
+    <!--<div ng-include="'html/eventsOfTheDay.html'"></div>-->
   <!--Food Items popup-->
-    <div ng-include="'html/foodItems.html'"></div>
-    <div ng-include="'html/registeredMembers.html'"></div>
-    <section id="explore">
+    <!--<div ng-include="'html/foodItems.html'"></div>-->
+    <!--<div ng-include="'html/registeredMembers.html'"></div>-->
+    <!--<section id="explore">
         <div ng-include="'html/nextevent.html'"></div>
-    </section>
-    <footer id="footer">
-        <div ng-include="'html/footer.html'"></div>
-    </footer>
+    </section>-->
+        <div ng-include="'html2/footer.html'"></div>
     <!--/#footer-->
-
+    </div>
 
 </body>
 

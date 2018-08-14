@@ -1,6 +1,6 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2017-08-08
+/*! grbaApp - v0.0.1-SNAPSHOT - 2018-04-08
  * https://github.com/angular-app/angular-app
- * Copyright (c) 2017 Surajit Pal/Abhishek Ghosh;
+ * Copyright (c) 2018 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
  */
 angular.module('grbaApp', [
@@ -33,16 +33,22 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
 
     $routeProvider
     .when("/", {
-        templateUrl : "html/home.html"
+        templateUrl : "html2/home.html"
     })
     .when("/event", {
-        templateUrl : "html/event.html"
+        templateUrl : "html2/event.html"
+    })
+    .when("/nextevent", {
+        templateUrl : "html2/event.html"
     })
     .when("/about", {
-        templateUrl : "html/about.html"
+        templateUrl : "html2/about.html"
     })
     .when("/contact", {
-        templateUrl : "html/contact.html"
+        templateUrl : "html2/contact.html"
+    })
+    .when("/board", {
+        templateUrl : "html2/board.html"
     })
     .otherwise({redirectTo:'/'});
 
@@ -80,7 +86,7 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-    
+
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
@@ -103,13 +109,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 }]);
 
 angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
-    
+
     $scope.submit = function () {
         alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
     };
 
     $scope.reset = function () {
-        
+
     };
 
 }]);
@@ -159,7 +165,7 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
      this.getRegistrationDetails =  function() {
          var deferred = $q.defer();
-        $http.get('/api/registration/year/2017/event/DP')
+        $http.get('/api/registration/year/2018/event/PB')
             .success(function(data) {
 
                 //this.currentEvent = data;
@@ -177,6 +183,7 @@ angular.module('registration', ['event']).controller('registrationController', [
     $scope.showRegForm = true;
     $scope.showRegResult = false;
 
+
     $scope.submit = function () {
         $http({
             method: 'POST',
@@ -191,10 +198,11 @@ angular.module('registration', ['event']).controller('registrationController', [
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
-                    isVegiterian: $scope.isVegiterian,
+                    isVegetarian: $scope.isVegetarian,
                     noOfAdults: Number($scope.noOfAdults),
                     noOfChildren: Number($scope.noOfChildren),
                     eventFee: $scope.eventFee,
+                    sponsorshipCategory: $scope.sponsorshipCategory,
                     specialNote: $scope.specialNote
                 }
             }
@@ -361,4 +369,3 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
-

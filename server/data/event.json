@@ -2,9 +2,9 @@
    "2018":{
       "SP":{
          "name":"Saraswati Puja 2018",
-         "isCurrentEvent":"Y",
+         "isCurrentEvent":"N",
          "venue":"Bishop Ireton Center",
-         "date":"01-20-2018 08:00:00",
+         "date":"01-20-2018 10am",
          "time":"8AM to 10PM",
          "code":"SP",
          "address":{
@@ -17,15 +17,15 @@
          "committeeMembers":{
             "pujaCommittee":{
                "htmlLabel":"Puja Committee",
-               "members":"Baishakhy Chakraborty,Chaitali Roy"
+               "members":"Baishakhy Chakraborty,Chaitali Roy,Paromita Ganguly"
             },
             "foodCommittee":{
                "htmlLabel":"Food Committee",
-               "members":"Reshmi Ghosh"
+               "members":"Reshmi Ghosh,Soma Pradhan,Sanjukta Basu,Ballari Chakraborty"
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural Committee",
-               "members":"Trina Dutta, "
+               "members":"Trina Dutta,Sayani Sarkar,Subhadip Das"
             },
             "pujaDecorations":{
                "htmlLabel":"Decoration",
@@ -33,11 +33,11 @@
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
-               "members":"Rahul Moray,Samrat Ghosh"
+               "members":"Rahul Moray,Abhishek Ghosh,Avik Roy"
             },
             "facilitiesCoordinator":{
-               "htmlLabel":"Sound Coordinator",
-               "members":"Coming Soon"
+               "htmlLabel":"Light and Sound",
+               "members":"Tapabrata Pal,Arjoo Bandopadhyay"
             },
             "registrationAndFrontDesk":{
                "htmlLabel":"Front Desk",
@@ -45,7 +45,7 @@
             }
          },
          "earlyBird":{
-            "date":"01-14-2017 23:59:59",
+            "date":"01-14-2018 23:59:59",
             "fee":{
                "student":{
                   "member":{
@@ -165,66 +165,66 @@
          }
       },
       "PB":{
-         "name":"Poila Baisakh 2017",
-         "isCurrentEvent":"N",
+         "name":"Rabindra Nazrul Sandhya",
+         "isCurrentEvent":"Y",
          "venue":"Gayton Baptist Church",
-         "date":"04-22-2017 17:00:00",
-         "time":"5PM to 10PM",
-         "code":"DP",
+         "date":"05-05-2018 3pm to 10pm",
+         "time":"3PM to 10PM",
+         "code":"RNS",
          "address":{
             "street":"13501 N Gayton Rd",
             "city":"Henrico",
             "state":"VA",
             "zip":"23233"
          },
-         "lastOnlineDateRegistration":"04-22-2017 16:00:00",
+         "lastOnlineDateRegistration":"05-05-2018 15:00:00",
          "committeeMembers":{
             "foodCommittee":{
                "htmlLabel":"Food Committee",
-               "members":"Suronita Dasbiswas,Soma Pradhan,Manisha Prasad,Poulami Saha"
+               "members":""
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural Committee",
-               "members":"Bhaswati Datta,Trina Dutta"
+               "members":""
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
-               "members":"Rahul Moray,Samrat Ghosh"
+               "members":""
             },
             "facilitiesCoordinator":{
                "htmlLabel":"Sound Coordinator",
-               "members":"Tapabrata Pal,Ashish Roy"
+               "members":""
             },
             "registrationAndFrontDesk":{
                "htmlLabel":"Front Desk",
-               "members":"Soumen Pradhan,Arko Chakraborty"
+               "members":""
             },
             "webTeam":{
                "htmlLabel":"Web Team",
-               "members":"Abhishek Ghosh,Sandipan Biswas,Pritam Sarkar"
+               "members":""
             }
          },
          "earlyBird":{
-            "date":"04-19-2017 23:59:59",
+            "date":"04-29-2018 23:59:59",
             "fee":{
                "student":{
                   "member":{
-                     "single":15,
+                     "single":20,
                      "family":30
                   },
                   "nonmember":{
                      "single":20,
-                     "family":35
+                     "family":30
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":25,
-                     "family":45
+                     "single":30,
+                     "family":55
                   },
                   "nonmember":{
-                     "single":30,
-                     "family":50
+                     "single":35,
+                     "family":60
                   }
                }
             }
@@ -233,22 +233,22 @@
             "fee":{
                 "student":{
                    "member":{
-                      "single":20,
+                      "single":25,
                       "family":35
                    },
                    "nonmember":{
                       "single":25,
-                      "family":40
+                      "family":35
                    }
                 },
                "nonStudent":{
                   "member":{
-                     "single":30,
-                     "family":50
+                     "single":35,
+                     "family":60
                   },
                   "nonmember":{
-                     "single":35,
-                     "family":55
+                     "single":40,
+                     "family":65
                   }
                }
             }

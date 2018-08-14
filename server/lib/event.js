@@ -17,8 +17,8 @@ var event = {
         var currentYear =  new Date().getFullYear();
         var response = "{}";
         //This needs to be modified to get the current year and then filter on that
-        if (obj[currentYear]["SP"]["isCurrentEvent"] == "Y") {
-            response = obj[currentYear]["SP"];
+        if (obj["2018"]["SP"]["isCurrentEvent"] == "Y") {
+            response = obj["2018"]["SP"];
         } else if (obj[currentYear]["PB"]["isCurrentEvent"] == "Y") {
             response = obj[currentYear]["PB"];
         } else if (obj[currentYear]["AP"]["isCurrentEvent"] == "Y") {
