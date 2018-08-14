@@ -4,6 +4,7 @@ var async = require("async")
 var logger = require('./logModule');
 var aws = require('aws-sdk');
 const fileName = "membership.json";
+var moment = require('moment');
 var membership = {
     create: function(req, res, next) {
         var config = req.globalConfig;
@@ -22,17 +23,16 @@ var membership = {
                     //S3 operations
                     var params = {
                         Bucket: config.aws.s3Bucket,
-                        Key: fileName
+                        Key: `membership/${fileName}`
                     }
                     var fileData = "";
                     s3.getObject(params, function(err, data) {
-			const member = createMemberObject(newData);
-			const emailID = newData.emailID;
-			const members = {};
+			        const member = createMemberObject(newData);
+			        const emailID = newData.member.emailID;
+	                let members = {};
                         if (err) {
                             if (err.statusCode && err.statusCode == 404) {
                                 members[emailID] = member;
-                                return callback(null, fileData);
                             } else {
                                 return callback(err);
                             }
@@ -41,17 +41,17 @@ var membership = {
                             members[emailID] = member;
                         } else {
                             members = JSON.parse(data.Body.toString('utf-8'));
-			    if (members[emailID]) {
-				//Duplicate email id. Can't do
+			                if (members[emailID]) {
+				            //Duplicate email id. Can't do
                             	var errorObj = {
                                   "key": "data.email",
                                   "errorCode": "duplicate_email",
                                   "errorMessage": "Duplicate membership. Another member record exist with same email id."
                                 }
-			    	callback(errorObj);
+			    	            return callback(errorObj);
                             } else {
-				members[emailID] = member;
-			    } 
+				                members[emailID] = member;
+			                } 
                         }
                         return callback(null, members);
                     });
@@ -61,7 +61,7 @@ var membership = {
                     logger.debug('in write_file', JSON.stringify(results));
                     var params = {
                         Bucket: config.aws.s3Bucket,
-                        Key: fileName,
+                        Key: `membership/${fileName}`,
                         ContentEncoding: 'utf-8',
                         Body: JSON.stringify(results["read"]),
                         "ServerSideEncryption": "AES256"
@@ -108,7 +108,7 @@ var membership = {
 
             var params = {
                 "Bucket": config.aws.s3Bucket,
-                "Key": fileName,
+                "Key": `membership/${fileName}`,
 
             }
             logger.info("*****The accessKeyId is : "+process.env.accessKey);
@@ -155,7 +155,7 @@ var membership = {
                         
                     } else {
                         const retVal = [];
-                        Object.keys.array.forEach(element => {
+                        Object.keys(data).forEach(element => {
                             retVal.push(data[element]);
                         });
                         res.status(200);
@@ -172,7 +172,8 @@ var membership = {
 }
 
 function createMemberObject(newData) {
-    const emailID = newData.member.emailID
+    const emailID = newData.member.emailID;
+    const now = moment();
     let spouseName, spouseEmailID, spouseContactNo;
     if (newData.spouse) {
         spouseName = newData.spouse.name || '';
@@ -191,7 +192,8 @@ function createMemberObject(newData) {
             'emailID': spouseEmailID,
             'contactNo': spouseContactNo
         },
-        noOfChildren: newData.noOfChildren || 0
+        noOfChildren: newData.noOfChildren || 0,
+        validTill: now.add(1, 'years').calendar(),
     };
     return membership;
 }

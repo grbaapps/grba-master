@@ -25,6 +25,6 @@ module.exports = {
   },
   "searchByOptions" : ["email","name","sponsorshipCategory"],
   aws:{
-	  s3Bucket:"grba-event-registrations"
+    s3Bucket:"grba-data"
   }
 };

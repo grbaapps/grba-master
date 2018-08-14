@@ -7,7 +7,10 @@ var validator = require('../../validators/membershipValidator');
 router.post('/',validator.validatePost);
 router.post('/',membership.create);
 
-router.post('/emailID/:emailID',validator.validateGet);
-router.post('/emailID/:emailID',membership.read);
+router.get('/:emailID',validator.validateGet);
+router.get('/:emailID',membership.read);
+router.get('/',validator.validateGet);
+router.get('/',membership.read);
+
 
 module.exports = router;
