@@ -134,7 +134,7 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row" ng-show="showMembershipResult">
-                        <div class="contact-text">REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
+                        <div class="contact-text">MEMBERSHIP REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="business" value="sbanerjee@grbaonline.org">
@@ -143,14 +143,14 @@
                             <input type="hidden" name="no_shipping" value="0">
                             <input type="hidden" name="no_note" value="1">
                             <input type="hidden" name="currency_code" value="USD">
-                            <input type="hidden" name="amount" value="{{successResponse.totalPaymentAmount}}">
+                            <input type="hidden" name="amount" value="{{successResponse.membershipFees}}">
                             <input type="hidden" name="tax" value="0.00">
                             <input type="hidden" name="lc" value="US">
                             <input type="hidden" name="bn" value="PP-BuyNowBF">
                             <div class="row">
                                 <div class="col-xs-6">
 
-                                    The membership fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.totalPaymentAmount}}</span> could either be send via cheque or be paid through paypal. Please note paypal will charge a nominal fee for this transaction. The total you will pay is <span style="color:#d81a3c;font-weight: bold;">${{successResponse.paypalPaymentAmount}}</span> if you pay via paypal. No paypal account is required.
+                                    Please pay the membership fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.membershipFees}}</span> using Paypal. No paypal account is required and there won't be any fees.
 
                                 </div>
                             </div>
@@ -164,12 +164,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    Pay by cheque - please make cheque Payable to <span style="color:yellow;font-weight: bold;">GRBA</span> and mail to <span style="color:yellow;font-weight: bold;">P.O.Box 4622, Glen Allen, VA-23058</span>. This is only applicable to members registeringon on or before April 29th, 2018.
-                                </div>
-                            </div>
-                            <br>
+                          
                             <div class="row">
                                 <div class="col-xs-6">
                                     <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
