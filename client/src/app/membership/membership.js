@@ -27,7 +27,11 @@ angular.module('membership', [])
     }).then(function successCallback(response) {
         // this callback will be called asynchronously
         // when the response is available
-        $scope.successResponse = response.data;
+        if ($scope.membershipType == "family") {
+          $scope.successResponse = {"membershipFees": 25};
+        } else {
+          $scope.successResponse = {"membershipFees": 15};
+        }
         $scope.regResult = {
             status: "SUCCESS"
         };
