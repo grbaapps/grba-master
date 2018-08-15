@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-14
+/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-15
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2018 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -196,7 +196,7 @@ angular.module('membership', [])
       method: 'POST',
       url: '/api/membership',
       data: {
-        membershipType:$scope.membershipType,
+        type:$scope.membershipType,
         member: {
           name: $scope.name,
           emailID:  $scope.email,
