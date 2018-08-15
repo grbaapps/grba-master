@@ -11,7 +11,7 @@ angular.module('membership', [])
       method: 'POST',
       url: '/api/membership',
       data: {
-        membershipType:$scope.membershipType,
+        type:$scope.membershipType,
         member: {
           name: $scope.name,
           emailID:  $scope.email,
