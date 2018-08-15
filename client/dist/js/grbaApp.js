@@ -194,7 +194,7 @@ angular.module('membership', [])
   $scope.submit = function(isValid) {
     $http({
       method: 'POST',
-      url: '/api/membership',
+      url: '/api/member',
       data: {
         type:$scope.membershipType,
         member: {
