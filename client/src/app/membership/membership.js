@@ -1,26 +1,12 @@
 angular.module('membership', [])
 .controller('membershipController', ['$scope', '$http', '$resource', '$log',  function ($scope, $http, $resource, $log) {
-  $scope.submit = function() {
 
-//Todo - comment out below section. this is just for testing.  Don't forgrt to comment or delete after merge
-var test = {
-  membershipType:$scope.membershipType,
-  member: {
-    name: $scope.name,
-    emailID:  $scope.email,
-    contactNo: $scope.contactNo
-},
-spouse: {
-  name:  $scope.spouseName,
-  emailID: $scope.spouseEmail,
-  contactNo: $scope.spouseContactNo
-},
-noOfChildren: $scope.childrenCount
-}
-alert(JSON.stringify(test));
-//End - testing. Don't forgrt to comment or delete after merge
+  $scope.showMembershipForm = true;
+  $scope.showMembershipResult = false;
+  $scope.membershipType = "family";
+  $scope.showFamily = true;
 
-
+  $scope.submit = function(isValid) {
     $http({
       method: 'POST',
       url: '/api/membership',
@@ -30,19 +16,48 @@ alert(JSON.stringify(test));
           name: $scope.name,
           emailID:  $scope.email,
           contactNo: $scope.contactNo
-      },
-      spouse: {
-        name:  $scope.spouseName,
-        emailID: $scope.spouseEmail,
-        contactNo: $scope.spouseContactNo
-    },
-    noOfChildren: $scope.childrenCount
+        },
+        spouse: {
+          name:  $scope.spouseName,
+          emailID: $scope.spouseEmail,
+          contactNo: $scope.spouseContactNo
+        },
+        noOfChildren: $scope.noOfChildren
       }
     }).then(function successCallback(response) {
-
-      //todo - handle success response
+        // this callback will be called asynchronously
+        // when the response is available
+        $scope.successResponse = response.data;
+        $scope.regResult = {
+            status: "SUCCESS"
+        };
+        $scope.showMembershipForm = false;
+        $scope.showMembershipResult = true;
     }, function errorCallback(response) {
-      //todo - handle error
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.$scope.regResult = {
+        $scope.errors = {"error": "Something went wrong. Please try again."};
+        $scope.regResult = {
+            status: "ERROR"
+        };
+        //scope.showRegForm = false;
+        //$scope.showRegResult = true;
     });
-  };
+};
+
+$scope.reset = function () {
+    $scope.showMembershipForm = true;
+    $scope.showMembershipResult = false;
+};
+
+$scope.handleRadioClick = function(){
+    if ($scope.membershipType == "family") {
+      $scope.showFamily = true;
+    } else {
+      $scope.showFamily = false;
+    }
+
+
+};
+
 }]);

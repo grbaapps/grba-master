@@ -1,121 +1,191 @@
-
-        <div class="modal fade" id="membershipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
-                <div id="top-banner"><img class="img-responsive center-block " src="html2/assets/img/banner.png"></div>
+<div class="modal fade" id="membershipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" ng-controller="membershipController">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
+                <div class="panel-heading grba-panel-heading">
+                    <h3 class="panel-title" id="exampleModalLabel">Membership</h3>
                 </div>
-                <div >
-                        <form ng-submit="submit()" ng-controller="membershipController" >
-                    <div class="row">
-                        <div class="col-md-12 left-col" style="/*width:724px;*//*height:740px;*/">
-                            <div class="carousel slide" data-ride="carousel" id="carousel-1" style="margin:10px;">
-                                <div class="panel-heading grba-panel-heading">
-                                    <h3 class="panel-title" id="exampleModalLabel">New Member Registration</h3>
-                                    <div class="form-group form-group-sm">
-                                       
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <label for="membership-type" class="control-label">Membership-Type:</label>&nbsp;&nbsp;
-                                                <select ng-model="membershipType">
-                                                    <option value="Family"  >Family</option>
-                                                    <option value="Single"  >Single</option>
-                                                </select>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <label for="full-name"  class="control-label">Full Name:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="contactNo" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <label for="spouse-name" class="control-label">spouse Name:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="spouseName" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <label for="contact-no" class="control-label">Contact No:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="spouseContactNo" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <!-- <div class="col-xs-3">
-                                                    <label for="child1-name" class="control-label">Child1 Name11:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <label for="child1-name" class="control-label">Child2 Name:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div> -->
-                                                <div class="col-xs-12">
-                                                    <label for="children-count" class="control-label">No. of Children:</label>&nbsp;&nbsp;
-                                                    <select  ng-model="childrenCount">
-                                                        <option value="0">0</option>
-                                                        <option value="1" >1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3" >3</option>
-                                                        <option value="4" >4</option>
-                                                        <option value="5" >5</option>
-                                                        <option value="6">6</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <label for="my-email" class="control-label">Email:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="email" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                                <div class="col-xs-3">
-                                                    <label for="spouse-email" class="control-label">Spouse Email:</label>&nbsp;&nbsp;
-                                                    <label>
-                                                        <input type="text" ng-model="spouseEmail" class="form-control" id="name" style="width: 250px;">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to payment</button>
-                                        
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div ng-show="showMembershipForm" class="row">
+                        <form name="membershipForm" ng-submit="submit(membershipForm.$valid)" novalidate>
+                            <input type="hidden" ng-model="year" class="form-control" id="year" ng-init="year=2018">
+                            <input type="hidden" ng-model="eventCode" class="form-control" id="eventCode" ng-init="eventCode='PB'">
+                            <input type="hidden" ng-model="eventName" class="form-control" id="eventName" ng-init="eventName='Rabindra Nazrul Sandhya'">
+
+
+
+                            <div class="form-group form-group-sm">
+                                <div class="row" ng-if="regResult.status == 'ERROR'">
+                                    <label for="recipient-name" style="color: black;">Errors:</label>
+                                    <div class="col -xs-12" ng-repeat="(key, value) in errors">
+                                        <label for="recipient-name" style="color: black;">&nbsp;&nbsp;{{ value }}</label>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                      <label for="membership-type" class="control-label">Membership Type:</label>&nbsp;&nbsp;
+                                      <label>
+                                          <input type="radio" ng-model="membershipType" value="family" ng-change="handleRadioClick(membershipType)"> Family
+                                      </label>
+                                      &nbsp;
+                                      <label>
+                                          <input type="radio" ng-model="membershipType" value="single" ng-change="handleRadioClick(membershipType)"> Single
+                                      </label>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 right-ad-col" style="/*width:300px;*//*height:500px;*/">
-                            <div class="row ad-row">
-                                <div class="col-md-12 right-ad-col2" style="/*width:300px;*//*height:250px;*/">
-                                    <div class="side-ad"><img  src="html2/assets/img/ad8.png" class="img-responsive center-block side-img"></div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <label for="recipient-name" class="control-label">Member Details:</label>&nbsp;&nbsp;
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row ad-row">
-                                <div class="col-md-12">
-                                    <div class="side-ad"><img src="html2/assets/img/ad4.png" class="img-responsive center-block side-img"></div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group" ng-class="{ 'has-error' : membershipForm.name.$invalid && !membershipForm.name.$pristine }">
+                                            <label for="recipient-name" class="control-label">Name:</label>&nbsp;&nbsp;
+                                            <label>
+                                                <input type="text" name="name" ng-model="name" class="form-control" id="name" style="width: 250px;" required>
+                                            </label>
+                                            <p ng-show="membershipForm.name.$invalid && !membershipForm.name.$pristine" class="help-block" style="color:#fcef02">Your name is required.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row ad-row">
-                                <div class="col-md-12">
-                                    <div class="side-ad"><img  src="html2/assets/img/ad7.png" class=" img-responsive center-block side-img"></div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                      <div class="form-group" ng-class="{ 'has-error' : membershipForm.contactNo.$invalid && !membershipForm.contactNo.$pristine }">
+                                        <label for="recipient-name" class="control-label">Contact No:</label>&nbsp;&nbsp;
+                                        <label>
+                                            <input type="text" name="contactNo" ng-model="contactNo" class="form-control" id="contactNo" style="width: 250px;" required>
+                                        </label>
+                                        <p ng-show="membershipForm.contactNo.$invalid && !membershipForm.contactNo.$pristine" class="help-block"  style="color:#fcef02">Your contact number is required.</p>
+                                      </div>
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                      <div class="form-group" ng-class="{ 'has-error' : membershipForm.email.$invalid && !membershipForm.email.$pristine }">
+                                        <label for="email" class="control-label">Email:</label>&nbsp;&nbsp;
+                                        <label>
+                                            <input type="email" name="email" ng-model="email" class="form-control" id="email" style="width: 300px;" required>
+                                        </label>
+                                        <p ng-show="membershipForm.email.$invalid && !membershipForm.email.$pristine" class="help-block"  style="color:#fcef02">Your email is invalid.</p>
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div ng-show="showFamily">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="recipient-name" class="control-label">Spouse Details:</label>&nbsp;&nbsp;
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="recipient-name" class="control-label">Name:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="text" ng-model="spouseName" class="form-control" id="spouseName" style="width: 250px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="recipient-name" class="control-label">Contact No:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="text" ng-model="spouseContactNo" class="form-control" id="spouseContactNo" style="width: 250px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="email" class="control-label">Email:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="text" ng-model="spouseEmail" class="form-control" id="spouseEmail" style="width: 300px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <br>
+                                  <div class="row">
+
+                                      <div class="col-xs-12">
+                                          <label for="noOfChildren" class="control-label">Children:</label>
+                                          <label>
+                                              <input type="number" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" min="0" max="8" style="width: 50px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <br>
+                                </div>
+
                             </div>
-                            
-                        </div>
-                    </div>
-                </form>
-                <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">CLOSE</button>
+                            <button type="submit" class="btn btn-primary" ng-disabled="membershipForm.$invalid" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to Payment</button>
+                        </form>
                     </div>
                 </div>
-                
-        
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row" ng-show="showMembershipResult">
+                        <div class="contact-text">REGISTRATION STATUS: <span style="color:yellow">{{regResult.status}}</span></div>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="business" value="sbanerjee@grbaonline.org">
+                            <input type="hidden" name="item_name" value="GRBA">
+                            <input type="hidden" name="shipping" value="0.00">
+                            <input type="hidden" name="no_shipping" value="0">
+                            <input type="hidden" name="no_note" value="1">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="amount" value="{{successResponse.totalPaymentAmount}}">
+                            <input type="hidden" name="tax" value="0.00">
+                            <input type="hidden" name="lc" value="US">
+                            <input type="hidden" name="bn" value="PP-BuyNowBF">
+                            <div class="row">
+                                <div class="col-xs-6">
+
+                                    The membership fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.totalPaymentAmount}}</span> could either be send via cheque or be paid through paypal. Please note paypal will charge a nominal fee for this transaction. The total you will pay is <span style="color:#d81a3c;font-weight: bold;">${{successResponse.paypalPaymentAmount}}</span> if you pay via paypal. No paypal account is required.
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    Pay by Paypal &nbsp;-
+                                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" target="_blank">
+                                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    Pay by cheque - please make cheque Payable to <span style="color:yellow;font-weight: bold;">GRBA</span> and mail to <span style="color:yellow;font-weight: bold;">P.O.Box 4622, Glen Allen, VA-23058</span>. This is only applicable to members registeringon on or before April 29th, 2018.
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End modal-body -->
+
+    <div class="modal-footer">
+    </div>
+</div>
