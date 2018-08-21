@@ -2,6 +2,7 @@ angular.module('grbaApp', [
   'ngRoute',
   'ngResource',
   'registration',
+  'membership',
   'event',
   'contact',
   'services.i18nNotifications',
@@ -44,6 +45,9 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
     })
     .when("/board", {
         templateUrl : "html2/board.html"
+    })
+    .when("/membership", {
+        templateUrl : "html2/membership.html"
     })
     .otherwise({redirectTo:'/'});
 

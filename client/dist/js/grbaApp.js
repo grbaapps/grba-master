@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2018-04-08
+/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-15
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2018 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -7,6 +7,7 @@ angular.module('grbaApp', [
   'ngRoute',
   'ngResource',
   'registration',
+  'membership',
   'event',
   'contact',
   'services.i18nNotifications',
@@ -50,6 +51,9 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
     .when("/board", {
         templateUrl : "html2/board.html"
     })
+    .when("/membership", {
+        templateUrl : "html2/membership.html"
+    })
     .otherwise({redirectTo:'/'});
 
 }]);
@@ -86,7 +90,7 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-
+    
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
@@ -109,13 +113,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 }]);
 
 angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
-
+    
     $scope.submit = function () {
         alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
     };
 
     $scope.reset = function () {
-
+        
     };
 
 }]);
@@ -179,10 +183,78 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
 
 });
 
+angular.module('membership', [])
+.controller('membershipController', ['$scope', '$http', '$resource', '$log',  function ($scope, $http, $resource, $log) {
+
+  $scope.showMembershipForm = true;
+  $scope.showMembershipResult = false;
+  $scope.membershipType = "family";
+  $scope.showFamily = true;
+
+  $scope.submit = function(isValid) {
+    $http({
+      method: 'POST',
+      url: '/api/member',
+      data: {
+        type:$scope.membershipType,
+        member: {
+          name: $scope.name,
+          emailID:  $scope.email,
+          contactNo: $scope.contactNo
+        },
+        spouse: {
+          name:  $scope.spouseName,
+          emailID: $scope.spouseEmail,
+          contactNo: $scope.spouseContactNo
+        },
+        noOfChildren: $scope.noOfChildren
+      }
+    }).then(function successCallback(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+        if ($scope.membershipType == "family") {
+          $scope.successResponse = {"membershipFees": 25};
+        } else {
+          $scope.successResponse = {"membershipFees": 15};
+        }
+        $scope.regResult = {
+            status: "SUCCESS"
+        };
+        $scope.showMembershipForm = false;
+        $scope.showMembershipResult = true;
+    }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.$scope.regResult = {
+        $scope.errors = {"error": "Something went wrong. Please try again."};
+        $scope.regResult = {
+            status: "ERROR"
+        };
+        //scope.showRegForm = false;
+        //$scope.showRegResult = true;
+    });
+};
+
+$scope.reset = function () {
+    $scope.showMembershipForm = true;
+    $scope.showMembershipResult = false;
+};
+
+$scope.handleRadioClick = function(){
+    if ($scope.membershipType == "family") {
+      $scope.showFamily = true;
+    } else {
+      $scope.showFamily = false;
+    }
+
+
+};
+
+}]);
+
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
-
+    
 
     $scope.submit = function () {
         $http({
@@ -369,3 +441,4 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
+
