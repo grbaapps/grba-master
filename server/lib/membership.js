@@ -4,7 +4,6 @@ var async = require("async")
 var logger = require('./logModule');
 var aws = require('aws-sdk');
 const fileName = "membership.json";
-var moment = require('moment');
 var membership = {
     create: function(req, res, next) {
         var config = req.globalConfig;
@@ -193,7 +192,7 @@ function createMemberObject(newData) {
             'contactNo': spouseContactNo
         },
         noOfChildren: newData.noOfChildren || 0,
-        validTill: now.add(1, 'years').calendar(),
+        validTill: `12/31/${(new Date()).getFullYear()}`,
     };
     return membership;
 }

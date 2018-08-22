@@ -166,7 +166,7 @@
       },
       "PB":{
          "name":"Rabindra Nazrul Sandhya",
-         "isCurrentEvent":"Y",
+         "isCurrentEvent":"N",
          "venue":"Gayton Baptist Church",
          "date":"05-05-2018 3pm to 10pm",
          "time":"3PM to 10PM",
@@ -317,42 +317,42 @@
          }
       },
       "DP":{
-         "name":"Durga Puja 2017",
-         "isCurrentEvent":"N",
-         "venue":"Cultural Arts Center at Glen Allen",
-         "date":"September 23rd and 24th, 2017",
+         "name":"Durga Puja 2018",
+         "isCurrentEvent":"Y",
+         "venue":"",
+         "date":"",
          "time":"10am",
          "code":"DP",
          "address":{
-            "street":"2880 Mountain Rd",
-            "city":"Glen Allen",
-            "state":"VA",
-            "zip":"23060"
+            "street":"",
+            "city":"",
+            "state":"",
+            "zip":""
          },
-         "lastOnlineDateRegistration":"09-23-2017 07:00:00",
+         "lastOnlineDateRegistration":"10-11-2018 23:59:00",
          "committeeMembers":{
          },
          "earlyBird":{
-            "date":"09-16-2017 23:59:59",
+            "date":"09-30-2018 23:59:59",
             "fee":{
                "student":{
                   "member":{
-                     "single":0,
-                     "family":0
+                     "single":55,
+                     "family":95
                   },
                   "nonmember":{
-                     "single":0,
-                     "family":0
+                     "single":65,
+                     "family":105
                   }
                },
                "nonStudent":{
                   "member":{
-                     "single":0,
-                     "family":0
+                     "single":105,
+                     "family":175
                   },
                   "nonmember":{
-                     "single":0,
-                     "family":0
+                     "single":130,
+                     "family":205
                   }
                }
             }
@@ -361,22 +361,22 @@
             "fee":{
                 "student":{
                    "member":{
-                      "single":0,
-                      "family":0
+                      "single":65,
+                      "family":105
                    },
                    "nonmember":{
-                      "single":0,
-                      "family":0
+                      "single":75,
+                      "family":115
                    }
                 },
                "nonStudent":{
                   "member":{
-                     "single":0,
-                     "family":0
+                     "single":145,
+                     "family":205
                   },
                   "nonmember":{
-                     "single":0,
-                     "family":0
+                     "single":165,
+                     "family":235
                   }
                }
             }
