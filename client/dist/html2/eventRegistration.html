@@ -1,0 +1,101 @@
+<div class="modal fade" id="eventRegistrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" ng-controller="eventRegistrationController">
+
+    <!-- MODAL START -->
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                   
+                    <!-- MODAL HEADER -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset()"><span aria-hidden="true">&times;</span></button>
+                        <div class="panel-heading grba-panel-heading">
+                            <h3 class="panel-title" id="exampleModalLabel">Durga Puja 2018 Registration</h3>
+                        </div>
+                    </div>
+                    <!-- MODAL HEADER END-->
+
+                    <div class="modal-body">
+                            <div class="container">
+                                <div ng-show="showRegistrationForm" class="row">
+                                    <form name="eventRegistrationForm" ng-submit="TBDTBD" novalidate>
+
+                                            <div class="form-group form-group-sm">
+                                                   
+                                                    <div class="row" ng-if="regResult.status == 'ERROR'">
+                                                        <label for="recipient-name" style="color: black;">Errors:</label>
+                                                        <div class="col -xs-12" ng-repeat="(key, value) in errors">
+                                                            <label for="recipient-name" style="color: black;">&nbsp;&nbsp;{{ value }}</label>
+                                                        </div>
+                                                        <br>
+                                                    </div>
+
+                                                    <!-- REGISTRATION TYPE DROPDOWN -->
+                                                    <div class="row">
+                                                            <div class="col-xs-12">
+                                                              <label for="registration-type" class="control-label">Registration Type:</label>&nbsp;&nbsp;
+                                                              <label>
+                                                                    <select  class="form-control" >
+                                                                            <option value="Family" >Family</option>
+                                                                            <option value="Individual">Individual</option>
+                                                                            <option value="Student_Single">Student Single(with ID)</option>
+                                                                            <option value="Student_Family">Student Family(with ID)</option>
+                                                                    </select>
+                                                              </label>
+                                                              &nbsp;                                                             
+                                                            </div>
+                                                    </div>
+                                                    <!--END REGISTRATION TYPE DROPDOWN -->
+
+                                                    <!-- GRBA MEMBER YSE/NO SELECTION -->
+                                                    <div class="row">
+                                                            <div class="col-xs-3">
+                                                              <label  for="membership-type" class="control-label">GRBA Member:</label>&nbsp;
+                                                              <label style="margin-left: 22px">
+                                                                  <input  type="radio" ng-model="membershipType" name="isMember" value="grbaMember" ng-change="handleRadioClick(membershipType)"> Yes
+                                                              </label>
+                                                              &nbsp;
+                                                              <label >
+                                                                  <input type="radio" ng-model="membershipType" name="isMember" value="nonMember" ng-change="handleRadioClick(membershipType)"> No
+                                                              </label>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                    <!-- END - GRBA MEMBER YSE/NO SELECTION -->
+
+                                                    <!-- "IF MEMBER"  eventRegistrationForMember.html -->
+                                                    <div id='loading'>
+                                                    
+                                                            </div>
+                                                    <!-- END "IF MEMBER" -->
+
+
+                                                    <!-- "IF NOT A MEMBER" -->
+                                                    <!-- END "IF NOT A MEMBER" -->
+
+                                            </div>        
+
+                                    </form>
+                                </div>
+                            </div>
+                    </div>                            
+
+                </div>
+        </div>    
+    <!-- MODAL END -->    
+        <div class="modal-footer"></div>
+
+</div>
+
+<script>
+$('input:radio[name="isMember"]').change(
+    function(){
+        if ($(this).is(':checked')  && $(this).val() == 'grbaMember') {
+            $("#loading").load("html2/eventRegistrationForMember.html"); 
+        }
+        else
+        $("#loading").load("html2/eventRegistrationForNONMember.html"); 
+});
+
+// $(function(){
+//       $("#divId").load("html2/eventRegistrationForMember.html"); 
+// });
+</script> 

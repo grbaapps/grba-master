@@ -1,0 +1,164 @@
+<!-- CAPTURE NAME -->
+<div class="row">
+        <div class="col-xs-3">
+            <label for="Fullname" class="control-label">Full Name:</label>
+            <label style="margin-left: 22px">
+                <input type="text" ng-model="fullName" class="form-control" id="fullName" style="width: 160px;">
+            </label>
+        </div>
+        <div class="col-xs-3">
+            <label for="spouseName" class="control-label">spouse Name:</label>
+            <label>
+                <input type="text" ng-model="spouseName" class="form-control" id="spouseName"  style="width: 150px;">
+            </label>
+        </div>
+</div>
+<!-- END CAPTURE NAME -->
+
+<!-- CAPTURE contact points -->
+<div class="row">
+        <div class="col-xs-3">
+            <label for="email" class="control-label">Email ID:</label>
+            <label style="margin-left: 33px">
+                <input type="text" ng-model="email" class="form-control" id="email" style="width: 160px;">
+            </label>
+        </div>
+        <div class="col-xs-3">
+            <label for="contactNo" class="control-label">Contact No:</label>
+            <label style="margin-left: 16px">
+                <input type="text" ng-model="contactNo" class="form-control" id="contactNo"  style="width: 150px;">
+            </label>
+        </div>
+</div>
+<!-- END CAPTURE contact points -->
+
+<!-- SELECT NO OF ADULTS -->
+<div class="row">
+        <div class="col-xs-12">
+        <div class="form-group" ng-class="TBDTBD">
+            <label for="adults" class="control-label">No. of Adults:</label>
+            <label style="margin-left: 2px">
+                <input type="number" name="adults" ng-model="adults" class="form-control" min="0" max="6"  id="adults" style="width: 50px;" required>
+            </label>
+            <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+        </div>
+        </div>
+</div>
+<!-- END SELECT NO OF ADULTS -->
+
+<!-- KIDS AGE -->
+<div class="row">
+        <div class="col-xs-12">
+                <label for="kidsage1"  style="margin-left: 170px"  class="control-label"> 0 - 3 yrs</label>&nbsp;&nbsp;
+                <label for="kidsage2"  style="margin-left: 20px"  class="control-label"> 4 - 12 yrs</label>&nbsp;&nbsp;
+                <label for="kidsage3"  style="margin-left: 20px"  class="control-label"> + 12 yrs</label>&nbsp;&nbsp;
+        </div>
+</div>    
+<!-- SELECT NO OF KIDS -->
+
+<div class="row">
+        <div class="col-xs-12">
+        <div class="form-group" ng-class="TBDTBD">
+            <label for="kids" class="control-label">No. of kids:</label>&nbsp;&nbsp;
+                <label style="margin-left: 11px">
+                    <input type="number" name="kids" ng-model="kids" class="form-control"  id="kids" min="0" max="4" style="width: 50px;" required>
+                </label>
+            <label style="margin-left: 19px">
+                    <select class="form-control" id='kids1'>                                                                                
+                    </select>
+            </label>
+            <label style="margin-left: 32px">
+                    <select class="form-control" id='kids2'>                                                                                
+                    </select>
+            </label>
+            <label style="margin-left: 37px">
+                    <select class="form-control" id='kids3'>                                                                                
+                    </select>
+            </label>
+            <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+        </div>
+        </div>
+</div>
+<!-- END SELECT NO OF KIDS -->
+
+<!-- EVENT FEES -->
+<div class="row">
+        <div class="col-xs-12">
+        <div class="form-group" ng-class="TBDTBD">
+            <label for="fees" class="control-label">Event Fees:</label>&nbsp;&nbsp;
+                <label style="margin-left: 10px">
+                    <input type="text" disabled name="fees" ng-model="kids" class="form-control"  id="fees" value="TBD"  style="width: 50px;" required>
+                </label>                                                                    
+            <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+        </div>
+        </div>
+</div>
+<!-- END EVENT FEES -->
+
+<!-- PAYMENT MODE -->
+<div class="row">
+        <div class="col-xs-12">
+          <label for="payment-mode" class="control-label">Payment Mode :</label>&nbsp;&nbsp;
+          <label>
+              <input type="radio" ng-model="paymentMode" name="paymentMode" value="paypal" ng-change="handleRadioClick(paymentMode)"> Paypal
+          </label>
+          &nbsp;
+          <label>
+              <input type="radio" ng-model="paymentMode" name="paymentMode" value="cheque" ng-change="handleRadioClick(paymentMode)"> Cheque
+          </label>
+        </div>
+</div>
+
+
+<div id="cheque" style = "display:none">
+    <!-- SELECT Cheque option -->
+    <div class="row">
+            <div class="col-xs-12">
+            <div class="form-group" ng-class="TBDTBD">
+                <label for="chequeNo" class="control-label">Cheque No:</label>
+                <label style="margin-left: 39px">
+                    <input type="number" name="chequeNo" ng-model="chequeNo" class="form-control" id="chequeNo" style="width: 150px;" required>
+                </label>
+                <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+            </div>
+            </div>
+    </div>
+    <!-- END SELECT Cheque option -->
+
+    <!-- SELECT Cheque option -->
+    <div class="row">
+            <div class="col-xs-12">
+            <div class="form-group" ng-class="TBDTBD">
+                <label for="chequeDate" class="control-label">Cheque Date:</label>
+                <label style="margin-left: 29px">
+                    <input type="date" name="chequeDate" ng-model="chequeDate" class="form-control" id="chequeDate" style="width: 150px;" required>
+                </label>
+                <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+            </div>
+            </div>
+    </div>
+    <!-- END SELECT Cheque option -->
+</div>
+<br/>
+<button type="submit" class="btn btn-primary" ng-disabled="membershipForm.$invalid" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to Payment</button>
+<!-- END - PAYMENT MODE -->
+
+<script>
+var select = '';
+for (i=0;i<=3;i++){
+    select += '<option val=' + i + '>' + i + '</option>';
+}
+$('#kids1').html(select);
+$('#kids2').html(select);
+$('#kids3').html(select);
+
+$('input:radio[name="paymentMode"]').change(
+    function(){
+        if ($(this).is(':checked')  && $(this).val() == 'cheque') {
+            $("#cheque").css('display', 'inline-block');
+        }
+        else{
+            $("#cheque").css('display', 'none');
+        }
+});
+</script>
