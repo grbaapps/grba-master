@@ -1,0 +1,90 @@
+<div>
+        <!-- SELECT YOUR NAME -->
+        <div class="row">
+                <div class="col-xs-12">
+                <label for="select-name" class="control-label">Select Your Name:</label>&nbsp;&nbsp;
+                <label>
+                        <select  class="form-control" >
+                        </select>
+                </label>
+                &nbsp;                                                             
+                </div>
+        </div>
+        <!--END SELECT YOUR NAME -->
+
+        <!-- SELECT NO OF ADULTS -->
+        <div class="row">
+                <div class="col-xs-12">
+                <div class="form-group" ng-class="TBDTBD">
+                    <label for="adults" class="control-label">No. of Adults:</label>
+                    <label style="margin-left: 40px">
+                        <input type="number" name="adults" ng-model="adults" class="form-control" min="0" max="4"  id="adults" style="width: 50px;" required>
+                    </label>
+                    <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+                </div>
+                </div>
+        </div>
+        <!-- END SELECT NO OF ADULTS -->
+
+        <!-- KIDS AGE -->
+<div class="row">
+        <div class="col-xs-12">
+                <label for="kidsage1"  style="margin-left: 170px"  class="control-label"> 0 - 3 yrs</label>&nbsp;&nbsp;
+                <label for="kidsage2"  style="margin-left: 20px"  class="control-label"> 4 - 12 yrs</label>&nbsp;&nbsp;
+                <label for="kidsage3"  style="margin-left: 20px"  class="control-label"> + 12 yrs</label>&nbsp;&nbsp;
+        </div>
+</div>    
+<!-- SELECT NO OF KIDS -->
+
+<div class="row">
+        <div class="col-xs-12">
+        <div class="form-group" ng-class="TBDTBD">
+            <label for="kids" class="control-label">No. of kids:</label>&nbsp;&nbsp;
+                <label style="margin-left: 11px">
+                    <input type="number" name="kids" ng-model="kids" class="form-control"  id="kids" min="0" max="4" style="width: 50px;" required>
+                </label>
+            <label style="margin-left: 19px">
+                    <select class="form-control" id='kids1'>                                                                                
+                    </select>
+            </label>
+            <label style="margin-left: 32px">
+                    <select class="form-control" id='kids2'>                                                                                
+                    </select>
+            </label>
+            <label style="margin-left: 37px">
+                    <select class="form-control" id='kids3'>                                                                                
+                    </select>
+            </label>
+            <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+        </div>
+        </div>
+</div>
+<!-- END SELECT NO OF KIDS -->
+
+         <!-- EVENT FEES -->
+         <div class="row">
+                <div class="col-xs-12">
+                <div class="form-group" ng-class="TBDTBD">
+                    <label for="fees" class="control-label">Event Fees:</label>&nbsp;&nbsp;
+                        <label  style="margin-left: 48px">
+                            <input type="text" disabled name="fees" ng-model="kids" class="form-control"  id="fees" value="TBD"  style="width: 50px;" required>
+                        </label>                                                                    
+                    <!-- <p ng-show="TBDTBD">No. Of Adults are required</p> -->
+                </div>
+                </div>
+        </div>
+        <!-- END EVENT FEES -->
+
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">CLOSE</button> -->
+        <button type="submit" class="btn btn-primary" ng-disabled="membershipForm.$invalid" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">Proceed to Payment</button>
+
+    </div>
+
+    <script>
+    var select = '';
+for (i=0;i<=3;i++){
+    select += '<option val=' + i + '>' + i + '</option>';
+}
+$('#kids1').html(select);
+$('#kids2').html(select);
+$('#kids3').html(select);</script>

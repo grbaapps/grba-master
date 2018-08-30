@@ -114,7 +114,7 @@ var registration = {
                 } else {
                     successObj.email = newData.data.email;
                     successObj.noOfAdults = results['write_file'].noOfAdults ? results['write_file'].noOfAdults : "NA";
-                    successObj.noOfChildren = results['write_file'].noOfChildren ? results['write_file'].noOfChildren : "NA";
+                    successObj.children = results['write_file'].children ? results['write_file'].children : "NA";
                     var totalFee = 0;
                     if (newData.data.membershipFee) {
                         totalFee = parseInt(newData.data.eventFee) + parseInt(newData.data.membershipFee);
@@ -144,7 +144,7 @@ var registration = {
 
             var params = {
                 "Bucket": config.aws.s3Bucket,
-                "Key": fileName,
+                "Key": `registration/${fileName}`,
 
             }
             logger.info("*****The accessKeyId is : "+process.env.accessKey);
@@ -197,7 +197,7 @@ var registration = {
 
                         }
                         var adultChildrenCount = calculateTotalAdultsAndChildren(mainEvent.registrations);
-                        returnObj.noOfChildren = adultChildrenCount.noOfChildren
+                        returnObj.children = adultChildrenCount.children
                         returnObj.noOfAdults = adultChildrenCount.noOfAdults;
                         res.status(200);
                         return res.send(returnObj);
@@ -266,16 +266,28 @@ function filterSearchResultsByName(allRegistartions, value) {
 
 function calculateTotalAdultsAndChildren(registrations) {
 
-    var totalChildrenCount = 0;
+    var totalChildren0To3Count = 0;
+    var totalChildren4To12Count = 0;
+    var totalChildren12AboveCount = 0;
     var totalAdultCount = 0;
     registrations.forEach(function(object, index, arr) {
-        if (object.noOfChildren) {
-            totalChildrenCount += object.noOfChildren;
+        if (object.noOfChildren0to3) {
+            totalChildren0To3Count += object.noOfChildren0to3;
+        }
+        if (object.noOfChildren4to12) {
+            totalChildren4To12Count += object.noOfChildren4to12;
+        }
+        if (object.noOfChildren12Above) {
+            totalChildren12AboveCount += object.noOfChildren12Above;
         }
         totalAdultCount += object.noOfAdults;
     });
     return {
-        "noOfChildren": totalChildrenCount,
+        "children": {
+            "totalChildren0To3": totalChildren0To3Count,
+            "totalChildren4To12": totalChildren4To12Count,
+            "totalChildren12Above": totalChildren12AboveCount,
+        },
         "noOfAdults": totalAdultCount
     }
 }

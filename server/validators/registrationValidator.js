@@ -79,7 +79,7 @@ exports.validatePost = function(req, res, next) {
                       }
                   }
               },
-              "data.noOfChildren": function(value, attributes, attributeName, options, constraints) {
+              "data.noOfChildren0to3": function(value, attributes, attributeName, options, constraints) {
                   if (!attributes.data.hasFamily) {
                       return {
                           numericality: {
@@ -101,6 +101,50 @@ exports.validatePost = function(req, res, next) {
                   }
 
               },
+              "data.noOfChildren4to12": function(value, attributes, attributeName, options, constraints) {
+                if (!attributes.data.hasFamily) {
+                    return {
+                        numericality: {
+                            onlyInteger: true,
+                            strict: true,
+                            equalTo: 0,
+                            message: "^hasFamily has to be true for someone to bring children"
+                        }
+                    }
+                } else {
+                    return {
+                        numericality: {
+                            onlyInteger: true,
+                            strict: true,
+                            greaterThanOrEqualTo: 0,
+                            message: "^Number of children can't be less than 0 or real numbers"
+                        }
+                    }
+                }
+
+            },
+            "data.noOfChildren12Above": function(value, attributes, attributeName, options, constraints) {
+                if (!attributes.data.hasFamily) {
+                    return {
+                        numericality: {
+                            onlyInteger: true,
+                            strict: true,
+                            equalTo: 0,
+                            message: "^hasFamily has to be true for someone to bring children"
+                        }
+                    }
+                } else {
+                    return {
+                        numericality: {
+                            onlyInteger: true,
+                            strict: true,
+                            greaterThanOrEqualTo: 0,
+                            message: "^Number of children can't be less than 0 or real numbers"
+                        }
+                    }
+                }
+
+            },
               "data.membershipFee": function(value, attributes, attributeName, options, constraints){
 				  var membershipFee = (attributes.data.hasFamily?config.grbaMembershipFee.family:config.grbaMembershipFee.single)
 				 return {
