@@ -166,6 +166,13 @@
   font-weight:400;
 }
 
+#event-tabs {
+  background-color:#fff;
+  color:#da5f3a;
+    font-size: 12px;
+  font-weight:bold;
+}
+
 .nav-tabs > li > a {
   color:#fff;
     padding-top: 2px;
