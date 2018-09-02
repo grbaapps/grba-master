@@ -107,7 +107,7 @@
 }
 
 #about-panel-body {
-   
+
   /*background-image:url('../../assets/img/grba-bg3.jpg');*/
   /*opacity:.8;*/
   /*background-color:#e4dede;*/
@@ -227,6 +227,13 @@
 @media (min-width:992px) {
   .col-md-12.right-ad-col3 {
     width:300px;
+    height:750px;
+  }
+}
+
+@media (min-width:992px) {
+  .col-md-12.right-ad-col4 {
+    width:500px;
     height:750px;
   }
 }
