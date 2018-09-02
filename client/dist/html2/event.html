@@ -121,8 +121,13 @@
                                                         <div class="panel-body event-panel-body" style="/*height:250px;*/">
                                                             <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:230px;*/">
                                                             <ul id="committee-member">
-                                                                <li ng-repeat="member in eventDetails.committeeMembers.foodCommittee.members.split(',')">{{member}}</li>
-                                                            </ul>                                                            </div>
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.foodCommittee.members.split(',')" ng-if="$odd">{{member}}</li>
+                                                            </ul>  
+                                                             <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:230px;*/">
+                                                            <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.foodCommittee.members.split(',')" ng-if="$even">{{member}}</li>
+                                                            </ul>   
+                                                         </div>
 
                                                         </div>
                                                     </div>
