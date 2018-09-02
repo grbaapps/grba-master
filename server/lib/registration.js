@@ -271,10 +271,10 @@ function calculateTotalAdultsAndChildren(registrations) {
     var totalChildren12AboveCount = 0;
     var totalAdultCount = 0;
     registrations.forEach(function(object, index, arr) {
-        if (object.noOfChildren0to3) {
+        if (object.noOfChildren0To3) {
             totalChildren0To3Count += object.noOfChildren0To3;
         }
-        if (object.noOfChildren4to12) {
+        if (object.noOfChildren4To12) {
             totalChildren4To12Count += object.noOfChildren4To12;
         }
         if (object.noOfChildren12Above) {
