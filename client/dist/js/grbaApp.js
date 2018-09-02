@@ -1,4 +1,4 @@
-/*! grbaApp - v0.0.1-SNAPSHOT - 2018-08-15
+/*! grbaApp - v0.0.1-SNAPSHOT - 2018-09-02
  * https://github.com/angular-app/angular-app
  * Copyright (c) 2018 Surajit Pal/Abhishek Ghosh;
  * Licensed MIT
@@ -55,8 +55,8 @@ angular.module('grbaApp').config(['$routeProvider', '$locationProvider', functio
         templateUrl : "html2/membership.html"
     })
     .when("/eventDetails", {
-      templateUrl : "html2/eventDetails.html"
-  })
+        templateUrl : "html2/eventDetails.html"
+    })
     .otherwise({redirectTo:'/'});
 
 }]);
@@ -257,7 +257,7 @@ $scope.handleRadioClick = function(){
 angular.module('registration', ['event']).controller('registrationController', ['$scope', '$http', '$resource', '$log', 'eventService', function ($scope, $http, $resource, $log, eventService) {
     $scope.showRegForm = true;
     $scope.showRegResult = false;
-    
+
 
     $scope.submit = function () {
         $http({
@@ -275,7 +275,9 @@ angular.module('registration', ['event']).controller('registrationController', [
                     isStudent: $scope.isStudent,
                     isVegetarian: $scope.isVegetarian,
                     noOfAdults: Number($scope.noOfAdults),
-                    noOfChildren: Number($scope.noOfChildren),
+                    noOfChildren0To3: Number($scope.noOfChildren0To3),
+                    noOfChildren4To12: Number($scope.noOfChildren4To12),
+                    noOfChildren12Above: Number($scope.noOfChildren12Above),
                     eventFee: $scope.eventFee,
                     sponsorshipCategory: $scope.sponsorshipCategory,
                     specialNote: $scope.specialNote
@@ -308,6 +310,7 @@ angular.module('registration', ['event']).controller('registrationController', [
     };
 
 }]);
+
 angular.module('services.exceptionHandler', ['services.i18nNotifications']);
 
 angular.module('services.exceptionHandler').factory('exceptionHandlerFactory', ['$injector', function($injector) {

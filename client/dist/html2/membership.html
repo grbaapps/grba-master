@@ -92,7 +92,6 @@
                                           <label>
                                               <input type="text" ng-model="spouseName" class="form-control" id="spouseName" style="width: 250px;">
                                           </label>
-                                          <p></p>
                                       </div>
                                   </div>
                                   <div class="row">
@@ -101,7 +100,6 @@
                                           <label>
                                               <input type="text" ng-model="spouseContactNo" class="form-control" id="spouseContactNo" style="width: 250px;">
                                           </label>
-                                          <p></p>
                                       </div>
                                   </div>
                                   <div class="row">
@@ -110,14 +108,13 @@
                                           <label>
                                               <input type="text" ng-model="spouseEmail" class="form-control" id="spouseEmail" style="width: 300px;">
                                           </label>
-                                          <p></p>
                                       </div>
                                   </div>
                                   <br>
                                   <div class="row">
 
                                       <div class="col-xs-12">
-                                          <label for="noOfChildren" class="control-label"># of Children:</label>
+                                          <label for="noOfChildren" class="control-label">Children:</label>
                                           <label>
                                               <input type="number" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" min="0" max="8" style="width: 50px;">
                                           </label>
@@ -153,7 +150,7 @@
                             <div class="row">
                                 <div class="col-xs-6">
 
-                                    Please pay the membership fee <span style="font-weight: color:blue; bold;">${{successResponse.membershipFees}}</span> using Paypal. No paypal account is required and there won't be any fees.
+                                    Please pay the membership fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.membershipFees}}</span> using Paypal. No paypal account is required and there won't be any fees.
 
                                 </div>
                             </div>
@@ -170,7 +167,7 @@
                           
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">CLOSE</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reset()">CLOSE</button>
                                 </div>
                             </div>
                         </form>

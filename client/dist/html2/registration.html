@@ -13,18 +13,18 @@
                     <div ng-show="showRegForm" class="row">
                         <form ng-submit="submit()">
                             <input type="hidden" ng-model="year" class="form-control" id="year" ng-init="year=2018">
-                            <input type="hidden" ng-model="eventCode" class="form-control" id="eventCode" ng-init="eventCode='PB'">
-                            <input type="hidden" ng-model="eventName" class="form-control" id="eventName" ng-init="eventName='Rabindra Nazrul Sandhya'">
+                            <input type="hidden" ng-model="eventCode" class="form-control" id="eventCode" ng-init="eventCode='DP'">
+                            <input type="hidden" ng-model="eventName" class="form-control" id="eventName" ng-init="eventName='Durga Puja'">
 
                             <div class="row">
                                 <div class="col-sm-3">
                                     <div class="contact-text">
                                         <h3>MEMBER</h3>
                                         <address>
-                                        FAMILY ${{eventDetails.applicableFee.nonStudent.member.family}}<br>
-                                        SINGLE ${{eventDetails.applicableFee.nonStudent.member.single}}<br>
-                                        STUDENT FAMILY ${{eventDetails.applicableFee.student.member.family}}<br>
-                                        STUDENT SINGLE ${{eventDetails.applicableFee.student.member.single}}<br>
+                                        FAMILY <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.nonStudent.member.family}}</span><br>
+                                        SINGLE <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.nonStudent.member.single}}</span><br>
+                                        STUDENT FAMILY <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.student.member.family}}</span><br>
+                                        STUDENT SINGLE <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.student.member.single}}</span><br>
                                     </address>
                                     </div>
 
@@ -33,10 +33,10 @@
                                     <div class="contact-text">
                                         <h3>NON-MEMBER</h3>
                                         <address>
-                                        FAMILY ${{eventDetails.applicableFee.nonStudent.nonmember.family}}<br>
-                                        SINGLE ${{eventDetails.applicableFee.nonStudent.nonmember.single}}<br>
-                                        STUDENT FAMILY ${{eventDetails.applicableFee.student.nonmember.family}}<br>
-                                        STUDENT SINGLE ${{eventDetails.applicableFee.student.nonmember.single}}<br>
+                                        FAMILY <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.nonStudent.nonmember.family}}</span><br>
+                                        SINGLE <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.nonStudent.nonmember.single}}</span><br>
+                                        STUDENT FAMILY <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.student.nonmember.family}}</span><br>
+                                        STUDENT SINGLE <span style="color:yellow;font-weight: bold;">${{eventDetails.applicableFee.student.nonmember.single}}</span><br>
                                     </address>
                                     </div>
 
@@ -50,7 +50,7 @@
                                 <div class="row" ng-if="regResult.status == 'ERROR'">
                                     <label for="recipient-name" style="color: black;">Errors:</label>
                                     <div class="col -xs-12" ng-repeat="(key, value) in errors">
-                                        <label for="recipient-name" style="color: black;">&nbsp;&nbsp;{{ value[0] }}</label>
+                                        <label for="recipient-name" style="color: black;">&nbsp;&nbsp;{{ value }}</label>
                                     </div>
                                     <br>
                                 </div>
@@ -124,16 +124,30 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-12">
                                         <label for="noOfAdults" class="control-label">Adults:</label>
                                         <label>
                                             <input type="number" ng-model="noOfAdults" class="form-control" id="noOfAdults" min="1" max="8" style="width: 50px;">
                                         </label>
                                     </div>
-                                    <div class="col-xs-3">
-                                        <label for="noOfChildren" class="control-label">Children:</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <label for="noOfChildren" class="control-label">Children 0-3:</label>
                                         <label>
-                                            <input type="number" ng-model="noOfChildren" class="form-control" id="noOfChildren" size="2" min="0" max="8" style="width: 50px;">
+                                            <input type="number" ng-model="noOfChildren0To3" class="form-control" id="noOfChildren0To3" size="2" min="0" max="8" style="width: 50px;">
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <label for="noOfChildren" class="control-label">Children 4-12:</label>
+                                        <label>
+                                            <input type="number" ng-model="noOfChildren4To12" class="form-control" id="noOfChildren4To12" size="2" min="0" max="8" style="width: 50px;">
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <label for="noOfChildren" class="control-label">Children 12+:</label>
+                                        <label>
+                                            <input type="number" ng-model="noOfChildren12Above" class="form-control" id="noOfChildren12Above" size="2" min="0" max="8" style="width: 50px;">
                                         </label>
                                     </div>
                                 </div>

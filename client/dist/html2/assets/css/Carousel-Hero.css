@@ -9,6 +9,10 @@ div.jumbotron.carousel-hero {
 }
 
 div.jumbotron.hero-nature {
+  background-image:url('../../assets/img/grba_dp.png');
+}
+
+div.jumbotron.hero-event {
   background-image:url('../../assets/img/grba_bg1.jpg');
 }
 
@@ -37,4 +41,3 @@ p.hero-subtitle {
 .container-fluid {
   /*margin-top:50px;*/
 }
-
