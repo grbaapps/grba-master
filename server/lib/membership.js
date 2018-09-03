@@ -3,6 +3,7 @@ var fs = require("fs");
 var async = require("async")
 var logger = require('./logModule');
 var aws = require('aws-sdk');
+var moment = require('moment');
 const fileName = "membership.json";
 var membership = {
     create: function(req, res, next) {
