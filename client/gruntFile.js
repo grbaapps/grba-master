@@ -46,9 +46,9 @@ module.exports = function (grunt) {
         app: ['src/app/**/*.tpl.html'],
         common: ['src/common/**/*.tpl.html']
       }//,
-      //less: ['src/less/stylesheet.less'], 
+      //less: ['src/less/stylesheet.less'],
       //lessWatch: ['src/less/**/*.less']
-        
+
     },
     clean: ['<%= distdir %>/*'],
     copy: {
@@ -96,92 +96,71 @@ module.exports = function (grunt) {
         }
       },
       header: {
-        src: ['src/html/header.html'],
-        dest: '<%= distdir %>/html/header.html',
+        src: ['src/html2/header.html'],
+        dest: '<%= distdir %>/html2/header.html',
         options: {
           process: true
         }
       },
       home: {
-        src: ['src/html/home.html'],
-        dest: '<%= distdir %>/html/home.html',
-        options: {
-          process: true
-        }
-      },
-      explore: {
-        src: ['src/html/nextevent.html'],
-        dest: '<%= distdir %>/html/nextevent.html',
+        src: ['src/html2/home.html'],
+        dest: '<%= distdir %>/html2/home.html',
         options: {
           process: true
         }
       },
      event: {
-        src: ['src/html/event.html'],
-        dest: '<%= distdir %>/html/event.html',
+        src: ['src/html2/event.html'],
+        dest: '<%= distdir %>/html2/event.html',
         options: {
           process: true
         }
       },
      culturalProgram: {
-        src: ['src/html/culturalProgram.html'],
-        dest: '<%= distdir %>/html/culturalProgram.html',
+        src: ['src/html2/culturalProgram.html'],
+        dest: '<%= distdir %>/html2/culturalProgram.html',
         options: {
           process: true
         }
       },
-     eventsOfTheDay: {
-        src: ['src/html/eventsOfTheDay.html'],
-        dest: '<%= distdir %>/html/eventsOfTheDay.html',
-        options: {
-          process: true
-        }
-      },  
-     foodItems: {
-        src: ['src/html/foodItems.html'],
-        dest: '<%= distdir %>/html/foodItems.html',
-        options: {
-          process: true
-        }
-      },  
      registeredMembers: {
-        src: ['src/html/registeredMembers.html'],
-        dest: '<%= distdir %>/html/registeredMembers.html',
+        src: ['src/html2/registeredMembers.html'],
+        dest: '<%= distdir %>/html2/registeredMembers.html',
         options: {
           process: true
         }
-      },          
+      },
      about: {
-        src: ['src/html/about.html'],
-        dest: '<%= distdir %>/html/about.html',
+        src: ['src/html2/about.html'],
+        dest: '<%= distdir %>/html2/about.html',
         options: {
           process: true
         }
       },
      sponsor: {
-        src: ['src/html/sponsor.html'],
-        dest: '<%= distdir %>/html/sponsor.html',
+        src: ['src/html2/sponsor.html'],
+        dest: '<%= distdir %>/html2/sponsor.html',
         options: {
           process: true
         }
       },
      contact: {
-        src: ['src/html/contact.html'],
-        dest: '<%= distdir %>/html/contact.html',
+        src: ['src/html2/contact.html'],
+        dest: '<%= distdir %>/html2/contact.html',
         options: {
           process: true
         }
       },
      registration: {
-        src: ['src/html/registration.html'],
-        dest: '<%= distdir %>/html/registration.html',
+        src: ['src/html2/registration.html'],
+        dest: '<%= distdir %>/html2/registration.html',
         options: {
           process: true
         }
       },
      footer: {
-        src: ['src/html/footer.html'],
-        dest: '<%= distdir %>/html/footer.html',
+        src: ['src/html2/footer.html'],
+        dest: '<%= distdir %>/html2/footer.html',
         options: {
           process: true
         }
