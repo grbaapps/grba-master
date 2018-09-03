@@ -55,129 +55,235 @@
                                     <br>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="recipient-name" class="control-label">Name:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
-                                        </label>
-                                    </div>
+                                  <div class="col-xs-12">
+                                      <label for="isMember" class="control-label">GRBA Member:</label>&nbsp;&nbsp;
+                                      <label>
+                                          <input type="radio" ng-model="isMember" ng-value=true ng-change="handleRadioClick(isMember)"> Yes
+                                      </label>
+                                      &nbsp;
+                                      <label>
+                                          <input type="radio" ng-model="isMember" ng-value=false ng-change="handleRadioClick(isMember)"> No
+                                      </label>
+                                  </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="email" class="control-label">Email:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="text" ng-model="email" class="form-control" id="email" style="width: 300px;">
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <label for="isMember" class="control-label">GRBA Member:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isMember" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isMember" ng-value=false> No
-                                        </label>
+                                  <div ng-show="showNonMember">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label for="recipient-name" class="control-label">Name:</label>&nbsp;&nbsp;
+                                            <label>
+                                                <input type="text" ng-model="name" class="form-control" id="name" style="width: 250px;">
+                                            </label>
+                                        </div>
                                     </div>
 
-                                    <div class="col-xs-3">
-                                        <label for="hasFamily" class="control-label">Has Family?&nbsp;:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="hasFamily" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="hasFamily" ng-value=false> No
-                                        </label>
+                                  </div>
+                                  <div ng-show="showMember">
+                                    <!-- SELECT YOUR NAME -->
+                                    <div class="row">
+                                            <div class="col-xs-12">
+                                            <label for="select-name" class="control-label">Select Your Name:</label>&nbsp;&nbsp;
+                                            <label>
+                                                    <select  class="form-control" ng-model="name">
+                                                      <option value"Abhishek & Sanchayeeta Ghosh">Abhishek & Sanchayeeta Ghosh</option>
+                                                      <option value"Achir Angshu & family">Achir Angshu & family</option>
+                                                      <option value"Amrita Dhar">Amrita Dhar</option>
+                                                      <option value"Aniket Banerjee">Aniket Banerjee</option>
+                                                      <option value"Arabinda & Mahua Mandal">Arabinda & Mahua Mandal</option>
+                                                      <option value"Arjoo & Dolly Bandopadhay">Arjoo & Dolly Bandopadhay</option>
+                                                      <option value"Arkajyoti & Ballari Chakraborty">Arkajyoti & Ballari Chakraborty</option>
+                                                      <option value"Ashesh & Mita Gupta">Ashesh & Mita Gupta</option>
+                                                      <option value"Ashish & Chaitali Roy">Ashish & Chaitali Roy</option>
+                                                      <option value"Asim & Seema Shukla">Asim & Seema Shukla</option>
+                                                      <option value"Asim Mallick">Asim Mallick</option>
+                                                      <option value"Asima & Partho Choudhury">Asima & Partho Choudhury</option>
+                                                      <option value"Asit and Anita Paul">Asit and Anita Paul</option>
+                                                      <option value"Atanu & Sarmistha Adhvaryu">Atanu & Sarmistha Adhvaryu</option>
+                                                      <option value"Avik Ghosh & Dipanwita Basu">Avik Ghosh & Dipanwita Basu</option>
+                                                      <option value"Avik Roy & Paulami Saha">Avik Roy & Paulami Saha</option>
+                                                      <option value"Bandhan and Hema Chakraborty">Bandhan and Hema Chakraborty</option>
+                                                      <option value"Bhaswati and Preetam Ghosh">Bhaswati and Preetam Ghosh</option>
+                                                      <option value"Bijoy Kundu & Nabanita Majumdar">Bijoy Kundu & Nabanita Majumdar </option>
+                                                      <option value"Binoy Das">Binoy Das</option>
+                                                      <option value"Bipad & Karabi Saha">Bipad & Karabi Saha</option>
+                                                      <option value"Biplab & Rajrupa Dutta">Biplab & Rajrupa Dutta</option>
+                                                      <option value"Biswanath & Madhumita Basu">Biswanath & Madhumita Basu</option>
+                                                      <option value"Bivas & Sukla Ghosh">Bivas & Sukla Ghosh</option>
+                                                      <option value"Debapriya & Oli Mitra">Debapriya & Oli Mitra</option>
+                                                      <option value"Debarshi Dey & Sujata Dey">Debarshi Dey & Sujata Dey</option>
+                                                      <option value"Devanand Sarkar & Ayesha Siddiq">Devanand Sarkar & Ayesha Siddiq</option>
+                                                      <option value"Dilip & Baishaky Chakroborty">Dilip & Baishaky Chakroborty</option>
+                                                      <option value"Dipankar & Mridula Bandopadhyay">Dipankar & Mridula Bandopadhyay</option>
+                                                      <option value"Durba Chatterjee & family">Durba Chatterjee & family</option>
+                                                      <option value"Durjoy Gupta & family">Durjoy Gupta & family</option>
+                                                      <option value"Garima Oza & family">Garima Oza & family</option>
+                                                      <option value"Hena Sircar">Hena Sircar</option>
+                                                      <option value"Kamal & Champa Gupta">Kamal & Champa Gupta</option>
+                                                      <option value"Kaustubh Ghosh & family">Kaustubh Ghosh & family</option>
+                                                      <option value"Kaustuv Das">Kaustuv Das</option>
+                                                      <option value"Manab & Jamuna Banerjee">Manab & Jamuna Banerjee</option>
+                                                      <option value"Manisha & Basab Choudhury">Manisha & Basab Choudhury</option>
+                                                      <option value"Mike & Indrani Shuman">Mike & Indrani Shuman</option>
+                                                      <option value"Mrinal & Sanghamitra Pal">Mrinal & Sanghamitra Pal</option>
+                                                      <option value"Nabin Chowdhury & Shukla Datta">Nabin Chowdhury & Shukla Datta</option>
+                                                      <option value"Neil & Sohini Chakraborty">Neil & Sohini Chakraborty</option>
+                                                      <option value"Nilothpaul & Suparna Dutta">Nilothpaul & Suparna Dutta</option>
+                                                      <option value"Nirmalya & Antara Chatterjee">Nirmalya & Antara Chatterjee</option>
+                                                      <option value"Nitai D Mukhopadhyay & Tanushree Banerjee">Nitai D Mukhopadhyay & Tanushree Banerjee</option>
+                                                      <option value"Parijat & Sataroopa Bannerjee">Parijat & Sataroopa Bannerjee</option>
+                                                      <option value"Pradosh & Pragna Sengupta">Pradosh & Pragna Sengupta</option>
+                                                      <option value"Prantick Ghosh & family">Prantick Ghosh & family</option>
+                                                      <option value"Probir Ghosal & family">Probir Ghosal & family</option>
+                                                      <option value"Rahul Moray & Swati Neogi">Rahul Moray & Swati Neogi</option>
+                                                      <option value"Rajdeep & Tamapal Banerjee">Rajdeep & Tamapal Banerjee</option>
+                                                      <option value"Rana & Debjani Ganguly">Rana & Debjani Ganguly</option>
+                                                      <option value"Ranajit & Chayanika Chatterjee">Ranajit & Chayanika Chatterjee</option>
+                                                      <option value"Ranjan Ray">Ranjan Ray</option>
+                                                      <option value"Rivu Arthur & Shubhankita (Chakra) Beg">Rivu Arthur & Shubhankita (Chakra) Beg</option>
+                                                      <option value"Rupa Bandyopadhyay">Rupa Bandyopadhyay</option>
+                                                      <option value"Samiran & Christine Ganguly">Samiran & Christine Ganguly</option>
+                                                      <option value"Samit & Sonali Majumdar">Samit & Sonali Majumdar</option>
+                                                      <option value"Samrat & Ankita Ghosh">Samrat & Ankita Ghosh</option>
+                                                      <option value"Sandipan & Suronita Biswas">Sandipan & Suronita Biswas</option>
+                                                      <option value"Sanhita Lahiri & family">Sanhita Lahiri & family</option>
+                                                      <option value"Sanjan & Shikha Ray">Sanjan & Shikha Ray</option>
+                                                      <option value"Sanjay & Sohini Garg">Sanjay & Sohini Garg</option>
+                                                      <option value"Sankar & Anindita Das">Sankar & Anindita Das</option>
+                                                      <option value"Saonee Sarker">Saonee Sarker</option>
+                                                      <option value"Satyam Dutta & family">Satyam Dutta & family</option>
+                                                      <option value"Saurabh Dey">Saurabh Dey</option>
+                                                      <option value"Shinjini Gupta">Shinjini Gupta</option>
+                                                      <option value"Shirshaditya Gupta & Rupanjana Karanjai">Shirshaditya Gupta & Rupanjana Karanjai</option>
+                                                      <option value"Shu & Sanchita Dasgupta">Shu & Sanchita Dasgupta</option>
+                                                      <option value"Snigdha Das">Snigdha Das</option>
+                                                      <option value"Soumik Das & Riya Dutta">Soumik Das & Riya Dutta</option>
+                                                      <option value"Soumitra & Nimila Banerjee">Soumitra & Nimila Banerjee</option>
+                                                      <option value"Soumya & Sukanya Chatterjee">Soumya & Sukanya Chatterjee</option>
+                                                      <option value"Soumyajit Ray & Poulomi Roychoudhury">Soumyajit Ray & Poulomi Roychoudhury</option>
+                                                      <option value"Subhadip & Indrani Das">Subhadip & Indrani Das</option>
+                                                      <option value"Sujit Mandal & Soma Pradhan">Sujit Mandal & Soma Pradhan</option>
+                                                      <option value"Suman & Rumki Banerjee">Suman & Rumki Banerjee</option>
+                                                      <option value"Suparna & Nil Dutta">Suparna & Nil Dutta</option>
+                                                      <option value"Supriyo & Anuradha Bandyopadhyay">Supriyo & Anuradha Bandyopadhyay</option>
+                                                      <option value"Surajit & Gargi Pal">Surajit & Gargi Pal</option>
+                                                      <option value"Swadesh & Lipika Das">Swadesh & Lipika Das</option>
+                                                      <option value"Swarnava & Trina Dutta">Swarnava & Trina Dutta</option>
+                                                      <option value"Tania and Sovon Nath">Tania and Sovon Nath</option>
+                                                      <option value"Tapabrata & Chirashree Pal">Tapabrata & Chirashree Pal</option>
+                                                      <option value"Tapan Mazumder & Rita Ray">Tapan Mazumder & Rita Ray</option>
+                                                      <option value"Tarun & Santi Sen">Tarun & Santi Sen</option>
+                                                      <option value"Tushar & Paromita Ganguly">Tushar & Paromita Ganguly</option>
+                                                    </select>
+                                            </label>
+                                            &nbsp;
+                                            </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <label for="isStudent" class="control-label">Student?&nbsp;:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isStudent" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isStudent" ng-value=false> No
-                                        </label>
-                                    </div>
+                                    <!--END SELECT YOUR NAME -->
+                                  </div>
 
+                                
+                                <div ng-show="showRestOfRegistrationPage">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="email" class="control-label">Email:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="text" ng-model="email" class="form-control" id="email" style="width: 300px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <br/>
+                                  <div class="row">
                                     <div class="col-xs-3">
-                                        <label for="isVegetarian" class="control-label">Vegeterian?&nbsp;:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isVegetarian" ng-value=true> Yes
-                                        </label>
-                                        &nbsp;
-                                        <label>
-                                            <input type="radio" ng-model="isVegetarian" ng-value=false> No
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="noOfAttendees" class="control-label">No of Family Members Attending:</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="noOfAdults" class="control-label">Adults:</label>
-                                        <label>
-                                            <input type="number" ng-model="noOfAdults" class="form-control" id="noOfAdults" min="1" max="8" style="width: 50px;">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <label for="noOfChildren" class="control-label">Children 0-3:</label>
-                                        <label>
-                                            <input type="number" ng-model="noOfChildren0To3" class="form-control" id="noOfChildren0To3" size="2" min="0" max="8" style="width: 50px;">
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <label for="noOfChildren" class="control-label">Children 4-12:</label>
-                                        <label>
-                                            <input type="number" ng-model="noOfChildren4To12" class="form-control" id="noOfChildren4To12" size="2" min="0" max="8" style="width: 50px;">
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <label for="noOfChildren" class="control-label">Children 12+:</label>
-                                        <label>
-                                            <input type="number" ng-model="noOfChildren12Above" class="form-control" id="noOfChildren12Above" size="2" min="0" max="8" style="width: 50px;">
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="eventFee" class="control-label">Event Fee:</label>&nbsp;&nbsp;
-                                        <label>
-                                            <input type="text" ng-model="eventFee" class="form-control" id="eventFee">
-                                        </label>
-                                    </div>
+                                          <label for="hasFamily" class="control-label">Has Family?&nbsp;:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="radio" ng-model="hasFamily" ng-value=true> Yes
+                                          </label>
+                                          &nbsp;
+                                          <label>
+                                              <input type="radio" ng-model="hasFamily" ng-value=false> No
+                                          </label>
+                                      </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <label for="eventFee" class="control-label">Membership fees&nbsp;-&nbsp;<span style="color:yellow;font-weight: bold;">$25</span> for family and <span style="color:yellow;font-weight: bold;">$15</span>
-                                            for singles</label>&nbsp;&nbsp;
+                                      <div class="col-xs-3">
+                                          <label for="isStudent" class="control-label">Student?&nbsp;:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="radio" ng-model="isStudent" ng-value=true> Yes
+                                          </label>
+                                          &nbsp;
+                                          <label>
+                                              <input type="radio" ng-model="isStudent" ng-value=false> No
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="isVegetarian" class="control-label">Vegeterian?&nbsp;:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="radio" ng-model="isVegetarian" ng-value=true> Yes
+                                          </label>
+                                          &nbsp;
+                                          <label>
+                                              <input type="radio" ng-model="isVegetarian" ng-value=false> No
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <br>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="noOfAttendees" class="control-label">No of Family Members Attending:</label>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="noOfAdults" class="control-label">Adults:</label>
+                                          <label>
+                                              <input type="number" ng-model="noOfAdults" class="form-control" id="noOfAdults" min="1" max="8" style="width: 50px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-2">
+                                          <label for="noOfChildren" class="control-label">Children 0-3:</label>
+                                          <label>
+                                              <input type="number" ng-model="noOfChildren0To3" class="form-control" id="noOfChildren0To3" size="2" min="0" max="8" style="width: 50px;">
+                                          </label>
+                                      </div>
+                                      <div class="col-xs-2">
+                                          <label for="noOfChildren" class="control-label">Children 4-12:</label>
+                                          <label>
+                                              <input type="number" ng-model="noOfChildren4To12" class="form-control" id="noOfChildren4To12" size="2" min="0" max="8" style="width: 50px;">
+                                          </label>
+                                      </div>
+                                      <div class="col-xs-2">
+                                          <label for="noOfChildren" class="control-label">Children 12+:</label>
+                                          <label>
+                                              <input type="number" ng-model="noOfChildren12Above" class="form-control" id="noOfChildren12Above" size="2" min="0" max="8" style="width: 50px;">
+                                          </label>
+                                      </div>
+                                  </div>
+                                  <br>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <label for="eventFee" class="control-label">Event Fee:</label>&nbsp;&nbsp;
+                                          <label>
+                                              <input type="text" ng-model="eventFee" class="form-control" id="eventFee">
+                                          </label>
+                                      </div>
 
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <label for="specialNote" class="control-label">Note:</label>&nbsp;&nbsp;
-                                        <textarea ng-model="specialNote" class="form-control" id="specialNote" cols="30" rows="5"></textarea>
-                                    </div>
+                                  </div>
+
+                                  <br>
+                                  <div class="row">
+                                      <div class="col-xs-6">
+                                          <label for="specialNote" class="control-label">Note:</label>&nbsp;&nbsp;
+                                          <textarea ng-model="specialNote" class="form-control" id="specialNote" cols="30" rows="5"></textarea>
+                                      </div>
+                                  </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">CLOSE</button>
-                            <button type="submit" class="btn btn-primary" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">REGISTER</button>
+                            <div ng-show="showRestOfRegistrationPage">
+                              <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">CLOSE</button>
+                              <button type="submit" class="btn btn-primary" style="background-color:#f2f5f8;color: #da5f3a; background-image:url(&quot;none&quot;);">REGISTER</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -202,7 +308,7 @@
                             <div class="row">
                                 <div class="col-xs-6">
 
-                                    The event fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.totalPaymentAmount}}</span> could either be send via cheque or be paid through paypal. Please note paypal will charge a nominal fee for this transaction. The total you will pay is <span style="color:#d81a3c;font-weight: bold;">${{successResponse.paypalPaymentAmount}}</span> if you pay via paypal. No paypal account is required.
+                                    The event fee <span style="color:#d81a3c;font-weight: bold;">${{successResponse.totalPaymentAmount}}</span> could either be send via cheque or be paid through paypal. There is no extra charge to pay using Paypal. No paypal account is required.
 
                                 </div>
                             </div>
@@ -218,7 +324,7 @@
                             <br>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    Pay by cheque - please make cheque Payable to <span style="color:yellow;font-weight: bold;">GRBA</span> and mail to <span style="color:yellow;font-weight: bold;">P.O.Box 4622, Glen Allen, VA-23058</span>. This is only applicable to members registeringon on or before April 29th, 2018.
+                                    Pay by cheque - please make cheque Payable to <span style="color:yellow;font-weight: bold;">GRBA</span> and mail to <span style="color:yellow;font-weight: bold;">P.O.Box 4622, Glen Allen, VA-23058</span>. This is only applicable to members registering on or before April 29th, 2018.
                                 </div>
                             </div>
                             <br>

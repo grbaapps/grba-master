@@ -320,7 +320,7 @@
          "name":"Durga Puja 2018",
          "isCurrentEvent":"Y",
          "venue":"Short Pump Middle School",
-         "date":"October 12-14",
+         "date":"October 12th to 14th",
          "time":"10am",
          "code":"DP",
          "address":{
@@ -332,36 +332,36 @@
          "lastOnlineDateRegistration":"10-11-2018 23:59:00",
          "committeeMembers":{
             "pujaCommittee":{
-               "htmlLabel":"Puja Committee",
-               "members":"Baishakhy Chakraborty,Chaitali Roy,Paromita Ganguly, Madhumita Chatterjee, Suronita Dasbiswas"
+               "htmlLabel":"Pujo",
+               "members":"Baishakhy Chakraborty, Madhumita Chatterjee, Paromita Ganguly"
             },
             "foodCommittee":{
-               "htmlLabel":"Food Committee",
-               "members":"Anindita Das, Tushar Ganguly, Durjoy Gupta, Reshmi Ghosh, Sanchita Dasgupta, Biplab Dutta, Soumik Das, Rupanjana Karanjai "
+               "htmlLabel":"Food",
+               "members":"Reshmi Ghosh, Rupanjana Karanjai, Sanchita Dasgupta, Soumik Das, Soumyajit Ray, Tushar Ganguly"
             },
             "culturalCommittee":{
-               "htmlLabel":"Cultural Committee",
-               "members":"Sataroopa Bannerjee, Debopriyo Mitra, Tapabrata Pal, Trina Dutta, Mousumi Mitra, Rivu Arthur Beig"
+               "htmlLabel":"Cultural",
+               "members":"Debopriyo Mitra, Sataroopa Bannerjee, Tapabrata Pal"
             },
             "pujaDecorations":{
-               "htmlLabel":"Decoration",
-               "members":"Sanghamitra Gayali, Mrinal Gayali, Priyodorshi Chatterjee, Shubhankita Chakraborty"
+               "htmlLabel":"Decorations",
+               "members":"Debarati Pradhan, Indrani Suman, Sanghamitra Gayali"
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
-               "members":"Rahul Moray,Abhishek Ghosh,Arjoo Bandopadhyay, Basab Choudhury"
+               "members":"Abhishek Ghosh,Arjoo Bandopadhyay, Basab Choudhury, Rahul Moray"
             },
             "facilitiesCoordinator":{
-               "htmlLabel":"Light and Sound",
-               "members":" Subhadip Das, Mrinal Gayali, Samit Majumdar, Atanu Saha"
+               "htmlLabel":"Sound and Light",
+               "members":" Atanu Saha, Samit Majumdar, Subhadip Das "
             },
             "registrationAndFrontDesk":{
-               "htmlLabel":"Finance",
-               "members":"Rupa Bandopadhyay, Atanu Advharyu, Parijat Bannerjee"
+               "htmlLabel":"Finance and Registration",
+               "members":" Atanu Advharyu, Parijat Bannerjee, Rupa Bandopadhyay"
             },
             "brochureCommittee":{
                "htmlLabel":"Brochure",
-               "members":"Bhaswati Ghosh, Mrinal Gayali, Rita Ray, Soumitra Bannerjee, Mousumi Mitra"
+               "members":"Bhaswati Ghosh, Mrinal Gayali"
             },
             "websiteCommittee":{
                "htmlLabel":"Website",
@@ -369,11 +369,15 @@
             },
             "eventMarketingCommittee":{
                "htmlLabel":"Event Marketing",
-               "members":"Avik Roy,Soumya Chatterjee,Shoumik Bannerjee,Soumyajit Ray, Mrinal Gayali"
+               "members":"Avik Roy,Soumya Chatterjee,Soumyajit Ray"
             },
             "fundDevelopmentCommittee":{
                "htmlLabel":"Fund Development",
-               "members":"Shu Dasgupta,Avik Roy,Ashish Roy,Abhishek Ghosh"
+               "members":"Abhishek Ghosh, Avik Roy, Shu Dasgupta"
+            },
+            "posterCommittee":{
+               "htmlLabel":"Posters",
+               "members":"Shoumik Banerjee"
             }
          },
          "earlyBird":{

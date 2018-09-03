@@ -307,6 +307,22 @@ angular.module('registration', ['event']).controller('registrationController', [
     $scope.reset = function () {
         $scope.showRegForm = true;
         $scope.showRegResult = false;
+        $scope.showMember = false;
+        $scope.showNonMember = false;
+        $scope.showRestOfRegistrationPage = false;
+
+    };
+
+    $scope.handleRadioClick = function(){
+        if ($scope.isMember) {
+          $scope.showMember = true;
+          $scope.showNonMember = false;
+          $scope.showRestOfRegistrationPage = true;
+        } else {
+          $scope.showNonMember = true;
+          $scope.showMember = false;
+          $scope.showRestOfRegistrationPage = true;
+        }
     };
 
 }]);
