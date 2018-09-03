@@ -9,11 +9,15 @@ div.jumbotron.carousel-hero {
 }
 
 div.jumbotron.hero-nature {
-  background-image:url('../../assets/img/grba_dp.png');
+  background-image:url('../../assets/img/grba_dp.jpg');
 }
 
 div.jumbotron.hero-event {
   background-image:url('../../assets/img/grba_bg1.jpg');
+}
+
+div.jumbotron.coke_studio {
+  background-image:url('../../assets/img/coke_studio_small.jpg');
 }
 
 div.jumbotron.hero-photography {
