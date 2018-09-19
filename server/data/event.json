@@ -341,19 +341,15 @@
             },
             "culturalCommittee":{
                "htmlLabel":"Cultural",
-               "members":"Debopriyo Mitra, Sataroopa Bannerjee, Tapabrata Pal"
+               "members":"Debopriyo Mitra, Sataroopa Bannerjee, Tapabrata Pal,Atanu Saha,Subhadip Das"
             },
             "pujaDecorations":{
                "htmlLabel":"Decorations",
-               "members":"Debarati Pradhan, Indrani Suman, Sanghamitra Gayali"
+               "members":"Debarati Pradhan, Indrani Suman, Sanghamitra Gayali,Suparna Dutta"
             },
             "logisticsTeam":{
                "htmlLabel":"Logistics",
                "members":"Abhishek Ghosh,Arjoo Bandopadhyay, Basab Choudhury, Rahul Moray"
-            },
-            "facilitiesCoordinator":{
-               "htmlLabel":"Sound and Light",
-               "members":" Atanu Saha, Samit Majumdar, Subhadip Das "
             },
             "registrationAndFrontDesk":{
                "htmlLabel":"Finance and Registration",
