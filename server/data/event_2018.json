@@ -1,0 +1,430 @@
+{
+   "2018":{
+      "SP":{
+         "name":"Saraswati Puja 2018",
+         "isCurrentEvent":"N",
+         "venue":"Bishop Ireton Center",
+         "date":"01-20-2018 10am",
+         "time":"8AM to 10PM",
+         "code":"SP",
+         "address":{
+            "street":"3300 Old Courthouse Rd",
+            "city":"North Chesterfield",
+            "state":"VA",
+            "zip":"23236"
+         },
+         "lastOnlineDateRegistration":"01-20-2018 11:59:59",
+         "committeeMembers":{
+            "pujaCommittee":{
+               "htmlLabel":"Puja Committee",
+               "members":"Baishakhy Chakraborty,Chaitali Roy,Paromita Ganguly"
+            },
+            "foodCommittee":{
+               "htmlLabel":"Food Committee",
+               "members":"Reshmi Ghosh,Soma Pradhan,Sanjukta Basu,Ballari Chakraborty"
+            },
+            "culturalCommittee":{
+               "htmlLabel":"Cultural Committee",
+               "members":"Trina Dutta,Sayani Sarkar,Subhadip Das"
+            },
+            "pujaDecorations":{
+               "htmlLabel":"Decoration",
+               "members":"Sanghamitra Gayali, Swati Neogi"
+            },
+            "logisticsTeam":{
+               "htmlLabel":"Logistics",
+               "members":"Rahul Moray,Abhishek Ghosh,Avik Roy"
+            },
+            "facilitiesCoordinator":{
+               "htmlLabel":"Light and Sound",
+               "members":"Tapabrata Pal,Arjoo Bandopadhyay"
+            },
+            "registrationAndFrontDesk":{
+               "htmlLabel":"Front Desk",
+               "members":"Coming Soon"
+            }
+         },
+         "earlyBird":{
+            "date":"01-14-2018 23:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":25,
+                     "family":40
+                  },
+                  "nonmember":{
+                     "single":30,
+                     "family":50
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":40,
+                     "family":70
+                  },
+                  "nonmember":{
+                     "single":50,
+                     "family":80
+                  }
+               }
+            }
+         },
+         "afterEarlyBird":{
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":30,
+                     "family":50
+                  },
+                  "nonmember":{
+                     "single":35,
+                     "family":65
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":50,
+                     "family":80
+                  },
+                  "nonmember":{
+                     "single":60,
+                     "family":90
+                  }
+               }
+            }
+         },
+         "food":{
+         },
+         "eventsOfTheday":{
+            "1":[
+               {
+                  "label":"Puja",
+                  "time":"10:00 am to 12:00 pm",
+                  "order":1
+               },
+               {
+                  "label":"Kids corner",
+                  "time":"11:00 am to 12:00 pm",
+                  "order":2
+               },
+               {
+                  "label":"Hatekhori & Puspanjali",
+                  "time":"12:00 pm to 12:30 pm",
+                  "order":3
+               },
+               {
+                  "label":"Prasad Distribution",
+                  "time":"12:00 pm to 1:00 pm",
+                  "order":4
+               },
+               {
+                  "label":"Bhog (lunch)",
+                  "time":"1:00 pm to 2.30 pm",
+                  "order":5
+               },
+               {
+                  "label":"Dinner for all",
+                  "time":"8:30 pm to 10:00 pm",
+                  "order":8
+               },
+               {
+                  "label":"Evening Snacks",
+                  "time":"5:00 pm  to 6:00 pm",
+                  "order":6
+               },
+               {
+                  "label":"Cultural Program",
+                  "time":"6:00 pm to 8:00 pm",
+                  "order":7
+               }
+            ]
+         },
+         "culturalPrograms":{
+            "1":[
+               {
+                  "order":2,
+                  "time":"06:00 pm",
+                  "duration":"30m",
+                  "participants":[
+                     "names"
+                  ],
+                  "programName":"Some Program2",
+                  "programDescription":"Some Program description2"
+               },
+               {
+                  "order":1,
+                  "time":"08:00 pm",
+                  "duration":"1hr",
+                  "participants":[
+                     "names"
+                  ],
+                  "programName":"Some Program1",
+                  "programDescription":"Some Program description1"
+               }
+            ]
+         }
+      },
+      "PB":{
+         "name":"Rabindra Nazrul Sandhya",
+         "isCurrentEvent":"N",
+         "venue":"Gayton Baptist Church",
+         "date":"05-05-2018 3pm to 10pm",
+         "time":"3PM to 10PM",
+         "code":"RNS",
+         "address":{
+            "street":"13501 N Gayton Rd",
+            "city":"Henrico",
+            "state":"VA",
+            "zip":"23233"
+         },
+         "lastOnlineDateRegistration":"05-05-2018 15:00:00",
+         "committeeMembers":{
+            "foodCommittee":{
+               "htmlLabel":"Food Committee",
+               "members":""
+            },
+            "culturalCommittee":{
+               "htmlLabel":"Cultural Committee",
+               "members":""
+            },
+            "logisticsTeam":{
+               "htmlLabel":"Logistics",
+               "members":""
+            },
+            "facilitiesCoordinator":{
+               "htmlLabel":"Sound Coordinator",
+               "members":""
+            },
+            "registrationAndFrontDesk":{
+               "htmlLabel":"Front Desk",
+               "members":""
+            },
+            "webTeam":{
+               "htmlLabel":"Web Team",
+               "members":""
+            }
+         },
+         "earlyBird":{
+            "date":"04-29-2018 23:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":20,
+                     "family":30
+                  },
+                  "nonmember":{
+                     "single":20,
+                     "family":30
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":30,
+                     "family":55
+                  },
+                  "nonmember":{
+                     "single":35,
+                     "family":60
+                  }
+               }
+            }
+         },
+         "afterEarlyBird":{
+            "fee":{
+                "student":{
+                   "member":{
+                      "single":25,
+                      "family":35
+                   },
+                   "nonmember":{
+                      "single":25,
+                      "family":35
+                   }
+                },
+               "nonStudent":{
+                  "member":{
+                     "single":35,
+                     "family":60
+                  },
+                  "nonmember":{
+                     "single":40,
+                     "family":65
+                  }
+               }
+            }
+         }
+      },
+      "AP":{
+         "name":"Annual Picnic 2017",
+         "isCurrentEvent":"N",
+         "venue":"R. Garland Dodd Park",
+         "date":"07-15-2017 10:00:00",
+         "time":"10AM to 6PM",
+         "code":"AP",
+         "address":{
+            "street":"201 Enon Church Rd",
+            "city":"Chester",
+            "state":"VA",
+            "zip":"23836"
+         },
+         "lastOnlineDateRegistration":"07-15-2017 07:00:00",
+         "committeeMembers":{
+            "foodCommittee":{
+               "htmlLabel":"Food Committee",
+               "members":"Suronita Dasbiswas,Soma Pradhan,Manisha Prasad,Poulami Saha"
+            },
+            "logisticsTeam":{
+               "htmlLabel":"Logistics",
+               "members":"Rahul Moray,Samrat Ghosh"
+            },
+            "sportsCommittee":{
+               "htmlLabel":"Sports Coordinator",
+               "members":"TBD"
+            }
+         },
+         "earlyBird":{
+            "date":"07-15-2017 23:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":0,
+                     "family":0
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":0,
+                     "family":0
+                  }
+               }
+            }
+         },
+         "afterEarlyBird":{
+            "fee":{
+                "student":{
+                   "member":{
+                      "single":5,
+                      "family":10
+                   }
+                },
+               "nonStudent":{
+                  "member":{
+                     "single":10,
+                     "family":20
+                  }
+               }
+            }
+         }
+      },
+      "DP":{
+         "name":"Durga Puja 2018",
+         "isCurrentEvent":"Y",
+         "venue":"Short Pump Middle School",
+         "date":"October 12th to 14th",
+         "time":"10am",
+         "code":"DP",
+         "address":{
+           "street":"4701 Pouncey Tract Rd",
+           "city":"Glen Allen",
+           "state":"VA",
+           "zip":"23059"
+         },
+         "lastOnlineDateRegistration":"10-11-2018 23:59:00",
+         "committeeMembers":{
+            "pujaCommittee":{
+               "htmlLabel":"Pujo",
+               "members":"Baishakhy Chakraborty, Madhumita Chatterjee, Paromita Ganguly"
+            },
+            "foodCommittee":{
+               "htmlLabel":"Food",
+               "members":"Reshmi Ghosh, Rupanjana Karanjai, Sanchita Dasgupta, Soumik Das, Soumyajit Ray, Tushar Ganguly"
+            },
+            "culturalCommittee":{
+               "htmlLabel":"Cultural",
+               "members":"Debopriyo Mitra, Sataroopa Bannerjee, Tapabrata Pal,Atanu Saha,Subhadip Das"
+            },
+            "pujaDecorations":{
+               "htmlLabel":"Decorations",
+               "members":"Debarati Pradhan, Indrani Suman, Sanghamitra Gayali,Suparna Dutta"
+            },
+            "logisticsTeam":{
+               "htmlLabel":"Logistics",
+               "members":"Abhishek Ghosh,Arjoo Bandopadhyay, Basab Choudhury, Rahul Moray"
+            },
+            "registrationAndFrontDesk":{
+               "htmlLabel":"Finance and Registration",
+               "members":" Atanu Advharyu, Parijat Bannerjee, Rupa Bandopadhyay"
+            },
+            "brochureCommittee":{
+               "htmlLabel":"Brochure",
+               "members":"Bhaswati Ghosh, Kamalika Ganguly, Mousumi Mitra, Mrinal Gayali"
+            },
+            "websiteCommittee":{
+               "htmlLabel":"Website",
+               "members":"Abhishek Ghosh,Pritam Sarkar,Soumyajit Ray,Avik Roy, Shirsho Gupta"
+            },
+            "eventMarketingCommittee":{
+               "htmlLabel":"Event Marketing",
+               "members":"Avik Roy,Soumya Chatterjee,Soumyajit Ray"
+            },
+            "fundDevelopmentCommittee":{
+               "htmlLabel":"Fund Development",
+               "members":"Abhishek Ghosh, Avik Roy, Shu Dasgupta"
+            },
+            "posterCommittee":{
+               "htmlLabel":"Posters",
+               "members":"Shoumik Banerjee"
+            }
+         },
+         "earlyBird":{
+            "date":"10-02-2018 23:59:59",
+            "fee":{
+               "student":{
+                  "member":{
+                     "single":55,
+                     "family":95
+                  },
+                  "nonmember":{
+                     "single":65,
+                     "family":105
+                  }
+               },
+               "nonStudent":{
+                  "member":{
+                     "single":105,
+                     "family":175
+                  },
+                  "nonmember":{
+                     "single":130,
+                     "family":205
+                  }
+               }
+            }
+         },
+         "afterEarlyBird":{
+            "fee":{
+                "student":{
+                   "member":{
+                      "single":65,
+                      "family":105
+                   },
+                   "nonmember":{
+                      "single":75,
+                      "family":115
+                   }
+                },
+               "nonStudent":{
+                  "member":{
+                     "single":145,
+                     "family":205
+                  },
+                  "nonmember":{
+                     "single":165,
+                     "family":235
+                  }
+               }
+            }
+         }
+      }
+   }
+}
