@@ -12,6 +12,10 @@ div.jumbotron.hero-nature {
   background-image:url('../../assets/img/grba_dp.jpg');
 }
 
+div.jumbotron.hero-agm {
+  background-image:url('../../assets/img/agm_2018.jpg');
+}
+
 div.jumbotron.hero-event {
   background-image:url('../../assets/img/grba_bg1.jpg');
 }
