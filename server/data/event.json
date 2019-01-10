@@ -4,7 +4,7 @@
       "name":"Saraswati Puja 2019",
       "isCurrentEvent":"Y",
       "venue":"Short Pump Middle School",
-      "date":"02-09-2019 10am",
+      "date":"02-09-2019",
       "time":"8AM to 10PM",
       "code":"SP",
       "address":{  
@@ -25,23 +25,19 @@
         },
         "culturalCommittee":{  
           "htmlLabel":"Cultural Committee",
-          "members":"TBD"
+          "members":"Arjoo Bandopadhay,Rivu Beg,Paromita Ganguly"
         },
-        "pujaDecorations":{  
-          "htmlLabel":"Decoration",
-          "members":"TBD"
+        "volunteerCommittee":{  
+          "htmlLabel":"Volunteer",
+          "members":"Indrani,Shuman,Chaitali Roy"
         },
         "logisticsTeam":{  
           "htmlLabel":"Logistics",
-          "members":"TBD"
+          "members":"Rahul Moray"
         },
-        "facilitiesCoordinator":{  
-          "htmlLabel":"Light and Sound",
-          "members":"TBD"
-        },
-        "registrationAndFrontDesk":{  
-          "htmlLabel":"Front Desk",
-          "members":"TBD"
+        "websiteTeam":{  
+          "htmlLabel":"Website",
+          "members":"Abhishek Ghosh,Rajdeep,Jit,Pritam,Shirsho"
         }
       },
       "earlyBird":{  
