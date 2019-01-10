@@ -8,9 +8,13 @@ div.jumbotron.carousel-hero {
   margin-bottom:0;
 }
 
-div.jumbotron.hero-nature {
+/*div.jumbotron.hero-nature {
   background-image:url('../../assets/img/grba_dp.jpg');
-}
+}*/
+
+div.jumbotron.hero-nature {
+  background-image:url('../../assets/img/grba_spbg.jpg');
+  }
 
 div.jumbotron.hero-event {
   background-image:url('../../assets/img/grba_bg1.jpg');

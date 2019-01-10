@@ -1,306 +1,189 @@
 <div id="top-banner"><img class="img-responsive center-block" src="html2/assets/img/banner.png"></div>
 
-       <div class="container-fluid">
-           <div class="row">
-               <div class="col-md-12 left-col">
-                   <!--<div id="about">-->
-                       <div class="panel panel-default" id="event-panel" style="/*height:980px;*/">
-                           <div class="panel-body" id="event-panel-body" style="padding-top:0px;/*height:740px;*//*max-height:680px;*/">
-                               <div class="row" style="/*height:710px;*/">
-                                   <!--<div class="col-md-12">-->
-                                       <div class="carousel slide" data-ride="carousel" id="carousel-1" style="height:330px;margin:0px;margin-top: 0px;padding: 0px;">
-                                           <div class="carousel-inner" role="listbox">
-                                               <div class="item active">
-                                                   <div class="jumbotron hero-event carousel-hero" style="/*height:740px;*/">
-                                                     <h1 class="hero-title">{{eventDetails.name}}</h1>
-                                                         <p class="hero-subtitle">Date: {{eventDetails.date}}<br/>
-                                                         Venue: {{eventDetails.venue}}, <br/>{{eventDetails.address.street}}, {{eventDetails.address.city}}, {{eventDetails.address.state}} &nbsp; {{eventDetails.address.zip}}<br/>
-                                                         Early Bird Registration Ends: September 30th</p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 left-col">
+                    <!--<div id="about">-->
+                        <div class="panel panel-default" id="event-panel" style="/*height:750px;*/">
+                            <div class="panel-heading grba-panel-heading">
+                                <h3 class="panel-title">OUR NEXT EVENT</h3></div>
+                            <div class="panel-body" id="event-panel-body" style="padding-top:0px;/*height:740px;*//*max-height:680px;*/">
+                                <div class="row" style="/*height:410px;*/">
+                                    <!--<div class="col-md-12">-->
+                                        <div class="carousel slide" data-ride="carousel" id="carousel-1" style="margin:0px;margin-top: 0px;padding: 0px;">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="item active">
+                                                    <div class="jumbotron hero-nature carousel-hero" style="/*height:430px;*/">
+                                                        <h1 class="hero-title">{{eventDetails.name}}</h1>
+                                                        <p class="hero-subtitle">Date: {{eventDetails.date}}<br/>
+                                                        Venue: {{eventDetails.venue}}, {{eventDetails.address.street}}, {{eventDetails.address.city}}, {{eventDetails.address.state}} &nbsp; {{eventDetails.address.zip}}<br/>
+                                                        Early Bird Registration: January 14th</p>
+                                                        
+                                                        <p><a class="btn btn-primary btn-lg" type="button" role="button" data-toggle="modal" data-target="#registrationModal" style="background-color:#da5f3a;background-image:url(&quot;none&quot;);">REGISTER </a>&nbsp;&nbsp;<a class="btn btn-primary btn-lg" type="button" role="button" data-toggle="modal" data-target="#registeredMembers" style="background-color:#da5f3a;background-image:url(&quot;none&quot;);">EVENT ATTENDEES </a></p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                        </div>
+                                    <!--</div>-->
+                                </div>
+                            
+                                <div class="row" style="/*height:240px;*/">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <ul class="nav nav-tabs" id="committee-tab">
+                                                <li><a href="#tab-1" role="tab" data-toggle="tab">Schedule</a></li>
+                                                <li><a href="#tab-2" role="tab" data-toggle="tab">Puja</a></li>
+                                                <li><a href="#tab-3" role="tab" data-toggle="tab">Food </a></li>
+                                                <li><a href="#tab-4" role="tab" data-toggle="tab">Cultural </a></li>
+                                                <li><a href="#tab-5" role="tab" data-toggle="tab">Volunteer </a></li>
+                                                <li><a href="#tab-6" role="tab" data-toggle="tab">Logistics </a></li>
+                                                <li><a href="#tab-7" role="tab" data-toggle="tab">Website</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" role="tabpanel" id="tab-1" style="/*height:200px;*/">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">EVENT SCHEDULE</h3></div>
 
-                                                       <p><a class="btn btn-primary btn-lg" type="button" role="button" data-toggle="modal" data-target="#registrationModal" style="background-color:#da5f3a;background-image:url(&quot;none&quot;);">REGISTER </a>&nbsp;&nbsp;<a class="btn btn-primary btn-lg" type="button" role="button" data-toggle="modal" data-target="#registeredMembers" style="background-color:#da5f3a;background-image:url(&quot;none&quot;);">EVENT ATTENDEES </a></p>
-                                                   </div>
-                                               </div>
-
-                                           </div>
-
-                                       </div>
-                                   <!--</div>-->
-                               </div>
-
-                               <div class="row" style="/*height:440px;*/">
-                                   <div class="col-md-12">
-                                       <div>
-                                           <ul class="nav nav-tabs" id="committee-tab">
-                                               <li><a href="#tab-1" role="tab" data-toggle="tab">Schedule</a></li>
-                                               <li><a href="#tab-2" role="tab" data-toggle="tab">Brochure</a></li>
-                                               <li><a href="#tab-3" role="tab" data-toggle="tab">Cultural</a></li>
-                                               <li><a href="#tab-4" role="tab" data-toggle="tab">Decorations</a></li>
-                                               <li><a href="#tab-5" role="tab" data-toggle="tab">Event Marketing</a></li>
-                                               <li><a href="#tab-7" role="tab" data-toggle="tab">Food </a></li>
-                                               <li><a href="#tab-6" role="tab" data-toggle="tab">Finance &amp; Registration</a></li>
-                                               <li><a href="#tab-8" role="tab" data-toggle="tab">Fund Raising </a></li>
-                                               <li><a href="#tab-9" role="tab" data-toggle="tab">Logistics</a></li>
-                                               <li><a href="#tab-10" role="tab" data-toggle="tab">Posters</a></li>
-                                               <li><a href="#tab-11" role="tab" data-toggle="tab">Pujo</a></li>
-                                               <li><a href="#tab-13" role="tab" data-toggle="tab">Website</a></li>
-                                           </ul>
-                                           <div class="tab-content">
-                                               <div class="tab-pane active" role="tabpanel" id="tab-1" style="/*height:250px;*/">
-                                                   <div class="panel panel-default event-panel" style="/*height:250px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">EVENT SCHEDULE</h3></div>
-
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="width:30%;/*height:130px;*/">
-
-                                                               <h5><b>12th October, Friday</h5>
-                                                               <ul id="event-schedule">
-                                                                 <li>6:00 pm : Durga Puja begins with Protima Boron and Sasthi Puja</li>
-                                                                 <li>7:45 pm - 8:45 pm : Cultural Program</li>
-                                                                 &nbsp;&nbsp;Event opening
-                                                                 <br> &nbsp;&nbsp;Bangla Drama
-                                                                 <br> &nbsp;&nbsp;&nbsp;&nbsp;<i>“Soja Angule Ghee Othena”
-                                                                 <br> &nbsp;&nbsp;&nbsp;&nbsp;“Saree O Naree”
-                                                                 <br> &nbsp;&nbsp;&nbsp;&nbsp;“Chere de Maa kende bachi”</i>
-                                                                 <li>9pm onwards :  Dinner</li>
-                                                                 <li>10:30 pm - Disperse</li>
-                                                               </b>
-                                                               </ul>
-                                                           </div>
-                                                           <div class="col-md-12 event-panel-col" style="width:40%;/*height:130px;*/">
-
-                                                               <h5><b>13th October, Saturday</h5>
-                                                               <ul id="event-schedule">
-                                                                   <li>10 am : Puja begins</li>
-                                                                   <li>12:30pm : Pushpanjali and Prasad</li>
-                                                                   <li>1:30pm : Lunch</li>
-                                                                   <li>2:30pm : Sindoor Khela & Bisarjan</li>
-                                                                   <li>4:30pm - 5:30pm : Snacks</li>
-                                                                   <li>5:45pm  : Cultural Program Begins</li>
-                                                                   &nbsp;&nbsp;Opening Speech and recognition
-                                                                   <br> &nbsp;&nbsp;Special Band program - “Bonnie Chakraborty presents “Global Ektara”
-                                                                   <li>6:00 PM : Kids corner checkin (w/ Baby sitter)</li>
-                                                                   &nbsp;&nbsp;6:30pm Balloon Twisting
-                                                                   <br> &nbsp;&nbsp;7:30pm Magic Show
-                                                                   <li>9pm onwards : Dinner</li>
-                                                                 </b>
-                                                               </ul>
-                                                           </div>
-                                                           <div class="col-md-12 event-panel-col" style="width:30%;/*height:130px;*/">
-
-                                                               <h5><b>14th October, Sunday</h5>
-                                                               <ul id="event-schedule">
-                                                                 <li>10 am - 12 pm : Pujo</li>
-                                                                 <li>12pm : Pushpanjali and Prasad</li>
-                                                                 <li>12:30pm : Lunch</li>
-                                                                 <li>2:00pm : Wrap up starts</li>
-                                                                 <li>3:00pm : Disperse</li>
-                                                               </b>
-                                                               </ul>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-2">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.brochureCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.brochureCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>
-                                                          </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-3">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.culturalCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.culturalCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>                                                            </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-4">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.pujaDecorations.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.pujaDecorations.members.split(',')">{{member}}</li>
-                                                           </ul>                                                            </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-5">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.eventMarketingCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.eventMarketingCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>
-                                                          </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-6">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.registrationAndFrontDesk.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.registrationAndFrontDesk.members.split(',')">{{member}}</li>
-                                                           </ul>
-                                                          </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-7">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.foodCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.foodCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>                                                            </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*/height:130px;"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-8">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.fundDevelopmentCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.fundDevelopmentCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>                                                            </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*/height:130px;"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-9">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.logisticsTeam.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-6 event-panel-col" style="/*width:50%;*//*height:130px;*/">
+                                                                <h4>Saturday Morning</h4>
+                                                                <ul id="event-schedule">
+                                                                    <li>10:00 AM to 12:00 PM - Puja Begins </li>
+                                                                    <li>11:00 AM to 12:00 PM - Kids corner </li>
+                                                                    <li>12:00 PM to 12:30 PM - Hatekhori &nbsp; Puspanjali </li>
+                                                                    <li>12:00 PM to 1:00PM - Prasad Distribution </li>
+                                                                    <li>1:00 PM to 2:30 PM - Bhog (lunch) </li>
+                                                                    
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-md-6 event-panel-col" style="/*width:50%;*//*height:130px;*/">
+                                                            <h4>Saturday Evening</h4>
+                                                            <ul id="event-schedule">
+                                                                    
+                                                                    <li>5:00 PM to 6:00 PM - Evening Snacks </li>
+                                                                    <li>6:00 PM to 8:00 PM - Cultural Program </li>
+                                                                    <li>8:30 PM to 10:00 PM - Dinner for all</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="tab-pane" role="tabpanel" id="tab-2" style="/*height:200px;*/">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">{{eventDetails.committeeMembers.pujaCommittee.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                                <ul id="committee-member">
+                                                                    <li ng-repeat="member in eventDetails.committeeMembers.pujaCommittee.members.split(',')">{{member}}</li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="tab-3">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">{{eventDetails.committeeMembers.foodCommittee.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
                                                             <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.logisticsTeam.members.split(',')">{{member}}</li>
-                                                           </ul>
-                                                           </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-10">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.posterCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.foodCommittee.members.split(',')">{{member}}</li>
+                                                            </ul>                                                            </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*/height:130px;"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="tab-4">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">{{eventDetails.committeeMembers.culturalCommittee.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
                                                             <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.posterCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.culturalCommittee.members.split(',')">{{member}}</li>
+                                                            </ul>                                                            </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="tab-5">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">{{eventDetails.committeeMembers.volunteerCommittee.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                             <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.volunteerCommittee.members.split(',')">{{member}}</li>
+                                                            </ul>
+                                                            </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="tab-6">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">{{eventDetails.committeeMembers.logisticsTeam.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                            <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.logisticsTeam.members.split(',')">{{member}}</li>
+                                                            </ul>                                                            </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="tab-pane" role="tabpanel" id="tab-7">
+                                                    <div class="panel panel-default event-panel" style="/*height:200px;*/">
+                                                        <div class="panel-heading grba-panel-heading-sm">
+                                                            <h3 class="panel-title-committee">{{eventDetails.committeeMembers.websiteTeam.htmlLabel}}</h3></div>
+                                                        <div class="panel-body event-panel-body" style="/*height:150px;*/">
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
+                                                            <ul id="committee-member">
+                                                                <li ng-repeat="member in eventDetails.committeeMembers.websiteTeam.members.split(',')">{{member}}</li>
+                                                            </ul>
                                                            </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-11" style="/*height:200px;*/">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.pujaCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                               <ul id="committee-member">
-                                                                   <li ng-repeat="member in eventDetails.committeeMembers.pujaCommittee.members.split(',')">{{member}}</li>
-                                                               </ul>
-                                                           </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-12">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.facilitiesCoordinator.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.facilitiesCoordinator.members.split(',')">{{member}}</li>
-                                                           </ul>
-                                                          </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="tab-pane" role="tabpanel" id="tab-13">
-                                                   <div class="panel panel-default event-panel" style="/*height:200px;*/">
-                                                       <div class="panel-heading grba-panel-heading-sm">
-                                                           <h3 class="panel-title-committee">{{eventDetails.committeeMembers.websiteCommittee.htmlLabel}}</h3></div>
-                                                       <div class="panel-body event-panel-body" style="/*height:150px;*/">
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/">
-                                                           <ul id="committee-member">
-                                                               <li ng-repeat="member in eventDetails.committeeMembers.websiteCommittee.members.split(',')">{{member}}</li>
-                                                           </ul>
-                                                          </div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                           <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   <!--</div>-->
-               </div>
-               <div class="col-md-12 right-ad-col" style="/*width:300px;*//*height:740px;*/">
-                   <div class="row ad-row">
-                       <div class="col-md-12 right-ad-col2" style="/*width:300px;*//*height:250px;*/">
-                           <div class="side-ad"><img  src="html2/assets/img/ad8.png" class="img-responsive center-block side-img"></div>
-                       </div>
-                   </div>
-                   <div class="row ad-row">
-                       <div class="col-md-12">
-                           <div class="side-ad"><img src="html2/assets/img/ad4.png" class="img-responsive center-block side-img"></div>
-                       </div>
-                   </div>
-                   <div class="row ad-row">
-                       <div class="col-md-12">
-                           <div class="side-ad"><img  src="html2/assets/img/ad7.png" class=" img-responsive center-block side-img"></div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                            <div class="col-md-12 event-panel-col" style="/*width:33%;*//*height:130px;*/"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                </div>
+                <div class="col-md-12 right-ad-col" style="/*width:300px;*//*height:740px;*/">
+                    <div class="row ad-row">
+                        <div class="col-md-12 right-ad-col2" style="/*width:300px;*//*height:250px;*/">
+                            <div class="side-ad"><img  src="html2/assets/img/ad8.png" class="img-responsive center-block side-img"></div>
+                        </div>
+                    </div>
+                    <div class="row ad-row">
+                        <div class="col-md-12">
+                            <div class="side-ad"><img src="html2/assets/img/ad4.png" class="img-responsive center-block side-img"></div>
+                        </div>
+                    </div>
+                    <div class="row ad-row">
+                        <div class="col-md-12">
+                            <div class="side-ad"><img  src="html2/assets/img/ad7.png" class=" img-responsive center-block side-img"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
