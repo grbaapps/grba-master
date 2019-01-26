@@ -17,7 +17,7 @@
       "committeeMembers":{  
         "pujaCommittee":{  
           "htmlLabel":"Puja Committee",
-          "members":"TBD"
+          "members":"Sanghamitra Pal, Poulomi Roychoudhuri, Shubhankita Chakraborty"
         },
         "foodCommittee":{  
           "htmlLabel":"Food Committee",
@@ -27,9 +27,13 @@
           "htmlLabel":"Cultural Committee",
           "members":"Arjoo Bandopadhay,Rivu Beg,Paromita Ganguly"
         },
+        "decorationCommittee":{  
+          "htmlLabel":"Decoration Committee",
+          "members":"Anindia Das"
+        },
         "volunteerCommittee":{  
           "htmlLabel":"Volunteer",
-          "members":"Indrani,Shuman,Chaitali Roy"
+          "members":"Indrani Shuman,Chaitali Roy"
         },
         "logisticsTeam":{  
           "htmlLabel":"Logistics",
