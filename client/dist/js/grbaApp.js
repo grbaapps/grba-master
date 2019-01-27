@@ -93,12 +93,18 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-    
+
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
     }, function(reason) {
         $scope.error = reason;
+    });
+    var existingMembers = eventService.getMembers();
+    existingMembers.then(function(data) {
+      $scope.members = value;
+    }, function(reason) {
+      $scope.error = reason;
     });
 
  });
@@ -116,13 +122,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 }]);
 
 angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
-    
+
     $scope.submit = function () {
         alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
     };
 
     $scope.reset = function () {
-        
+
     };
 
 }]);
@@ -173,6 +179,19 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
      this.getRegistrationDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/registration/year/2018/event/DP')
+            .success(function(data) {
+
+                //this.currentEvent = data;
+                deferred.resolve(data);
+                //$log.info(data);
+
+            });
+
+        return deferred.promise;
+    };
+    this.getMembers =  function() {
+         var deferred = $q.defer();
+        $http.get('/api/member')
             .success(function(data) {
 
                 //this.currentEvent = data;
@@ -463,4 +482,3 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
-

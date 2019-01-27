@@ -56,4 +56,18 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
         return deferred.promise;
     };
 
+    this.getMembers =  function() {
+         var deferred = $q.defer();
+        $http.get('/api/member')
+            .success(function(data) {
+
+                //this.currentEvent = data;
+                deferred.resolve(data);
+                //$log.info(data);
+
+            });
+
+        return deferred.promise;
+    };
+
 });
