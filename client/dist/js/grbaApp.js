@@ -101,7 +101,7 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
         $scope.error = reason;
     });
     var existingMembers = eventService.getMembers();
-    existingMembers.then(function(data) {
+    existingMembers.then(function(value) {
       $scope.members = value;
     }, function(reason) {
       $scope.error = reason;

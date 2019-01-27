@@ -84,7 +84,7 @@
                                             <label for="select-name" class="control-label">Select Your Name:</label>&nbsp;&nbsp;
                                             <label>
                                                     <select  class="form-control" ng-model="memEmail">
-                                                      <option ng-repeat="mem in members" value="{{mem.member.email}">{mem.member.name} {mem.spouse.name}</option>
+                                                      <option ng-repeat="mem in members" value="{{mem.member.emailID}}">{{mem.member.name}}</option>
                                                     </select>
                                             </label>
                                             &nbsp;
@@ -99,7 +99,7 @@
                                       <div class="col-xs-12">
                                           <label for="email" class="control-label">Email:</label>&nbsp;&nbsp;
                                           <label>
-                                              <input type="text" ng-model="memEmail" class="form-control" id="email" style="width: 300px;">
+                                              <input type="text" ng-model="memEmail" class="form-control" id="email" style="width: 300px;" ng-readonly="true">
                                           </label>
                                       </div>
                                   </div>
