@@ -76,6 +76,10 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     eventDetails.then(function(value) {
       var now = moment();
       var earlyBirdDate = moment(value.earlyBird.date,GRBA_APP_CONFIG.dateTimeFormat);
+      value.currentYear =  new Date().getFullYear();
+      $scope.year = value.currentYear;
+      $scope.eventName = value.name
+      $scope.eventCode = value.code
       if(now.isSameOrBefore(earlyBirdDate)){
         value.applicableFee=value.earlyBird.fee;
       }else{
@@ -287,8 +291,8 @@ angular.module('registration', ['event']).controller('registrationController', [
                 eventCode: $scope.eventCode,
                 eventName: $scope.eventName,
                 data: {
-                    name: $scope.name,
-                    email: $scope.email,
+                    name: $scope.memberSelect.member.name,
+                    email: $scope.memberSelect.member.emailID,
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
