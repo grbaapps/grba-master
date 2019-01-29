@@ -291,7 +291,7 @@ angular.module('registration', ['event']).controller('registrationController', [
                 eventCode: $scope.eventCode,
                 eventName: $scope.eventName,
                 data: {
-                    name: $scope.memberSelect.member.name,
+                    name: $scope.isMember ? $scope.memberSelect.member.name:$scope.name,
                     email: $scope.memberSelect.member.emailID,
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
