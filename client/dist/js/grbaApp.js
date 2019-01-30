@@ -76,6 +76,10 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     eventDetails.then(function(value) {
       var now = moment();
       var earlyBirdDate = moment(value.earlyBird.date,GRBA_APP_CONFIG.dateTimeFormat);
+      value.currentYear =  new Date().getFullYear();
+      $scope.year = value.currentYear;
+      $scope.eventName = value.name
+      $scope.eventCode = value.code
       if(now.isSameOrBefore(earlyBirdDate)){
         value.applicableFee=value.earlyBird.fee;
       }else{
@@ -93,12 +97,18 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
     }, function(reason) {
         $scope.error = reason;
     });
-    
+
     var registrationDetails = eventService.getRegistrationDetails();
     registrationDetails.then(function(value) {
         $scope.registrationDetails = value;
     }, function(reason) {
         $scope.error = reason;
+    });
+    var existingMembers = eventService.getMembers();
+    existingMembers.then(function(value) {
+      $scope.members = value;
+    }, function(reason) {
+      $scope.error = reason;
     });
 
  });
@@ -116,13 +126,13 @@ angular.module('grbaApp').controller('AppCtrl', ['$scope', '$log', 'i18nNotifica
 }]);
 
 angular.module('contact', []).controller('contactController', ['$scope', '$http', '$resource', '$log', function ($scope, $http, $resource, $log) {
-    
+
     $scope.submit = function () {
         alert("This feature is coming soon. Please click on the link info@grbaonline.org for now.");
     };
 
     $scope.reset = function () {
-        
+
     };
 
 }]);
@@ -173,6 +183,19 @@ angular.module('event',[]).service('eventService', function($http, $log, $q) {
      this.getRegistrationDetails =  function() {
          var deferred = $q.defer();
         $http.get('/api/registration/year/2019/event/SP')
+            .success(function(data) {
+
+                //this.currentEvent = data;
+                deferred.resolve(data);
+                //$log.info(data);
+
+            });
+
+        return deferred.promise;
+    };
+    this.getMembers =  function() {
+         var deferred = $q.defer();
+        $http.get('/api/member')
             .success(function(data) {
 
                 //this.currentEvent = data;
@@ -268,8 +291,8 @@ angular.module('registration', ['event']).controller('registrationController', [
                 eventCode: $scope.eventCode,
                 eventName: $scope.eventName,
                 data: {
-                    name: $scope.name,
-                    email: $scope.email,
+                    name: $scope.isMember ? $scope.memberSelect.member.name:$scope.name,
+                    email: $scope.memberSelect.member.emailID,
                     isMember: $scope.isMember,
                     hasFamily: $scope.hasFamily,
                     isStudent: $scope.isStudent,
@@ -463,4 +486,3 @@ angular.module('templates.app', []);
 
 
 angular.module('templates.common', []);
-
